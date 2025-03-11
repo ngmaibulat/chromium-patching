@@ -1,0 +1,178 @@
+defines = -DNO_GETENV -DNO_PUTENV -DUSE_CLZ_INTRINSIC -DDCHECK_ALWAYS_ON=1 -DUSE_UDEV -DUSE_AURA=1 -DUSE_GLIB=1 -DUSE_OZONE=1 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_GNU_SOURCE -DCR_CLANG_REVISION=\"llvmorg-21-init-1655-g7b473dfe-1\" -D_LIBCPP_HARDENING_MODE=_LIBCPP_HARDENING_MODE_EXTENSIVE -DCOMPONENT_BUILD -D_LIBCPP_INSTRUMENTED_WITH_ASAN=0 -DCR_LIBCXX_REVISION=7c3087b8a7563d8218b27b7183ba41cf52d41508 -DTMP_REBUILD_HACK -DCR_SYSROOT_KEY=20250129T203412Z-1 -D_DEBUG -DDYNAMIC_ANNOTATIONS_ENABLED=1 -DMANGLE_JPEG_NAMES -DWITH_SIMD
+include_dirs = -I../../../.. -Igen -I../../../../buildtools/third_party/libc++ -I../../../../third_party/libjpeg_turbo/src
+cflags = -Wall -Wextra -Wimplicit-fallthrough -Wextra-semi -Wunreachable-code-aggressive -Wthread-safety -Wgnu -Wno-gnu-anonymous-struct -Wno-gnu-conditional-omitted-operand -Wno-gnu-include-next -Wno-gnu-label-as-value -Wno-gnu-redeclared-enum -Wno-gnu-statement-expression -Wno-gnu-zero-variadic-macro-arguments -Wno-zero-length-array -Wno-missing-field-initializers -Wno-unused-parameter -Wno-psabi -Wloop-analysis -Wno-unneeded-internal-declaration -Wno-cast-function-type -Wno-thread-safety-reference-return -Wno-nontrivial-memcall -Wshadow -Werror -fno-delete-null-pointer-checks -fno-strict-overflow -fno-ident -fno-strict-aliasing -fstack-protector -funwind-tables -fPIC -pthread -fcolor-diagnostics -fmerge-all-constants -fno-sized-deallocation -fcrash-diagnostics-dir=../../../../tools/clang/crashreports -mllvm -instcombine-lower-dbg-declare=0 -mllvm -split-threshold-for-reg-with-hint=0 -ffp-contract=off -Wa,--crel,--allow-experimental-crel -fcomplete-member-pointers -m64 -msse3 -Wno-builtin-macro-redefined -D__DATE__= -D__TIME__= -D__TIMESTAMP__= -ffile-compilation-dir=. -no-canonical-prefixes -ftrivial-auto-var-init=pattern -O0 -fno-omit-frame-pointer -gdwarf-4 -g2 -gdwarf-aranges -gsplit-dwarf -ggnu-pubnames -Xclang -fuse-ctor-homing -fvisibility=hidden -Wheader-hygiene -Wstring-conversion -Wtautological-overlap-compare -Xclang -add-plugin -Xclang find-bad-constructs -Xclang -plugin-arg-find-bad-constructs -Xclang span-ctor-from-string-literal -Xclang -plugin-arg-find-bad-constructs -Xclang raw-ref-template-as-trivial-member -Xclang -plugin-arg-find-bad-constructs -Xclang raw-span-template-as-trivial-member -Xclang -plugin-arg-find-bad-constructs -Xclang check-stack-allocated -Xclang -plugin-arg-find-bad-constructs -Xclang check-ipc -Xclang -add-plugin -Xclang raw-ptr-plugin -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ptr-to-stack-allocated -Xclang -plugin-arg-raw-ptr-plugin -Xclang disable-check-raw-ptr-to-stack-allocated-error -Xclang -plugin-arg-raw-ptr-plugin -Xclang raw-ptr-exclude-path=../../../dawn/ -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ptr-fields -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-span-fields -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ref-fields -DUNSAFE_BUFFERS_BUILD -Xclang -add-plugin -Xclang unsafe-buffers -Xclang -plugin-arg-unsafe-buffers -Xclang ../../../../build/config/unsafe_buffers_paths.txt
+cflags_c = -std=c11 --sysroot=../../../../build/linux/debian_bullseye_amd64-sysroot
+label_name = libjpeg
+target_out_dir = obj/third_party/libjpeg_turbo
+target_output_name = libjpeg
+
+build obj/third_party/libjpeg_turbo/libjpeg/jcapistd.o: cc ../../../../third_party/libjpeg_turbo/src/jcapistd.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = jcapistd.c
+  source_name_part = jcapistd
+build obj/third_party/libjpeg_turbo/libjpeg/jccolor.o: cc ../../../../third_party/libjpeg_turbo/src/jccolor.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = jccolor.c
+  source_name_part = jccolor
+build obj/third_party/libjpeg_turbo/libjpeg/jcdiffct.o: cc ../../../../third_party/libjpeg_turbo/src/jcdiffct.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = jcdiffct.c
+  source_name_part = jcdiffct
+build obj/third_party/libjpeg_turbo/libjpeg/jclossls.o: cc ../../../../third_party/libjpeg_turbo/src/jclossls.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = jclossls.c
+  source_name_part = jclossls
+build obj/third_party/libjpeg_turbo/libjpeg/jcmainct.o: cc ../../../../third_party/libjpeg_turbo/src/jcmainct.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = jcmainct.c
+  source_name_part = jcmainct
+build obj/third_party/libjpeg_turbo/libjpeg/jcprepct.o: cc ../../../../third_party/libjpeg_turbo/src/jcprepct.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = jcprepct.c
+  source_name_part = jcprepct
+build obj/third_party/libjpeg_turbo/libjpeg/jcsample.o: cc ../../../../third_party/libjpeg_turbo/src/jcsample.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = jcsample.c
+  source_name_part = jcsample
+build obj/third_party/libjpeg_turbo/libjpeg/jdapistd.o: cc ../../../../third_party/libjpeg_turbo/src/jdapistd.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = jdapistd.c
+  source_name_part = jdapistd
+build obj/third_party/libjpeg_turbo/libjpeg/jdcolor.o: cc ../../../../third_party/libjpeg_turbo/src/jdcolor.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = jdcolor.c
+  source_name_part = jdcolor
+build obj/third_party/libjpeg_turbo/libjpeg/jddiffct.o: cc ../../../../third_party/libjpeg_turbo/src/jddiffct.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = jddiffct.c
+  source_name_part = jddiffct
+build obj/third_party/libjpeg_turbo/libjpeg/jdlossls.o: cc ../../../../third_party/libjpeg_turbo/src/jdlossls.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = jdlossls.c
+  source_name_part = jdlossls
+build obj/third_party/libjpeg_turbo/libjpeg/jdmainct.o: cc ../../../../third_party/libjpeg_turbo/src/jdmainct.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = jdmainct.c
+  source_name_part = jdmainct
+build obj/third_party/libjpeg_turbo/libjpeg/jdpostct.o: cc ../../../../third_party/libjpeg_turbo/src/jdpostct.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = jdpostct.c
+  source_name_part = jdpostct
+build obj/third_party/libjpeg_turbo/libjpeg/jdsample.o: cc ../../../../third_party/libjpeg_turbo/src/jdsample.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = jdsample.c
+  source_name_part = jdsample
+build obj/third_party/libjpeg_turbo/libjpeg/jutils.o: cc ../../../../third_party/libjpeg_turbo/src/jutils.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = jutils.c
+  source_name_part = jutils
+build obj/third_party/libjpeg_turbo/libjpeg/jccoefct.o: cc ../../../../third_party/libjpeg_turbo/src/jccoefct.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = jccoefct.c
+  source_name_part = jccoefct
+build obj/third_party/libjpeg_turbo/libjpeg/jcdctmgr.o: cc ../../../../third_party/libjpeg_turbo/src/jcdctmgr.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = jcdctmgr.c
+  source_name_part = jcdctmgr
+build obj/third_party/libjpeg_turbo/libjpeg/jdcoefct.o: cc ../../../../third_party/libjpeg_turbo/src/jdcoefct.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = jdcoefct.c
+  source_name_part = jdcoefct
+build obj/third_party/libjpeg_turbo/libjpeg/jddctmgr.o: cc ../../../../third_party/libjpeg_turbo/src/jddctmgr.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = jddctmgr.c
+  source_name_part = jddctmgr
+build obj/third_party/libjpeg_turbo/libjpeg/jdmerge.o: cc ../../../../third_party/libjpeg_turbo/src/jdmerge.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = jdmerge.c
+  source_name_part = jdmerge
+build obj/third_party/libjpeg_turbo/libjpeg/jfdctfst.o: cc ../../../../third_party/libjpeg_turbo/src/jfdctfst.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = jfdctfst.c
+  source_name_part = jfdctfst
+build obj/third_party/libjpeg_turbo/libjpeg/jfdctint.o: cc ../../../../third_party/libjpeg_turbo/src/jfdctint.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = jfdctint.c
+  source_name_part = jfdctint
+build obj/third_party/libjpeg_turbo/libjpeg/jidctflt.o: cc ../../../../third_party/libjpeg_turbo/src/jidctflt.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = jidctflt.c
+  source_name_part = jidctflt
+build obj/third_party/libjpeg_turbo/libjpeg/jidctfst.o: cc ../../../../third_party/libjpeg_turbo/src/jidctfst.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = jidctfst.c
+  source_name_part = jidctfst
+build obj/third_party/libjpeg_turbo/libjpeg/jidctint.o: cc ../../../../third_party/libjpeg_turbo/src/jidctint.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = jidctint.c
+  source_name_part = jidctint
+build obj/third_party/libjpeg_turbo/libjpeg/jidctred.o: cc ../../../../third_party/libjpeg_turbo/src/jidctred.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = jidctred.c
+  source_name_part = jidctred
+build obj/third_party/libjpeg_turbo/libjpeg/jquant1.o: cc ../../../../third_party/libjpeg_turbo/src/jquant1.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = jquant1.c
+  source_name_part = jquant1
+build obj/third_party/libjpeg_turbo/libjpeg/jquant2.o: cc ../../../../third_party/libjpeg_turbo/src/jquant2.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = jquant2.c
+  source_name_part = jquant2
+build obj/third_party/libjpeg_turbo/libjpeg/jcapimin.o: cc ../../../../third_party/libjpeg_turbo/src/jcapimin.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = jcapimin.c
+  source_name_part = jcapimin
+build obj/third_party/libjpeg_turbo/libjpeg/jchuff.o: cc ../../../../third_party/libjpeg_turbo/src/jchuff.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = jchuff.c
+  source_name_part = jchuff
+build obj/third_party/libjpeg_turbo/libjpeg/jcicc.o: cc ../../../../third_party/libjpeg_turbo/src/jcicc.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = jcicc.c
+  source_name_part = jcicc
+build obj/third_party/libjpeg_turbo/libjpeg/jcinit.o: cc ../../../../third_party/libjpeg_turbo/src/jcinit.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = jcinit.c
+  source_name_part = jcinit
+build obj/third_party/libjpeg_turbo/libjpeg/jclhuff.o: cc ../../../../third_party/libjpeg_turbo/src/jclhuff.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = jclhuff.c
+  source_name_part = jclhuff
+build obj/third_party/libjpeg_turbo/libjpeg/jcmarker.o: cc ../../../../third_party/libjpeg_turbo/src/jcmarker.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = jcmarker.c
+  source_name_part = jcmarker
+build obj/third_party/libjpeg_turbo/libjpeg/jcmaster.o: cc ../../../../third_party/libjpeg_turbo/src/jcmaster.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = jcmaster.c
+  source_name_part = jcmaster
+build obj/third_party/libjpeg_turbo/libjpeg/jcomapi.o: cc ../../../../third_party/libjpeg_turbo/src/jcomapi.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = jcomapi.c
+  source_name_part = jcomapi
+build obj/third_party/libjpeg_turbo/libjpeg/jcparam.o: cc ../../../../third_party/libjpeg_turbo/src/jcparam.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = jcparam.c
+  source_name_part = jcparam
+build obj/third_party/libjpeg_turbo/libjpeg/jcphuff.o: cc ../../../../third_party/libjpeg_turbo/src/jcphuff.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = jcphuff.c
+  source_name_part = jcphuff
+build obj/third_party/libjpeg_turbo/libjpeg/jctrans.o: cc ../../../../third_party/libjpeg_turbo/src/jctrans.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = jctrans.c
+  source_name_part = jctrans
+build obj/third_party/libjpeg_turbo/libjpeg/jdapimin.o: cc ../../../../third_party/libjpeg_turbo/src/jdapimin.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = jdapimin.c
+  source_name_part = jdapimin
+build obj/third_party/libjpeg_turbo/libjpeg/jdatadst.o: cc ../../../../third_party/libjpeg_turbo/src/jdatadst.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = jdatadst.c
+  source_name_part = jdatadst
+build obj/third_party/libjpeg_turbo/libjpeg/jdatasrc.o: cc ../../../../third_party/libjpeg_turbo/src/jdatasrc.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = jdatasrc.c
+  source_name_part = jdatasrc
+build obj/third_party/libjpeg_turbo/libjpeg/jdhuff.o: cc ../../../../third_party/libjpeg_turbo/src/jdhuff.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = jdhuff.c
+  source_name_part = jdhuff
+build obj/third_party/libjpeg_turbo/libjpeg/jdicc.o: cc ../../../../third_party/libjpeg_turbo/src/jdicc.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = jdicc.c
+  source_name_part = jdicc
+build obj/third_party/libjpeg_turbo/libjpeg/jdinput.o: cc ../../../../third_party/libjpeg_turbo/src/jdinput.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = jdinput.c
+  source_name_part = jdinput
+build obj/third_party/libjpeg_turbo/libjpeg/jdlhuff.o: cc ../../../../third_party/libjpeg_turbo/src/jdlhuff.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = jdlhuff.c
+  source_name_part = jdlhuff
+build obj/third_party/libjpeg_turbo/libjpeg/jdmarker.o: cc ../../../../third_party/libjpeg_turbo/src/jdmarker.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = jdmarker.c
+  source_name_part = jdmarker
+build obj/third_party/libjpeg_turbo/libjpeg/jdmaster.o: cc ../../../../third_party/libjpeg_turbo/src/jdmaster.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = jdmaster.c
+  source_name_part = jdmaster
+build obj/third_party/libjpeg_turbo/libjpeg/jdphuff.o: cc ../../../../third_party/libjpeg_turbo/src/jdphuff.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = jdphuff.c
+  source_name_part = jdphuff
+build obj/third_party/libjpeg_turbo/libjpeg/jdtrans.o: cc ../../../../third_party/libjpeg_turbo/src/jdtrans.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = jdtrans.c
+  source_name_part = jdtrans
+build obj/third_party/libjpeg_turbo/libjpeg/jerror.o: cc ../../../../third_party/libjpeg_turbo/src/jerror.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = jerror.c
+  source_name_part = jerror
+build obj/third_party/libjpeg_turbo/libjpeg/jfdctflt.o: cc ../../../../third_party/libjpeg_turbo/src/jfdctflt.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = jfdctflt.c
+  source_name_part = jfdctflt
+build obj/third_party/libjpeg_turbo/libjpeg/jmemmgr.o: cc ../../../../third_party/libjpeg_turbo/src/jmemmgr.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = jmemmgr.c
+  source_name_part = jmemmgr
+build obj/third_party/libjpeg_turbo/libjpeg/jmemnobs.o: cc ../../../../third_party/libjpeg_turbo/src/jmemnobs.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = jmemnobs.c
+  source_name_part = jmemnobs
+build obj/third_party/libjpeg_turbo/libjpeg/jpeg_nbits.o: cc ../../../../third_party/libjpeg_turbo/src/jpeg_nbits.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = jpeg_nbits.c
+  source_name_part = jpeg_nbits
+
+build obj/third_party/libjpeg_turbo/libjpeg.a: alink obj/third_party/libjpeg_turbo/libjpeg/jcapistd.o obj/third_party/libjpeg_turbo/libjpeg/jccolor.o obj/third_party/libjpeg_turbo/libjpeg/jcdiffct.o obj/third_party/libjpeg_turbo/libjpeg/jclossls.o obj/third_party/libjpeg_turbo/libjpeg/jcmainct.o obj/third_party/libjpeg_turbo/libjpeg/jcprepct.o obj/third_party/libjpeg_turbo/libjpeg/jcsample.o obj/third_party/libjpeg_turbo/libjpeg/jdapistd.o obj/third_party/libjpeg_turbo/libjpeg/jdcolor.o obj/third_party/libjpeg_turbo/libjpeg/jddiffct.o obj/third_party/libjpeg_turbo/libjpeg/jdlossls.o obj/third_party/libjpeg_turbo/libjpeg/jdmainct.o obj/third_party/libjpeg_turbo/libjpeg/jdpostct.o obj/third_party/libjpeg_turbo/libjpeg/jdsample.o obj/third_party/libjpeg_turbo/libjpeg/jutils.o obj/third_party/libjpeg_turbo/libjpeg/jccoefct.o obj/third_party/libjpeg_turbo/libjpeg/jcdctmgr.o obj/third_party/libjpeg_turbo/libjpeg/jdcoefct.o obj/third_party/libjpeg_turbo/libjpeg/jddctmgr.o obj/third_party/libjpeg_turbo/libjpeg/jdmerge.o obj/third_party/libjpeg_turbo/libjpeg/jfdctfst.o obj/third_party/libjpeg_turbo/libjpeg/jfdctint.o obj/third_party/libjpeg_turbo/libjpeg/jidctflt.o obj/third_party/libjpeg_turbo/libjpeg/jidctfst.o obj/third_party/libjpeg_turbo/libjpeg/jidctint.o obj/third_party/libjpeg_turbo/libjpeg/jidctred.o obj/third_party/libjpeg_turbo/libjpeg/jquant1.o obj/third_party/libjpeg_turbo/libjpeg/jquant2.o obj/third_party/libjpeg_turbo/libjpeg/jcapimin.o obj/third_party/libjpeg_turbo/libjpeg/jchuff.o obj/third_party/libjpeg_turbo/libjpeg/jcicc.o obj/third_party/libjpeg_turbo/libjpeg/jcinit.o obj/third_party/libjpeg_turbo/libjpeg/jclhuff.o obj/third_party/libjpeg_turbo/libjpeg/jcmarker.o obj/third_party/libjpeg_turbo/libjpeg/jcmaster.o obj/third_party/libjpeg_turbo/libjpeg/jcomapi.o obj/third_party/libjpeg_turbo/libjpeg/jcparam.o obj/third_party/libjpeg_turbo/libjpeg/jcphuff.o obj/third_party/libjpeg_turbo/libjpeg/jctrans.o obj/third_party/libjpeg_turbo/libjpeg/jdapimin.o obj/third_party/libjpeg_turbo/libjpeg/jdatadst.o obj/third_party/libjpeg_turbo/libjpeg/jdatasrc.o obj/third_party/libjpeg_turbo/libjpeg/jdhuff.o obj/third_party/libjpeg_turbo/libjpeg/jdicc.o obj/third_party/libjpeg_turbo/libjpeg/jdinput.o obj/third_party/libjpeg_turbo/libjpeg/jdlhuff.o obj/third_party/libjpeg_turbo/libjpeg/jdmarker.o obj/third_party/libjpeg_turbo/libjpeg/jdmaster.o obj/third_party/libjpeg_turbo/libjpeg/jdphuff.o obj/third_party/libjpeg_turbo/libjpeg/jdtrans.o obj/third_party/libjpeg_turbo/libjpeg/jerror.o obj/third_party/libjpeg_turbo/libjpeg/jfdctflt.o obj/third_party/libjpeg_turbo/libjpeg/jmemmgr.o obj/third_party/libjpeg_turbo/libjpeg/jmemnobs.o obj/third_party/libjpeg_turbo/libjpeg/jpeg_nbits.o | ../../../llvm-build/Release+Asserts/lib/clang/21/lib/x86_64-unknown-linux-gnu/libclang_rt.builtins.a ../../../../build/config/unsafe_buffers_paths.txt || obj/third_party/libjpeg_turbo/libjpeg12.a obj/third_party/libjpeg_turbo/libjpeg16.a obj/third_party/libjpeg_turbo/libsimd.a obj/third_party/libjpeg_turbo/libsimd_asm.a
+  arflags = -T -S
+  output_extension = .a
+  output_dir = obj/third_party/libjpeg_turbo

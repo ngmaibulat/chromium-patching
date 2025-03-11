@@ -1,0 +1,26 @@
+Name: grpc
+URL: https://github.com/grpc/grpc
+License: BSD-3-Clause, Apache-2.0, MPL-2.0
+License File: source/LICENSE
+Version: v1.54.0-dev
+Revision: a363b6c001139b9c8ffb7cd63f60a72f15349c3b
+Security Critical: yes
+Shipped: yes
+CPEPrefix: cpe:/a:grpc:grpc:1.49
+
+Please note that that the use of gRPC is not generally allowed within Chromium.
+Before integrating with this library, consult with the security team.
+See go/chrome-grpc-advice for more details.
+
+Steps to upgrade to a new version of GRPC, all relative to //third_party/grpc:
+1. Update revision and version information in this file. Version file can be
+   found in the root BUILD file in gRPC repo.
+2. Run third_party/grpc/update.sh.
+3. Update the BUILD.gn file with ./generate_gn.sh. To use the script,
+  make sure the mako_templates python module is installed ("apt-get
+  install python3-mako").
+
+Note: Please also remember to check if `plugin_registry/grpc_plugin_registry.cc`
+needs update! Upstream sometimes introduces new plugins in
+`/source/src/core/plugin_registry/grpc_plugin_registry.cc` and we may need to update
+our custom `grpc_plugin_registry.cc`.

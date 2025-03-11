@@ -1,0 +1,121 @@
+defines = -DHAVE_JPEG -DDCHECK_ALWAYS_ON=1 -DUSE_UDEV -DUSE_AURA=1 -DUSE_GLIB=1 -DUSE_OZONE=1 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_GNU_SOURCE -DCR_CLANG_REVISION=\"llvmorg-21-init-1655-g7b473dfe-1\" -D_LIBCPP_HARDENING_MODE=_LIBCPP_HARDENING_MODE_EXTENSIVE -DCOMPONENT_BUILD -D_LIBCPP_INSTRUMENTED_WITH_ASAN=0 -DCR_LIBCXX_REVISION=7c3087b8a7563d8218b27b7183ba41cf52d41508 -DTMP_REBUILD_HACK -DCR_SYSROOT_KEY=20250129T203412Z-1 -D_DEBUG -DDYNAMIC_ANNOTATIONS_ENABLED=1 -DCHROMIUM -DLIBYUV_DISABLE_NEON -DLIBYUV_DISABLE_SVE -DLIBYUV_DISABLE_SME -DLIBYUV_DISABLE_LSX -DLIBYUV_DISABLE_LASX -DMANGLE_JPEG_NAMES
+include_dirs = -I../../../.. -Igen -I../../../../buildtools/third_party/libc++ -I../../../../third_party/libyuv/include -I../../../../third_party/libjpeg_turbo/src
+cflags = -ffp-contract=fast -Wall -Wextra -Wimplicit-fallthrough -Wextra-semi -Wunreachable-code-aggressive -Wthread-safety -Wgnu -Wno-gnu-anonymous-struct -Wno-gnu-conditional-omitted-operand -Wno-gnu-include-next -Wno-gnu-label-as-value -Wno-gnu-redeclared-enum -Wno-gnu-statement-expression -Wno-gnu-zero-variadic-macro-arguments -Wno-zero-length-array -Wno-missing-field-initializers -Wno-unused-parameter -Wno-psabi -Wloop-analysis -Wno-unneeded-internal-declaration -Wno-cast-function-type -Wno-thread-safety-reference-return -Wno-nontrivial-memcall -Wshadow -Werror -fno-delete-null-pointer-checks -fno-strict-overflow -fno-ident -fno-strict-aliasing -fstack-protector -funwind-tables -fPIC -pthread -fcolor-diagnostics -fmerge-all-constants -fno-sized-deallocation -fcrash-diagnostics-dir=../../../../tools/clang/crashreports -mllvm -instcombine-lower-dbg-declare=0 -mllvm -split-threshold-for-reg-with-hint=0 -ffp-contract=off -Wa,--crel,--allow-experimental-crel -fcomplete-member-pointers -m64 -msse3 -Wno-builtin-macro-redefined -D__DATE__= -D__TIME__= -D__TIMESTAMP__= -ffile-compilation-dir=. -no-canonical-prefixes -ftrivial-auto-var-init=pattern -O0 -fno-omit-frame-pointer -gdwarf-4 -g2 -gdwarf-aranges -gsplit-dwarf -ggnu-pubnames -Xclang -fuse-ctor-homing -fvisibility=hidden -Wheader-hygiene -Wstring-conversion -Wtautological-overlap-compare -Xclang -add-plugin -Xclang find-bad-constructs -Xclang -plugin-arg-find-bad-constructs -Xclang span-ctor-from-string-literal -Xclang -plugin-arg-find-bad-constructs -Xclang raw-ref-template-as-trivial-member -Xclang -plugin-arg-find-bad-constructs -Xclang raw-span-template-as-trivial-member -Xclang -plugin-arg-find-bad-constructs -Xclang check-stack-allocated -Xclang -plugin-arg-find-bad-constructs -Xclang check-ipc -Xclang -add-plugin -Xclang raw-ptr-plugin -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ptr-to-stack-allocated -Xclang -plugin-arg-raw-ptr-plugin -Xclang disable-check-raw-ptr-to-stack-allocated-error -Xclang -plugin-arg-raw-ptr-plugin -Xclang raw-ptr-exclude-path=../../../dawn/ -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ptr-fields -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-span-fields -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ref-fields -DUNSAFE_BUFFERS_BUILD -Xclang -add-plugin -Xclang unsafe-buffers -Xclang -plugin-arg-unsafe-buffers -Xclang ../../../../build/config/unsafe_buffers_paths.txt
+cflags_cc = -Wno-invalid-offsetof -Wenum-compare-conditional -Wno-c++11-narrowing-const-reference -Wno-missing-template-arg-list-after-template-kw -Wno-undefined-bool-conversion -Wno-tautological-undefined-compare -std=c++20 -Wno-trigraphs -gsimple-template-names -fno-exceptions -fno-rtti -nostdinc++ -isystem../../../libc++/src/include -isystem../../../libc++abi/src/include --sysroot=../../../../build/linux/debian_bullseye_amd64-sysroot -fvisibility-inlines-hidden
+label_name = libyuv_internal
+target_out_dir = obj/third_party/libyuv
+target_output_name = libyuv_internal
+
+build obj/third_party/libyuv/libyuv_internal/compare.o: cxx ../../../../third_party/libyuv/source/compare.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = compare.cc
+  source_name_part = compare
+build obj/third_party/libyuv/libyuv_internal/compare_common.o: cxx ../../../../third_party/libyuv/source/compare_common.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = compare_common.cc
+  source_name_part = compare_common
+build obj/third_party/libyuv/libyuv_internal/compare_gcc.o: cxx ../../../../third_party/libyuv/source/compare_gcc.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = compare_gcc.cc
+  source_name_part = compare_gcc
+build obj/third_party/libyuv/libyuv_internal/compare_win.o: cxx ../../../../third_party/libyuv/source/compare_win.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = compare_win.cc
+  source_name_part = compare_win
+build obj/third_party/libyuv/libyuv_internal/convert.o: cxx ../../../../third_party/libyuv/source/convert.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = convert.cc
+  source_name_part = convert
+build obj/third_party/libyuv/libyuv_internal/convert_argb.o: cxx ../../../../third_party/libyuv/source/convert_argb.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = convert_argb.cc
+  source_name_part = convert_argb
+build obj/third_party/libyuv/libyuv_internal/convert_from.o: cxx ../../../../third_party/libyuv/source/convert_from.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = convert_from.cc
+  source_name_part = convert_from
+build obj/third_party/libyuv/libyuv_internal/convert_from_argb.o: cxx ../../../../third_party/libyuv/source/convert_from_argb.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = convert_from_argb.cc
+  source_name_part = convert_from_argb
+build obj/third_party/libyuv/libyuv_internal/convert_jpeg.o: cxx ../../../../third_party/libyuv/source/convert_jpeg.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = convert_jpeg.cc
+  source_name_part = convert_jpeg
+build obj/third_party/libyuv/libyuv_internal/convert_to_argb.o: cxx ../../../../third_party/libyuv/source/convert_to_argb.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = convert_to_argb.cc
+  source_name_part = convert_to_argb
+build obj/third_party/libyuv/libyuv_internal/convert_to_i420.o: cxx ../../../../third_party/libyuv/source/convert_to_i420.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = convert_to_i420.cc
+  source_name_part = convert_to_i420
+build obj/third_party/libyuv/libyuv_internal/cpu_id.o: cxx ../../../../third_party/libyuv/source/cpu_id.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = cpu_id.cc
+  source_name_part = cpu_id
+build obj/third_party/libyuv/libyuv_internal/mjpeg_decoder.o: cxx ../../../../third_party/libyuv/source/mjpeg_decoder.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = mjpeg_decoder.cc
+  source_name_part = mjpeg_decoder
+build obj/third_party/libyuv/libyuv_internal/mjpeg_validate.o: cxx ../../../../third_party/libyuv/source/mjpeg_validate.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = mjpeg_validate.cc
+  source_name_part = mjpeg_validate
+build obj/third_party/libyuv/libyuv_internal/planar_functions.o: cxx ../../../../third_party/libyuv/source/planar_functions.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = planar_functions.cc
+  source_name_part = planar_functions
+build obj/third_party/libyuv/libyuv_internal/rotate.o: cxx ../../../../third_party/libyuv/source/rotate.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = rotate.cc
+  source_name_part = rotate
+build obj/third_party/libyuv/libyuv_internal/rotate_any.o: cxx ../../../../third_party/libyuv/source/rotate_any.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = rotate_any.cc
+  source_name_part = rotate_any
+build obj/third_party/libyuv/libyuv_internal/rotate_argb.o: cxx ../../../../third_party/libyuv/source/rotate_argb.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = rotate_argb.cc
+  source_name_part = rotate_argb
+build obj/third_party/libyuv/libyuv_internal/rotate_common.o: cxx ../../../../third_party/libyuv/source/rotate_common.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = rotate_common.cc
+  source_name_part = rotate_common
+build obj/third_party/libyuv/libyuv_internal/rotate_gcc.o: cxx ../../../../third_party/libyuv/source/rotate_gcc.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = rotate_gcc.cc
+  source_name_part = rotate_gcc
+build obj/third_party/libyuv/libyuv_internal/rotate_win.o: cxx ../../../../third_party/libyuv/source/rotate_win.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = rotate_win.cc
+  source_name_part = rotate_win
+build obj/third_party/libyuv/libyuv_internal/row_any.o: cxx ../../../../third_party/libyuv/source/row_any.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = row_any.cc
+  source_name_part = row_any
+build obj/third_party/libyuv/libyuv_internal/row_common.o: cxx ../../../../third_party/libyuv/source/row_common.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = row_common.cc
+  source_name_part = row_common
+build obj/third_party/libyuv/libyuv_internal/row_gcc.o: cxx ../../../../third_party/libyuv/source/row_gcc.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = row_gcc.cc
+  source_name_part = row_gcc
+build obj/third_party/libyuv/libyuv_internal/row_rvv.o: cxx ../../../../third_party/libyuv/source/row_rvv.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = row_rvv.cc
+  source_name_part = row_rvv
+build obj/third_party/libyuv/libyuv_internal/row_win.o: cxx ../../../../third_party/libyuv/source/row_win.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = row_win.cc
+  source_name_part = row_win
+build obj/third_party/libyuv/libyuv_internal/scale.o: cxx ../../../../third_party/libyuv/source/scale.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = scale.cc
+  source_name_part = scale
+build obj/third_party/libyuv/libyuv_internal/scale_any.o: cxx ../../../../third_party/libyuv/source/scale_any.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = scale_any.cc
+  source_name_part = scale_any
+build obj/third_party/libyuv/libyuv_internal/scale_argb.o: cxx ../../../../third_party/libyuv/source/scale_argb.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = scale_argb.cc
+  source_name_part = scale_argb
+build obj/third_party/libyuv/libyuv_internal/scale_common.o: cxx ../../../../third_party/libyuv/source/scale_common.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = scale_common.cc
+  source_name_part = scale_common
+build obj/third_party/libyuv/libyuv_internal/scale_gcc.o: cxx ../../../../third_party/libyuv/source/scale_gcc.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = scale_gcc.cc
+  source_name_part = scale_gcc
+build obj/third_party/libyuv/libyuv_internal/scale_rgb.o: cxx ../../../../third_party/libyuv/source/scale_rgb.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = scale_rgb.cc
+  source_name_part = scale_rgb
+build obj/third_party/libyuv/libyuv_internal/scale_rvv.o: cxx ../../../../third_party/libyuv/source/scale_rvv.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = scale_rvv.cc
+  source_name_part = scale_rvv
+build obj/third_party/libyuv/libyuv_internal/scale_uv.o: cxx ../../../../third_party/libyuv/source/scale_uv.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = scale_uv.cc
+  source_name_part = scale_uv
+build obj/third_party/libyuv/libyuv_internal/scale_win.o: cxx ../../../../third_party/libyuv/source/scale_win.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = scale_win.cc
+  source_name_part = scale_win
+build obj/third_party/libyuv/libyuv_internal/video_common.o: cxx ../../../../third_party/libyuv/source/video_common.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = video_common.cc
+  source_name_part = video_common
+
+build obj/third_party/libyuv/libyuv_internal.a: alink obj/third_party/libyuv/libyuv_internal/compare.o obj/third_party/libyuv/libyuv_internal/compare_common.o obj/third_party/libyuv/libyuv_internal/compare_gcc.o obj/third_party/libyuv/libyuv_internal/compare_win.o obj/third_party/libyuv/libyuv_internal/convert.o obj/third_party/libyuv/libyuv_internal/convert_argb.o obj/third_party/libyuv/libyuv_internal/convert_from.o obj/third_party/libyuv/libyuv_internal/convert_from_argb.o obj/third_party/libyuv/libyuv_internal/convert_jpeg.o obj/third_party/libyuv/libyuv_internal/convert_to_argb.o obj/third_party/libyuv/libyuv_internal/convert_to_i420.o obj/third_party/libyuv/libyuv_internal/cpu_id.o obj/third_party/libyuv/libyuv_internal/mjpeg_decoder.o obj/third_party/libyuv/libyuv_internal/mjpeg_validate.o obj/third_party/libyuv/libyuv_internal/planar_functions.o obj/third_party/libyuv/libyuv_internal/rotate.o obj/third_party/libyuv/libyuv_internal/rotate_any.o obj/third_party/libyuv/libyuv_internal/rotate_argb.o obj/third_party/libyuv/libyuv_internal/rotate_common.o obj/third_party/libyuv/libyuv_internal/rotate_gcc.o obj/third_party/libyuv/libyuv_internal/rotate_win.o obj/third_party/libyuv/libyuv_internal/row_any.o obj/third_party/libyuv/libyuv_internal/row_common.o obj/third_party/libyuv/libyuv_internal/row_gcc.o obj/third_party/libyuv/libyuv_internal/row_rvv.o obj/third_party/libyuv/libyuv_internal/row_win.o obj/third_party/libyuv/libyuv_internal/scale.o obj/third_party/libyuv/libyuv_internal/scale_any.o obj/third_party/libyuv/libyuv_internal/scale_argb.o obj/third_party/libyuv/libyuv_internal/scale_common.o obj/third_party/libyuv/libyuv_internal/scale_gcc.o obj/third_party/libyuv/libyuv_internal/scale_rgb.o obj/third_party/libyuv/libyuv_internal/scale_rvv.o obj/third_party/libyuv/libyuv_internal/scale_uv.o obj/third_party/libyuv/libyuv_internal/scale_win.o obj/third_party/libyuv/libyuv_internal/video_common.o | ../../../llvm-build/Release+Asserts/lib/clang/21/lib/x86_64-unknown-linux-gnu/libclang_rt.builtins.a ../../../../build/config/unsafe_buffers_paths.txt ||
+  arflags = -T -S
+  output_extension = .a
+  output_dir = obj/third_party/libyuv

@@ -1,0 +1,137 @@
+defines = -DBUILDING_V8_BASE_SHARED -DDCHECK_ALWAYS_ON=1 -DUSE_UDEV -DUSE_AURA=1 -DUSE_GLIB=1 -DUSE_OZONE=1 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_GNU_SOURCE -DCR_CLANG_REVISION=\"llvmorg-21-init-1655-g7b473dfe-1\" -D_LIBCPP_HARDENING_MODE=_LIBCPP_HARDENING_MODE_EXTENSIVE -DCOMPONENT_BUILD -D_LIBCPP_INSTRUMENTED_WITH_ASAN=0 -DCR_LIBCXX_REVISION=7c3087b8a7563d8218b27b7183ba41cf52d41508 -DTMP_REBUILD_HACK -DCR_SYSROOT_KEY=20250129T203412Z-1 -D_DEBUG -DDYNAMIC_ANNOTATIONS_ENABLED=1 -DV8_TYPED_ARRAY_MAX_SIZE_IN_HEAP=64 -DCPPGC_VERIFY_HEAP -DENABLE_DISASSEMBLER -DOBJECT_PRINT -DVERIFY_HEAP -DV8_TRACE_MAPS -DV8_ENABLE_ALLOCATION_TIMEOUT -DV8_ENABLE_FORCE_SLOW_PATH -DV8_ENABLE_DOUBLE_CONST_STORE_CHECK -DV8_INTL_SUPPORT -DENABLE_LOCAL_HANDLE_ZAPPING -DENABLE_GLOBAL_HANDLE_ZAPPING -DV8_CODE_COMMENTS -DV8_ENABLE_DEBUG_CODE -DV8_ENABLE_SLOW_DEBUG_CODE_BY_DEFAULT -DV8_ENABLE_HEAP_SNAPSHOT_VERIFY -DV8_SNAPSHOT_NATIVE_CODE_COUNTERS -DV8_USE_EXTERNAL_STARTUP_DATA -DV8_ATOMIC_OBJECT_FIELD_WRITES -DV8_ENABLE_LAZY_SOURCE_POSITIONS -DV8_WIN64_UNWINDING_INFO -DV8_ENABLE_REGEXP_INTERPRETER_THREADED_DISPATCH -DV8_SHORT_BUILTIN_CALLS -DV8_EXTERNAL_CODE_SPACE -DV8_ENABLE_SPARKPLUG -DV8_ENABLE_MAGLEV -DV8_ENABLE_TURBOFAN -DV8_ENABLE_WEBASSEMBLY -DV8_ENABLE_CONTINUATION_PRESERVED_EMBEDDER_DATA -DV8_ALLOCATION_FOLDING -DV8_ALLOCATION_SITE_TRACKING -DV8_ADVANCED_BIGINT_ALGORITHMS -DV8_STATIC_ROOTS -DV8_USE_ZLIB -DV8_USE_LIBM_TRIG_FUNCTIONS -DV8_ENABLE_WASM_SIMD256_REVEC -DV8_ENABLE_SLOW_TRACING -DV8_ENABLE_BUILTIN_JUMP_TABLE_SWITCH -DV8_ENABLE_EXTENSIBLE_RO_SNAPSHOT -DV8_ENABLE_BLACK_ALLOCATED_PAGES -DV8_ENABLE_LEAPTIERING -DV8_WASM_RANDOM_FUZZERS -DV8_ARRAY_BUFFER_INTERNAL_FIELD_COUNT=0 -DV8_ARRAY_BUFFER_VIEW_INTERNAL_FIELD_COUNT=0 -DV8_PROMISE_INTERNAL_FIELD_COUNT=0 -DV8_ENABLE_CHECKS -DV8_ENABLE_MEMORY_ACCOUNTING_CHECKS -DV8_COMPRESS_POINTERS -DV8_COMPRESS_POINTERS_IN_SHARED_CAGE -DV8_31BIT_SMIS_ON_64BIT_ARCH -DV8_ENABLE_SANDBOX -DV8_DEPRECATION_WARNINGS -DV8_USE_PERFETTO -DV8_HAVE_TARGET_OS -DV8_TARGET_OS_LINUX -DCPPGC_ENABLE_API_CHECKS -DCPPGC_CAGED_HEAP -DCPPGC_YOUNG_GENERATION -DCPPGC_POINTER_COMPRESSION -DCPPGC_ENABLE_LARGER_CAGE -DCPPGC_SLIM_WRITE_BARRIER -DV8_TARGET_ARCH_X64 -DDEBUG -DV8_RUNTIME_CALL_STATS -DUSING_V8_BASE_SHARED -DABSL_ALLOCATOR_NOTHROW=1 -DABSL_CONSUME_DLL -DABSL_FLAGS_STRIP_NAMES=0
+include_dirs = -I../../../.. -Igen -I../../../../buildtools/third_party/libc++ -I../../../../v8 -I../../../../v8/include -Igen/v8 -I../../../../third_party/perfetto/include -Igen/third_party/perfetto -Igen/third_party/perfetto/build_config -I../../../../third_party/abseil-cpp
+cflags = -Wall -Wextra -Wimplicit-fallthrough -Wextra-semi -Wunreachable-code-aggressive -Wthread-safety -Wgnu -Wno-gnu-anonymous-struct -Wno-gnu-conditional-omitted-operand -Wno-gnu-include-next -Wno-gnu-label-as-value -Wno-gnu-redeclared-enum -Wno-gnu-statement-expression -Wno-gnu-zero-variadic-macro-arguments -Wno-zero-length-array -Wno-missing-field-initializers -Wno-unused-parameter -Wno-psabi -Wloop-analysis -Wno-unneeded-internal-declaration -Wno-cast-function-type -Wno-thread-safety-reference-return -Wno-nontrivial-memcall -Wshadow -Werror -fno-delete-null-pointer-checks -fno-strict-overflow -fno-ident -fno-strict-aliasing -fstack-protector -funwind-tables -fPIC -pthread -fcolor-diagnostics -fmerge-all-constants -fno-sized-deallocation -fcrash-diagnostics-dir=../../../../tools/clang/crashreports -mllvm -instcombine-lower-dbg-declare=0 -mllvm -split-threshold-for-reg-with-hint=0 -ffp-contract=off -Wa,--crel,--allow-experimental-crel -fcomplete-member-pointers -m64 -msse3 -Wno-builtin-macro-redefined -D__DATE__= -D__TIME__= -D__TIMESTAMP__= -ffile-compilation-dir=. -no-canonical-prefixes -ftrivial-auto-var-init=pattern -fno-omit-frame-pointer -gdwarf-4 -g2 -gdwarf-aranges -gsplit-dwarf -ggnu-pubnames -Xclang -fuse-ctor-homing -fvisibility=hidden -Wheader-hygiene -Wstring-conversion -Wtautological-overlap-compare -Xclang -add-plugin -Xclang find-bad-constructs -Xclang -plugin-arg-find-bad-constructs -Xclang span-ctor-from-string-literal -Xclang -plugin-arg-find-bad-constructs -Xclang raw-ref-template-as-trivial-member -Xclang -plugin-arg-find-bad-constructs -Xclang raw-span-template-as-trivial-member -Xclang -plugin-arg-find-bad-constructs -Xclang check-stack-allocated -Xclang -plugin-arg-find-bad-constructs -Xclang check-ipc -Xclang -add-plugin -Xclang raw-ptr-plugin -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ptr-to-stack-allocated -Xclang -plugin-arg-raw-ptr-plugin -Xclang disable-check-raw-ptr-to-stack-allocated-error -Xclang -plugin-arg-raw-ptr-plugin -Xclang raw-ptr-exclude-path=../../../dawn/ -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ptr-fields -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-span-fields -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ref-fields -DUNSAFE_BUFFERS_BUILD -Xclang -add-plugin -Xclang unsafe-buffers -Xclang -plugin-arg-unsafe-buffers -Xclang ../../../../build/config/unsafe_buffers_paths.txt -Wunreachable-code -Wctad-maybe-unsupported -Wno-invalid-offsetof -Wshorten-64-to-32 -Wmissing-field-initializers -O3 -fdata-sections -ffunction-sections -fno-unique-section-names -fno-math-errno
+cflags_cc = -Wno-invalid-offsetof -Wenum-compare-conditional -Wno-c++11-narrowing-const-reference -Wno-missing-template-arg-list-after-template-kw -Wno-undefined-bool-conversion -Wno-tautological-undefined-compare -std=c++20 -Wno-trigraphs -gsimple-template-names -fno-exceptions -fno-rtti -nostdinc++ -isystem../../../libc++/src/include -isystem../../../libc++abi/src/include --sysroot=../../../../build/linux/debian_bullseye_amd64-sysroot -fvisibility-inlines-hidden
+label_name = v8_libbase
+target_out_dir = obj/v8
+target_output_name = libv8_libbase
+
+build obj/v8/v8_libbase/abort-mode.o: cxx ../../../../v8/src/base/abort-mode.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = abort-mode.cc
+  source_name_part = abort-mode
+build obj/v8/v8_libbase/bits.o: cxx ../../../../v8/src/base/bits.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = bits.cc
+  source_name_part = bits
+build obj/v8/v8_libbase/bounded-page-allocator.o: cxx ../../../../v8/src/base/bounded-page-allocator.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = bounded-page-allocator.cc
+  source_name_part = bounded-page-allocator
+build obj/v8/v8_libbase/cpu.o: cxx ../../../../v8/src/base/cpu.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = cpu.cc
+  source_name_part = cpu
+build obj/v8/v8_libbase/stack_trace.o: cxx ../../../../v8/src/base/debug/stack_trace.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = stack_trace.cc
+  source_name_part = stack_trace
+build obj/v8/v8_libbase/division-by-constant.o: cxx ../../../../v8/src/base/division-by-constant.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = division-by-constant.cc
+  source_name_part = division-by-constant
+build obj/v8/v8_libbase/emulated-virtual-address-subspace.o: cxx ../../../../v8/src/base/emulated-virtual-address-subspace.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = emulated-virtual-address-subspace.cc
+  source_name_part = emulated-virtual-address-subspace
+build obj/v8/v8_libbase/file-utils.o: cxx ../../../../v8/src/base/file-utils.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = file-utils.cc
+  source_name_part = file-utils
+build obj/v8/v8_libbase/fpu.o: cxx ../../../../v8/src/base/fpu.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = fpu.cc
+  source_name_part = fpu
+build obj/v8/v8_libbase/ieee754.o: cxx ../../../../v8/src/base/ieee754.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = ieee754.cc
+  source_name_part = ieee754
+build obj/v8/v8_libbase/logging.o: cxx ../../../../v8/src/base/logging.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = logging.cc
+  source_name_part = logging
+build obj/v8/v8_libbase/bignum-dtoa.o: cxx ../../../../v8/src/base/numbers/bignum-dtoa.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = bignum-dtoa.cc
+  source_name_part = bignum-dtoa
+build obj/v8/v8_libbase/bignum.o: cxx ../../../../v8/src/base/numbers/bignum.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = bignum.cc
+  source_name_part = bignum
+build obj/v8/v8_libbase/cached-powers.o: cxx ../../../../v8/src/base/numbers/cached-powers.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = cached-powers.cc
+  source_name_part = cached-powers
+build obj/v8/v8_libbase/diy-fp.o: cxx ../../../../v8/src/base/numbers/diy-fp.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = diy-fp.cc
+  source_name_part = diy-fp
+build obj/v8/v8_libbase/dtoa.o: cxx ../../../../v8/src/base/numbers/dtoa.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = dtoa.cc
+  source_name_part = dtoa
+build obj/v8/v8_libbase/fast-dtoa.o: cxx ../../../../v8/src/base/numbers/fast-dtoa.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = fast-dtoa.cc
+  source_name_part = fast-dtoa
+build obj/v8/v8_libbase/fixed-dtoa.o: cxx ../../../../v8/src/base/numbers/fixed-dtoa.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = fixed-dtoa.cc
+  source_name_part = fixed-dtoa
+build obj/v8/v8_libbase/strtod.o: cxx ../../../../v8/src/base/numbers/strtod.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = strtod.cc
+  source_name_part = strtod
+build obj/v8/v8_libbase/once.o: cxx ../../../../v8/src/base/once.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = once.cc
+  source_name_part = once
+build obj/v8/v8_libbase/page-allocator.o: cxx ../../../../v8/src/base/page-allocator.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = page-allocator.cc
+  source_name_part = page-allocator
+build obj/v8/v8_libbase/condition-variable.o: cxx ../../../../v8/src/base/platform/condition-variable.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = condition-variable.cc
+  source_name_part = condition-variable
+build obj/v8/v8_libbase/memory-protection-key.o: cxx ../../../../v8/src/base/platform/memory-protection-key.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = memory-protection-key.cc
+  source_name_part = memory-protection-key
+build obj/v8/v8_libbase/mutex.o: cxx ../../../../v8/src/base/platform/mutex.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = mutex.cc
+  source_name_part = mutex
+build obj/v8/v8_libbase/platform.o: cxx ../../../../v8/src/base/platform/platform.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = platform.cc
+  source_name_part = platform
+build obj/v8/v8_libbase/semaphore.o: cxx ../../../../v8/src/base/platform/semaphore.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = semaphore.cc
+  source_name_part = semaphore
+build obj/v8/v8_libbase/time.o: cxx ../../../../v8/src/base/platform/time.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = time.cc
+  source_name_part = time
+build obj/v8/v8_libbase/region-allocator.o: cxx ../../../../v8/src/base/region-allocator.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = region-allocator.cc
+  source_name_part = region-allocator
+build obj/v8/v8_libbase/lsan-page-allocator.o: cxx ../../../../v8/src/base/sanitizer/lsan-page-allocator.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = lsan-page-allocator.cc
+  source_name_part = lsan-page-allocator
+build obj/v8/v8_libbase/lsan-virtual-address-space.o: cxx ../../../../v8/src/base/sanitizer/lsan-virtual-address-space.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = lsan-virtual-address-space.cc
+  source_name_part = lsan-virtual-address-space
+build obj/v8/v8_libbase/strings.o: cxx ../../../../v8/src/base/strings.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = strings.cc
+  source_name_part = strings
+build obj/v8/v8_libbase/sys-info.o: cxx ../../../../v8/src/base/sys-info.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = sys-info.cc
+  source_name_part = sys-info
+build obj/v8/v8_libbase/random-number-generator.o: cxx ../../../../v8/src/base/utils/random-number-generator.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = random-number-generator.cc
+  source_name_part = random-number-generator
+build obj/v8/v8_libbase/virtual-address-space-page-allocator.o: cxx ../../../../v8/src/base/virtual-address-space-page-allocator.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = virtual-address-space-page-allocator.cc
+  source_name_part = virtual-address-space-page-allocator
+build obj/v8/v8_libbase/virtual-address-space.o: cxx ../../../../v8/src/base/virtual-address-space.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = virtual-address-space.cc
+  source_name_part = virtual-address-space
+build obj/v8/v8_libbase/vlq-base64.o: cxx ../../../../v8/src/base/vlq-base64.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = vlq-base64.cc
+  source_name_part = vlq-base64
+build obj/v8/v8_libbase/platform-posix.o: cxx ../../../../v8/src/base/platform/platform-posix.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = platform-posix.cc
+  source_name_part = platform-posix
+build obj/v8/v8_libbase/platform-posix-time.o: cxx ../../../../v8/src/base/platform/platform-posix-time.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = platform-posix-time.cc
+  source_name_part = platform-posix-time
+build obj/v8/v8_libbase/stack_trace_posix.o: cxx ../../../../v8/src/base/debug/stack_trace_posix.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = stack_trace_posix.cc
+  source_name_part = stack_trace_posix
+build obj/v8/v8_libbase/platform-linux.o: cxx ../../../../v8/src/base/platform/platform-linux.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = platform-linux.cc
+  source_name_part = platform-linux
+
+build ./libv8_libbase.so ./libv8_libbase.so.TOC: solink obj/v8/v8_libbase/abort-mode.o obj/v8/v8_libbase/bits.o obj/v8/v8_libbase/bounded-page-allocator.o obj/v8/v8_libbase/cpu.o obj/v8/v8_libbase/stack_trace.o obj/v8/v8_libbase/division-by-constant.o obj/v8/v8_libbase/emulated-virtual-address-subspace.o obj/v8/v8_libbase/file-utils.o obj/v8/v8_libbase/fpu.o obj/v8/v8_libbase/ieee754.o obj/v8/v8_libbase/logging.o obj/v8/v8_libbase/bignum-dtoa.o obj/v8/v8_libbase/bignum.o obj/v8/v8_libbase/cached-powers.o obj/v8/v8_libbase/diy-fp.o obj/v8/v8_libbase/dtoa.o obj/v8/v8_libbase/fast-dtoa.o obj/v8/v8_libbase/fixed-dtoa.o obj/v8/v8_libbase/strtod.o obj/v8/v8_libbase/once.o obj/v8/v8_libbase/page-allocator.o obj/v8/v8_libbase/condition-variable.o obj/v8/v8_libbase/memory-protection-key.o obj/v8/v8_libbase/mutex.o obj/v8/v8_libbase/platform.o obj/v8/v8_libbase/semaphore.o obj/v8/v8_libbase/time.o obj/v8/v8_libbase/region-allocator.o obj/v8/v8_libbase/lsan-page-allocator.o obj/v8/v8_libbase/lsan-virtual-address-space.o obj/v8/v8_libbase/strings.o obj/v8/v8_libbase/sys-info.o obj/v8/v8_libbase/random-number-generator.o obj/v8/v8_libbase/virtual-address-space-page-allocator.o obj/v8/v8_libbase/virtual-address-space.o obj/v8/v8_libbase/vlq-base64.o obj/v8/v8_libbase/platform-posix.o obj/v8/v8_libbase/platform-posix-time.o obj/v8/v8_libbase/stack_trace_posix.o obj/v8/v8_libbase/platform-linux.o obj/v8/libm/branred.o obj/v8/libm/s_sin.o obj/v8/libm/sincostab.o | ./libthird_party_abseil-cpp_absl.so.TOC ./libc++.so.TOC ../../../llvm-build/Release+Asserts/lib/clang/21/lib/x86_64-unknown-linux-gnu/libclang_rt.builtins.a ../../../../build/config/unsafe_buffers_paths.txt || phony/v8/v8_abseil phony/v8/libm phony/build/config/shared_library_deps
+  ldflags = -Werror -fuse-ld=lld -Wl,--fatal-warnings -Wl,--build-id=fast -fPIC -Wl,-z,noexecstack -Wl,-z,relro -Wl,--color-diagnostics -Wl,--undefined-version -Wl,--no-call-graph-profile-sort -m64 -no-canonical-prefixes -Wl,--gdb-index -Wl,-z,defs -Wl,--as-needed -nostdlib++ --sysroot=../../../../build/linux/debian_bullseye_amd64-sysroot -Wl,-rpath=\$$ORIGIN -Wl,--gc-sections
+  libs = -ldl -lrt ../../../../third_party/llvm-build/Release+Asserts/lib/clang/21/lib/x86_64-unknown-linux-gnu/libclang_rt.builtins.a -lpthread
+  frameworks =
+  swiftmodules =
+  output_extension = .so
+  output_dir = .
+  solibs = ./libthird_party_abseil-cpp_absl.so ./libc++.so

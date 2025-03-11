@@ -1,0 +1,158 @@
+defines = -DDCHECK_ALWAYS_ON=1 -DUSE_UDEV -DUSE_AURA=1 -DUSE_GLIB=1 -DUSE_OZONE=1 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_GNU_SOURCE -DCR_CLANG_REVISION=\"llvmorg-21-init-1655-g7b473dfe-1\" -D_LIBCPP_HARDENING_MODE=_LIBCPP_HARDENING_MODE_EXTENSIVE -DCOMPONENT_BUILD -D_LIBCPP_INSTRUMENTED_WITH_ASAN=0 -DCR_LIBCXX_REVISION=7c3087b8a7563d8218b27b7183ba41cf52d41508 -DTMP_REBUILD_HACK -DCR_SYSROOT_KEY=20250129T203412Z-1 -D_DEBUG -DDYNAMIC_ANNOTATIONS_ENABLED=1 -DOPJ_STATIC -DPDF_USE_PARTITION_ALLOC -DPDF_ENABLE_UNOWNED_PTR_EXCLUSION -DPDF_ENABLE_V8 -DPDF_ENABLE_XFA -DPDF_ENABLE_XFA_BMP -DPDF_ENABLE_XFA_GIF -DPDF_ENABLE_XFA_PNG -DPDF_ENABLE_XFA_TIFF -DPDF_USE_SKIA -DSK_ENABLE_SKSL -DSK_UNTIL_CRBUG_1187654_IS_FIXED -DSK_USER_CONFIG_HEADER=\"../../skia/config/SkUserConfig.h\" -DSK_WIN_FONTMGR_NO_SIMULATIONS -DSK_DISABLE_LEGACY_INIT_DECODERS -DSK_CODEC_DECODES_JPEG -DSK_CODEC_ENCODES_JPEG -DSKIA_DLL -DSKCMS_API=__attribute__\(\(visibility\(\"default\"\)\)\) -DSK_GAMMA_EXPONENT=1.2 -DSK_GAMMA_CONTRAST=0.2 -DSK_GANESH -DSK_GPU_WORKAROUNDS_HEADER=\"gpu/config/gpu_driver_bug_workaround_autogen.h\" -DSK_GL -DSK_VULKAN=1 -DSK_GRAPHITE -DSK_DAWN -DVK_USE_PLATFORM_XCB_KHR -DVK_USE_PLATFORM_WAYLAND_KHR -DGLIB_VERSION_MAX_ALLOWED=GLIB_VERSION_2_56 -DGLIB_VERSION_MIN_REQUIRED=GLIB_VERSION_2_56 -DWGPU_SHARED_LIBRARY -DFT_CONFIG_MODULES_H=\"freetype-custom/freetype/config/ftmodule.h\" -DFT_CONFIG_OPTIONS_H=\"freetype-custom/freetype/config/ftoption.h\" -DPDFIUM_REQUIRED_MODULES -DABSL_CONSUME_DLL -DABSL_FLAGS_STRIP_NAMES=0 -DU_USING_ICU_NAMESPACE=0 -DU_ENABLE_DYLOAD=0 -DUSE_CHROMIUM_ICU=1 -DU_ENABLE_TRACING=1 -DU_ENABLE_RESOURCE_TRACING=0 -DICU_UTIL_DATA_IMPL=ICU_UTIL_DATA_FILE
+include_dirs = -I../../../.. -Igen -I../../../../buildtools/third_party/libc++ -I../../../../third_party/pdfium -I../../../../third_party/skia -Igen/third_party/skia -I../../../../third_party/wuffs/src/release/c -I../../../../third_party/vulkan/include -I../../../../third_party/vulkan-headers/src/include -I../../../../third_party/wayland/src/src -I../../../../third_party/wayland/include/src -Igen/third_party/dawn/include -I../../../../third_party/dawn/include -I../../../../third_party/perfetto/include -Igen/third_party/perfetto/build_config -Igen/third_party/perfetto -I../../../../third_party/freetype/include -I../../../../third_party/freetype/include/freetype-custom -I../../../../third_party/freetype/src/include -I../../../../third_party/harfbuzz-ng/src/src -I../../../../third_party/abseil-cpp -I../../../../third_party/icu/source/common -I../../../../third_party/icu/source/i18n -I../../../../base/allocator/partition_allocator/src -Igen/base/allocator/partition_allocator/src
+cflags = -Wall -Wextra -Wimplicit-fallthrough -Wextra-semi -Wunreachable-code-aggressive -Wthread-safety -Wgnu -Wno-gnu-anonymous-struct -Wno-gnu-conditional-omitted-operand -Wno-gnu-include-next -Wno-gnu-label-as-value -Wno-gnu-redeclared-enum -Wno-gnu-statement-expression -Wno-gnu-zero-variadic-macro-arguments -Wno-zero-length-array -Wno-missing-field-initializers -Wno-unused-parameter -Wno-psabi -Wloop-analysis -Wno-unneeded-internal-declaration -Wno-cast-function-type -Wno-thread-safety-reference-return -Wno-nontrivial-memcall -Wshadow -Werror -fno-delete-null-pointer-checks -fno-strict-overflow -fno-ident -fno-strict-aliasing -fstack-protector -funwind-tables -fPIC -pthread -fcolor-diagnostics -fmerge-all-constants -fno-sized-deallocation -fcrash-diagnostics-dir=../../../../tools/clang/crashreports -mllvm -instcombine-lower-dbg-declare=0 -mllvm -split-threshold-for-reg-with-hint=0 -ffp-contract=off -Wa,--crel,--allow-experimental-crel -fcomplete-member-pointers -m64 -msse3 -Wno-builtin-macro-redefined -D__DATE__= -D__TIME__= -D__TIMESTAMP__= -ffile-compilation-dir=. -no-canonical-prefixes -ftrivial-auto-var-init=pattern -O0 -fno-omit-frame-pointer -gdwarf-4 -g2 -gdwarf-aranges -gsplit-dwarf -ggnu-pubnames -Xclang -fuse-ctor-homing -fvisibility=hidden -Wheader-hygiene -Wstring-conversion -Wtautological-overlap-compare -Xclang -add-plugin -Xclang find-bad-constructs -Xclang -plugin-arg-find-bad-constructs -Xclang span-ctor-from-string-literal -Xclang -plugin-arg-find-bad-constructs -Xclang raw-ref-template-as-trivial-member -Xclang -plugin-arg-find-bad-constructs -Xclang raw-span-template-as-trivial-member -Xclang -plugin-arg-find-bad-constructs -Xclang check-stack-allocated -Xclang -plugin-arg-find-bad-constructs -Xclang check-ipc -Xclang -add-plugin -Xclang raw-ptr-plugin -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ptr-to-stack-allocated -Xclang -plugin-arg-raw-ptr-plugin -Xclang disable-check-raw-ptr-to-stack-allocated-error -Xclang -plugin-arg-raw-ptr-plugin -Xclang raw-ptr-exclude-path=../../../dawn/ -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ptr-fields -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-span-fields -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ref-fields -DUNSAFE_BUFFERS_BUILD -Xclang -add-plugin -Xclang unsafe-buffers -Xclang -plugin-arg-unsafe-buffers -Xclang ../../../../build/config/unsafe_buffers_paths.txt -Wcovered-switch-default -Wc++11-narrowing -Wtautological-unsigned-zero-compare -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ptr-fields -Xclang -plugin-arg-raw-ptr-plugin -Xclang raw-ptr-exclude-path=public -Xclang -plugin-arg-raw-ptr-plugin -Xclang raw-ptr-exclude-path=test -Xclang -add-plugin -Xclang blink-gc-plugin -Xclang -plugin-arg-blink-gc-plugin -Xclang disable-off-heap-collections-of-gced-check -Wshadow -Wexit-time-destructors -Wglobal-constructors -Wno-redundant-parens -isystem../../../../build/linux/debian_bullseye_amd64-sysroot/usr/include/glib-2.0 -isystem../../../../build/linux/debian_bullseye_amd64-sysroot/usr/lib/x86_64-linux-gnu/glib-2.0/include
+cflags_cc = -Wno-invalid-offsetof -Wenum-compare-conditional -Wno-c++11-narrowing-const-reference -Wno-missing-template-arg-list-after-template-kw -Wno-undefined-bool-conversion -Wno-tautological-undefined-compare -std=c++20 -Wno-trigraphs -gsimple-template-names -fno-exceptions -fno-rtti -nostdinc++ -isystem../../../libc++/src/include -isystem../../../libc++abi/src/include --sysroot=../../../../build/linux/debian_bullseye_amd64-sysroot -fvisibility-inlines-hidden
+label_name = page
+target_out_dir = obj/third_party/pdfium/core/fpdfapi/page
+target_output_name = page
+
+build phony/third_party/pdfium/core/fpdfapi/page/page.inputdeps: phony phony/base/anchor_functions_buildflags phony/base/build_date phony/base/cfi_buildflags phony/base/check_version_internal_action phony/base/clang_profiling_buildflags phony/base/debugging_buildflags phony/base/feature_list_buildflags phony/base/fuzzing_buildflags phony/base/ios_cronet_buildflags phony/base/logging_log_severity_bindgen_logging_log_severity_bindgen_generator_copy phony/base/logging_rust_log_integration_bindgen_logging_rust_log_integration_bindgen_generator_copy phony/base/orderfile_buildflags phony/base/power_monitor_buildflags phony/base/profiler_buildflags phony/base/protected_memory_buildflags phony/base/rust_logger_cxx_generated_gen phony/base/sanitizer_buildflags phony/base/synchronization_buildflags phony/base/tracing_buildflags phony/base/allocator/buildflags phony/base/allocator/partition_allocator/src/partition_alloc/buildflags phony/base/tracing/protos/chrome_track_event_gen phony/base/tracing/protos/chrome_track_event_zero_gen phony/build/blink_buildflags phony/build/branding_buildflags phony/build/chromecast_buildflags phony/build/chromeos_buildflags phony/build/ios_buildflags phony/build/config/compiler/compiler_buildflags phony/build/rust/std/buildflags phony/build/rust/std/empty_sysroot_for_std_build clang_x64_for_rust_host_build_tools/phony/build/rust/std/prebuilt_rustc_copy_to_sysroot phony/build/rust/std/rules/compiler_builtins_compiler_builtins_vunknown_build_script_output phony/build/rust/std/rules/libc_libc_vunknown_build_script_output phony/build/rust/std/rules/object_object_vunknown_build_script_output phony/build/rust/std/rules/std_std_vunknown_build_script_output phony/gpu/config/workaround_list phony/skia/bridge_rust_side_cxx_generated_gen phony/skia/buildflags phony/skia/rust_png_ffi_cxx_generated_gen phony/third_party/dawn/include/dawn/cpp_headers_gen phony/third_party/dawn/include/dawn/headers_gen phony/third_party/dawn/src/dawn/proc_gen phony/third_party/dawn/src/dawn/common/dawn_gpu_info_gen phony/third_party/dawn/src/dawn/common/dawn_version_gen phony/third_party/icu/copy_icudata phony/third_party/perfetto/gn/gen_buildflags phony/third_party/perfetto/protos/perfetto/common/cpp_gen phony/third_party/perfetto/protos/perfetto/common/zero_gen phony/third_party/perfetto/protos/perfetto/config/cpp_gen phony/third_party/perfetto/protos/perfetto/config/zero_gen phony/third_party/perfetto/protos/perfetto/config/android/cpp_gen phony/third_party/perfetto/protos/perfetto/config/android/zero_gen phony/third_party/perfetto/protos/perfetto/config/ftrace/cpp_gen phony/third_party/perfetto/protos/perfetto/config/ftrace/zero_gen phony/third_party/perfetto/protos/perfetto/config/gpu/cpp_gen phony/third_party/perfetto/protos/perfetto/config/gpu/zero_gen phony/third_party/perfetto/protos/perfetto/config/inode_file/cpp_gen phony/third_party/perfetto/protos/perfetto/config/inode_file/zero_gen phony/third_party/perfetto/protos/perfetto/config/interceptors/cpp_gen phony/third_party/perfetto/protos/perfetto/config/interceptors/zero_gen phony/third_party/perfetto/protos/perfetto/config/power/cpp_gen phony/third_party/perfetto/protos/perfetto/config/power/zero_gen phony/third_party/perfetto/protos/perfetto/config/process_stats/cpp_gen phony/third_party/perfetto/protos/perfetto/config/process_stats/zero_gen phony/third_party/perfetto/protos/perfetto/config/profiling/cpp_gen phony/third_party/perfetto/protos/perfetto/config/profiling/zero_gen phony/third_party/perfetto/protos/perfetto/config/statsd/cpp_gen phony/third_party/perfetto/protos/perfetto/config/statsd/zero_gen phony/third_party/perfetto/protos/perfetto/config/sys_stats/cpp_gen phony/third_party/perfetto/protos/perfetto/config/sys_stats/zero_gen phony/third_party/perfetto/protos/perfetto/config/system_info/cpp_gen phony/third_party/perfetto/protos/perfetto/config/system_info/zero_gen phony/third_party/perfetto/protos/perfetto/config/track_event/cpp_gen phony/third_party/perfetto/protos/perfetto/config/track_event/zero_gen phony/third_party/perfetto/protos/perfetto/ipc/cpp_gen phony/third_party/perfetto/protos/perfetto/ipc/ipc_gen phony/third_party/perfetto/protos/perfetto/ipc/wire_protocol_cpp_gen phony/third_party/perfetto/protos/perfetto/perfetto_sql/zero_gen phony/third_party/perfetto/protos/perfetto/trace/minimal_zero_gen phony/third_party/perfetto/protos/perfetto/trace/non_minimal_zero_gen phony/third_party/perfetto/protos/perfetto/trace/android/winscope_common_zero_gen phony/third_party/perfetto/protos/perfetto/trace/android/winscope_regular_zero_gen phony/third_party/perfetto/protos/perfetto/trace/android/zero_gen phony/third_party/perfetto/protos/perfetto/trace/chrome/zero_gen phony/third_party/perfetto/protos/perfetto/trace/etw/zero_gen phony/third_party/perfetto/protos/perfetto/trace/filesystem/zero_gen phony/third_party/perfetto/protos/perfetto/trace/ftrace/zero_gen phony/third_party/perfetto/protos/perfetto/trace/gpu/zero_gen phony/third_party/perfetto/protos/perfetto/trace/interned_data/zero_gen phony/third_party/perfetto/protos/perfetto/trace/perfetto/zero_gen phony/third_party/perfetto/protos/perfetto/trace/power/zero_gen phony/third_party/perfetto/protos/perfetto/trace/profiling/zero_gen phony/third_party/perfetto/protos/perfetto/trace/ps/zero_gen phony/third_party/perfetto/protos/perfetto/trace/statsd/zero_gen phony/third_party/perfetto/protos/perfetto/trace/sys_stats/zero_gen phony/third_party/perfetto/protos/perfetto/trace/system_info/zero_gen phony/third_party/perfetto/protos/perfetto/trace/track_event/cpp_gen phony/third_party/perfetto/protos/perfetto/trace/track_event/zero_gen phony/third_party/perfetto/protos/perfetto/trace/translation/zero_gen phony/third_party/perfetto/protos/perfetto/trace_processor/zero_gen phony/third_party/perfetto/src/trace_processor/importers/proto/gen_cc_android_track_event_descriptor phony/third_party/perfetto/src/trace_processor/importers/proto/gen_cc_chrome_track_event_descriptor phony/third_party/perfetto/src/trace_processor/importers/proto/gen_cc_track_event_descriptor phony/third_party/perfetto/src/trace_processor/tables/tables_python clang_x64_for_rust_host_build_tools/phony/third_party/rust/proc_macro2/v1/proc_macro2_lib_v1_build_script_output clang_x64_for_rust_host_build_tools/phony/third_party/rust/rustversion/v1/rustversion_lib_v1_build_script_output phony/third_party/rust/serde/v1/serde_lib_v1_build_script_output phony/third_party/rust/serde_json_lenient/v0_2/serde_json_lenient_lib_v0_2_build_script_output phony/third_party/rust/serde_json_lenient/v0_2/wrapper/wrapper_cxx_generated_gen phony/ui/base/buildflags
+build obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_allstates.o: cxx ../../../../third_party/pdfium/core/fpdfapi/page/cpdf_allstates.cpp || phony/third_party/pdfium/core/fpdfapi/page/page.inputdeps
+  source_file_part = cpdf_allstates.cpp
+  source_name_part = cpdf_allstates
+build obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_annotcontext.o: cxx ../../../../third_party/pdfium/core/fpdfapi/page/cpdf_annotcontext.cpp || phony/third_party/pdfium/core/fpdfapi/page/page.inputdeps
+  source_file_part = cpdf_annotcontext.cpp
+  source_name_part = cpdf_annotcontext
+build obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_basedcs.o: cxx ../../../../third_party/pdfium/core/fpdfapi/page/cpdf_basedcs.cpp || phony/third_party/pdfium/core/fpdfapi/page/page.inputdeps
+  source_file_part = cpdf_basedcs.cpp
+  source_name_part = cpdf_basedcs
+build obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_clippath.o: cxx ../../../../third_party/pdfium/core/fpdfapi/page/cpdf_clippath.cpp || phony/third_party/pdfium/core/fpdfapi/page/page.inputdeps
+  source_file_part = cpdf_clippath.cpp
+  source_name_part = cpdf_clippath
+build obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_color.o: cxx ../../../../third_party/pdfium/core/fpdfapi/page/cpdf_color.cpp || phony/third_party/pdfium/core/fpdfapi/page/page.inputdeps
+  source_file_part = cpdf_color.cpp
+  source_name_part = cpdf_color
+build obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_colorspace.o: cxx ../../../../third_party/pdfium/core/fpdfapi/page/cpdf_colorspace.cpp || phony/third_party/pdfium/core/fpdfapi/page/page.inputdeps
+  source_file_part = cpdf_colorspace.cpp
+  source_name_part = cpdf_colorspace
+build obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_colorstate.o: cxx ../../../../third_party/pdfium/core/fpdfapi/page/cpdf_colorstate.cpp || phony/third_party/pdfium/core/fpdfapi/page/page.inputdeps
+  source_file_part = cpdf_colorstate.cpp
+  source_name_part = cpdf_colorstate
+build obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_contentmarkitem.o: cxx ../../../../third_party/pdfium/core/fpdfapi/page/cpdf_contentmarkitem.cpp || phony/third_party/pdfium/core/fpdfapi/page/page.inputdeps
+  source_file_part = cpdf_contentmarkitem.cpp
+  source_name_part = cpdf_contentmarkitem
+build obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_contentmarks.o: cxx ../../../../third_party/pdfium/core/fpdfapi/page/cpdf_contentmarks.cpp || phony/third_party/pdfium/core/fpdfapi/page/page.inputdeps
+  source_file_part = cpdf_contentmarks.cpp
+  source_name_part = cpdf_contentmarks
+build obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_contentparser.o: cxx ../../../../third_party/pdfium/core/fpdfapi/page/cpdf_contentparser.cpp || phony/third_party/pdfium/core/fpdfapi/page/page.inputdeps
+  source_file_part = cpdf_contentparser.cpp
+  source_name_part = cpdf_contentparser
+build obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_devicecs.o: cxx ../../../../third_party/pdfium/core/fpdfapi/page/cpdf_devicecs.cpp || phony/third_party/pdfium/core/fpdfapi/page/page.inputdeps
+  source_file_part = cpdf_devicecs.cpp
+  source_name_part = cpdf_devicecs
+build obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_dib.o: cxx ../../../../third_party/pdfium/core/fpdfapi/page/cpdf_dib.cpp || phony/third_party/pdfium/core/fpdfapi/page/page.inputdeps
+  source_file_part = cpdf_dib.cpp
+  source_name_part = cpdf_dib
+build obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_docpagedata.o: cxx ../../../../third_party/pdfium/core/fpdfapi/page/cpdf_docpagedata.cpp || phony/third_party/pdfium/core/fpdfapi/page/page.inputdeps
+  source_file_part = cpdf_docpagedata.cpp
+  source_name_part = cpdf_docpagedata
+build obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_expintfunc.o: cxx ../../../../third_party/pdfium/core/fpdfapi/page/cpdf_expintfunc.cpp || phony/third_party/pdfium/core/fpdfapi/page/page.inputdeps
+  source_file_part = cpdf_expintfunc.cpp
+  source_name_part = cpdf_expintfunc
+build obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_form.o: cxx ../../../../third_party/pdfium/core/fpdfapi/page/cpdf_form.cpp || phony/third_party/pdfium/core/fpdfapi/page/page.inputdeps
+  source_file_part = cpdf_form.cpp
+  source_name_part = cpdf_form
+build obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_formobject.o: cxx ../../../../third_party/pdfium/core/fpdfapi/page/cpdf_formobject.cpp || phony/third_party/pdfium/core/fpdfapi/page/page.inputdeps
+  source_file_part = cpdf_formobject.cpp
+  source_name_part = cpdf_formobject
+build obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_function.o: cxx ../../../../third_party/pdfium/core/fpdfapi/page/cpdf_function.cpp || phony/third_party/pdfium/core/fpdfapi/page/page.inputdeps
+  source_file_part = cpdf_function.cpp
+  source_name_part = cpdf_function
+build obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_generalstate.o: cxx ../../../../third_party/pdfium/core/fpdfapi/page/cpdf_generalstate.cpp || phony/third_party/pdfium/core/fpdfapi/page/page.inputdeps
+  source_file_part = cpdf_generalstate.cpp
+  source_name_part = cpdf_generalstate
+build obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_graphicstates.o: cxx ../../../../third_party/pdfium/core/fpdfapi/page/cpdf_graphicstates.cpp || phony/third_party/pdfium/core/fpdfapi/page/page.inputdeps
+  source_file_part = cpdf_graphicstates.cpp
+  source_name_part = cpdf_graphicstates
+build obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_iccprofile.o: cxx ../../../../third_party/pdfium/core/fpdfapi/page/cpdf_iccprofile.cpp || phony/third_party/pdfium/core/fpdfapi/page/page.inputdeps
+  source_file_part = cpdf_iccprofile.cpp
+  source_name_part = cpdf_iccprofile
+build obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_image.o: cxx ../../../../third_party/pdfium/core/fpdfapi/page/cpdf_image.cpp || phony/third_party/pdfium/core/fpdfapi/page/page.inputdeps
+  source_file_part = cpdf_image.cpp
+  source_name_part = cpdf_image
+build obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_imageloader.o: cxx ../../../../third_party/pdfium/core/fpdfapi/page/cpdf_imageloader.cpp || phony/third_party/pdfium/core/fpdfapi/page/page.inputdeps
+  source_file_part = cpdf_imageloader.cpp
+  source_name_part = cpdf_imageloader
+build obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_imageobject.o: cxx ../../../../third_party/pdfium/core/fpdfapi/page/cpdf_imageobject.cpp || phony/third_party/pdfium/core/fpdfapi/page/page.inputdeps
+  source_file_part = cpdf_imageobject.cpp
+  source_name_part = cpdf_imageobject
+build obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_indexedcs.o: cxx ../../../../third_party/pdfium/core/fpdfapi/page/cpdf_indexedcs.cpp || phony/third_party/pdfium/core/fpdfapi/page/page.inputdeps
+  source_file_part = cpdf_indexedcs.cpp
+  source_name_part = cpdf_indexedcs
+build obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_meshstream.o: cxx ../../../../third_party/pdfium/core/fpdfapi/page/cpdf_meshstream.cpp || phony/third_party/pdfium/core/fpdfapi/page/page.inputdeps
+  source_file_part = cpdf_meshstream.cpp
+  source_name_part = cpdf_meshstream
+build obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_occontext.o: cxx ../../../../third_party/pdfium/core/fpdfapi/page/cpdf_occontext.cpp || phony/third_party/pdfium/core/fpdfapi/page/page.inputdeps
+  source_file_part = cpdf_occontext.cpp
+  source_name_part = cpdf_occontext
+build obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_page.o: cxx ../../../../third_party/pdfium/core/fpdfapi/page/cpdf_page.cpp || phony/third_party/pdfium/core/fpdfapi/page/page.inputdeps
+  source_file_part = cpdf_page.cpp
+  source_name_part = cpdf_page
+build obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_pageimagecache.o: cxx ../../../../third_party/pdfium/core/fpdfapi/page/cpdf_pageimagecache.cpp || phony/third_party/pdfium/core/fpdfapi/page/page.inputdeps
+  source_file_part = cpdf_pageimagecache.cpp
+  source_name_part = cpdf_pageimagecache
+build obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_pagemodule.o: cxx ../../../../third_party/pdfium/core/fpdfapi/page/cpdf_pagemodule.cpp || phony/third_party/pdfium/core/fpdfapi/page/page.inputdeps
+  source_file_part = cpdf_pagemodule.cpp
+  source_name_part = cpdf_pagemodule
+build obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_pageobject.o: cxx ../../../../third_party/pdfium/core/fpdfapi/page/cpdf_pageobject.cpp || phony/third_party/pdfium/core/fpdfapi/page/page.inputdeps
+  source_file_part = cpdf_pageobject.cpp
+  source_name_part = cpdf_pageobject
+build obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_pageobjectholder.o: cxx ../../../../third_party/pdfium/core/fpdfapi/page/cpdf_pageobjectholder.cpp || phony/third_party/pdfium/core/fpdfapi/page/page.inputdeps
+  source_file_part = cpdf_pageobjectholder.cpp
+  source_name_part = cpdf_pageobjectholder
+build obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_path.o: cxx ../../../../third_party/pdfium/core/fpdfapi/page/cpdf_path.cpp || phony/third_party/pdfium/core/fpdfapi/page/page.inputdeps
+  source_file_part = cpdf_path.cpp
+  source_name_part = cpdf_path
+build obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_pathobject.o: cxx ../../../../third_party/pdfium/core/fpdfapi/page/cpdf_pathobject.cpp || phony/third_party/pdfium/core/fpdfapi/page/page.inputdeps
+  source_file_part = cpdf_pathobject.cpp
+  source_name_part = cpdf_pathobject
+build obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_pattern.o: cxx ../../../../third_party/pdfium/core/fpdfapi/page/cpdf_pattern.cpp || phony/third_party/pdfium/core/fpdfapi/page/page.inputdeps
+  source_file_part = cpdf_pattern.cpp
+  source_name_part = cpdf_pattern
+build obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_patterncs.o: cxx ../../../../third_party/pdfium/core/fpdfapi/page/cpdf_patterncs.cpp || phony/third_party/pdfium/core/fpdfapi/page/page.inputdeps
+  source_file_part = cpdf_patterncs.cpp
+  source_name_part = cpdf_patterncs
+build obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_psengine.o: cxx ../../../../third_party/pdfium/core/fpdfapi/page/cpdf_psengine.cpp || phony/third_party/pdfium/core/fpdfapi/page/page.inputdeps
+  source_file_part = cpdf_psengine.cpp
+  source_name_part = cpdf_psengine
+build obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_psfunc.o: cxx ../../../../third_party/pdfium/core/fpdfapi/page/cpdf_psfunc.cpp || phony/third_party/pdfium/core/fpdfapi/page/page.inputdeps
+  source_file_part = cpdf_psfunc.cpp
+  source_name_part = cpdf_psfunc
+build obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_sampledfunc.o: cxx ../../../../third_party/pdfium/core/fpdfapi/page/cpdf_sampledfunc.cpp || phony/third_party/pdfium/core/fpdfapi/page/page.inputdeps
+  source_file_part = cpdf_sampledfunc.cpp
+  source_name_part = cpdf_sampledfunc
+build obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_shadingobject.o: cxx ../../../../third_party/pdfium/core/fpdfapi/page/cpdf_shadingobject.cpp || phony/third_party/pdfium/core/fpdfapi/page/page.inputdeps
+  source_file_part = cpdf_shadingobject.cpp
+  source_name_part = cpdf_shadingobject
+build obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_shadingpattern.o: cxx ../../../../third_party/pdfium/core/fpdfapi/page/cpdf_shadingpattern.cpp || phony/third_party/pdfium/core/fpdfapi/page/page.inputdeps
+  source_file_part = cpdf_shadingpattern.cpp
+  source_name_part = cpdf_shadingpattern
+build obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_stitchfunc.o: cxx ../../../../third_party/pdfium/core/fpdfapi/page/cpdf_stitchfunc.cpp || phony/third_party/pdfium/core/fpdfapi/page/page.inputdeps
+  source_file_part = cpdf_stitchfunc.cpp
+  source_name_part = cpdf_stitchfunc
+build obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_streamcontentparser.o: cxx ../../../../third_party/pdfium/core/fpdfapi/page/cpdf_streamcontentparser.cpp || phony/third_party/pdfium/core/fpdfapi/page/page.inputdeps
+  source_file_part = cpdf_streamcontentparser.cpp
+  source_name_part = cpdf_streamcontentparser
+build obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_streamparser.o: cxx ../../../../third_party/pdfium/core/fpdfapi/page/cpdf_streamparser.cpp || phony/third_party/pdfium/core/fpdfapi/page/page.inputdeps
+  source_file_part = cpdf_streamparser.cpp
+  source_name_part = cpdf_streamparser
+build obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_textobject.o: cxx ../../../../third_party/pdfium/core/fpdfapi/page/cpdf_textobject.cpp || phony/third_party/pdfium/core/fpdfapi/page/page.inputdeps
+  source_file_part = cpdf_textobject.cpp
+  source_name_part = cpdf_textobject
+build obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_textstate.o: cxx ../../../../third_party/pdfium/core/fpdfapi/page/cpdf_textstate.cpp || phony/third_party/pdfium/core/fpdfapi/page/page.inputdeps
+  source_file_part = cpdf_textstate.cpp
+  source_name_part = cpdf_textstate
+build obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_tilingpattern.o: cxx ../../../../third_party/pdfium/core/fpdfapi/page/cpdf_tilingpattern.cpp || phony/third_party/pdfium/core/fpdfapi/page/page.inputdeps
+  source_file_part = cpdf_tilingpattern.cpp
+  source_name_part = cpdf_tilingpattern
+build obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_transferfunc.o: cxx ../../../../third_party/pdfium/core/fpdfapi/page/cpdf_transferfunc.cpp || phony/third_party/pdfium/core/fpdfapi/page/page.inputdeps
+  source_file_part = cpdf_transferfunc.cpp
+  source_name_part = cpdf_transferfunc
+build obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_transferfuncdib.o: cxx ../../../../third_party/pdfium/core/fpdfapi/page/cpdf_transferfuncdib.cpp || phony/third_party/pdfium/core/fpdfapi/page/page.inputdeps
+  source_file_part = cpdf_transferfuncdib.cpp
+  source_name_part = cpdf_transferfuncdib
+build obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_transparency.o: cxx ../../../../third_party/pdfium/core/fpdfapi/page/cpdf_transparency.cpp || phony/third_party/pdfium/core/fpdfapi/page/page.inputdeps
+  source_file_part = cpdf_transparency.cpp
+  source_name_part = cpdf_transparency
+
+build phony/third_party/pdfium/core/fpdfapi/page/page: phony obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_allstates.o obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_annotcontext.o obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_basedcs.o obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_clippath.o obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_color.o obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_colorspace.o obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_colorstate.o obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_contentmarkitem.o obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_contentmarks.o obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_contentparser.o obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_devicecs.o obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_dib.o obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_docpagedata.o obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_expintfunc.o obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_form.o obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_formobject.o obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_function.o obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_generalstate.o obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_graphicstates.o obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_iccprofile.o obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_image.o obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_imageloader.o obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_imageobject.o obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_indexedcs.o obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_meshstream.o obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_occontext.o obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_page.o obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_pageimagecache.o obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_pagemodule.o obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_pageobject.o obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_pageobjectholder.o obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_path.o obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_pathobject.o obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_pattern.o obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_patterncs.o obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_psengine.o obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_psfunc.o obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_sampledfunc.o obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_shadingobject.o obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_shadingpattern.o obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_stitchfunc.o obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_streamcontentparser.o obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_streamparser.o obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_textobject.o obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_textstate.o obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_tilingpattern.o obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_transferfunc.o obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_transferfuncdib.o obj/third_party/pdfium/core/fpdfapi/page/page/cpdf_transparency.o || phony/third_party/pdfium/core/fxge/fxge phony/third_party/pdfium/core/fpdfapi/parser/parser phony/third_party/pdfium/constants/constants phony/third_party/pdfium/core/fxcodec/fxcodec phony/third_party/pdfium/core/fxcrt/fxcrt phony/third_party/pdfium/core/fpdfapi/font/font ./libskia.so.TOC ./libdawn_proc.so.TOC phony/third_party/pdfium/third_party/fx_agg ./libthird_party_freetype_harfbuzz.so.TOC ./libthird_party_abseil-cpp_absl.so.TOC ./libicuuc.so.TOC phony/base/allocator/partition_allocator/src/partition_alloc/partition_alloc_buildflags ./libbase_allocator_partition_allocator_src_partition_alloc_raw_ptr.so.TOC ./libbase_allocator_partition_allocator_src_partition_alloc_allocator_base.so.TOC ./libbase_allocator_partition_allocator_src_partition_alloc_allocator_core.so.TOC ./libbase_allocator_partition_allocator_src_partition_alloc_allocator_shim.so.TOC phony/third_party/pdfium/core/fdrm/fdrm phony/third_party/pdfium/third_party/fx_lcms2 phony/third_party/pdfium/third_party/fx_libopenjpeg ./libchrome_zlib.so.TOC obj/third_party/libjpeg_turbo/libjpeg.a obj/third_party/libjpeg_turbo/libjpeg12.a obj/third_party/libjpeg_turbo/libjpeg16.a obj/third_party/libjpeg_turbo/libsimd.a obj/third_party/libjpeg_turbo/libsimd_asm.a phony/third_party/libpng/libpng_sources phony/third_party/pdfium/third_party/fx_tiff phony/third_party/pdfium/core/fpdfapi/edit/contentstream_write_utils phony/third_party/pdfium/core/fpdfapi/cmaps/cmaps

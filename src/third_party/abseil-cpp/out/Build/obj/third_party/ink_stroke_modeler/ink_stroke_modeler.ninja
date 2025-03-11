@@ -1,0 +1,49 @@
+defines = -DDCHECK_ALWAYS_ON=1 -DUSE_UDEV -DUSE_AURA=1 -DUSE_GLIB=1 -DUSE_OZONE=1 -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_GNU_SOURCE -DCR_CLANG_REVISION=\"llvmorg-21-init-1655-g7b473dfe-1\" -D_LIBCPP_HARDENING_MODE=_LIBCPP_HARDENING_MODE_EXTENSIVE -DCOMPONENT_BUILD -D_LIBCPP_INSTRUMENTED_WITH_ASAN=0 -DCR_LIBCXX_REVISION=7c3087b8a7563d8218b27b7183ba41cf52d41508 -DTMP_REBUILD_HACK -DCR_SYSROOT_KEY=20250129T203412Z-1 -D_DEBUG -DDYNAMIC_ANNOTATIONS_ENABLED=1 -DABSL_CONSUME_DLL -DABSL_FLAGS_STRIP_NAMES=0
+include_dirs = -I../../../.. -Igen -I../../../../buildtools/third_party/libc++ -I../../../../third_party/ink_stroke_modeler/src -I../../../../third_party/abseil-cpp
+cflags = -fno-delete-null-pointer-checks -fno-strict-overflow -fno-ident -fno-strict-aliasing -fstack-protector -funwind-tables -fPIC -pthread -fcolor-diagnostics -fmerge-all-constants -fno-sized-deallocation -fcrash-diagnostics-dir=../../../../tools/clang/crashreports -mllvm -instcombine-lower-dbg-declare=0 -mllvm -split-threshold-for-reg-with-hint=0 -ffp-contract=off -Wa,--crel,--allow-experimental-crel -fcomplete-member-pointers -m64 -msse3 -Wno-builtin-macro-redefined -D__DATE__= -D__TIME__= -D__TIMESTAMP__= -ffile-compilation-dir=. -no-canonical-prefixes -ftrivial-auto-var-init=pattern -O0 -fno-omit-frame-pointer -gdwarf-4 -g2 -gdwarf-aranges -gsplit-dwarf -ggnu-pubnames -Xclang -fuse-ctor-homing -fvisibility=hidden -Wheader-hygiene -Wstring-conversion -Wtautological-overlap-compare -Xclang -add-plugin -Xclang find-bad-constructs -Xclang -plugin-arg-find-bad-constructs -Xclang span-ctor-from-string-literal -Xclang -plugin-arg-find-bad-constructs -Xclang raw-ref-template-as-trivial-member -Xclang -plugin-arg-find-bad-constructs -Xclang raw-span-template-as-trivial-member -Xclang -plugin-arg-find-bad-constructs -Xclang check-stack-allocated -Xclang -plugin-arg-find-bad-constructs -Xclang check-ipc -Xclang -add-plugin -Xclang raw-ptr-plugin -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ptr-to-stack-allocated -Xclang -plugin-arg-raw-ptr-plugin -Xclang disable-check-raw-ptr-to-stack-allocated-error -Xclang -plugin-arg-raw-ptr-plugin -Xclang raw-ptr-exclude-path=../../../dawn/ -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ptr-fields -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-span-fields -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ref-fields -DUNSAFE_BUFFERS_BUILD -Xclang -add-plugin -Xclang unsafe-buffers -Xclang -plugin-arg-unsafe-buffers -Xclang ../../../../build/config/unsafe_buffers_paths.txt -Wall -Wno-unused-variable -Wno-c++11-narrowing -Wno-unused-but-set-variable -Wno-misleading-indentation -Wno-missing-field-initializers -Wno-unused-parameter -Wno-psabi -Wloop-analysis -Wno-unneeded-internal-declaration -Wno-cast-function-type -Wno-thread-safety-reference-return -Wno-nontrivial-memcall -Werror
+cflags_cc = -Wno-undefined-bool-conversion -Wno-tautological-undefined-compare -std=c++20 -Wno-trigraphs -gsimple-template-names -fno-exceptions -fno-rtti -nostdinc++ -isystem../../../libc++/src/include -isystem../../../libc++abi/src/include --sysroot=../../../../build/linux/debian_bullseye_amd64-sysroot -fvisibility-inlines-hidden -Wno-invalid-offsetof -Wenum-compare-conditional -Wno-c++11-narrowing-const-reference -Wno-missing-template-arg-list-after-template-kw
+label_name = ink_stroke_modeler
+target_out_dir = obj/third_party/ink_stroke_modeler
+target_output_name = ink_stroke_modeler
+
+build obj/third_party/ink_stroke_modeler/ink_stroke_modeler/internal_types.o: cxx ../../../../third_party/ink_stroke_modeler/src/ink_stroke_modeler/internal/internal_types.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = internal_types.cc
+  source_name_part = internal_types
+build obj/third_party/ink_stroke_modeler/ink_stroke_modeler/loop_contraction_mitigation_modeler.o: cxx ../../../../third_party/ink_stroke_modeler/src/ink_stroke_modeler/internal/loop_contraction_mitigation_modeler.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = loop_contraction_mitigation_modeler.cc
+  source_name_part = loop_contraction_mitigation_modeler
+build obj/third_party/ink_stroke_modeler/ink_stroke_modeler/position_modeler.o: cxx ../../../../third_party/ink_stroke_modeler/src/ink_stroke_modeler/internal/position_modeler.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = position_modeler.cc
+  source_name_part = position_modeler
+build obj/third_party/ink_stroke_modeler/ink_stroke_modeler/axis_predictor.o: cxx ../../../../third_party/ink_stroke_modeler/src/ink_stroke_modeler/internal/prediction/kalman_filter/axis_predictor.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = axis_predictor.cc
+  source_name_part = axis_predictor
+build obj/third_party/ink_stroke_modeler/ink_stroke_modeler/kalman_filter.o: cxx ../../../../third_party/ink_stroke_modeler/src/ink_stroke_modeler/internal/prediction/kalman_filter/kalman_filter.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = kalman_filter.cc
+  source_name_part = kalman_filter
+build obj/third_party/ink_stroke_modeler/ink_stroke_modeler/kalman_predictor.o: cxx ../../../../third_party/ink_stroke_modeler/src/ink_stroke_modeler/internal/prediction/kalman_predictor.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = kalman_predictor.cc
+  source_name_part = kalman_predictor
+build obj/third_party/ink_stroke_modeler/ink_stroke_modeler/stroke_end_predictor.o: cxx ../../../../third_party/ink_stroke_modeler/src/ink_stroke_modeler/internal/prediction/stroke_end_predictor.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = stroke_end_predictor.cc
+  source_name_part = stroke_end_predictor
+build obj/third_party/ink_stroke_modeler/ink_stroke_modeler/stylus_state_modeler.o: cxx ../../../../third_party/ink_stroke_modeler/src/ink_stroke_modeler/internal/stylus_state_modeler.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = stylus_state_modeler.cc
+  source_name_part = stylus_state_modeler
+build obj/third_party/ink_stroke_modeler/ink_stroke_modeler/utils.o: cxx ../../../../third_party/ink_stroke_modeler/src/ink_stroke_modeler/internal/utils.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = utils.cc
+  source_name_part = utils
+build obj/third_party/ink_stroke_modeler/ink_stroke_modeler/wobble_smoother.o: cxx ../../../../third_party/ink_stroke_modeler/src/ink_stroke_modeler/internal/wobble_smoother.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = wobble_smoother.cc
+  source_name_part = wobble_smoother
+build obj/third_party/ink_stroke_modeler/ink_stroke_modeler/params.o: cxx ../../../../third_party/ink_stroke_modeler/src/ink_stroke_modeler/params.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = params.cc
+  source_name_part = params
+build obj/third_party/ink_stroke_modeler/ink_stroke_modeler/stroke_modeler.o: cxx ../../../../third_party/ink_stroke_modeler/src/ink_stroke_modeler/stroke_modeler.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = stroke_modeler.cc
+  source_name_part = stroke_modeler
+build obj/third_party/ink_stroke_modeler/ink_stroke_modeler/types.o: cxx ../../../../third_party/ink_stroke_modeler/src/ink_stroke_modeler/types.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = types.cc
+  source_name_part = types
+
+build phony/third_party/ink_stroke_modeler/ink_stroke_modeler: phony obj/third_party/ink_stroke_modeler/ink_stroke_modeler/internal_types.o obj/third_party/ink_stroke_modeler/ink_stroke_modeler/loop_contraction_mitigation_modeler.o obj/third_party/ink_stroke_modeler/ink_stroke_modeler/position_modeler.o obj/third_party/ink_stroke_modeler/ink_stroke_modeler/axis_predictor.o obj/third_party/ink_stroke_modeler/ink_stroke_modeler/kalman_filter.o obj/third_party/ink_stroke_modeler/ink_stroke_modeler/kalman_predictor.o obj/third_party/ink_stroke_modeler/ink_stroke_modeler/stroke_end_predictor.o obj/third_party/ink_stroke_modeler/ink_stroke_modeler/stylus_state_modeler.o obj/third_party/ink_stroke_modeler/ink_stroke_modeler/utils.o obj/third_party/ink_stroke_modeler/ink_stroke_modeler/wobble_smoother.o obj/third_party/ink_stroke_modeler/ink_stroke_modeler/params.o obj/third_party/ink_stroke_modeler/ink_stroke_modeler/stroke_modeler.o obj/third_party/ink_stroke_modeler/ink_stroke_modeler/types.o || ./libthird_party_abseil-cpp_absl.so.TOC

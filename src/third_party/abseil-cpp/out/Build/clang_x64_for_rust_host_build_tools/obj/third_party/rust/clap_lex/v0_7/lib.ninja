@@ -1,0 +1,17 @@
+crate_name = clap_lex
+crate_type = rlib
+output_extension = .rlib
+output_dir = clang_x64_for_rust_host_build_tools/obj/third_party/rust/clap_lex/v0_7/lib
+rustflags = --cap-lints=allow -Cmetadata=clap_lex-0.7 --edition=2021 -Cdebug-assertions -Cforce-unwind-tables=yes -Crelocation-model=pic -Cdefault-linker-libraries -Zdep-info-omit-d-target -Zmacro-backtrace -Zremap-cwd-prefix=. -Zexternal-clangrt --color=always --target=x86_64-unknown-linux-gnu -Cembed-bitcode=no -Clto=no --cfg cr_rustc_revision=\"9fcc9cf4a202aadfe1f44722b39c83536eba3dba-2-llvmorg-21-init-1655-g7b473dfe\" -Copt-level=3 -Zallow-features= -Zdefault-visibility=hidden -Dunsafe_op_in_unsafe_fn -Dwarnings
+rustenv = OUT_DIR=../../../../../abseil-cpp/out/Build/clang_x64_for_rust_host_build_tools/gen/third_party/rust/clap_lex/v0_7/lib CARGO_PKG_VERSION=0.7.4 CARGO_PKG_NAME=clap_lex CARGO_PKG_DESCRIPTION=Minimal,\$ flexible\$ command\$ line\$ parser CARGO_MANIFEST_DIR=../../../rust/clap_lex/v0_7/lib/crate
+label_name = lib
+target_out_dir = clang_x64_for_rust_host_build_tools/obj/third_party/rust/clap_lex/v0_7
+target_output_name = clap_lex_lib
+
+build clang_x64_for_rust_host_build_tools/obj/third_party/rust/clap_lex/v0_7/lib/libclap_lex_lib.rlib: clang_x64_for_rust_host_build_tools_rust_rlib ../../../../third_party/rust/chromium_crates_io/vendor/clap_lex-0.7.4/src/lib.rs | ../../../rust/chromium_crates_io/vendor/clap_lex-0.7.4/src/ext.rs ../../../rust/chromium_crates_io/vendor/clap_lex-0.7.4/src/lib.rs || clang_x64_for_rust_host_build_tools/phony/build/rust/std/prebuilt_rustc_copy_to_sysroot clang_x64_for_rust_host_build_tools/phony/build/rust/std/std
+  source_file_part = lib.rs
+  source_name_part = lib
+  externs =
+  rustdeps = -Clink-arg=../../../../third_party/llvm-build/Release+Asserts/lib/clang/21/lib/x86_64-unknown-linux-gnu/libclang_rt.builtins.a
+  ldflags =
+  sources = ../../../rust/chromium_crates_io/vendor/clap_lex-0.7.4/src/ext.rs ../../../rust/chromium_crates_io/vendor/clap_lex-0.7.4/src/lib.rs

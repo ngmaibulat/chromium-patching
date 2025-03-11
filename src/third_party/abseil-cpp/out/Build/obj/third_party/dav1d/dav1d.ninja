@@ -1,0 +1,88 @@
+defines = -DDCHECK_ALWAYS_ON=1 -DUSE_UDEV -DUSE_AURA=1 -DUSE_GLIB=1 -DUSE_OZONE=1 -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_GNU_SOURCE -DCR_CLANG_REVISION=\"llvmorg-21-init-1655-g7b473dfe-1\" -D_LIBCPP_HARDENING_MODE=_LIBCPP_HARDENING_MODE_EXTENSIVE -DCOMPONENT_BUILD -D_LIBCPP_INSTRUMENTED_WITH_ASAN=0 -DCR_LIBCXX_REVISION=7c3087b8a7563d8218b27b7183ba41cf52d41508 -DTMP_REBUILD_HACK -DCR_SYSROOT_KEY=20250129T203412Z-1 -D_DEBUG -DDYNAMIC_ANNOTATIONS_ENABLED=1 -DCONFIG_LOG=1 -DHAVE_PTHREAD_GETAFFINITY_NP=1 -DHAVE_PTHREAD_SETAFFINITY_NP=1 -DDAV1D_API=
+include_dirs = -I../../../.. -Igen -I../../../../buildtools/third_party/libc++ -I../../../../third_party/dav1d/libdav1d -I../../../../third_party/dav1d/libdav1d/include -I../../../../third_party/dav1d/libdav1d/include/dav1d -I../../../../third_party/dav1d/config/linux/x64 -I../../../../third_party/dav1d/version
+cflags = -D_FILE_OFFSET_BITS=64 -D_POSIX_C_SOURCE=200112L -std=c99 -fno-delete-null-pointer-checks -fno-strict-overflow -fno-ident -fno-strict-aliasing -fstack-protector -funwind-tables -fPIC -pthread -fcolor-diagnostics -fmerge-all-constants -fno-sized-deallocation -fcrash-diagnostics-dir=../../../../tools/clang/crashreports -mllvm -instcombine-lower-dbg-declare=0 -mllvm -split-threshold-for-reg-with-hint=0 -ffp-contract=off -Wa,--crel,--allow-experimental-crel -fcomplete-member-pointers -m64 -msse3 -Wno-builtin-macro-redefined -D__DATE__= -D__TIME__= -D__TIMESTAMP__= -ffile-compilation-dir=. -no-canonical-prefixes -ftrivial-auto-var-init=pattern -O0 -fno-omit-frame-pointer -gdwarf-4 -g2 -gdwarf-aranges -gsplit-dwarf -ggnu-pubnames -Xclang -fuse-ctor-homing -fvisibility=hidden -Wheader-hygiene -Wstring-conversion -Wtautological-overlap-compare -Xclang -add-plugin -Xclang find-bad-constructs -Xclang -plugin-arg-find-bad-constructs -Xclang span-ctor-from-string-literal -Xclang -plugin-arg-find-bad-constructs -Xclang raw-ref-template-as-trivial-member -Xclang -plugin-arg-find-bad-constructs -Xclang raw-span-template-as-trivial-member -Xclang -plugin-arg-find-bad-constructs -Xclang check-stack-allocated -Xclang -plugin-arg-find-bad-constructs -Xclang check-ipc -Xclang -add-plugin -Xclang raw-ptr-plugin -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ptr-to-stack-allocated -Xclang -plugin-arg-raw-ptr-plugin -Xclang disable-check-raw-ptr-to-stack-allocated-error -Xclang -plugin-arg-raw-ptr-plugin -Xclang raw-ptr-exclude-path=../../../dawn/ -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ptr-fields -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-span-fields -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ref-fields -DUNSAFE_BUFFERS_BUILD -Xclang -add-plugin -Xclang unsafe-buffers -Xclang -plugin-arg-unsafe-buffers -Xclang ../../../../build/config/unsafe_buffers_paths.txt -Wall -Wno-unused-variable -Wno-c++11-narrowing -Wno-unused-but-set-variable -Wno-misleading-indentation -Wno-missing-field-initializers -Wno-unused-parameter -Wno-psabi -Wloop-analysis -Wno-unneeded-internal-declaration -Wno-cast-function-type -Wno-thread-safety-reference-return -Wno-nontrivial-memcall -Werror
+cflags_c = -std=c11 --sysroot=../../../../build/linux/debian_bullseye_amd64-sysroot
+label_name = dav1d
+target_out_dir = obj/third_party/dav1d
+target_output_name = libdav1d
+
+build obj/third_party/dav1d/dav1d/cdf.o: cc ../../../../third_party/dav1d/libdav1d/src/cdf.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = cdf.c
+  source_name_part = cdf
+build obj/third_party/dav1d/dav1d/cpu.o: cc ../../../../third_party/dav1d/libdav1d/src/cpu.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = cpu.c
+  source_name_part = cpu
+build obj/third_party/dav1d/dav1d/ctx.o: cc ../../../../third_party/dav1d/libdav1d/src/ctx.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = ctx.c
+  source_name_part = ctx
+build obj/third_party/dav1d/dav1d/data.o: cc ../../../../third_party/dav1d/libdav1d/src/data.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = data.c
+  source_name_part = data
+build obj/third_party/dav1d/dav1d/decode.o: cc ../../../../third_party/dav1d/libdav1d/src/decode.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = decode.c
+  source_name_part = decode
+build obj/third_party/dav1d/dav1d/dequant_tables.o: cc ../../../../third_party/dav1d/libdav1d/src/dequant_tables.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = dequant_tables.c
+  source_name_part = dequant_tables
+build obj/third_party/dav1d/dav1d/getbits.o: cc ../../../../third_party/dav1d/libdav1d/src/getbits.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = getbits.c
+  source_name_part = getbits
+build obj/third_party/dav1d/dav1d/intra_edge.o: cc ../../../../third_party/dav1d/libdav1d/src/intra_edge.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = intra_edge.c
+  source_name_part = intra_edge
+build obj/third_party/dav1d/dav1d/itx_1d.o: cc ../../../../third_party/dav1d/libdav1d/src/itx_1d.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = itx_1d.c
+  source_name_part = itx_1d
+build obj/third_party/dav1d/dav1d/lf_mask.o: cc ../../../../third_party/dav1d/libdav1d/src/lf_mask.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = lf_mask.c
+  source_name_part = lf_mask
+build obj/third_party/dav1d/dav1d/lib.o: cc ../../../../third_party/dav1d/libdav1d/src/lib.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = lib.c
+  source_name_part = lib
+build obj/third_party/dav1d/dav1d/log.o: cc ../../../../third_party/dav1d/libdav1d/src/log.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = log.c
+  source_name_part = log
+build obj/third_party/dav1d/dav1d/mem.o: cc ../../../../third_party/dav1d/libdav1d/src/mem.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = mem.c
+  source_name_part = mem
+build obj/third_party/dav1d/dav1d/msac.o: cc ../../../../third_party/dav1d/libdav1d/src/msac.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = msac.c
+  source_name_part = msac
+build obj/third_party/dav1d/dav1d/obu.o: cc ../../../../third_party/dav1d/libdav1d/src/obu.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = obu.c
+  source_name_part = obu
+build obj/third_party/dav1d/dav1d/pal.o: cc ../../../../third_party/dav1d/libdav1d/src/pal.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = pal.c
+  source_name_part = pal
+build obj/third_party/dav1d/dav1d/picture.o: cc ../../../../third_party/dav1d/libdav1d/src/picture.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = picture.c
+  source_name_part = picture
+build obj/third_party/dav1d/dav1d/qm.o: cc ../../../../third_party/dav1d/libdav1d/src/qm.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = qm.c
+  source_name_part = qm
+build obj/third_party/dav1d/dav1d/ref.o: cc ../../../../third_party/dav1d/libdav1d/src/ref.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = ref.c
+  source_name_part = ref
+build obj/third_party/dav1d/dav1d/refmvs.o: cc ../../../../third_party/dav1d/libdav1d/src/refmvs.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = refmvs.c
+  source_name_part = refmvs
+build obj/third_party/dav1d/dav1d/scan.o: cc ../../../../third_party/dav1d/libdav1d/src/scan.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = scan.c
+  source_name_part = scan
+build obj/third_party/dav1d/dav1d/tables.o: cc ../../../../third_party/dav1d/libdav1d/src/tables.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = tables.c
+  source_name_part = tables
+build obj/third_party/dav1d/dav1d/thread_task.o: cc ../../../../third_party/dav1d/libdav1d/src/thread_task.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = thread_task.c
+  source_name_part = thread_task
+build obj/third_party/dav1d/dav1d/warpmv.o: cc ../../../../third_party/dav1d/libdav1d/src/warpmv.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = warpmv.c
+  source_name_part = warpmv
+build obj/third_party/dav1d/dav1d/wedge.o: cc ../../../../third_party/dav1d/libdav1d/src/wedge.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = wedge.c
+  source_name_part = wedge
+
+build obj/third_party/dav1d/libdav1d.a: alink obj/third_party/dav1d/dav1d/cdf.o obj/third_party/dav1d/dav1d/cpu.o obj/third_party/dav1d/dav1d/ctx.o obj/third_party/dav1d/dav1d/data.o obj/third_party/dav1d/dav1d/decode.o obj/third_party/dav1d/dav1d/dequant_tables.o obj/third_party/dav1d/dav1d/getbits.o obj/third_party/dav1d/dav1d/intra_edge.o obj/third_party/dav1d/dav1d/itx_1d.o obj/third_party/dav1d/dav1d/lf_mask.o obj/third_party/dav1d/dav1d/lib.o obj/third_party/dav1d/dav1d/log.o obj/third_party/dav1d/dav1d/mem.o obj/third_party/dav1d/dav1d/msac.o obj/third_party/dav1d/dav1d/obu.o obj/third_party/dav1d/dav1d/pal.o obj/third_party/dav1d/dav1d/picture.o obj/third_party/dav1d/dav1d/qm.o obj/third_party/dav1d/dav1d/ref.o obj/third_party/dav1d/dav1d/refmvs.o obj/third_party/dav1d/dav1d/scan.o obj/third_party/dav1d/dav1d/tables.o obj/third_party/dav1d/dav1d/thread_task.o obj/third_party/dav1d/dav1d/warpmv.o obj/third_party/dav1d/dav1d/wedge.o | ../../../llvm-build/Release+Asserts/lib/clang/21/lib/x86_64-unknown-linux-gnu/libclang_rt.builtins.a ../../../../build/config/unsafe_buffers_paths.txt || obj/third_party/dav1d/libdav1d_10bit.a obj/third_party/dav1d/libdav1d_8bit.a obj/third_party/dav1d/libdav1d_x86.a obj/third_party/dav1d/libdav1d_asm.a
+  arflags = -T -S
+  output_extension = .a
+  output_dir = obj/third_party/dav1d

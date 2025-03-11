@@ -1,0 +1,32 @@
+defines = -DDCHECK_ALWAYS_ON=1 -DUSE_UDEV -DUSE_AURA=1 -DUSE_GLIB=1 -DUSE_OZONE=1 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_GNU_SOURCE -DCR_CLANG_REVISION=\"llvmorg-21-init-1655-g7b473dfe-1\" -D_LIBCPP_HARDENING_MODE=_LIBCPP_HARDENING_MODE_EXTENSIVE -DCOMPONENT_BUILD -D_LIBCPP_INSTRUMENTED_WITH_ASAN=0 -DCR_LIBCXX_REVISION=7c3087b8a7563d8218b27b7183ba41cf52d41508 -DTMP_REBUILD_HACK -DCR_SYSROOT_KEY=20250129T203412Z-1 -D_DEBUG -DDYNAMIC_ANNOTATIONS_ENABLED=1 -DOPENSCREEN_TEST_DATA_DIR=\"third_party/openscreen/src//test/data/\" -DABSL_CONSUME_DLL -DABSL_FLAGS_STRIP_NAMES=0
+include_dirs = -I../../../.. -Igen -I../../../../buildtools/third_party/libc++ -I../../../../third_party/openscreen/src -Igen/third_party/openscreen/src -I../../../../third_party/abseil-cpp
+cflags = -Wall -Wextra -Wimplicit-fallthrough -Wextra-semi -Wunreachable-code-aggressive -Wthread-safety -Wgnu -Wno-gnu-anonymous-struct -Wno-gnu-conditional-omitted-operand -Wno-gnu-include-next -Wno-gnu-label-as-value -Wno-gnu-redeclared-enum -Wno-gnu-statement-expression -Wno-gnu-zero-variadic-macro-arguments -Wno-zero-length-array -Wno-missing-field-initializers -Wno-unused-parameter -Wno-psabi -Wloop-analysis -Wno-unneeded-internal-declaration -Wno-cast-function-type -Wno-thread-safety-reference-return -Wno-nontrivial-memcall -Wshadow -Werror -fno-delete-null-pointer-checks -fno-strict-overflow -fno-ident -fno-strict-aliasing -fstack-protector -funwind-tables -fPIC -pthread -fcolor-diagnostics -fmerge-all-constants -fno-sized-deallocation -fcrash-diagnostics-dir=../../../../tools/clang/crashreports -mllvm -instcombine-lower-dbg-declare=0 -mllvm -split-threshold-for-reg-with-hint=0 -ffp-contract=off -Wa,--crel,--allow-experimental-crel -fcomplete-member-pointers -m64 -msse3 -Wno-builtin-macro-redefined -D__DATE__= -D__TIME__= -D__TIMESTAMP__= -ffile-compilation-dir=. -no-canonical-prefixes -ftrivial-auto-var-init=pattern -fno-omit-frame-pointer -gdwarf-4 -g2 -gdwarf-aranges -gsplit-dwarf -ggnu-pubnames -Xclang -fuse-ctor-homing -fvisibility=hidden -Wheader-hygiene -Wstring-conversion -Wtautological-overlap-compare -Xclang -add-plugin -Xclang find-bad-constructs -Xclang -plugin-arg-find-bad-constructs -Xclang span-ctor-from-string-literal -Xclang -plugin-arg-find-bad-constructs -Xclang raw-ref-template-as-trivial-member -Xclang -plugin-arg-find-bad-constructs -Xclang raw-span-template-as-trivial-member -Xclang -plugin-arg-find-bad-constructs -Xclang check-stack-allocated -Xclang -plugin-arg-find-bad-constructs -Xclang check-ipc -Xclang -add-plugin -Xclang raw-ptr-plugin -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ptr-to-stack-allocated -Xclang -plugin-arg-raw-ptr-plugin -Xclang disable-check-raw-ptr-to-stack-allocated-error -Xclang -plugin-arg-raw-ptr-plugin -Xclang raw-ptr-exclude-path=../../../dawn/ -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ptr-fields -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-span-fields -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ref-fields -DUNSAFE_BUFFERS_BUILD -Xclang -add-plugin -Xclang unsafe-buffers -Xclang -plugin-arg-unsafe-buffers -Xclang ../../../../build/config/unsafe_buffers_paths.txt -O0
+cflags_cc = -Wno-invalid-offsetof -Wenum-compare-conditional -Wno-c++11-narrowing-const-reference -Wno-missing-template-arg-list-after-template-kw -Wno-undefined-bool-conversion -Wno-tautological-undefined-compare -std=c++20 -Wno-trigraphs -gsimple-template-names -fno-exceptions -fno-rtti -nostdinc++ -isystem../../../libc++/src/include -isystem../../../libc++abi/src/include --sysroot=../../../../build/linux/debian_bullseye_amd64-sysroot -fvisibility-inlines-hidden
+label_name = cddl
+target_out_dir = obj/third_party/openscreen/src/tools/cddl
+target_output_name = cddl
+
+build obj/third_party/openscreen/src/tools/cddl/cddl/codegen.o: cxx ../../../../third_party/openscreen/src/tools/cddl/codegen.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = codegen.cc
+  source_name_part = codegen
+build obj/third_party/openscreen/src/tools/cddl/cddl/logging.o: cxx ../../../../third_party/openscreen/src/tools/cddl/logging.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = logging.cc
+  source_name_part = logging
+build obj/third_party/openscreen/src/tools/cddl/cddl/main.o: cxx ../../../../third_party/openscreen/src/tools/cddl/main.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = main.cc
+  source_name_part = main
+build obj/third_party/openscreen/src/tools/cddl/cddl/parse.o: cxx ../../../../third_party/openscreen/src/tools/cddl/parse.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = parse.cc
+  source_name_part = parse
+build obj/third_party/openscreen/src/tools/cddl/cddl/sema.o: cxx ../../../../third_party/openscreen/src/tools/cddl/sema.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = sema.cc
+  source_name_part = sema
+
+build ./cddl: link obj/third_party/openscreen/src/tools/cddl/cddl/codegen.o obj/third_party/openscreen/src/tools/cddl/cddl/logging.o obj/third_party/openscreen/src/tools/cddl/cddl/main.o obj/third_party/openscreen/src/tools/cddl/cddl/parse.o obj/third_party/openscreen/src/tools/cddl/cddl/sema.o | ./libthird_party_abseil-cpp_absl.so.TOC ./libc++.so.TOC ../../../llvm-build/Release+Asserts/lib/clang/21/lib/x86_64-unknown-linux-gnu/libclang_rt.builtins.a ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/openscreen/src/third_party/abseil/abseil phony/build/config/executable_deps
+  ldflags = -pie -Werror -fuse-ld=lld -Wl,--fatal-warnings -Wl,--build-id=fast -fPIC -Wl,-z,noexecstack -Wl,-z,relro -Wl,--color-diagnostics -Wl,--undefined-version -Wl,--no-call-graph-profile-sort -m64 -no-canonical-prefixes -Wl,--gdb-index -Wl,-z,defs -Wl,--as-needed -nostdlib++ --sysroot=../../../../build/linux/debian_bullseye_amd64-sysroot -rdynamic -pie -Wl,--disable-new-dtags -Wl,-rpath=\$$ORIGIN
+  libs = ../../../../third_party/llvm-build/Release+Asserts/lib/clang/21/lib/x86_64-unknown-linux-gnu/libclang_rt.builtins.a -ldl -lpthread -lrt
+  frameworks =
+  swiftmodules =
+  output_extension =
+  output_dir = .
+  solibs = ./libthird_party_abseil-cpp_absl.so ./libc++.so

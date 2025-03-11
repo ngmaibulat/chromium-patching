@@ -1,0 +1,3 @@
+../../../blink/public/mojom/use_counter/metrics/css_property_id.mojom
+../../../blink/public/mojom/use_counter/metrics/web_feature.mojom
+../../../blink/public/mojom/use_counter/metrics/webdx_feature.mojom

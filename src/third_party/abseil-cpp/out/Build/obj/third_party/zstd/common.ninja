@@ -1,0 +1,34 @@
+defines = -DDCHECK_ALWAYS_ON=1 -DUSE_UDEV -DUSE_AURA=1 -DUSE_GLIB=1 -DUSE_OZONE=1 -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_GNU_SOURCE -DCR_CLANG_REVISION=\"llvmorg-21-init-1655-g7b473dfe-1\" -D_LIBCPP_HARDENING_MODE=_LIBCPP_HARDENING_MODE_EXTENSIVE -DCOMPONENT_BUILD -D_LIBCPP_INSTRUMENTED_WITH_ASAN=0 -DCR_LIBCXX_REVISION=7c3087b8a7563d8218b27b7183ba41cf52d41508 -DTMP_REBUILD_HACK -DCR_SYSROOT_KEY=20250129T203412Z-1 -D_DEBUG -DDYNAMIC_ANNOTATIONS_ENABLED=1 -DZSTDLIB_STATIC_API=ZSTDLIB_HIDDEN -DZDICTLIB_STATIC_API=ZDICTLIB_HIDDEN -DZSTDLIB_VISIBLE=ZSTDLIB_HIDDEN -DZSTDERRORLIB_VISIBLE=ZSTDERRORLIB_HIDDEN -DZDICTLIB_VISIBLE=ZDICTLIB_HIDDEN
+include_dirs = -I../../../.. -Igen -I../../../../buildtools/third_party/libc++
+cflags = -fno-delete-null-pointer-checks -fno-strict-overflow -fno-ident -fno-strict-aliasing -fstack-protector -funwind-tables -fPIC -pthread -fcolor-diagnostics -fmerge-all-constants -fno-sized-deallocation -fcrash-diagnostics-dir=../../../../tools/clang/crashreports -mllvm -instcombine-lower-dbg-declare=0 -mllvm -split-threshold-for-reg-with-hint=0 -ffp-contract=off -Wa,--crel,--allow-experimental-crel -fcomplete-member-pointers -m64 -msse3 -Wno-builtin-macro-redefined -D__DATE__= -D__TIME__= -D__TIMESTAMP__= -ffile-compilation-dir=. -no-canonical-prefixes -ftrivial-auto-var-init=pattern -fno-omit-frame-pointer -gdwarf-4 -g2 -gdwarf-aranges -gsplit-dwarf -ggnu-pubnames -Xclang -fuse-ctor-homing -fvisibility=hidden -Wheader-hygiene -Wstring-conversion -Wtautological-overlap-compare -Xclang -add-plugin -Xclang find-bad-constructs -Xclang -plugin-arg-find-bad-constructs -Xclang span-ctor-from-string-literal -Xclang -plugin-arg-find-bad-constructs -Xclang raw-ref-template-as-trivial-member -Xclang -plugin-arg-find-bad-constructs -Xclang raw-span-template-as-trivial-member -Xclang -plugin-arg-find-bad-constructs -Xclang check-stack-allocated -Xclang -plugin-arg-find-bad-constructs -Xclang check-ipc -Xclang -add-plugin -Xclang raw-ptr-plugin -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ptr-to-stack-allocated -Xclang -plugin-arg-raw-ptr-plugin -Xclang disable-check-raw-ptr-to-stack-allocated-error -Xclang -plugin-arg-raw-ptr-plugin -Xclang raw-ptr-exclude-path=../../../dawn/ -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ptr-fields -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-span-fields -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ref-fields -DUNSAFE_BUFFERS_BUILD -Xclang -add-plugin -Xclang unsafe-buffers -Xclang -plugin-arg-unsafe-buffers -Xclang ../../../../build/config/unsafe_buffers_paths.txt
+cflags_c = -std=c11 --sysroot=../../../../build/linux/debian_bullseye_amd64-sysroot
+label_name = common
+target_out_dir = obj/third_party/zstd
+target_output_name = common
+
+build obj/third_party/zstd/common/debug.o: cc ../../../../third_party/zstd/src/lib/common/debug.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = debug.c
+  source_name_part = debug
+build obj/third_party/zstd/common/entropy_common.o: cc ../../../../third_party/zstd/src/lib/common/entropy_common.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = entropy_common.c
+  source_name_part = entropy_common
+build obj/third_party/zstd/common/error_private.o: cc ../../../../third_party/zstd/src/lib/common/error_private.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = error_private.c
+  source_name_part = error_private
+build obj/third_party/zstd/common/fse_decompress.o: cc ../../../../third_party/zstd/src/lib/common/fse_decompress.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = fse_decompress.c
+  source_name_part = fse_decompress
+build obj/third_party/zstd/common/pool.o: cc ../../../../third_party/zstd/src/lib/common/pool.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = pool.c
+  source_name_part = pool
+build obj/third_party/zstd/common/threading.o: cc ../../../../third_party/zstd/src/lib/common/threading.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = threading.c
+  source_name_part = threading
+build obj/third_party/zstd/common/xxhash.o: cc ../../../../third_party/zstd/src/lib/common/xxhash.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = xxhash.c
+  source_name_part = xxhash
+build obj/third_party/zstd/common/zstd_common.o: cc ../../../../third_party/zstd/src/lib/common/zstd_common.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = zstd_common.c
+  source_name_part = zstd_common
+
+build phony/third_party/zstd/common: phony obj/third_party/zstd/common/debug.o obj/third_party/zstd/common/entropy_common.o obj/third_party/zstd/common/error_private.o obj/third_party/zstd/common/fse_decompress.o obj/third_party/zstd/common/pool.o obj/third_party/zstd/common/threading.o obj/third_party/zstd/common/xxhash.o obj/third_party/zstd/common/zstd_common.o

@@ -1,0 +1,92 @@
+defines = -DDCHECK_ALWAYS_ON=1 -DUSE_UDEV -DUSE_AURA=1 -DUSE_GLIB=1 -DUSE_OZONE=1 -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_GNU_SOURCE -DCR_CLANG_REVISION=\"llvmorg-21-init-1655-g7b473dfe-1\" -D_LIBCPP_HARDENING_MODE=_LIBCPP_HARDENING_MODE_EXTENSIVE -D_LIBCPP_DISABLE_VISIBILITY_ANNOTATIONS -D_LIBCXXABI_DISABLE_VISIBILITY_ANNOTATIONS -D_LIBCPP_INSTRUMENTED_WITH_ASAN=0 -DCR_LIBCXX_REVISION=7c3087b8a7563d8218b27b7183ba41cf52d41508 -DTMP_REBUILD_HACK -DCR_SYSROOT_KEY=20250129T203412Z-1 -D_DEBUG -DDYNAMIC_ANNOTATIONS_ENABLED=1
+include_dirs = -I../../../../third_party/breakpad -I../../../../third_party/breakpad/breakpad/src -I../../../../third_party/breakpad/breakpad/src/client -I../../../../third_party/breakpad/breakpad/src/third_party/linux/include -I../../../.. -Iclang_x64_with_system_allocator/gen -I../../../../buildtools/third_party/libc++
+asmflags = -fPIC -fno-delete-null-pointer-checks -fno-strict-overflow -fno-ident -fno-strict-aliasing -fstack-protector -funwind-tables -fPIC -pthread -fcolor-diagnostics -fmerge-all-constants -fno-sized-deallocation -fcrash-diagnostics-dir=../../../../tools/clang/crashreports -mllvm -instcombine-lower-dbg-declare=0 -mllvm -split-threshold-for-reg-with-hint=0 -ffp-contract=off -Wa,--crel,--allow-experimental-crel -fcomplete-member-pointers -std=c11 -m64 -msse3 -Wa,-fdebug-compilation-dir,. -gdwarf-4 -g2 -gdwarf-aranges -gsplit-dwarf --sysroot=../../../../build/linux/debian_bullseye_amd64-sysroot
+cflags = -fno-delete-null-pointer-checks -fno-strict-overflow -fno-ident -fno-strict-aliasing -fstack-protector -funwind-tables -fPIC -pthread -fcolor-diagnostics -fmerge-all-constants -fno-sized-deallocation -fcrash-diagnostics-dir=../../../../tools/clang/crashreports -mllvm -instcombine-lower-dbg-declare=0 -mllvm -split-threshold-for-reg-with-hint=0 -ffp-contract=off -Wa,--crel,--allow-experimental-crel -fcomplete-member-pointers -m64 -msse3 -Wno-builtin-macro-redefined -D__DATE__= -D__TIME__= -D__TIMESTAMP__= -ffile-compilation-dir=. -no-canonical-prefixes -ftrivial-auto-var-init=pattern -O0 -fno-omit-frame-pointer -gdwarf-4 -g2 -gdwarf-aranges -gsplit-dwarf -ggnu-pubnames -Xclang -fuse-ctor-homing -fvisibility=hidden -Wheader-hygiene -Wstring-conversion -Wtautological-overlap-compare -Xclang -add-plugin -Xclang find-bad-constructs -Xclang -plugin-arg-find-bad-constructs -Xclang span-ctor-from-string-literal -Xclang -plugin-arg-find-bad-constructs -Xclang raw-ref-template-as-trivial-member -Xclang -plugin-arg-find-bad-constructs -Xclang raw-span-template-as-trivial-member -Xclang -plugin-arg-find-bad-constructs -Xclang check-stack-allocated -Xclang -plugin-arg-find-bad-constructs -Xclang check-ipc -Xclang -add-plugin -Xclang raw-ptr-plugin -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ptr-to-stack-allocated -Xclang -plugin-arg-raw-ptr-plugin -Xclang disable-check-raw-ptr-to-stack-allocated-error -Xclang -plugin-arg-raw-ptr-plugin -Xclang raw-ptr-exclude-path=../../../dawn/ -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ptr-fields -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-span-fields -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ref-fields -DUNSAFE_BUFFERS_BUILD -Xclang -add-plugin -Xclang unsafe-buffers -Xclang -plugin-arg-unsafe-buffers -Xclang ../../../../build/config/unsafe_buffers_paths.txt -Wall -Wno-unused-variable -Wno-c++11-narrowing -Wno-unused-but-set-variable -Wno-misleading-indentation -Wno-missing-field-initializers -Wno-unused-parameter -Wno-psabi -Wloop-analysis -Wno-unneeded-internal-declaration -Wno-cast-function-type -Wno-thread-safety-reference-return -Wno-nontrivial-memcall -Werror
+cflags_cc = -Wno-undefined-bool-conversion -Wno-tautological-undefined-compare -std=c++20 -Wno-trigraphs -gsimple-template-names -fno-exceptions -fno-rtti -nostdinc++ -isystem../../../libc++/src/include -isystem../../../libc++abi/src/include --sysroot=../../../../build/linux/debian_bullseye_amd64-sysroot -fvisibility-inlines-hidden -Wno-invalid-offsetof -Wenum-compare-conditional -Wno-c++11-narrowing-const-reference -Wno-missing-template-arg-list-after-template-kw
+label_name = client
+target_out_dir = clang_x64_with_system_allocator/obj/third_party/breakpad
+target_output_name = libclient
+
+build clang_x64_with_system_allocator/obj/third_party/breakpad/client/crash_generation_client.o: clang_x64_with_system_allocator_cxx ../../../../third_party/breakpad/breakpad/src/client/linux/crash_generation/crash_generation_client.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = crash_generation_client.cc
+  source_name_part = crash_generation_client
+build clang_x64_with_system_allocator/obj/third_party/breakpad/client/thread_info.o: clang_x64_with_system_allocator_cxx ../../../../third_party/breakpad/breakpad/src/client/linux/dump_writer_common/thread_info.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = thread_info.cc
+  source_name_part = thread_info
+build clang_x64_with_system_allocator/obj/third_party/breakpad/client/ucontext_reader.o: clang_x64_with_system_allocator_cxx ../../../../third_party/breakpad/breakpad/src/client/linux/dump_writer_common/ucontext_reader.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = ucontext_reader.cc
+  source_name_part = ucontext_reader
+build clang_x64_with_system_allocator/obj/third_party/breakpad/client/exception_handler.o: clang_x64_with_system_allocator_cxx ../../../../third_party/breakpad/breakpad/src/client/linux/handler/exception_handler.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = exception_handler.cc
+  source_name_part = exception_handler
+build clang_x64_with_system_allocator/obj/third_party/breakpad/client/minidump_descriptor.o: clang_x64_with_system_allocator_cxx ../../../../third_party/breakpad/breakpad/src/client/linux/handler/minidump_descriptor.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = minidump_descriptor.cc
+  source_name_part = minidump_descriptor
+build clang_x64_with_system_allocator/obj/third_party/breakpad/client/log.o: clang_x64_with_system_allocator_cxx ../../../../third_party/breakpad/breakpad/src/client/linux/log/log.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = log.cc
+  source_name_part = log
+build clang_x64_with_system_allocator/obj/third_party/breakpad/client/microdump_writer.o: clang_x64_with_system_allocator_cxx ../../../../third_party/breakpad/breakpad/src/client/linux/microdump_writer/microdump_writer.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = microdump_writer.cc
+  source_name_part = microdump_writer
+build clang_x64_with_system_allocator/obj/third_party/breakpad/client/linux_core_dumper.o: clang_x64_with_system_allocator_cxx ../../../../third_party/breakpad/breakpad/src/client/linux/minidump_writer/linux_core_dumper.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = linux_core_dumper.cc
+  source_name_part = linux_core_dumper
+build clang_x64_with_system_allocator/obj/third_party/breakpad/client/linux_dumper.o: clang_x64_with_system_allocator_cxx ../../../../third_party/breakpad/breakpad/src/client/linux/minidump_writer/linux_dumper.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = linux_dumper.cc
+  source_name_part = linux_dumper
+build clang_x64_with_system_allocator/obj/third_party/breakpad/client/linux_ptrace_dumper.o: clang_x64_with_system_allocator_cxx ../../../../third_party/breakpad/breakpad/src/client/linux/minidump_writer/linux_ptrace_dumper.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = linux_ptrace_dumper.cc
+  source_name_part = linux_ptrace_dumper
+build clang_x64_with_system_allocator/obj/third_party/breakpad/client/minidump_writer.o: clang_x64_with_system_allocator_cxx ../../../../third_party/breakpad/breakpad/src/client/linux/minidump_writer/minidump_writer.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = minidump_writer.cc
+  source_name_part = minidump_writer
+build clang_x64_with_system_allocator/obj/third_party/breakpad/client/pe_file.o: clang_x64_with_system_allocator_cxx ../../../../third_party/breakpad/breakpad/src/client/linux/minidump_writer/pe_file.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = pe_file.cc
+  source_name_part = pe_file
+build clang_x64_with_system_allocator/obj/third_party/breakpad/client/minidump_file_writer.o: clang_x64_with_system_allocator_cxx ../../../../third_party/breakpad/breakpad/src/client/minidump_file_writer.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = minidump_file_writer.cc
+  source_name_part = minidump_file_writer
+build clang_x64_with_system_allocator/obj/third_party/breakpad/client/convert_UTF.o: clang_x64_with_system_allocator_cxx ../../../../third_party/breakpad/breakpad/src/common/convert_UTF.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = convert_UTF.cc
+  source_name_part = convert_UTF
+build clang_x64_with_system_allocator/obj/third_party/breakpad/client/breakpad_getcontext.o: clang_x64_with_system_allocator_asm ../../../../third_party/breakpad/breakpad/src/common/linux/breakpad_getcontext.S | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = breakpad_getcontext.S
+  source_name_part = breakpad_getcontext
+build clang_x64_with_system_allocator/obj/third_party/breakpad/client/elf_core_dump.o: clang_x64_with_system_allocator_cxx ../../../../third_party/breakpad/breakpad/src/common/linux/elf_core_dump.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = elf_core_dump.cc
+  source_name_part = elf_core_dump
+build clang_x64_with_system_allocator/obj/third_party/breakpad/client/elfutils.o: clang_x64_with_system_allocator_cxx ../../../../third_party/breakpad/breakpad/src/common/linux/elfutils.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = elfutils.cc
+  source_name_part = elfutils
+build clang_x64_with_system_allocator/obj/third_party/breakpad/client/file_id.o: clang_x64_with_system_allocator_cxx ../../../../third_party/breakpad/breakpad/src/common/linux/file_id.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = file_id.cc
+  source_name_part = file_id
+build clang_x64_with_system_allocator/obj/third_party/breakpad/client/google_crashdump_uploader.o: clang_x64_with_system_allocator_cxx ../../../../third_party/breakpad/breakpad/src/common/linux/google_crashdump_uploader.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = google_crashdump_uploader.cc
+  source_name_part = google_crashdump_uploader
+build clang_x64_with_system_allocator/obj/third_party/breakpad/client/guid_creator.o: clang_x64_with_system_allocator_cxx ../../../../third_party/breakpad/breakpad/src/common/linux/guid_creator.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = guid_creator.cc
+  source_name_part = guid_creator
+build clang_x64_with_system_allocator/obj/third_party/breakpad/client/libcurl_wrapper.o: clang_x64_with_system_allocator_cxx ../../../../third_party/breakpad/breakpad/src/common/linux/libcurl_wrapper.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = libcurl_wrapper.cc
+  source_name_part = libcurl_wrapper
+build clang_x64_with_system_allocator/obj/third_party/breakpad/client/linux_libc_support.o: clang_x64_with_system_allocator_cxx ../../../../third_party/breakpad/breakpad/src/common/linux/linux_libc_support.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = linux_libc_support.cc
+  source_name_part = linux_libc_support
+build clang_x64_with_system_allocator/obj/third_party/breakpad/client/memory_mapped_file.o: clang_x64_with_system_allocator_cxx ../../../../third_party/breakpad/breakpad/src/common/linux/memory_mapped_file.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = memory_mapped_file.cc
+  source_name_part = memory_mapped_file
+build clang_x64_with_system_allocator/obj/third_party/breakpad/client/safe_readlink.o: clang_x64_with_system_allocator_cxx ../../../../third_party/breakpad/breakpad/src/common/linux/safe_readlink.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = safe_readlink.cc
+  source_name_part = safe_readlink
+build clang_x64_with_system_allocator/obj/third_party/breakpad/client/simple_string_dictionary.o: clang_x64_with_system_allocator_cxx ../../../../third_party/breakpad/breakpad/src/common/simple_string_dictionary.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = simple_string_dictionary.cc
+  source_name_part = simple_string_dictionary
+build clang_x64_with_system_allocator/obj/third_party/breakpad/client/string_conversion.o: clang_x64_with_system_allocator_cxx ../../../../third_party/breakpad/breakpad/src/common/string_conversion.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = string_conversion.cc
+  source_name_part = string_conversion
+
+build clang_x64_with_system_allocator/obj/third_party/breakpad/libclient.a: clang_x64_with_system_allocator_alink clang_x64_with_system_allocator/obj/third_party/breakpad/client/crash_generation_client.o clang_x64_with_system_allocator/obj/third_party/breakpad/client/thread_info.o clang_x64_with_system_allocator/obj/third_party/breakpad/client/ucontext_reader.o clang_x64_with_system_allocator/obj/third_party/breakpad/client/exception_handler.o clang_x64_with_system_allocator/obj/third_party/breakpad/client/minidump_descriptor.o clang_x64_with_system_allocator/obj/third_party/breakpad/client/log.o clang_x64_with_system_allocator/obj/third_party/breakpad/client/microdump_writer.o clang_x64_with_system_allocator/obj/third_party/breakpad/client/linux_core_dumper.o clang_x64_with_system_allocator/obj/third_party/breakpad/client/linux_dumper.o clang_x64_with_system_allocator/obj/third_party/breakpad/client/linux_ptrace_dumper.o clang_x64_with_system_allocator/obj/third_party/breakpad/client/minidump_writer.o clang_x64_with_system_allocator/obj/third_party/breakpad/client/pe_file.o clang_x64_with_system_allocator/obj/third_party/breakpad/client/minidump_file_writer.o clang_x64_with_system_allocator/obj/third_party/breakpad/client/convert_UTF.o clang_x64_with_system_allocator/obj/third_party/breakpad/client/breakpad_getcontext.o clang_x64_with_system_allocator/obj/third_party/breakpad/client/elf_core_dump.o clang_x64_with_system_allocator/obj/third_party/breakpad/client/elfutils.o clang_x64_with_system_allocator/obj/third_party/breakpad/client/file_id.o clang_x64_with_system_allocator/obj/third_party/breakpad/client/google_crashdump_uploader.o clang_x64_with_system_allocator/obj/third_party/breakpad/client/guid_creator.o clang_x64_with_system_allocator/obj/third_party/breakpad/client/libcurl_wrapper.o clang_x64_with_system_allocator/obj/third_party/breakpad/client/linux_libc_support.o clang_x64_with_system_allocator/obj/third_party/breakpad/client/memory_mapped_file.o clang_x64_with_system_allocator/obj/third_party/breakpad/client/safe_readlink.o clang_x64_with_system_allocator/obj/third_party/breakpad/client/simple_string_dictionary.o clang_x64_with_system_allocator/obj/third_party/breakpad/client/string_conversion.o | ../../../llvm-build/Release+Asserts/lib/clang/21/lib/x86_64-unknown-linux-gnu/libclang_rt.builtins.a ../../../../build/config/unsafe_buffers_paths.txt
+  arflags = -T -S
+  output_extension = .a
+  output_dir = clang_x64_with_system_allocator/obj/third_party/breakpad

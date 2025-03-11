@@ -1,0 +1,1005 @@
+defines = -DDCHECK_ALWAYS_ON=1 -DUSE_UDEV -DUSE_AURA=1 -DUSE_GLIB=1 -DUSE_OZONE=1 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_GNU_SOURCE -DCR_CLANG_REVISION=\"llvmorg-21-init-1655-g7b473dfe-1\" -D_LIBCPP_HARDENING_MODE=_LIBCPP_HARDENING_MODE_EXTENSIVE -DCOMPONENT_BUILD -D_LIBCPP_INSTRUMENTED_WITH_ASAN=0 -DCR_LIBCXX_REVISION=7c3087b8a7563d8218b27b7183ba41cf52d41508 -DTMP_REBUILD_HACK -DCR_SYSROOT_KEY=20250129T203412Z-1 -D_DEBUG -DDYNAMIC_ANNOTATIONS_ENABLED=1 -DOPJ_STATIC -DPDF_USE_PARTITION_ALLOC -DPDF_ENABLE_UNOWNED_PTR_EXCLUSION -DPDF_ENABLE_V8 -DPDF_ENABLE_XFA -DPDF_ENABLE_XFA_BMP -DPDF_ENABLE_XFA_GIF -DPDF_ENABLE_XFA_PNG -DPDF_ENABLE_XFA_TIFF -DPDF_USE_SKIA -DSK_ENABLE_SKSL -DSK_UNTIL_CRBUG_1187654_IS_FIXED -DSK_USER_CONFIG_HEADER=\"../../skia/config/SkUserConfig.h\" -DSK_WIN_FONTMGR_NO_SIMULATIONS -DSK_DISABLE_LEGACY_INIT_DECODERS -DSK_CODEC_DECODES_JPEG -DSK_CODEC_ENCODES_JPEG -DSKIA_DLL -DSKCMS_API=__attribute__\(\(visibility\(\"default\"\)\)\) -DSK_GAMMA_EXPONENT=1.2 -DSK_GAMMA_CONTRAST=0.2 -DSK_GANESH -DSK_GPU_WORKAROUNDS_HEADER=\"gpu/config/gpu_driver_bug_workaround_autogen.h\" -DSK_GL -DSK_VULKAN=1 -DSK_GRAPHITE -DSK_DAWN -DVK_USE_PLATFORM_XCB_KHR -DVK_USE_PLATFORM_WAYLAND_KHR -DGLIB_VERSION_MAX_ALLOWED=GLIB_VERSION_2_56 -DGLIB_VERSION_MIN_REQUIRED=GLIB_VERSION_2_56 -DFT_CONFIG_MODULES_H=\"freetype-custom/freetype/config/ftmodule.h\" -DFT_CONFIG_OPTIONS_H=\"freetype-custom/freetype/config/ftoption.h\" -DPDFIUM_REQUIRED_MODULES -DABSL_CONSUME_DLL -DABSL_FLAGS_STRIP_NAMES=0 -DU_USING_ICU_NAMESPACE=0 -DU_ENABLE_DYLOAD=0 -DUSE_CHROMIUM_ICU=1 -DU_ENABLE_TRACING=1 -DU_ENABLE_RESOURCE_TRACING=0 -DICU_UTIL_DATA_IMPL=ICU_UTIL_DATA_FILE -DWGPU_SHARED_LIBRARY -DUSING_V8_SHARED -DUSING_V8_SHARED_PRIVATE -DV8_ARRAY_BUFFER_INTERNAL_FIELD_COUNT=0 -DV8_ARRAY_BUFFER_VIEW_INTERNAL_FIELD_COUNT=0 -DV8_PROMISE_INTERNAL_FIELD_COUNT=0 -DV8_ENABLE_CHECKS -DV8_ENABLE_MEMORY_ACCOUNTING_CHECKS -DV8_COMPRESS_POINTERS -DV8_COMPRESS_POINTERS_IN_SHARED_CAGE -DV8_31BIT_SMIS_ON_64BIT_ARCH -DV8_ENABLE_SANDBOX -DV8_DEPRECATION_WARNINGS -DV8_USE_PERFETTO -DV8_HAVE_TARGET_OS -DV8_TARGET_OS_LINUX -DCPPGC_ENABLE_API_CHECKS -DCPPGC_CAGED_HEAP -DCPPGC_YOUNG_GENERATION -DCPPGC_POINTER_COMPRESSION -DCPPGC_ENABLE_LARGER_CAGE -DCPPGC_SLIM_WRITE_BARRIER -DUSING_V8_BASE_SHARED -DABSL_ALLOCATOR_NOTHROW=1 -DUSING_V8_PLATFORM_SHARED
+include_dirs = -I../../../.. -Igen -I../../../../buildtools/third_party/libc++ -I../../../../third_party/pdfium -I../../../../third_party/skia -Igen/third_party/skia -I../../../../third_party/wuffs/src/release/c -I../../../../third_party/vulkan/include -I../../../../third_party/vulkan-headers/src/include -I../../../../third_party/wayland/src/src -I../../../../third_party/wayland/include/src -Igen/third_party/dawn/include -I../../../../third_party/dawn/include -I../../../../third_party/perfetto/include -Igen/third_party/perfetto/build_config -Igen/third_party/perfetto -I../../../../third_party/freetype/include -I../../../../third_party/freetype/include/freetype-custom -I../../../../third_party/freetype/src/include -I../../../../third_party/harfbuzz-ng/src/src -I../../../../third_party/abseil-cpp -I../../../../third_party/icu/source/common -I../../../../third_party/icu/source/i18n -I../../../../base/allocator/partition_allocator/src -Igen/base/allocator/partition_allocator/src -I../../../../v8/include -I../../../../third_party/protobuf/src -Igen/v8/include -I../../../../third_party/fp16/src/include
+cflags = -Wall -Wextra -Wimplicit-fallthrough -Wextra-semi -Wunreachable-code-aggressive -Wthread-safety -Wgnu -Wno-gnu-anonymous-struct -Wno-gnu-conditional-omitted-operand -Wno-gnu-include-next -Wno-gnu-label-as-value -Wno-gnu-redeclared-enum -Wno-gnu-statement-expression -Wno-gnu-zero-variadic-macro-arguments -Wno-zero-length-array -Wno-missing-field-initializers -Wno-unused-parameter -Wno-psabi -Wloop-analysis -Wno-unneeded-internal-declaration -Wno-cast-function-type -Wno-thread-safety-reference-return -Wno-nontrivial-memcall -Wshadow -Werror -fno-delete-null-pointer-checks -fno-strict-overflow -fno-ident -fno-strict-aliasing -fstack-protector -funwind-tables -fPIC -pthread -fcolor-diagnostics -fmerge-all-constants -fno-sized-deallocation -fcrash-diagnostics-dir=../../../../tools/clang/crashreports -mllvm -instcombine-lower-dbg-declare=0 -mllvm -split-threshold-for-reg-with-hint=0 -ffp-contract=off -Wa,--crel,--allow-experimental-crel -fcomplete-member-pointers -m64 -msse3 -Wno-builtin-macro-redefined -D__DATE__= -D__TIME__= -D__TIMESTAMP__= -ffile-compilation-dir=. -no-canonical-prefixes -ftrivial-auto-var-init=pattern -O0 -fno-omit-frame-pointer -gdwarf-4 -g2 -gdwarf-aranges -gsplit-dwarf -ggnu-pubnames -Xclang -fuse-ctor-homing -fvisibility=hidden -Wheader-hygiene -Wstring-conversion -Wtautological-overlap-compare -Xclang -add-plugin -Xclang find-bad-constructs -Xclang -plugin-arg-find-bad-constructs -Xclang span-ctor-from-string-literal -Xclang -plugin-arg-find-bad-constructs -Xclang raw-ref-template-as-trivial-member -Xclang -plugin-arg-find-bad-constructs -Xclang raw-span-template-as-trivial-member -Xclang -plugin-arg-find-bad-constructs -Xclang check-stack-allocated -Xclang -plugin-arg-find-bad-constructs -Xclang check-ipc -Xclang -add-plugin -Xclang raw-ptr-plugin -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ptr-to-stack-allocated -Xclang -plugin-arg-raw-ptr-plugin -Xclang disable-check-raw-ptr-to-stack-allocated-error -Xclang -plugin-arg-raw-ptr-plugin -Xclang raw-ptr-exclude-path=../../../dawn/ -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ptr-fields -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-span-fields -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ref-fields -DUNSAFE_BUFFERS_BUILD -Xclang -add-plugin -Xclang unsafe-buffers -Xclang -plugin-arg-unsafe-buffers -Xclang ../../../../build/config/unsafe_buffers_paths.txt -Wcovered-switch-default -Wc++11-narrowing -Wtautological-unsigned-zero-compare -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ptr-fields -Xclang -plugin-arg-raw-ptr-plugin -Xclang raw-ptr-exclude-path=public -Xclang -plugin-arg-raw-ptr-plugin -Xclang raw-ptr-exclude-path=test -Xclang -add-plugin -Xclang blink-gc-plugin -Xclang -plugin-arg-blink-gc-plugin -Xclang disable-off-heap-collections-of-gced-check -Wshadow -Wexit-time-destructors -Wglobal-constructors -Wshorten-64-to-32 -Wno-redundant-parens -isystem../../../../build/linux/debian_bullseye_amd64-sysroot/usr/include/glib-2.0 -isystem../../../../build/linux/debian_bullseye_amd64-sysroot/usr/lib/x86_64-linux-gnu/glib-2.0/include
+cflags_cc = -Wno-invalid-offsetof -Wenum-compare-conditional -Wno-c++11-narrowing-const-reference -Wno-missing-template-arg-list-after-template-kw -Wno-undefined-bool-conversion -Wno-tautological-undefined-compare -std=c++20 -Wno-trigraphs -gsimple-template-names -fno-exceptions -fno-rtti -nostdinc++ -isystem../../../libc++/src/include -isystem../../../libc++abi/src/include --sysroot=../../../../build/linux/debian_bullseye_amd64-sysroot -fvisibility-inlines-hidden
+label_name = parser
+target_out_dir = obj/third_party/pdfium/xfa/fxfa/parser
+target_output_name = parser
+
+build phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs: phony ../../../../third_party/perfetto/protos/perfetto/common/android_energy_consumer_descriptor.proto ../../../../third_party/perfetto/protos/perfetto/common/android_log_constants.proto ../../../../third_party/perfetto/protos/perfetto/common/builtin_clock.proto ../../../../third_party/perfetto/protos/perfetto/common/commit_data_request.proto ../../../../third_party/perfetto/protos/perfetto/common/data_source_descriptor.proto ../../../../third_party/perfetto/protos/perfetto/common/descriptor.proto ../../../../third_party/perfetto/protos/perfetto/common/ftrace_descriptor.proto ../../../../third_party/perfetto/protos/perfetto/common/gpu_counter_descriptor.proto ../../../../third_party/perfetto/protos/perfetto/common/interceptor_descriptor.proto ../../../../third_party/perfetto/protos/perfetto/common/observable_events.proto ../../../../third_party/perfetto/protos/perfetto/common/perf_events.proto ../../../../third_party/perfetto/protos/perfetto/common/protolog_common.proto ../../../../third_party/perfetto/protos/perfetto/common/sys_stats_counters.proto ../../../../third_party/perfetto/protos/perfetto/common/trace_stats.proto ../../../../third_party/perfetto/protos/perfetto/common/tracing_service_capabilities.proto ../../../../third_party/perfetto/protos/perfetto/common/tracing_service_state.proto ../../../../third_party/perfetto/protos/perfetto/common/track_event_descriptor.proto ../../../../third_party/perfetto/protos/perfetto/common/android_energy_consumer_descriptor.proto ../../../../third_party/perfetto/protos/perfetto/common/android_log_constants.proto ../../../../third_party/perfetto/protos/perfetto/common/builtin_clock.proto ../../../../third_party/perfetto/protos/perfetto/common/commit_data_request.proto ../../../../third_party/perfetto/protos/perfetto/common/data_source_descriptor.proto ../../../../third_party/perfetto/protos/perfetto/common/descriptor.proto ../../../../third_party/perfetto/protos/perfetto/common/ftrace_descriptor.proto ../../../../third_party/perfetto/protos/perfetto/common/gpu_counter_descriptor.proto ../../../../third_party/perfetto/protos/perfetto/common/interceptor_descriptor.proto ../../../../third_party/perfetto/protos/perfetto/common/observable_events.proto ../../../../third_party/perfetto/protos/perfetto/common/perf_events.proto ../../../../third_party/perfetto/protos/perfetto/common/protolog_common.proto ../../../../third_party/perfetto/protos/perfetto/common/sys_stats_counters.proto ../../../../third_party/perfetto/protos/perfetto/common/trace_stats.proto ../../../../third_party/perfetto/protos/perfetto/common/tracing_service_capabilities.proto ../../../../third_party/perfetto/protos/perfetto/common/tracing_service_state.proto ../../../../third_party/perfetto/protos/perfetto/common/track_event_descriptor.proto ../../../../third_party/perfetto/protos/perfetto/config/chrome/chrome_config.proto ../../../../third_party/perfetto/protos/perfetto/config/chrome/histogram_samples.proto ../../../../third_party/perfetto/protos/perfetto/config/chrome/scenario_config.proto ../../../../third_party/perfetto/protos/perfetto/config/chrome/system_metrics.proto ../../../../third_party/perfetto/protos/perfetto/config/chrome/v8_config.proto ../../../../third_party/perfetto/protos/perfetto/config/data_source_config.proto ../../../../third_party/perfetto/protos/perfetto/config/etw/etw_config.proto ../../../../third_party/perfetto/protos/perfetto/config/interceptor_config.proto ../../../../third_party/perfetto/protos/perfetto/config/stress_test_config.proto ../../../../third_party/perfetto/protos/perfetto/config/test_config.proto ../../../../third_party/perfetto/protos/perfetto/config/trace_config.proto ../../../../third_party/perfetto/protos/perfetto/config/chrome/chrome_config.proto ../../../../third_party/perfetto/protos/perfetto/config/chrome/histogram_samples.proto ../../../../third_party/perfetto/protos/perfetto/config/chrome/scenario_config.proto ../../../../third_party/perfetto/protos/perfetto/config/chrome/system_metrics.proto ../../../../third_party/perfetto/protos/perfetto/config/chrome/v8_config.proto ../../../../third_party/perfetto/protos/perfetto/config/data_source_config.proto ../../../../third_party/perfetto/protos/perfetto/config/etw/etw_config.proto ../../../../third_party/perfetto/protos/perfetto/config/interceptor_config.proto ../../../../third_party/perfetto/protos/perfetto/config/stress_test_config.proto ../../../../third_party/perfetto/protos/perfetto/config/test_config.proto ../../../../third_party/perfetto/protos/perfetto/config/trace_config.proto ../../../../third_party/perfetto/protos/perfetto/config/android/android_game_intervention_list_config.proto ../../../../third_party/perfetto/protos/perfetto/config/android/android_input_event_config.proto ../../../../third_party/perfetto/protos/perfetto/config/android/android_log_config.proto ../../../../third_party/perfetto/protos/perfetto/config/android/android_polled_state_config.proto ../../../../third_party/perfetto/protos/perfetto/config/android/android_sdk_sysprop_guard_config.proto ../../../../third_party/perfetto/protos/perfetto/config/android/android_system_property_config.proto ../../../../third_party/perfetto/protos/perfetto/config/android/kernel_wakelocks_config.proto ../../../../third_party/perfetto/protos/perfetto/config/android/network_trace_config.proto ../../../../third_party/perfetto/protos/perfetto/config/android/packages_list_config.proto ../../../../third_party/perfetto/protos/perfetto/config/android/pixel_modem_config.proto ../../../../third_party/perfetto/protos/perfetto/config/android/protolog_config.proto ../../../../third_party/perfetto/protos/perfetto/config/android/surfaceflinger_layers_config.proto ../../../../third_party/perfetto/protos/perfetto/config/android/surfaceflinger_transactions_config.proto ../../../../third_party/perfetto/protos/perfetto/config/android/windowmanager_config.proto ../../../../third_party/perfetto/protos/perfetto/config/ftrace/ftrace_config.proto ../../../../third_party/perfetto/protos/perfetto/config/gpu/gpu_counter_config.proto ../../../../third_party/perfetto/protos/perfetto/config/gpu/gpu_renderstages_config.proto ../../../../third_party/perfetto/protos/perfetto/config/gpu/vulkan_memory_config.proto ../../../../third_party/perfetto/protos/perfetto/config/inode_file/inode_file_config.proto ../../../../third_party/perfetto/protos/perfetto/config/interceptors/console_config.proto ../../../../third_party/perfetto/protos/perfetto/config/power/android_power_config.proto ../../../../third_party/perfetto/protos/perfetto/config/process_stats/process_stats_config.proto ../../../../third_party/perfetto/protos/perfetto/config/profiling/heapprofd_config.proto ../../../../third_party/perfetto/protos/perfetto/config/profiling/java_hprof_config.proto ../../../../third_party/perfetto/protos/perfetto/config/profiling/perf_event_config.proto ../../../../third_party/perfetto/protos/perfetto/config/statsd/atom_ids.proto ../../../../third_party/perfetto/protos/perfetto/config/statsd/statsd_tracing_config.proto ../../../../third_party/perfetto/protos/perfetto/config/sys_stats/sys_stats_config.proto ../../../../third_party/perfetto/protos/perfetto/config/system_info/system_info.proto ../../../../third_party/perfetto/protos/perfetto/config/track_event/track_event_config.proto ../../../../third_party/perfetto/protos/perfetto/common/android_energy_consumer_descriptor.proto ../../../../third_party/perfetto/protos/perfetto/common/android_log_constants.proto ../../../../third_party/perfetto/protos/perfetto/common/builtin_clock.proto ../../../../third_party/perfetto/protos/perfetto/common/commit_data_request.proto ../../../../third_party/perfetto/protos/perfetto/common/data_source_descriptor.proto ../../../../third_party/perfetto/protos/perfetto/common/descriptor.proto ../../../../third_party/perfetto/protos/perfetto/common/ftrace_descriptor.proto ../../../../third_party/perfetto/protos/perfetto/common/gpu_counter_descriptor.proto ../../../../third_party/perfetto/protos/perfetto/common/interceptor_descriptor.proto ../../../../third_party/perfetto/protos/perfetto/common/observable_events.proto ../../../../third_party/perfetto/protos/perfetto/common/perf_events.proto ../../../../third_party/perfetto/protos/perfetto/common/protolog_common.proto ../../../../third_party/perfetto/protos/perfetto/common/sys_stats_counters.proto ../../../../third_party/perfetto/protos/perfetto/common/trace_stats.proto ../../../../third_party/perfetto/protos/perfetto/common/tracing_service_capabilities.proto ../../../../third_party/perfetto/protos/perfetto/common/tracing_service_state.proto ../../../../third_party/perfetto/protos/perfetto/common/track_event_descriptor.proto ../../../../third_party/perfetto/protos/perfetto/config/track_event/track_event_config.proto ../../../../third_party/perfetto/protos/perfetto/trace/clock_snapshot.proto ../../../../third_party/perfetto/protos/perfetto/trace/trace_uuid.proto ../../../../third_party/perfetto/protos/perfetto/trace/trigger.proto ../../../../third_party/perfetto/protos/perfetto/trace/system_info.proto ../../../../third_party/perfetto/protos/perfetto/trace/clock_snapshot.proto ../../../../third_party/perfetto/protos/perfetto/trace/trace_uuid.proto ../../../../third_party/perfetto/protos/perfetto/trace/trigger.proto ../../../../third_party/perfetto/protos/perfetto/trace/system_info.proto ../../../../third_party/perfetto/protos/perfetto/trace/remote_clock_sync.proto ../../../../third_party/perfetto/protos/perfetto/trace/trace_packet_defaults.proto ../../../../third_party/perfetto/protos/perfetto/trace/test_event.proto ../../../../third_party/perfetto/protos/perfetto/trace/test_extensions.proto ../../../../third_party/perfetto/protos/perfetto/trace/trace_packet.proto ../../../../third_party/perfetto/protos/perfetto/trace/trace.proto ../../../../third_party/perfetto/protos/perfetto/trace/extension_descriptor.proto ../../../../third_party/perfetto/protos/perfetto/trace/memory_graph.proto ../../../../third_party/perfetto/protos/perfetto/trace/ui_state.proto ../../../../third_party/perfetto/protos/perfetto/trace/remote_clock_sync.proto ../../../../third_party/perfetto/protos/perfetto/trace/trace_packet_defaults.proto ../../../../third_party/perfetto/protos/perfetto/trace/test_event.proto ../../../../third_party/perfetto/protos/perfetto/trace/test_extensions.proto ../../../../third_party/perfetto/protos/perfetto/trace/trace_packet.proto ../../../../third_party/perfetto/protos/perfetto/trace/trace.proto ../../../../third_party/perfetto/protos/perfetto/trace/extension_descriptor.proto ../../../../third_party/perfetto/protos/perfetto/trace/memory_graph.proto ../../../../third_party/perfetto/protos/perfetto/trace/ui_state.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_active_processes.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_application_state_info.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_compositor_scheduler_state.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_content_settings_event_info.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_frame_reporter.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_histogram_sample.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_keyed_service.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_latency_info.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_legacy_ipc.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_message_pump.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_mojo_event_info.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_process_descriptor.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_renderer_scheduler_state.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_thread_descriptor.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_user_event.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_window_handle_event_info.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/counter_descriptor.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/debug_annotation.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/log_message.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/process_descriptor.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/range_of_interest.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/screenshot.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/source_location.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/task_execution.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/thread_descriptor.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/track_descriptor.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/track_event.proto ../../../../third_party/perfetto/protos/perfetto/trace/android/android_game_intervention_list.proto ../../../../third_party/perfetto/protos/perfetto/trace/android/android_log.proto ../../../../third_party/perfetto/protos/perfetto/trace/android/android_system_property.proto ../../../../third_party/perfetto/protos/perfetto/trace/android/bluetooth_trace.proto ../../../../third_party/perfetto/protos/perfetto/trace/android/camera_event.proto ../../../../third_party/perfetto/protos/perfetto/trace/android/frame_timeline_event.proto ../../../../third_party/perfetto/protos/perfetto/trace/android/gpu_mem_event.proto ../../../../third_party/perfetto/protos/perfetto/trace/android/graphics_frame_event.proto ../../../../third_party/perfetto/protos/perfetto/trace/android/initial_display_state.proto ../../../../third_party/perfetto/protos/perfetto/trace/android/kernel_wakelock_data.proto ../../../../third_party/perfetto/protos/perfetto/trace/android/network_trace.proto ../../../../third_party/perfetto/protos/perfetto/trace/android/packages_list.proto ../../../../third_party/perfetto/protos/perfetto/trace/android/pixel_modem_events.proto ../../../../third_party/perfetto/protos/perfetto/trace/android/protolog.proto ../../../../third_party/perfetto/protos/perfetto/trace/android/shell_transition.proto ../../../../third_party/perfetto/protos/perfetto/trace/android/surfaceflinger_common.proto ../../../../third_party/perfetto/protos/perfetto/trace/android/surfaceflinger_layers.proto ../../../../third_party/perfetto/protos/perfetto/trace/android/surfaceflinger_transactions.proto ../../../../third_party/perfetto/protos/perfetto/trace/android/graphics/point.proto ../../../../third_party/perfetto/protos/perfetto/trace/android/graphics/rect.proto ../../../../third_party/perfetto/protos/perfetto/trace/android/winscope_extensions.proto ../../../../third_party/perfetto/protos/perfetto/trace/chrome/chrome_benchmark_metadata.proto ../../../../third_party/perfetto/protos/perfetto/trace/chrome/chrome_metadata.proto ../../../../third_party/perfetto/protos/perfetto/trace/chrome/chrome_trace_event.proto ../../../../third_party/perfetto/protos/perfetto/trace/chrome/chrome_trigger.proto ../../../../third_party/perfetto/protos/perfetto/trace/chrome/v8.proto ../../../../third_party/perfetto/protos/perfetto/trace/etw/etw.proto ../../../../third_party/perfetto/protos/perfetto/trace/etw/etw_event.proto ../../../../third_party/perfetto/protos/perfetto/trace/etw/etw_event_bundle.proto ../../../../third_party/perfetto/protos/perfetto/trace/filesystem/inode_file_map.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/ftrace_event.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/ftrace_event_bundle.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/ftrace_stats.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/test_bundle_wrapper.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/generic.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/android_fs.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/bcl_exynos.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/binder.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/block.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/cgroup.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/clk.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/cma.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/compaction.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/cpm_trace.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/cpuhp.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/cros_ec.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/dcvsh.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/devfreq.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/dma_fence.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/dmabuf_heap.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/dpu.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/drm.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/ext4.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/f2fs.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/fastrpc.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/fence.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/filemap.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/fs.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/ftrace.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/g2d.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/google_icc_trace.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/google_irm_trace.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/gpu_mem.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/gpu_scheduler.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/hyp.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/i2c.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/ion.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/ipi.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/irq.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/kgsl.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/kmem.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/kvm.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/lowmemorykiller.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/lwis.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/mali.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/mdss.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/mm_event.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/net.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/oom.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/panel.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/perf_trace_counters.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/pixel_mm.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/power.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/printk.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/raw_syscalls.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/regulator.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/rpm.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/samsung.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/sched.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/scm.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/sde.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/signal.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/skb.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/sock.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/sync.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/synthetic.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/systrace.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/task.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/tcp.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/thermal.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/thermal_exynos.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/trusty.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/ufs.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/v4l2.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/virtio_gpu.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/virtio_video.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/vmscan.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/workqueue.proto ../../../../third_party/perfetto/protos/perfetto/trace/gpu/gpu_counter_event.proto ../../../../third_party/perfetto/protos/perfetto/trace/gpu/gpu_log.proto ../../../../third_party/perfetto/protos/perfetto/trace/gpu/gpu_render_stage_event.proto ../../../../third_party/perfetto/protos/perfetto/trace/gpu/vulkan_api_event.proto ../../../../third_party/perfetto/protos/perfetto/trace/gpu/vulkan_memory_event.proto ../../../../third_party/perfetto/protos/perfetto/trace/interned_data/interned_data.proto ../../../../third_party/perfetto/protos/perfetto/trace/profiling/deobfuscation.proto ../../../../third_party/perfetto/protos/perfetto/trace/profiling/heap_graph.proto ../../../../third_party/perfetto/protos/perfetto/trace/profiling/profile_common.proto ../../../../third_party/perfetto/protos/perfetto/trace/profiling/profile_packet.proto ../../../../third_party/perfetto/protos/perfetto/trace/profiling/smaps.proto ../../../../third_party/perfetto/protos/perfetto/trace/perfetto/perfetto_metatrace.proto ../../../../third_party/perfetto/protos/perfetto/trace/perfetto/tracing_service_event.proto ../../../../third_party/perfetto/protos/perfetto/trace/power/android_energy_estimation_breakdown.proto ../../../../third_party/perfetto/protos/perfetto/trace/power/android_entity_state_residency.proto ../../../../third_party/perfetto/protos/perfetto/trace/power/battery_counters.proto ../../../../third_party/perfetto/protos/perfetto/trace/power/power_rails.proto ../../../../third_party/perfetto/protos/perfetto/trace/ps/process_stats.proto ../../../../third_party/perfetto/protos/perfetto/trace/ps/process_tree.proto ../../../../third_party/perfetto/protos/perfetto/trace/statsd/statsd_atom.proto ../../../../third_party/perfetto/protos/perfetto/trace/sys_stats/sys_stats.proto ../../../../third_party/perfetto/protos/perfetto/trace/system_info/cpu_info.proto ../../../../third_party/perfetto/protos/perfetto/trace/translation/translation_table.proto ../../../../third_party/perfetto/protos/perfetto/trace/interned_data/interned_data.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_active_processes.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_application_state_info.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_compositor_scheduler_state.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_content_settings_event_info.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_frame_reporter.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_histogram_sample.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_keyed_service.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_latency_info.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_legacy_ipc.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_message_pump.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_mojo_event_info.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_process_descriptor.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_renderer_scheduler_state.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_thread_descriptor.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_user_event.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_window_handle_event_info.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/counter_descriptor.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/debug_annotation.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/log_message.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/process_descriptor.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/range_of_interest.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/screenshot.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/source_location.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/task_execution.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/thread_descriptor.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/track_descriptor.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/track_event.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_active_processes.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_application_state_info.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_compositor_scheduler_state.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_content_settings_event_info.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_frame_reporter.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_histogram_sample.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_keyed_service.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_latency_info.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_legacy_ipc.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_message_pump.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_mojo_event_info.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_process_descriptor.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_renderer_scheduler_state.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_thread_descriptor.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_user_event.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_window_handle_event_info.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/counter_descriptor.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/debug_annotation.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/log_message.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/process_descriptor.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/range_of_interest.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/screenshot.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/source_location.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/task_execution.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/thread_descriptor.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/track_descriptor.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/track_event.proto ../../../../third_party/perfetto/protos/perfetto/trace/chrome/chrome_benchmark_metadata.proto ../../../../third_party/perfetto/protos/perfetto/trace/chrome/chrome_metadata.proto ../../../../third_party/perfetto/protos/perfetto/trace/chrome/chrome_trace_event.proto ../../../../third_party/perfetto/protos/perfetto/trace/chrome/chrome_trigger.proto ../../../../third_party/perfetto/protos/perfetto/trace/chrome/v8.proto ../../../../third_party/perfetto/protos/perfetto/trace/etw/etw.proto ../../../../third_party/perfetto/protos/perfetto/trace/etw/etw_event.proto ../../../../third_party/perfetto/protos/perfetto/trace/etw/etw_event_bundle.proto ../../../../third_party/perfetto/protos/perfetto/trace/profiling/deobfuscation.proto ../../../../third_party/perfetto/protos/perfetto/trace/profiling/heap_graph.proto ../../../../third_party/perfetto/protos/perfetto/trace/profiling/profile_common.proto ../../../../third_party/perfetto/protos/perfetto/trace/profiling/profile_packet.proto ../../../../third_party/perfetto/protos/perfetto/trace/profiling/smaps.proto ../../../../third_party/perfetto/protos/perfetto/trace/ps/process_stats.proto ../../../../third_party/perfetto/protos/perfetto/trace/ps/process_tree.proto
+build phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps: phony phony/base/anchor_functions_buildflags phony/base/build_date phony/base/cfi_buildflags phony/base/check_version_internal_action phony/base/clang_profiling_buildflags phony/base/debugging_buildflags phony/base/feature_list_buildflags phony/base/fuzzing_buildflags phony/base/ios_cronet_buildflags phony/base/logging_log_severity_bindgen_logging_log_severity_bindgen_generator_copy phony/base/logging_rust_log_integration_bindgen_logging_rust_log_integration_bindgen_generator_copy phony/base/orderfile_buildflags phony/base/power_monitor_buildflags phony/base/profiler_buildflags phony/base/protected_memory_buildflags phony/base/rust_logger_cxx_generated_gen phony/base/sanitizer_buildflags phony/base/synchronization_buildflags phony/base/tracing_buildflags phony/base/allocator/buildflags phony/base/allocator/partition_allocator/src/partition_alloc/buildflags phony/base/tracing/protos/chrome_track_event_gen phony/base/tracing/protos/chrome_track_event_zero_gen phony/build/blink_buildflags phony/build/branding_buildflags phony/build/chromecast_buildflags phony/build/chromeos_buildflags phony/build/ios_buildflags phony/build/config/compiler/compiler_buildflags phony/build/rust/std/buildflags phony/build/rust/std/empty_sysroot_for_std_build clang_x64_for_rust_host_build_tools/phony/build/rust/std/prebuilt_rustc_copy_to_sysroot phony/build/rust/std/rules/compiler_builtins_compiler_builtins_vunknown_build_script_output phony/build/rust/std/rules/libc_libc_vunknown_build_script_output phony/build/rust/std/rules/object_object_vunknown_build_script_output phony/build/rust/std/rules/std_std_vunknown_build_script_output phony/gpu/config/workaround_list phony/skia/bridge_rust_side_cxx_generated_gen phony/skia/buildflags phony/skia/rust_png_ffi_cxx_generated_gen phony/third_party/dawn/include/dawn/cpp_headers_gen phony/third_party/dawn/include/dawn/headers_gen phony/third_party/dawn/src/dawn/proc_gen phony/third_party/dawn/src/dawn/common/dawn_gpu_info_gen phony/third_party/dawn/src/dawn/common/dawn_version_gen phony/third_party/icu/copy_icudata phony/third_party/perfetto/gn/gen_buildflags phony/third_party/perfetto/protos/perfetto/common/cpp_gen phony/third_party/perfetto/protos/perfetto/common/zero_gen phony/third_party/perfetto/protos/perfetto/config/cpp_gen phony/third_party/perfetto/protos/perfetto/config/zero_gen phony/third_party/perfetto/protos/perfetto/config/android/cpp_gen phony/third_party/perfetto/protos/perfetto/config/android/zero_gen phony/third_party/perfetto/protos/perfetto/config/ftrace/cpp_gen phony/third_party/perfetto/protos/perfetto/config/ftrace/zero_gen phony/third_party/perfetto/protos/perfetto/config/gpu/cpp_gen phony/third_party/perfetto/protos/perfetto/config/gpu/zero_gen phony/third_party/perfetto/protos/perfetto/config/inode_file/cpp_gen phony/third_party/perfetto/protos/perfetto/config/inode_file/zero_gen phony/third_party/perfetto/protos/perfetto/config/interceptors/cpp_gen phony/third_party/perfetto/protos/perfetto/config/interceptors/zero_gen phony/third_party/perfetto/protos/perfetto/config/power/cpp_gen phony/third_party/perfetto/protos/perfetto/config/power/zero_gen phony/third_party/perfetto/protos/perfetto/config/process_stats/cpp_gen phony/third_party/perfetto/protos/perfetto/config/process_stats/zero_gen phony/third_party/perfetto/protos/perfetto/config/profiling/cpp_gen phony/third_party/perfetto/protos/perfetto/config/profiling/zero_gen phony/third_party/perfetto/protos/perfetto/config/statsd/cpp_gen phony/third_party/perfetto/protos/perfetto/config/statsd/zero_gen phony/third_party/perfetto/protos/perfetto/config/sys_stats/cpp_gen phony/third_party/perfetto/protos/perfetto/config/sys_stats/zero_gen phony/third_party/perfetto/protos/perfetto/config/system_info/cpp_gen phony/third_party/perfetto/protos/perfetto/config/system_info/zero_gen phony/third_party/perfetto/protos/perfetto/config/track_event/cpp_gen phony/third_party/perfetto/protos/perfetto/config/track_event/zero_gen phony/third_party/perfetto/protos/perfetto/ipc/cpp_gen phony/third_party/perfetto/protos/perfetto/ipc/ipc_gen phony/third_party/perfetto/protos/perfetto/ipc/wire_protocol_cpp_gen phony/third_party/perfetto/protos/perfetto/perfetto_sql/zero_gen phony/third_party/perfetto/protos/perfetto/trace/minimal_zero_gen phony/third_party/perfetto/protos/perfetto/trace/non_minimal_zero_gen phony/third_party/perfetto/protos/perfetto/trace/android/winscope_common_zero_gen phony/third_party/perfetto/protos/perfetto/trace/android/winscope_regular_zero_gen phony/third_party/perfetto/protos/perfetto/trace/android/zero_gen phony/third_party/perfetto/protos/perfetto/trace/chrome/zero_gen phony/third_party/perfetto/protos/perfetto/trace/etw/zero_gen phony/third_party/perfetto/protos/perfetto/trace/filesystem/zero_gen phony/third_party/perfetto/protos/perfetto/trace/ftrace/zero_gen phony/third_party/perfetto/protos/perfetto/trace/gpu/zero_gen phony/third_party/perfetto/protos/perfetto/trace/interned_data/zero_gen phony/third_party/perfetto/protos/perfetto/trace/perfetto/zero_gen phony/third_party/perfetto/protos/perfetto/trace/power/zero_gen phony/third_party/perfetto/protos/perfetto/trace/profiling/zero_gen phony/third_party/perfetto/protos/perfetto/trace/ps/zero_gen phony/third_party/perfetto/protos/perfetto/trace/statsd/zero_gen phony/third_party/perfetto/protos/perfetto/trace/sys_stats/zero_gen phony/third_party/perfetto/protos/perfetto/trace/system_info/zero_gen phony/third_party/perfetto/protos/perfetto/trace/track_event/cpp_gen phony/third_party/perfetto/protos/perfetto/trace/track_event/zero_gen phony/third_party/perfetto/protos/perfetto/trace/translation/zero_gen phony/third_party/perfetto/protos/perfetto/trace_processor/zero_gen phony/third_party/perfetto/src/trace_processor/importers/proto/gen_cc_android_track_event_descriptor phony/third_party/perfetto/src/trace_processor/importers/proto/gen_cc_chrome_track_event_descriptor phony/third_party/perfetto/src/trace_processor/importers/proto/gen_cc_track_event_descriptor phony/third_party/perfetto/src/trace_processor/tables/tables_python clang_x64_for_rust_host_build_tools/phony/third_party/rust/proc_macro2/v1/proc_macro2_lib_v1_build_script_output clang_x64_for_rust_host_build_tools/phony/third_party/rust/rustversion/v1/rustversion_lib_v1_build_script_output phony/third_party/rust/serde/v1/serde_lib_v1_build_script_output phony/third_party/rust/serde_json_lenient/v0_2/serde_json_lenient_lib_v0_2_build_script_output phony/third_party/rust/serde_json_lenient/v0_2/wrapper/wrapper_cxx_generated_gen phony/ui/base/buildflags phony/v8/generate_bytecode_builtins_list phony/v8/run_gen-regexp-special-case phony/v8/run_torque phony/v8/src/inspector/protocol_generated_sources
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cscript_datawindow.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cscript_datawindow.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cscript_datawindow.cpp
+  source_name_part = cscript_datawindow
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cscript_eventpseudomodel.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cscript_eventpseudomodel.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cscript_eventpseudomodel.cpp
+  source_name_part = cscript_eventpseudomodel
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cscript_hostpseudomodel.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cscript_hostpseudomodel.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cscript_hostpseudomodel.cpp
+  source_name_part = cscript_hostpseudomodel
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cscript_layoutpseudomodel.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cscript_layoutpseudomodel.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cscript_layoutpseudomodel.cpp
+  source_name_part = cscript_layoutpseudomodel
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cscript_logpseudomodel.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cscript_logpseudomodel.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cscript_logpseudomodel.cpp
+  source_name_part = cscript_logpseudomodel
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cscript_signaturepseudomodel.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cscript_signaturepseudomodel.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cscript_signaturepseudomodel.cpp
+  source_name_part = cscript_signaturepseudomodel
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_accessiblecontent.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_accessiblecontent.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_accessiblecontent.cpp
+  source_name_part = cxfa_accessiblecontent
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_acrobat.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_acrobat.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_acrobat.cpp
+  source_name_part = cxfa_acrobat
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_acrobat7.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_acrobat7.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_acrobat7.cpp
+  source_name_part = cxfa_acrobat7
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_adbe_jsconsole.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_adbe_jsconsole.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_adbe_jsconsole.cpp
+  source_name_part = cxfa_adbe_jsconsole
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_adbe_jsdebugger.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_adbe_jsdebugger.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_adbe_jsdebugger.cpp
+  source_name_part = cxfa_adbe_jsdebugger
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_addsilentprint.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_addsilentprint.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_addsilentprint.cpp
+  source_name_part = cxfa_addsilentprint
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_addviewerpreferences.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_addviewerpreferences.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_addviewerpreferences.cpp
+  source_name_part = cxfa_addviewerpreferences
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_adjustdata.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_adjustdata.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_adjustdata.cpp
+  source_name_part = cxfa_adjustdata
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_adobeextensionlevel.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_adobeextensionlevel.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_adobeextensionlevel.cpp
+  source_name_part = cxfa_adobeextensionlevel
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_agent.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_agent.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_agent.cpp
+  source_name_part = cxfa_agent
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_alwaysembed.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_alwaysembed.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_alwaysembed.cpp
+  source_name_part = cxfa_alwaysembed
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_amd.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_amd.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_amd.cpp
+  source_name_part = cxfa_amd
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_appearancefilter.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_appearancefilter.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_appearancefilter.cpp
+  source_name_part = cxfa_appearancefilter
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_arc.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_arc.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_arc.cpp
+  source_name_part = cxfa_arc
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_area.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_area.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_area.cpp
+  source_name_part = cxfa_area
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_arraynodelist.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_arraynodelist.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_arraynodelist.cpp
+  source_name_part = cxfa_arraynodelist
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_assist.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_assist.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_assist.cpp
+  source_name_part = cxfa_assist
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_attachnodelist.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_attachnodelist.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_attachnodelist.cpp
+  source_name_part = cxfa_attachnodelist
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_attributes.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_attributes.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_attributes.cpp
+  source_name_part = cxfa_attributes
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_autosave.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_autosave.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_autosave.cpp
+  source_name_part = cxfa_autosave
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_barcode.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_barcode.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_barcode.cpp
+  source_name_part = cxfa_barcode
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_base.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_base.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_base.cpp
+  source_name_part = cxfa_base
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_batchoutput.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_batchoutput.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_batchoutput.cpp
+  source_name_part = cxfa_batchoutput
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_behavioroverride.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_behavioroverride.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_behavioroverride.cpp
+  source_name_part = cxfa_behavioroverride
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_bind.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_bind.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_bind.cpp
+  source_name_part = cxfa_bind
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_binditems.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_binditems.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_binditems.cpp
+  source_name_part = cxfa_binditems
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_bookend.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_bookend.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_bookend.cpp
+  source_name_part = cxfa_bookend
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_boolean.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_boolean.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_boolean.cpp
+  source_name_part = cxfa_boolean
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_border.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_border.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_border.cpp
+  source_name_part = cxfa_border
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_box.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_box.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_box.cpp
+  source_name_part = cxfa_box
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_break.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_break.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_break.cpp
+  source_name_part = cxfa_break
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_breakafter.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_breakafter.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_breakafter.cpp
+  source_name_part = cxfa_breakafter
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_breakbefore.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_breakbefore.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_breakbefore.cpp
+  source_name_part = cxfa_breakbefore
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_button.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_button.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_button.cpp
+  source_name_part = cxfa_button
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_cache.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_cache.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_cache.cpp
+  source_name_part = cxfa_cache
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_calculate.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_calculate.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_calculate.cpp
+  source_name_part = cxfa_calculate
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_calendarsymbols.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_calendarsymbols.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_calendarsymbols.cpp
+  source_name_part = cxfa_calendarsymbols
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_caption.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_caption.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_caption.cpp
+  source_name_part = cxfa_caption
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_certificate.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_certificate.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_certificate.cpp
+  source_name_part = cxfa_certificate
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_certificates.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_certificates.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_certificates.cpp
+  source_name_part = cxfa_certificates
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_change.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_change.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_change.cpp
+  source_name_part = cxfa_change
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_checkbutton.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_checkbutton.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_checkbutton.cpp
+  source_name_part = cxfa_checkbutton
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_choicelist.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_choicelist.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_choicelist.cpp
+  source_name_part = cxfa_choicelist
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_color.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_color.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_color.cpp
+  source_name_part = cxfa_color
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_comb.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_comb.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_comb.cpp
+  source_name_part = cxfa_comb
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_command.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_command.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_command.cpp
+  source_name_part = cxfa_command
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_common.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_common.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_common.cpp
+  source_name_part = cxfa_common
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_compress.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_compress.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_compress.cpp
+  source_name_part = cxfa_compress
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_compression.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_compression.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_compression.cpp
+  source_name_part = cxfa_compression
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_compresslogicalstructure.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_compresslogicalstructure.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_compresslogicalstructure.cpp
+  source_name_part = cxfa_compresslogicalstructure
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_compressobjectstream.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_compressobjectstream.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_compressobjectstream.cpp
+  source_name_part = cxfa_compressobjectstream
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_config.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_config.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_config.cpp
+  source_name_part = cxfa_config
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_conformance.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_conformance.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_conformance.cpp
+  source_name_part = cxfa_conformance
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_connect.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_connect.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_connect.cpp
+  source_name_part = cxfa_connect
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_connectionset.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_connectionset.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_connectionset.cpp
+  source_name_part = cxfa_connectionset
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_connectstring.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_connectstring.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_connectstring.cpp
+  source_name_part = cxfa_connectstring
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_contentarea.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_contentarea.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_contentarea.cpp
+  source_name_part = cxfa_contentarea
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_contentcopy.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_contentcopy.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_contentcopy.cpp
+  source_name_part = cxfa_contentcopy
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_copies.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_copies.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_copies.cpp
+  source_name_part = cxfa_copies
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_corner.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_corner.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_corner.cpp
+  source_name_part = cxfa_corner
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_creator.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_creator.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_creator.cpp
+  source_name_part = cxfa_creator
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_currencysymbol.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_currencysymbol.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_currencysymbol.cpp
+  source_name_part = cxfa_currencysymbol
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_currencysymbols.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_currencysymbols.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_currencysymbols.cpp
+  source_name_part = cxfa_currencysymbols
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_currentpage.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_currentpage.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_currentpage.cpp
+  source_name_part = cxfa_currentpage
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_data.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_data.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_data.cpp
+  source_name_part = cxfa_data
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_dataexporter.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_dataexporter.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_dataexporter.cpp
+  source_name_part = cxfa_dataexporter
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_datagroup.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_datagroup.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_datagroup.cpp
+  source_name_part = cxfa_datagroup
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_datamodel.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_datamodel.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_datamodel.cpp
+  source_name_part = cxfa_datamodel
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_datavalue.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_datavalue.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_datavalue.cpp
+  source_name_part = cxfa_datavalue
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_date.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_date.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_date.cpp
+  source_name_part = cxfa_date
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_datepattern.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_datepattern.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_datepattern.cpp
+  source_name_part = cxfa_datepattern
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_datepatterns.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_datepatterns.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_datepatterns.cpp
+  source_name_part = cxfa_datepatterns
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_datetime.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_datetime.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_datetime.cpp
+  source_name_part = cxfa_datetime
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_datetimeedit.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_datetimeedit.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_datetimeedit.cpp
+  source_name_part = cxfa_datetimeedit
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_datetimesymbols.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_datetimesymbols.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_datetimesymbols.cpp
+  source_name_part = cxfa_datetimesymbols
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_day.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_day.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_day.cpp
+  source_name_part = cxfa_day
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_daynames.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_daynames.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_daynames.cpp
+  source_name_part = cxfa_daynames
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_debug.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_debug.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_debug.cpp
+  source_name_part = cxfa_debug
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_decimal.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_decimal.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_decimal.cpp
+  source_name_part = cxfa_decimal
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_defaulttypeface.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_defaulttypeface.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_defaulttypeface.cpp
+  source_name_part = cxfa_defaulttypeface
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_defaultui.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_defaultui.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_defaultui.cpp
+  source_name_part = cxfa_defaultui
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_delete.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_delete.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_delete.cpp
+  source_name_part = cxfa_delete
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_delta.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_delta.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_delta.cpp
+  source_name_part = cxfa_delta
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_desc.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_desc.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_desc.cpp
+  source_name_part = cxfa_desc
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_destination.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_destination.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_destination.cpp
+  source_name_part = cxfa_destination
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_digestmethod.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_digestmethod.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_digestmethod.cpp
+  source_name_part = cxfa_digestmethod
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_digestmethods.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_digestmethods.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_digestmethods.cpp
+  source_name_part = cxfa_digestmethods
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_document.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_document.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_document.cpp
+  source_name_part = cxfa_document
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_document_builder.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_document_builder.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_document_builder.cpp
+  source_name_part = cxfa_document_builder
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_documentassembly.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_documentassembly.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_documentassembly.cpp
+  source_name_part = cxfa_documentassembly
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_draw.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_draw.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_draw.cpp
+  source_name_part = cxfa_draw
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_driver.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_driver.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_driver.cpp
+  source_name_part = cxfa_driver
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_dsigdata.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_dsigdata.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_dsigdata.cpp
+  source_name_part = cxfa_dsigdata
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_duplexoption.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_duplexoption.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_duplexoption.cpp
+  source_name_part = cxfa_duplexoption
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_dynamicrender.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_dynamicrender.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_dynamicrender.cpp
+  source_name_part = cxfa_dynamicrender
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_edge.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_edge.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_edge.cpp
+  source_name_part = cxfa_edge
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_effectiveinputpolicy.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_effectiveinputpolicy.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_effectiveinputpolicy.cpp
+  source_name_part = cxfa_effectiveinputpolicy
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_effectiveoutputpolicy.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_effectiveoutputpolicy.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_effectiveoutputpolicy.cpp
+  source_name_part = cxfa_effectiveoutputpolicy
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_embed.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_embed.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_embed.cpp
+  source_name_part = cxfa_embed
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_encoding.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_encoding.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_encoding.cpp
+  source_name_part = cxfa_encoding
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_encodings.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_encodings.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_encodings.cpp
+  source_name_part = cxfa_encodings
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_encrypt.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_encrypt.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_encrypt.cpp
+  source_name_part = cxfa_encrypt
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_encryption.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_encryption.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_encryption.cpp
+  source_name_part = cxfa_encryption
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_encryptionlevel.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_encryptionlevel.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_encryptionlevel.cpp
+  source_name_part = cxfa_encryptionlevel
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_encryptionmethod.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_encryptionmethod.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_encryptionmethod.cpp
+  source_name_part = cxfa_encryptionmethod
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_encryptionmethods.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_encryptionmethods.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_encryptionmethods.cpp
+  source_name_part = cxfa_encryptionmethods
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_enforce.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_enforce.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_enforce.cpp
+  source_name_part = cxfa_enforce
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_equate.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_equate.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_equate.cpp
+  source_name_part = cxfa_equate
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_equaterange.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_equaterange.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_equaterange.cpp
+  source_name_part = cxfa_equaterange
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_era.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_era.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_era.cpp
+  source_name_part = cxfa_era
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_eranames.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_eranames.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_eranames.cpp
+  source_name_part = cxfa_eranames
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_event.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_event.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_event.cpp
+  source_name_part = cxfa_event
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_exclgroup.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_exclgroup.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_exclgroup.cpp
+  source_name_part = cxfa_exclgroup
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_exclude.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_exclude.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_exclude.cpp
+  source_name_part = cxfa_exclude
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_excludens.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_excludens.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_excludens.cpp
+  source_name_part = cxfa_excludens
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_exdata.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_exdata.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_exdata.cpp
+  source_name_part = cxfa_exdata
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_execute.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_execute.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_execute.cpp
+  source_name_part = cxfa_execute
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_exobject.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_exobject.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_exobject.cpp
+  source_name_part = cxfa_exobject
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_extras.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_extras.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_extras.cpp
+  source_name_part = cxfa_extras
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_field.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_field.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_field.cpp
+  source_name_part = cxfa_field
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_fill.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_fill.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_fill.cpp
+  source_name_part = cxfa_fill
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_filter.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_filter.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_filter.cpp
+  source_name_part = cxfa_filter
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_fliplabel.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_fliplabel.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_fliplabel.cpp
+  source_name_part = cxfa_fliplabel
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_float.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_float.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_float.cpp
+  source_name_part = cxfa_float
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_font.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_font.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_font.cpp
+  source_name_part = cxfa_font
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_fontinfo.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_fontinfo.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_fontinfo.cpp
+  source_name_part = cxfa_fontinfo
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_form.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_form.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_form.cpp
+  source_name_part = cxfa_form
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_format.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_format.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_format.cpp
+  source_name_part = cxfa_format
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_formfieldfilling.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_formfieldfilling.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_formfieldfilling.cpp
+  source_name_part = cxfa_formfieldfilling
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_groupparent.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_groupparent.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_groupparent.cpp
+  source_name_part = cxfa_groupparent
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_handler.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_handler.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_handler.cpp
+  source_name_part = cxfa_handler
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_hyphenation.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_hyphenation.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_hyphenation.cpp
+  source_name_part = cxfa_hyphenation
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_ifempty.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_ifempty.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_ifempty.cpp
+  source_name_part = cxfa_ifempty
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_image.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_image.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_image.cpp
+  source_name_part = cxfa_image
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_imageedit.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_imageedit.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_imageedit.cpp
+  source_name_part = cxfa_imageedit
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_includexdpcontent.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_includexdpcontent.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_includexdpcontent.cpp
+  source_name_part = cxfa_includexdpcontent
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_incrementalload.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_incrementalload.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_incrementalload.cpp
+  source_name_part = cxfa_incrementalload
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_incrementalmerge.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_incrementalmerge.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_incrementalmerge.cpp
+  source_name_part = cxfa_incrementalmerge
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_insert.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_insert.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_insert.cpp
+  source_name_part = cxfa_insert
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_instancemanager.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_instancemanager.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_instancemanager.cpp
+  source_name_part = cxfa_instancemanager
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_integer.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_integer.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_integer.cpp
+  source_name_part = cxfa_integer
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_interactive.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_interactive.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_interactive.cpp
+  source_name_part = cxfa_interactive
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_issuers.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_issuers.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_issuers.cpp
+  source_name_part = cxfa_issuers
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_items.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_items.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_items.cpp
+  source_name_part = cxfa_items
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_jog.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_jog.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_jog.cpp
+  source_name_part = cxfa_jog
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_keep.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_keep.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_keep.cpp
+  source_name_part = cxfa_keep
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_keyusage.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_keyusage.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_keyusage.cpp
+  source_name_part = cxfa_keyusage
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_labelprinter.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_labelprinter.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_labelprinter.cpp
+  source_name_part = cxfa_labelprinter
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_layout.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_layout.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_layout.cpp
+  source_name_part = cxfa_layout
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_level.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_level.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_level.cpp
+  source_name_part = cxfa_level
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_line.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_line.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_line.cpp
+  source_name_part = cxfa_line
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_linear.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_linear.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_linear.cpp
+  source_name_part = cxfa_linear
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_linearized.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_linearized.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_linearized.cpp
+  source_name_part = cxfa_linearized
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_list.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_list.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_list.cpp
+  source_name_part = cxfa_list
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_locale.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_locale.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_locale.cpp
+  source_name_part = cxfa_locale
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_localemgr.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_localemgr.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_localemgr.cpp
+  source_name_part = cxfa_localemgr
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_localeset.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_localeset.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_localeset.cpp
+  source_name_part = cxfa_localeset
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_localevalue.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_localevalue.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_localevalue.cpp
+  source_name_part = cxfa_localevalue
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_lockdocument.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_lockdocument.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_lockdocument.cpp
+  source_name_part = cxfa_lockdocument
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_log.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_log.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_log.cpp
+  source_name_part = cxfa_log
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_manifest.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_manifest.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_manifest.cpp
+  source_name_part = cxfa_manifest
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_map.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_map.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_map.cpp
+  source_name_part = cxfa_map
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_margin.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_margin.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_margin.cpp
+  source_name_part = cxfa_margin
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_mdp.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_mdp.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_mdp.cpp
+  source_name_part = cxfa_mdp
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_measurement.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_measurement.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_measurement.cpp
+  source_name_part = cxfa_measurement
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_medium.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_medium.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_medium.cpp
+  source_name_part = cxfa_medium
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_mediuminfo.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_mediuminfo.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_mediuminfo.cpp
+  source_name_part = cxfa_mediuminfo
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_meridiem.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_meridiem.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_meridiem.cpp
+  source_name_part = cxfa_meridiem
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_meridiemnames.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_meridiemnames.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_meridiemnames.cpp
+  source_name_part = cxfa_meridiemnames
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_message.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_message.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_message.cpp
+  source_name_part = cxfa_message
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_messaging.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_messaging.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_messaging.cpp
+  source_name_part = cxfa_messaging
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_mode.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_mode.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_mode.cpp
+  source_name_part = cxfa_mode
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_modifyannots.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_modifyannots.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_modifyannots.cpp
+  source_name_part = cxfa_modifyannots
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_month.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_month.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_month.cpp
+  source_name_part = cxfa_month
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_monthnames.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_monthnames.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_monthnames.cpp
+  source_name_part = cxfa_monthnames
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_msgid.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_msgid.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_msgid.cpp
+  source_name_part = cxfa_msgid
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_nameattr.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_nameattr.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_nameattr.cpp
+  source_name_part = cxfa_nameattr
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_neverembed.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_neverembed.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_neverembed.cpp
+  source_name_part = cxfa_neverembed
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_node.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_node.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_node.cpp
+  source_name_part = cxfa_node
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_nodelocale.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_nodelocale.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_nodelocale.cpp
+  source_name_part = cxfa_nodelocale
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_nodeowner.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_nodeowner.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_nodeowner.cpp
+  source_name_part = cxfa_nodeowner
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_numberofcopies.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_numberofcopies.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_numberofcopies.cpp
+  source_name_part = cxfa_numberofcopies
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_numberpattern.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_numberpattern.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_numberpattern.cpp
+  source_name_part = cxfa_numberpattern
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_numberpatterns.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_numberpatterns.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_numberpatterns.cpp
+  source_name_part = cxfa_numberpatterns
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_numbersymbol.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_numbersymbol.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_numbersymbol.cpp
+  source_name_part = cxfa_numbersymbol
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_numbersymbols.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_numbersymbols.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_numbersymbols.cpp
+  source_name_part = cxfa_numbersymbols
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_numericedit.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_numericedit.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_numericedit.cpp
+  source_name_part = cxfa_numericedit
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_object.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_object.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_object.cpp
+  source_name_part = cxfa_object
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_occur.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_occur.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_occur.cpp
+  source_name_part = cxfa_occur
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_oid.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_oid.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_oid.cpp
+  source_name_part = cxfa_oid
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_oids.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_oids.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_oids.cpp
+  source_name_part = cxfa_oids
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_openaction.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_openaction.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_openaction.cpp
+  source_name_part = cxfa_openaction
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_operation.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_operation.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_operation.cpp
+  source_name_part = cxfa_operation
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_output.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_output.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_output.cpp
+  source_name_part = cxfa_output
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_outputbin.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_outputbin.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_outputbin.cpp
+  source_name_part = cxfa_outputbin
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_outputxsl.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_outputxsl.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_outputxsl.cpp
+  source_name_part = cxfa_outputxsl
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_overflow.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_overflow.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_overflow.cpp
+  source_name_part = cxfa_overflow
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_overprint.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_overprint.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_overprint.cpp
+  source_name_part = cxfa_overprint
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_packet.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_packet.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_packet.cpp
+  source_name_part = cxfa_packet
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_packets.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_packets.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_packets.cpp
+  source_name_part = cxfa_packets
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_pagearea.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_pagearea.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_pagearea.cpp
+  source_name_part = cxfa_pagearea
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_pageoffset.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_pageoffset.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_pageoffset.cpp
+  source_name_part = cxfa_pageoffset
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_pagerange.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_pagerange.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_pagerange.cpp
+  source_name_part = cxfa_pagerange
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_pageset.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_pageset.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_pageset.cpp
+  source_name_part = cxfa_pageset
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_pagination.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_pagination.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_pagination.cpp
+  source_name_part = cxfa_pagination
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_paginationoverride.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_paginationoverride.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_paginationoverride.cpp
+  source_name_part = cxfa_paginationoverride
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_para.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_para.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_para.cpp
+  source_name_part = cxfa_para
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_part.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_part.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_part.cpp
+  source_name_part = cxfa_part
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_password.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_password.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_password.cpp
+  source_name_part = cxfa_password
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_passwordedit.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_passwordedit.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_passwordedit.cpp
+  source_name_part = cxfa_passwordedit
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_pattern.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_pattern.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_pattern.cpp
+  source_name_part = cxfa_pattern
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_pcl.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_pcl.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_pcl.cpp
+  source_name_part = cxfa_pcl
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_pdf.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_pdf.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_pdf.cpp
+  source_name_part = cxfa_pdf
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_pdfa.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_pdfa.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_pdfa.cpp
+  source_name_part = cxfa_pdfa
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_permissions.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_permissions.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_permissions.cpp
+  source_name_part = cxfa_permissions
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_picktraybypdfsize.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_picktraybypdfsize.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_picktraybypdfsize.cpp
+  source_name_part = cxfa_picktraybypdfsize
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_picture.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_picture.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_picture.cpp
+  source_name_part = cxfa_picture
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_plaintextmetadata.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_plaintextmetadata.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_plaintextmetadata.cpp
+  source_name_part = cxfa_plaintextmetadata
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_presence.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_presence.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_presence.cpp
+  source_name_part = cxfa_presence
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_present.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_present.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_present.cpp
+  source_name_part = cxfa_present
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_print.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_print.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_print.cpp
+  source_name_part = cxfa_print
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_printername.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_printername.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_printername.cpp
+  source_name_part = cxfa_printername
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_printhighquality.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_printhighquality.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_printhighquality.cpp
+  source_name_part = cxfa_printhighquality
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_printscaling.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_printscaling.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_printscaling.cpp
+  source_name_part = cxfa_printscaling
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_producer.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_producer.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_producer.cpp
+  source_name_part = cxfa_producer
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_proto.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_proto.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_proto.cpp
+  source_name_part = cxfa_proto
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_ps.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_ps.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_ps.cpp
+  source_name_part = cxfa_ps
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_psmap.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_psmap.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_psmap.cpp
+  source_name_part = cxfa_psmap
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_query.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_query.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_query.cpp
+  source_name_part = cxfa_query
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_radial.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_radial.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_radial.cpp
+  source_name_part = cxfa_radial
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_range.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_range.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_range.cpp
+  source_name_part = cxfa_range
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_reason.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_reason.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_reason.cpp
+  source_name_part = cxfa_reason
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_reasons.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_reasons.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_reasons.cpp
+  source_name_part = cxfa_reasons
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_record.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_record.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_record.cpp
+  source_name_part = cxfa_record
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_recordset.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_recordset.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_recordset.cpp
+  source_name_part = cxfa_recordset
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_rectangle.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_rectangle.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_rectangle.cpp
+  source_name_part = cxfa_rectangle
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_ref.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_ref.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_ref.cpp
+  source_name_part = cxfa_ref
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_relevant.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_relevant.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_relevant.cpp
+  source_name_part = cxfa_relevant
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_rename.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_rename.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_rename.cpp
+  source_name_part = cxfa_rename
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_renderpolicy.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_renderpolicy.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_renderpolicy.cpp
+  source_name_part = cxfa_renderpolicy
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_rootelement.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_rootelement.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_rootelement.cpp
+  source_name_part = cxfa_rootelement
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_runscripts.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_runscripts.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_runscripts.cpp
+  source_name_part = cxfa_runscripts
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_script.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_script.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_script.cpp
+  source_name_part = cxfa_script
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_scriptmodel.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_scriptmodel.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_scriptmodel.cpp
+  source_name_part = cxfa_scriptmodel
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_select.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_select.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_select.cpp
+  source_name_part = cxfa_select
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_setproperty.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_setproperty.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_setproperty.cpp
+  source_name_part = cxfa_setproperty
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_severity.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_severity.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_severity.cpp
+  source_name_part = cxfa_severity
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_sharptext.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_sharptext.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_sharptext.cpp
+  source_name_part = cxfa_sharptext
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_sharpxhtml.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_sharpxhtml.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_sharpxhtml.cpp
+  source_name_part = cxfa_sharpxhtml
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_sharpxml.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_sharpxml.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_sharpxml.cpp
+  source_name_part = cxfa_sharpxml
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_signature.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_signature.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_signature.cpp
+  source_name_part = cxfa_signature
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_signatureproperties.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_signatureproperties.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_signatureproperties.cpp
+  source_name_part = cxfa_signatureproperties
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_signdata.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_signdata.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_signdata.cpp
+  source_name_part = cxfa_signdata
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_signing.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_signing.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_signing.cpp
+  source_name_part = cxfa_signing
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_silentprint.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_silentprint.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_silentprint.cpp
+  source_name_part = cxfa_silentprint
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_soapaction.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_soapaction.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_soapaction.cpp
+  source_name_part = cxfa_soapaction
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_soapaddress.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_soapaddress.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_soapaddress.cpp
+  source_name_part = cxfa_soapaddress
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_solid.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_solid.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_solid.cpp
+  source_name_part = cxfa_solid
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_source.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_source.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_source.cpp
+  source_name_part = cxfa_source
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_sourceset.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_sourceset.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_sourceset.cpp
+  source_name_part = cxfa_sourceset
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_speak.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_speak.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_speak.cpp
+  source_name_part = cxfa_speak
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_staple.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_staple.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_staple.cpp
+  source_name_part = cxfa_staple
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_startnode.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_startnode.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_startnode.cpp
+  source_name_part = cxfa_startnode
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_startpage.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_startpage.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_startpage.cpp
+  source_name_part = cxfa_startpage
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_stipple.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_stipple.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_stipple.cpp
+  source_name_part = cxfa_stipple
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_stroke.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_stroke.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_stroke.cpp
+  source_name_part = cxfa_stroke
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_subform.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_subform.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_subform.cpp
+  source_name_part = cxfa_subform
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_subformset.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_subformset.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_subformset.cpp
+  source_name_part = cxfa_subformset
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_subjectdn.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_subjectdn.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_subjectdn.cpp
+  source_name_part = cxfa_subjectdn
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_subjectdns.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_subjectdns.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_subjectdns.cpp
+  source_name_part = cxfa_subjectdns
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_submit.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_submit.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_submit.cpp
+  source_name_part = cxfa_submit
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_submitformat.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_submitformat.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_submitformat.cpp
+  source_name_part = cxfa_submitformat
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_submiturl.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_submiturl.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_submiturl.cpp
+  source_name_part = cxfa_submiturl
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_subsetbelow.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_subsetbelow.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_subsetbelow.cpp
+  source_name_part = cxfa_subsetbelow
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_suppressbanner.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_suppressbanner.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_suppressbanner.cpp
+  source_name_part = cxfa_suppressbanner
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_tagged.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_tagged.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_tagged.cpp
+  source_name_part = cxfa_tagged
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_template.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_template.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_template.cpp
+  source_name_part = cxfa_template
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_templatecache.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_templatecache.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_templatecache.cpp
+  source_name_part = cxfa_templatecache
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_text.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_text.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_text.cpp
+  source_name_part = cxfa_text
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_textedit.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_textedit.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_textedit.cpp
+  source_name_part = cxfa_textedit
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_thisproxy.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_thisproxy.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_thisproxy.cpp
+  source_name_part = cxfa_thisproxy
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_threshold.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_threshold.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_threshold.cpp
+  source_name_part = cxfa_threshold
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_time.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_time.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_time.cpp
+  source_name_part = cxfa_time
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_timepattern.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_timepattern.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_timepattern.cpp
+  source_name_part = cxfa_timepattern
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_timepatterns.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_timepatterns.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_timepatterns.cpp
+  source_name_part = cxfa_timepatterns
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_timestamp.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_timestamp.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_timestamp.cpp
+  source_name_part = cxfa_timestamp
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_timezoneprovider.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_timezoneprovider.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_timezoneprovider.cpp
+  source_name_part = cxfa_timezoneprovider
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_to.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_to.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_to.cpp
+  source_name_part = cxfa_to
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_tooltip.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_tooltip.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_tooltip.cpp
+  source_name_part = cxfa_tooltip
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_trace.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_trace.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_trace.cpp
+  source_name_part = cxfa_trace
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_transform.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_transform.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_transform.cpp
+  source_name_part = cxfa_transform
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_traversal.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_traversal.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_traversal.cpp
+  source_name_part = cxfa_traversal
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_traverse.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_traverse.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_traverse.cpp
+  source_name_part = cxfa_traverse
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_treelist.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_treelist.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_treelist.cpp
+  source_name_part = cxfa_treelist
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_type.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_type.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_type.cpp
+  source_name_part = cxfa_type
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_typeface.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_typeface.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_typeface.cpp
+  source_name_part = cxfa_typeface
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_typefaces.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_typefaces.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_typefaces.cpp
+  source_name_part = cxfa_typefaces
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_ui.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_ui.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_ui.cpp
+  source_name_part = cxfa_ui
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_update.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_update.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_update.cpp
+  source_name_part = cxfa_update
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_uri.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_uri.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_uri.cpp
+  source_name_part = cxfa_uri
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_user.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_user.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_user.cpp
+  source_name_part = cxfa_user
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_validate.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_validate.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_validate.cpp
+  source_name_part = cxfa_validate
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_validateapprovalsignatures.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_validateapprovalsignatures.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_validateapprovalsignatures.cpp
+  source_name_part = cxfa_validateapprovalsignatures
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_validationmessaging.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_validationmessaging.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_validationmessaging.cpp
+  source_name_part = cxfa_validationmessaging
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_value.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_value.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_value.cpp
+  source_name_part = cxfa_value
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_variables.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_variables.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_variables.cpp
+  source_name_part = cxfa_variables
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_version.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_version.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_version.cpp
+  source_name_part = cxfa_version
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_versioncontrol.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_versioncontrol.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_versioncontrol.cpp
+  source_name_part = cxfa_versioncontrol
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_viewerpreferences.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_viewerpreferences.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_viewerpreferences.cpp
+  source_name_part = cxfa_viewerpreferences
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_webclient.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_webclient.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_webclient.cpp
+  source_name_part = cxfa_webclient
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_whitespace.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_whitespace.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_whitespace.cpp
+  source_name_part = cxfa_whitespace
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_window.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_window.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_window.cpp
+  source_name_part = cxfa_window
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_wsdladdress.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_wsdladdress.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_wsdladdress.cpp
+  source_name_part = cxfa_wsdladdress
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_wsdlconnection.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_wsdlconnection.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_wsdlconnection.cpp
+  source_name_part = cxfa_wsdlconnection
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_xdc.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_xdc.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_xdc.cpp
+  source_name_part = cxfa_xdc
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_xdp.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_xdp.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_xdp.cpp
+  source_name_part = cxfa_xdp
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_xfa.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_xfa.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_xfa.cpp
+  source_name_part = cxfa_xfa
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_xmlconnection.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_xmlconnection.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_xmlconnection.cpp
+  source_name_part = cxfa_xmlconnection
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_xmllocale.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_xmllocale.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_xmllocale.cpp
+  source_name_part = cxfa_xmllocale
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_xsdconnection.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_xsdconnection.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_xsdconnection.cpp
+  source_name_part = cxfa_xsdconnection
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_xsl.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_xsl.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_xsl.cpp
+  source_name_part = cxfa_xsl
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_zpl.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/cxfa_zpl.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = cxfa_zpl.cpp
+  source_name_part = cxfa_zpl
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/xfa_basic_data.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/xfa_basic_data.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = xfa_basic_data.cpp
+  source_name_part = xfa_basic_data
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/xfa_document_datamerger_imp.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/xfa_document_datamerger_imp.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = xfa_document_datamerger_imp.cpp
+  source_name_part = xfa_document_datamerger_imp
+build obj/third_party/pdfium/xfa/fxfa/parser/parser/xfa_utils.o: cxx ../../../../third_party/pdfium/xfa/fxfa/parser/xfa_utils.cpp | phony/third_party/pdfium/xfa/fxfa/parser/parser.inputs || phony/third_party/pdfium/xfa/fxfa/parser/parser.inputdeps
+  source_file_part = xfa_utils.cpp
+  source_name_part = xfa_utils
+
+build phony/third_party/pdfium/xfa/fxfa/parser/parser: phony obj/third_party/pdfium/xfa/fxfa/parser/parser/cscript_datawindow.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cscript_eventpseudomodel.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cscript_hostpseudomodel.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cscript_layoutpseudomodel.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cscript_logpseudomodel.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cscript_signaturepseudomodel.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_accessiblecontent.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_acrobat.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_acrobat7.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_adbe_jsconsole.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_adbe_jsdebugger.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_addsilentprint.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_addviewerpreferences.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_adjustdata.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_adobeextensionlevel.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_agent.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_alwaysembed.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_amd.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_appearancefilter.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_arc.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_area.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_arraynodelist.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_assist.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_attachnodelist.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_attributes.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_autosave.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_barcode.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_base.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_batchoutput.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_behavioroverride.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_bind.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_binditems.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_bookend.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_boolean.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_border.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_box.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_break.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_breakafter.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_breakbefore.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_button.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_cache.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_calculate.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_calendarsymbols.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_caption.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_certificate.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_certificates.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_change.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_checkbutton.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_choicelist.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_color.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_comb.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_command.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_common.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_compress.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_compression.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_compresslogicalstructure.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_compressobjectstream.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_config.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_conformance.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_connect.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_connectionset.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_connectstring.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_contentarea.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_contentcopy.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_copies.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_corner.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_creator.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_currencysymbol.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_currencysymbols.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_currentpage.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_data.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_dataexporter.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_datagroup.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_datamodel.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_datavalue.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_date.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_datepattern.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_datepatterns.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_datetime.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_datetimeedit.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_datetimesymbols.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_day.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_daynames.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_debug.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_decimal.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_defaulttypeface.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_defaultui.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_delete.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_delta.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_desc.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_destination.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_digestmethod.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_digestmethods.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_document.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_document_builder.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_documentassembly.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_draw.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_driver.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_dsigdata.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_duplexoption.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_dynamicrender.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_edge.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_effectiveinputpolicy.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_effectiveoutputpolicy.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_embed.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_encoding.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_encodings.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_encrypt.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_encryption.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_encryptionlevel.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_encryptionmethod.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_encryptionmethods.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_enforce.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_equate.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_equaterange.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_era.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_eranames.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_event.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_exclgroup.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_exclude.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_excludens.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_exdata.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_execute.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_exobject.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_extras.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_field.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_fill.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_filter.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_fliplabel.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_float.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_font.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_fontinfo.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_form.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_format.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_formfieldfilling.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_groupparent.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_handler.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_hyphenation.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_ifempty.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_image.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_imageedit.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_includexdpcontent.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_incrementalload.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_incrementalmerge.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_insert.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_instancemanager.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_integer.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_interactive.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_issuers.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_items.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_jog.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_keep.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_keyusage.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_labelprinter.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_layout.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_level.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_line.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_linear.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_linearized.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_list.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_locale.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_localemgr.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_localeset.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_localevalue.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_lockdocument.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_log.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_manifest.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_map.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_margin.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_mdp.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_measurement.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_medium.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_mediuminfo.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_meridiem.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_meridiemnames.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_message.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_messaging.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_mode.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_modifyannots.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_month.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_monthnames.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_msgid.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_nameattr.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_neverembed.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_node.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_nodelocale.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_nodeowner.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_numberofcopies.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_numberpattern.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_numberpatterns.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_numbersymbol.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_numbersymbols.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_numericedit.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_object.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_occur.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_oid.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_oids.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_openaction.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_operation.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_output.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_outputbin.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_outputxsl.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_overflow.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_overprint.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_packet.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_packets.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_pagearea.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_pageoffset.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_pagerange.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_pageset.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_pagination.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_paginationoverride.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_para.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_part.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_password.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_passwordedit.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_pattern.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_pcl.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_pdf.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_pdfa.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_permissions.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_picktraybypdfsize.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_picture.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_plaintextmetadata.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_presence.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_present.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_print.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_printername.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_printhighquality.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_printscaling.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_producer.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_proto.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_ps.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_psmap.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_query.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_radial.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_range.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_reason.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_reasons.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_record.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_recordset.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_rectangle.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_ref.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_relevant.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_rename.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_renderpolicy.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_rootelement.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_runscripts.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_script.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_scriptmodel.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_select.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_setproperty.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_severity.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_sharptext.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_sharpxhtml.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_sharpxml.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_signature.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_signatureproperties.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_signdata.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_signing.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_silentprint.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_soapaction.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_soapaddress.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_solid.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_source.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_sourceset.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_speak.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_staple.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_startnode.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_startpage.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_stipple.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_stroke.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_subform.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_subformset.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_subjectdn.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_subjectdns.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_submit.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_submitformat.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_submiturl.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_subsetbelow.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_suppressbanner.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_tagged.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_template.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_templatecache.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_text.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_textedit.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_thisproxy.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_threshold.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_time.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_timepattern.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_timepatterns.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_timestamp.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_timezoneprovider.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_to.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_tooltip.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_trace.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_transform.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_traversal.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_traverse.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_treelist.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_type.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_typeface.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_typefaces.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_ui.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_update.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_uri.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_user.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_validate.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_validateapprovalsignatures.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_validationmessaging.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_value.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_variables.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_version.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_versioncontrol.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_viewerpreferences.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_webclient.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_whitespace.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_window.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_wsdladdress.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_wsdlconnection.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_xdc.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_xdp.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_xfa.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_xmlconnection.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_xmllocale.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_xsdconnection.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_xsl.o obj/third_party/pdfium/xfa/fxfa/parser/parser/cxfa_zpl.o obj/third_party/pdfium/xfa/fxfa/parser/parser/xfa_basic_data.o obj/third_party/pdfium/xfa/fxfa/parser/parser/xfa_document_datamerger_imp.o obj/third_party/pdfium/xfa/fxfa/parser/parser/xfa_utils.o || phony/third_party/pdfium/core/fxcodec/fxcodec phony/third_party/pdfium/core/fxcrt/fxcrt phony/third_party/pdfium/core/fxge/fxge phony/third_party/pdfium/fxjs/fxjs phony/third_party/pdfium/fxjs/gc phony/third_party/pdfium/xfa/fde/fde phony/third_party/pdfium/xfa/fgas/crt/crt phony/third_party/pdfium/xfa/fgas/font/font phony/third_party/pdfium/xfa/fgas/graphics/graphics ./libthird_party_freetype_harfbuzz.so.TOC ./libthird_party_abseil-cpp_absl.so.TOC ./libicuuc.so.TOC phony/base/allocator/partition_allocator/src/partition_alloc/partition_alloc_buildflags ./libbase_allocator_partition_allocator_src_partition_alloc_raw_ptr.so.TOC ./libbase_allocator_partition_allocator_src_partition_alloc_allocator_base.so.TOC ./libbase_allocator_partition_allocator_src_partition_alloc_allocator_core.so.TOC ./libbase_allocator_partition_allocator_src_partition_alloc_allocator_shim.so.TOC phony/third_party/pdfium/third_party/fx_lcms2 phony/third_party/pdfium/third_party/fx_libopenjpeg ./libchrome_zlib.so.TOC ./libskia.so.TOC ./libdawn_proc.so.TOC phony/third_party/pdfium/third_party/fx_agg obj/third_party/libjpeg_turbo/libjpeg.a obj/third_party/libjpeg_turbo/libjpeg12.a obj/third_party/libjpeg_turbo/libjpeg16.a obj/third_party/libjpeg_turbo/libsimd.a obj/third_party/libjpeg_turbo/libsimd_asm.a phony/third_party/libpng/libpng_sources phony/third_party/pdfium/third_party/fx_tiff ./libv8.so.TOC ./libv8_libbase.so.TOC ./libv8_libplatform.so.TOC ./libthird_party_perfetto_libperfetto.so.TOC ./libthird_party_icu_icui18n.so.TOC phony/third_party/pdfium/constants/constants phony/third_party/pdfium/core/fdrm/fdrm phony/third_party/pdfium/core/fpdfapi/page/page phony/third_party/pdfium/core/fpdfapi/parser/parser phony/third_party/pdfium/core/fpdfapi/edit/contentstream_write_utils phony/third_party/pdfium/core/fpdfapi/font/font phony/third_party/pdfium/core/fpdfapi/cmaps/cmaps phony/third_party/pdfium/core/fpdfapi/render/render phony/third_party/pdfium/core/fpdfdoc/fpdfdoc ./libcppgc.so.TOC phony/third_party/pdfium/xfa/fxfa/formcalc/formcalc phony/third_party/pdfium/xfa/fgas/layout/layout phony/third_party/pdfium/core/fxcrt/css/css

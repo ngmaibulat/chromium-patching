@@ -1,0 +1,43 @@
+defines = -DDCHECK_ALWAYS_ON=1 -DUSE_UDEV -DUSE_AURA=1 -DUSE_GLIB=1 -DUSE_OZONE=1 -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_GNU_SOURCE -DCR_CLANG_REVISION=\"llvmorg-21-init-1655-g7b473dfe-1\" -D_LIBCPP_HARDENING_MODE=_LIBCPP_HARDENING_MODE_EXTENSIVE -DCOMPONENT_BUILD -D_LIBCPP_INSTRUMENTED_WITH_ASAN=0 -DCR_LIBCXX_REVISION=7c3087b8a7563d8218b27b7183ba41cf52d41508 -DTMP_REBUILD_HACK -DCR_SYSROOT_KEY=20250129T203412Z-1 -D_DEBUG -DDYNAMIC_ANNOTATIONS_ENABLED=1 -DWEBP_NEAR_LOSSLESS=0 -DWEBP_DISABLE_STATS -DWEBP_USE_THREAD -DWEBP_REDUCE_SIZE -DWEBP_REDUCE_CSP -DWEBP_EXTERN=extern
+include_dirs = -I../../../.. -Igen -I../../../../buildtools/third_party/libc++ -I../../../../third_party/libwebp/src -I../../../../third_party/libwebp/src/src
+cflags = -fno-delete-null-pointer-checks -fno-strict-overflow -fno-ident -fno-strict-aliasing -fstack-protector -funwind-tables -fPIC -pthread -fcolor-diagnostics -fmerge-all-constants -fno-sized-deallocation -fcrash-diagnostics-dir=../../../../tools/clang/crashreports -mllvm -instcombine-lower-dbg-declare=0 -mllvm -split-threshold-for-reg-with-hint=0 -ffp-contract=off -Wa,--crel,--allow-experimental-crel -fcomplete-member-pointers -m64 -msse3 -Wno-builtin-macro-redefined -D__DATE__= -D__TIME__= -D__TIMESTAMP__= -ffile-compilation-dir=. -no-canonical-prefixes -ftrivial-auto-var-init=pattern -O0 -fno-omit-frame-pointer -gdwarf-4 -g2 -gdwarf-aranges -gsplit-dwarf -ggnu-pubnames -Xclang -fuse-ctor-homing -fvisibility=hidden -Wheader-hygiene -Wstring-conversion -Wtautological-overlap-compare -Xclang -add-plugin -Xclang find-bad-constructs -Xclang -plugin-arg-find-bad-constructs -Xclang span-ctor-from-string-literal -Xclang -plugin-arg-find-bad-constructs -Xclang raw-ref-template-as-trivial-member -Xclang -plugin-arg-find-bad-constructs -Xclang raw-span-template-as-trivial-member -Xclang -plugin-arg-find-bad-constructs -Xclang check-stack-allocated -Xclang -plugin-arg-find-bad-constructs -Xclang check-ipc -Xclang -add-plugin -Xclang raw-ptr-plugin -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ptr-to-stack-allocated -Xclang -plugin-arg-raw-ptr-plugin -Xclang disable-check-raw-ptr-to-stack-allocated-error -Xclang -plugin-arg-raw-ptr-plugin -Xclang raw-ptr-exclude-path=../../../dawn/ -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ptr-fields -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-span-fields -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ref-fields -DUNSAFE_BUFFERS_BUILD -Xclang -add-plugin -Xclang unsafe-buffers -Xclang -plugin-arg-unsafe-buffers -Xclang ../../../../build/config/unsafe_buffers_paths.txt -Wall -Wno-unused-variable -Wno-c++11-narrowing -Wno-unused-but-set-variable -Wno-misleading-indentation -Wno-missing-field-initializers -Wno-unused-parameter -Wno-psabi -Wloop-analysis -Wno-unneeded-internal-declaration -Wno-cast-function-type -Wno-thread-safety-reference-return -Wno-nontrivial-memcall -Werror
+cflags_c = -std=c11 --sysroot=../../../../build/linux/debian_bullseye_amd64-sysroot
+label_name = libwebp_dec
+target_out_dir = obj/third_party/libwebp
+target_output_name = libwebp_dec
+
+build obj/third_party/libwebp/libwebp_dec/alpha_dec.o: cc ../../../../third_party/libwebp/src/src/dec/alpha_dec.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = alpha_dec.c
+  source_name_part = alpha_dec
+build obj/third_party/libwebp/libwebp_dec/buffer_dec.o: cc ../../../../third_party/libwebp/src/src/dec/buffer_dec.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = buffer_dec.c
+  source_name_part = buffer_dec
+build obj/third_party/libwebp/libwebp_dec/frame_dec.o: cc ../../../../third_party/libwebp/src/src/dec/frame_dec.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = frame_dec.c
+  source_name_part = frame_dec
+build obj/third_party/libwebp/libwebp_dec/idec_dec.o: cc ../../../../third_party/libwebp/src/src/dec/idec_dec.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = idec_dec.c
+  source_name_part = idec_dec
+build obj/third_party/libwebp/libwebp_dec/io_dec.o: cc ../../../../third_party/libwebp/src/src/dec/io_dec.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = io_dec.c
+  source_name_part = io_dec
+build obj/third_party/libwebp/libwebp_dec/quant_dec.o: cc ../../../../third_party/libwebp/src/src/dec/quant_dec.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = quant_dec.c
+  source_name_part = quant_dec
+build obj/third_party/libwebp/libwebp_dec/tree_dec.o: cc ../../../../third_party/libwebp/src/src/dec/tree_dec.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = tree_dec.c
+  source_name_part = tree_dec
+build obj/third_party/libwebp/libwebp_dec/vp8_dec.o: cc ../../../../third_party/libwebp/src/src/dec/vp8_dec.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = vp8_dec.c
+  source_name_part = vp8_dec
+build obj/third_party/libwebp/libwebp_dec/vp8l_dec.o: cc ../../../../third_party/libwebp/src/src/dec/vp8l_dec.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = vp8l_dec.c
+  source_name_part = vp8l_dec
+build obj/third_party/libwebp/libwebp_dec/webp_dec.o: cc ../../../../third_party/libwebp/src/src/dec/webp_dec.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = webp_dec.c
+  source_name_part = webp_dec
+
+build obj/third_party/libwebp/libwebp_dec.a: alink obj/third_party/libwebp/libwebp_dec/alpha_dec.o obj/third_party/libwebp/libwebp_dec/buffer_dec.o obj/third_party/libwebp/libwebp_dec/frame_dec.o obj/third_party/libwebp/libwebp_dec/idec_dec.o obj/third_party/libwebp/libwebp_dec/io_dec.o obj/third_party/libwebp/libwebp_dec/quant_dec.o obj/third_party/libwebp/libwebp_dec/tree_dec.o obj/third_party/libwebp/libwebp_dec/vp8_dec.o obj/third_party/libwebp/libwebp_dec/vp8l_dec.o obj/third_party/libwebp/libwebp_dec/webp_dec.o | ../../../llvm-build/Release+Asserts/lib/clang/21/lib/x86_64-unknown-linux-gnu/libclang_rt.builtins.a ../../../../build/config/unsafe_buffers_paths.txt || obj/third_party/libwebp/libwebp_utils.a
+  arflags = -T -S
+  output_extension = .a
+  output_dir = obj/third_party/libwebp

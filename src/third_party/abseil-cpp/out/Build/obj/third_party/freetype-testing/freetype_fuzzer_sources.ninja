@@ -1,0 +1,187 @@
+defines = -DDCHECK_ALWAYS_ON=1 -DUSE_UDEV -DUSE_AURA=1 -DUSE_GLIB=1 -DUSE_OZONE=1 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_GNU_SOURCE -DCR_CLANG_REVISION=\"llvmorg-21-init-1655-g7b473dfe-1\" -D_LIBCPP_HARDENING_MODE=_LIBCPP_HARDENING_MODE_EXTENSIVE -DCOMPONENT_BUILD -D_LIBCPP_INSTRUMENTED_WITH_ASAN=0 -DCR_LIBCXX_REVISION=7c3087b8a7563d8218b27b7183ba41cf52d41508 -DTMP_REBUILD_HACK -DCR_SYSROOT_KEY=20250129T203412Z-1 -D_DEBUG -DDYNAMIC_ANNOTATIONS_ENABLED=1 -DFT_CONFIG_MODULES_H=\"freetype-custom/freetype/config/ftmodule.h\" -DFT_CONFIG_OPTIONS_H=\"freetype-custom/freetype/config/ftoption.h\" -DPDFIUM_REQUIRED_MODULES
+include_dirs = -I../../../../third_party/freetype-testing/src/fuzzing/src -I../../../.. -Igen -I../../../../buildtools/third_party/libc++ -I../../../../third_party/freetype/include -I../../../../third_party/freetype/include/freetype-custom -I../../../../third_party/freetype/src/include -I../../../../third_party/harfbuzz-ng/src/src
+cflags = -Wall -Wextra -Wimplicit-fallthrough -Wextra-semi -Wunreachable-code-aggressive -Wthread-safety -Wgnu -Wno-gnu-anonymous-struct -Wno-gnu-conditional-omitted-operand -Wno-gnu-include-next -Wno-gnu-label-as-value -Wno-gnu-redeclared-enum -Wno-gnu-statement-expression -Wno-gnu-zero-variadic-macro-arguments -Wno-zero-length-array -Wno-missing-field-initializers -Wno-unused-parameter -Wno-psabi -Wloop-analysis -Wno-unneeded-internal-declaration -Wno-cast-function-type -Wno-thread-safety-reference-return -Wno-nontrivial-memcall -Wshadow -Werror -fno-delete-null-pointer-checks -fno-strict-overflow -fno-ident -fno-strict-aliasing -fstack-protector -funwind-tables -fPIC -pthread -fcolor-diagnostics -fmerge-all-constants -fno-sized-deallocation -fcrash-diagnostics-dir=../../../../tools/clang/crashreports -mllvm -instcombine-lower-dbg-declare=0 -mllvm -split-threshold-for-reg-with-hint=0 -ffp-contract=off -Wa,--crel,--allow-experimental-crel -fcomplete-member-pointers -m64 -msse3 -Wno-builtin-macro-redefined -D__DATE__= -D__TIME__= -D__TIMESTAMP__= -ffile-compilation-dir=. -no-canonical-prefixes -ftrivial-auto-var-init=pattern -O0 -fno-omit-frame-pointer -gdwarf-4 -g2 -gdwarf-aranges -gsplit-dwarf -ggnu-pubnames -Xclang -fuse-ctor-homing -fvisibility=hidden -Wheader-hygiene -Wstring-conversion -Wtautological-overlap-compare -Xclang -add-plugin -Xclang find-bad-constructs -Xclang -plugin-arg-find-bad-constructs -Xclang span-ctor-from-string-literal -Xclang -plugin-arg-find-bad-constructs -Xclang raw-ref-template-as-trivial-member -Xclang -plugin-arg-find-bad-constructs -Xclang raw-span-template-as-trivial-member -Xclang -plugin-arg-find-bad-constructs -Xclang check-stack-allocated -Xclang -plugin-arg-find-bad-constructs -Xclang check-ipc -Xclang -add-plugin -Xclang raw-ptr-plugin -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ptr-to-stack-allocated -Xclang -plugin-arg-raw-ptr-plugin -Xclang disable-check-raw-ptr-to-stack-allocated-error -Xclang -plugin-arg-raw-ptr-plugin -Xclang raw-ptr-exclude-path=../../../dawn/ -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ptr-fields -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-span-fields -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ref-fields -DUNSAFE_BUFFERS_BUILD -Xclang -add-plugin -Xclang unsafe-buffers -Xclang -plugin-arg-unsafe-buffers -Xclang ../../../../build/config/unsafe_buffers_paths.txt -Wno-shadow
+cflags_cc = -Wno-invalid-offsetof -Wenum-compare-conditional -Wno-c++11-narrowing-const-reference -Wno-missing-template-arg-list-after-template-kw -Wno-undefined-bool-conversion -Wno-tautological-undefined-compare -std=c++20 -Wno-trigraphs -gsimple-template-names -fno-exceptions -fno-rtti -nostdinc++ -isystem../../../libc++/src/include -isystem../../../libc++abi/src/include --sysroot=../../../../build/linux/debian_bullseye_amd64-sysroot -fvisibility-inlines-hidden
+label_name = freetype_fuzzer_sources
+target_out_dir = obj/third_party/freetype-testing
+target_output_name = freetype_fuzzer_sources
+
+build obj/third_party/freetype-testing/freetype_fuzzer_sources/faceloaditerator.o: cxx ../../../../third_party/freetype-testing/src/fuzzing/src/iterators/faceloaditerator.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = faceloaditerator.cpp
+  source_name_part = faceloaditerator
+build obj/third_party/freetype-testing/freetype_fuzzer_sources/faceprepiterator-bitmaps.o: cxx ../../../../third_party/freetype-testing/src/fuzzing/src/iterators/faceprepiterator-bitmaps.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = faceprepiterator-bitmaps.cpp
+  source_name_part = faceprepiterator-bitmaps
+build obj/third_party/freetype-testing/freetype_fuzzer_sources/faceprepiterator-multiplemasters.o: cxx ../../../../third_party/freetype-testing/src/fuzzing/src/iterators/faceprepiterator-multiplemasters.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = faceprepiterator-multiplemasters.cpp
+  source_name_part = faceprepiterator-multiplemasters
+build obj/third_party/freetype-testing/freetype_fuzzer_sources/faceprepiterator-outlines.o: cxx ../../../../third_party/freetype-testing/src/fuzzing/src/iterators/faceprepiterator-outlines.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = faceprepiterator-outlines.cpp
+  source_name_part = faceprepiterator-outlines
+build obj/third_party/freetype-testing/freetype_fuzzer_sources/faceprepiterator.o: cxx ../../../../third_party/freetype-testing/src/fuzzing/src/iterators/faceprepiterator.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = faceprepiterator.cpp
+  source_name_part = faceprepiterator
+build obj/third_party/freetype-testing/freetype_fuzzer_sources/glyphloaditerator-naive.o: cxx ../../../../third_party/freetype-testing/src/fuzzing/src/iterators/glyphloaditerator-naive.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = glyphloaditerator-naive.cpp
+  source_name_part = glyphloaditerator-naive
+build obj/third_party/freetype-testing/freetype_fuzzer_sources/glyphloaditerator.o: cxx ../../../../third_party/freetype-testing/src/fuzzing/src/iterators/glyphloaditerator.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = glyphloaditerator.cpp
+  source_name_part = glyphloaditerator
+build obj/third_party/freetype-testing/freetype_fuzzer_sources/glyphrenderiterator-allmodes.o: cxx ../../../../third_party/freetype-testing/src/fuzzing/src/iterators/glyphrenderiterator-allmodes.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = glyphrenderiterator-allmodes.cpp
+  source_name_part = glyphrenderiterator-allmodes
+build obj/third_party/freetype-testing/freetype_fuzzer_sources/glyphrenderiterator.o: cxx ../../../../third_party/freetype-testing/src/fuzzing/src/iterators/glyphrenderiterator.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = glyphrenderiterator.cpp
+  source_name_part = glyphrenderiterator
+build obj/third_party/freetype-testing/freetype_fuzzer_sources/FaceFuzzTarget.o: cxx ../../../../third_party/freetype-testing/src/fuzzing/src/targets/FaceFuzzTarget.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = FaceFuzzTarget.cpp
+  source_name_part = FaceFuzzTarget
+build obj/third_party/freetype-testing/freetype_fuzzer_sources/FuzzTarget.o: cxx ../../../../third_party/freetype-testing/src/fuzzing/src/targets/FuzzTarget.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = FuzzTarget.cpp
+  source_name_part = FuzzTarget
+build obj/third_party/freetype-testing/freetype_fuzzer_sources/cff-ftengine.o: cxx ../../../../third_party/freetype-testing/src/fuzzing/src/targets/font-drivers/cff-ftengine.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = cff-ftengine.cpp
+  source_name_part = cff-ftengine
+build obj/third_party/freetype-testing/freetype_fuzzer_sources/cff-render-ftengine.o: cxx ../../../../third_party/freetype-testing/src/fuzzing/src/targets/font-drivers/cff-render-ftengine.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = cff-render-ftengine.cpp
+  source_name_part = cff-render-ftengine
+build obj/third_party/freetype-testing/freetype_fuzzer_sources/cff-render.o: cxx ../../../../third_party/freetype-testing/src/fuzzing/src/targets/font-drivers/cff-render.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = cff-render.cpp
+  source_name_part = cff-render
+build obj/third_party/freetype-testing/freetype_fuzzer_sources/cff.o: cxx ../../../../third_party/freetype-testing/src/fuzzing/src/targets/font-drivers/cff.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = cff.cpp
+  source_name_part = cff
+build obj/third_party/freetype-testing/freetype_fuzzer_sources/cidtype1-ftengine.o: cxx ../../../../third_party/freetype-testing/src/fuzzing/src/targets/font-drivers/cidtype1-ftengine.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = cidtype1-ftengine.cpp
+  source_name_part = cidtype1-ftengine
+build obj/third_party/freetype-testing/freetype_fuzzer_sources/cidtype1-render-ftengine.o: cxx ../../../../third_party/freetype-testing/src/fuzzing/src/targets/font-drivers/cidtype1-render-ftengine.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = cidtype1-render-ftengine.cpp
+  source_name_part = cidtype1-render-ftengine
+build obj/third_party/freetype-testing/freetype_fuzzer_sources/cidtype1-render.o: cxx ../../../../third_party/freetype-testing/src/fuzzing/src/targets/font-drivers/cidtype1-render.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = cidtype1-render.cpp
+  source_name_part = cidtype1-render
+build obj/third_party/freetype-testing/freetype_fuzzer_sources/cidtype1.o: cxx ../../../../third_party/freetype-testing/src/fuzzing/src/targets/font-drivers/cidtype1.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = cidtype1.cpp
+  source_name_part = cidtype1
+build obj/third_party/freetype-testing/freetype_fuzzer_sources/colrv1.o: cxx ../../../../third_party/freetype-testing/src/fuzzing/src/targets/font-drivers/colrv1.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = colrv1.cpp
+  source_name_part = colrv1
+build obj/third_party/freetype-testing/freetype_fuzzer_sources/truetype-render-i35.o: cxx ../../../../third_party/freetype-testing/src/fuzzing/src/targets/font-drivers/truetype-render-i35.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = truetype-render-i35.cpp
+  source_name_part = truetype-render-i35
+build obj/third_party/freetype-testing/freetype_fuzzer_sources/truetype-render-i38.o: cxx ../../../../third_party/freetype-testing/src/fuzzing/src/targets/font-drivers/truetype-render-i38.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = truetype-render-i38.cpp
+  source_name_part = truetype-render-i38
+build obj/third_party/freetype-testing/freetype_fuzzer_sources/truetype-render.o: cxx ../../../../third_party/freetype-testing/src/fuzzing/src/targets/font-drivers/truetype-render.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = truetype-render.cpp
+  source_name_part = truetype-render
+build obj/third_party/freetype-testing/freetype_fuzzer_sources/truetype.o: cxx ../../../../third_party/freetype-testing/src/fuzzing/src/targets/font-drivers/truetype.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = truetype.cpp
+  source_name_part = truetype
+build obj/third_party/freetype-testing/freetype_fuzzer_sources/type1-ftengine.o: cxx ../../../../third_party/freetype-testing/src/fuzzing/src/targets/font-drivers/type1-ftengine.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = type1-ftengine.cpp
+  source_name_part = type1-ftengine
+build obj/third_party/freetype-testing/freetype_fuzzer_sources/type1-render-ftengine.o: cxx ../../../../third_party/freetype-testing/src/fuzzing/src/targets/font-drivers/type1-render-ftengine.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = type1-render-ftengine.cpp
+  source_name_part = type1-render-ftengine
+build obj/third_party/freetype-testing/freetype_fuzzer_sources/type1-render.o: cxx ../../../../third_party/freetype-testing/src/fuzzing/src/targets/font-drivers/type1-render.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = type1-render.cpp
+  source_name_part = type1-render
+build obj/third_party/freetype-testing/freetype_fuzzer_sources/type1.o: cxx ../../../../third_party/freetype-testing/src/fuzzing/src/targets/font-drivers/type1.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = type1.cpp
+  source_name_part = type1
+build obj/third_party/freetype-testing/freetype_fuzzer_sources/type42-render.o: cxx ../../../../third_party/freetype-testing/src/fuzzing/src/targets/font-drivers/type42-render.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = type42-render.cpp
+  source_name_part = type42-render
+build obj/third_party/freetype-testing/freetype_fuzzer_sources/type42.o: cxx ../../../../third_party/freetype-testing/src/fuzzing/src/targets/font-drivers/type42.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = type42.cpp
+  source_name_part = type42
+build obj/third_party/freetype-testing/freetype_fuzzer_sources/outlines.o: cxx ../../../../third_party/freetype-testing/src/fuzzing/src/targets/glyphs/outlines.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = outlines.cpp
+  source_name_part = outlines
+build obj/third_party/freetype-testing/freetype_fuzzer_sources/faceloader.o: cxx ../../../../third_party/freetype-testing/src/fuzzing/src/utils/faceloader.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = faceloader.cpp
+  source_name_part = faceloader
+build obj/third_party/freetype-testing/freetype_fuzzer_sources/utils.o: cxx ../../../../third_party/freetype-testing/src/fuzzing/src/utils/utils.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = utils.cpp
+  source_name_part = utils
+build obj/third_party/freetype-testing/freetype_fuzzer_sources/facevisitor-autohinter.o: cxx ../../../../third_party/freetype-testing/src/fuzzing/src/visitors/facevisitor-autohinter.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = facevisitor-autohinter.cpp
+  source_name_part = facevisitor-autohinter
+build obj/third_party/freetype-testing/freetype_fuzzer_sources/facevisitor-charcodes.o: cxx ../../../../third_party/freetype-testing/src/fuzzing/src/visitors/facevisitor-charcodes.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = facevisitor-charcodes.cpp
+  source_name_part = facevisitor-charcodes
+build obj/third_party/freetype-testing/freetype_fuzzer_sources/facevisitor-cid.o: cxx ../../../../third_party/freetype-testing/src/fuzzing/src/visitors/facevisitor-cid.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = facevisitor-cid.cpp
+  source_name_part = facevisitor-cid
+build obj/third_party/freetype-testing/freetype_fuzzer_sources/facevisitor-colrv1.o: cxx ../../../../third_party/freetype-testing/src/fuzzing/src/visitors/facevisitor-colrv1.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = facevisitor-colrv1.cpp
+  source_name_part = facevisitor-colrv1
+build obj/third_party/freetype-testing/freetype_fuzzer_sources/facevisitor-gasp.o: cxx ../../../../third_party/freetype-testing/src/fuzzing/src/visitors/facevisitor-gasp.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = facevisitor-gasp.cpp
+  source_name_part = facevisitor-gasp
+build obj/third_party/freetype-testing/freetype_fuzzer_sources/facevisitor-kerning.o: cxx ../../../../third_party/freetype-testing/src/fuzzing/src/visitors/facevisitor-kerning.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = facevisitor-kerning.cpp
+  source_name_part = facevisitor-kerning
+build obj/third_party/freetype-testing/freetype_fuzzer_sources/facevisitor-loadglyphs-bitmaps.o: cxx ../../../../third_party/freetype-testing/src/fuzzing/src/visitors/facevisitor-loadglyphs-bitmaps.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = facevisitor-loadglyphs-bitmaps.cpp
+  source_name_part = facevisitor-loadglyphs-bitmaps
+build obj/third_party/freetype-testing/freetype_fuzzer_sources/facevisitor-loadglyphs-outlines.o: cxx ../../../../third_party/freetype-testing/src/fuzzing/src/visitors/facevisitor-loadglyphs-outlines.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = facevisitor-loadglyphs-outlines.cpp
+  source_name_part = facevisitor-loadglyphs-outlines
+build obj/third_party/freetype-testing/freetype_fuzzer_sources/facevisitor-loadglyphs.o: cxx ../../../../third_party/freetype-testing/src/fuzzing/src/visitors/facevisitor-loadglyphs.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = facevisitor-loadglyphs.cpp
+  source_name_part = facevisitor-loadglyphs
+build obj/third_party/freetype-testing/freetype_fuzzer_sources/facevisitor-multiplemasters.o: cxx ../../../../third_party/freetype-testing/src/fuzzing/src/visitors/facevisitor-multiplemasters.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = facevisitor-multiplemasters.cpp
+  source_name_part = facevisitor-multiplemasters
+build obj/third_party/freetype-testing/freetype_fuzzer_sources/facevisitor-renderglyphs.o: cxx ../../../../third_party/freetype-testing/src/fuzzing/src/visitors/facevisitor-renderglyphs.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = facevisitor-renderglyphs.cpp
+  source_name_part = facevisitor-renderglyphs
+build obj/third_party/freetype-testing/freetype_fuzzer_sources/facevisitor-sfntnames.o: cxx ../../../../third_party/freetype-testing/src/fuzzing/src/visitors/facevisitor-sfntnames.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = facevisitor-sfntnames.cpp
+  source_name_part = facevisitor-sfntnames
+build obj/third_party/freetype-testing/freetype_fuzzer_sources/facevisitor-subglyphs.o: cxx ../../../../third_party/freetype-testing/src/fuzzing/src/visitors/facevisitor-subglyphs.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = facevisitor-subglyphs.cpp
+  source_name_part = facevisitor-subglyphs
+build obj/third_party/freetype-testing/freetype_fuzzer_sources/facevisitor-trackkerning.o: cxx ../../../../third_party/freetype-testing/src/fuzzing/src/visitors/facevisitor-trackkerning.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = facevisitor-trackkerning.cpp
+  source_name_part = facevisitor-trackkerning
+build obj/third_party/freetype-testing/freetype_fuzzer_sources/facevisitor-truetypetables.o: cxx ../../../../third_party/freetype-testing/src/fuzzing/src/visitors/facevisitor-truetypetables.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = facevisitor-truetypetables.cpp
+  source_name_part = facevisitor-truetypetables
+build obj/third_party/freetype-testing/freetype_fuzzer_sources/facevisitor-type1tables.o: cxx ../../../../third_party/freetype-testing/src/fuzzing/src/visitors/facevisitor-type1tables.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = facevisitor-type1tables.cpp
+  source_name_part = facevisitor-type1tables
+build obj/third_party/freetype-testing/freetype_fuzzer_sources/facevisitor-variants.o: cxx ../../../../third_party/freetype-testing/src/fuzzing/src/visitors/facevisitor-variants.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = facevisitor-variants.cpp
+  source_name_part = facevisitor-variants
+build obj/third_party/freetype-testing/freetype_fuzzer_sources/glyphvisitor-bitmap-handling.o: cxx ../../../../third_party/freetype-testing/src/fuzzing/src/visitors/glyphvisitor-bitmap-handling.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = glyphvisitor-bitmap-handling.cpp
+  source_name_part = glyphvisitor-bitmap-handling
+build obj/third_party/freetype-testing/freetype_fuzzer_sources/glyphvisitor-cbox.o: cxx ../../../../third_party/freetype-testing/src/fuzzing/src/visitors/glyphvisitor-cbox.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = glyphvisitor-cbox.cpp
+  source_name_part = glyphvisitor-cbox
+build obj/third_party/freetype-testing/freetype_fuzzer_sources/glyphvisitor-outlines.o: cxx ../../../../third_party/freetype-testing/src/fuzzing/src/visitors/glyphvisitor-outlines.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = glyphvisitor-outlines.cpp
+  source_name_part = glyphvisitor-outlines
+build obj/third_party/freetype-testing/freetype_fuzzer_sources/glyphvisitor-transform.o: cxx ../../../../third_party/freetype-testing/src/fuzzing/src/visitors/glyphvisitor-transform.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = glyphvisitor-transform.cpp
+  source_name_part = glyphvisitor-transform
+build obj/third_party/freetype-testing/freetype_fuzzer_sources/bdf-render.o: cxx ../../../../third_party/freetype-testing/src/fuzzing/src/targets/font-drivers/bdf-render.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = bdf-render.cpp
+  source_name_part = bdf-render
+build obj/third_party/freetype-testing/freetype_fuzzer_sources/bdf.o: cxx ../../../../third_party/freetype-testing/src/fuzzing/src/targets/font-drivers/bdf.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = bdf.cpp
+  source_name_part = bdf
+build obj/third_party/freetype-testing/freetype_fuzzer_sources/pcf-render.o: cxx ../../../../third_party/freetype-testing/src/fuzzing/src/targets/font-drivers/pcf-render.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = pcf-render.cpp
+  source_name_part = pcf-render
+build obj/third_party/freetype-testing/freetype_fuzzer_sources/pcf.o: cxx ../../../../third_party/freetype-testing/src/fuzzing/src/targets/font-drivers/pcf.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = pcf.cpp
+  source_name_part = pcf
+build obj/third_party/freetype-testing/freetype_fuzzer_sources/facevisitor-bdf.o: cxx ../../../../third_party/freetype-testing/src/fuzzing/src/visitors/facevisitor-bdf.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = facevisitor-bdf.cpp
+  source_name_part = facevisitor-bdf
+
+build phony/third_party/freetype-testing/freetype_fuzzer_sources: phony obj/third_party/freetype-testing/freetype_fuzzer_sources/faceloaditerator.o obj/third_party/freetype-testing/freetype_fuzzer_sources/faceprepiterator-bitmaps.o obj/third_party/freetype-testing/freetype_fuzzer_sources/faceprepiterator-multiplemasters.o obj/third_party/freetype-testing/freetype_fuzzer_sources/faceprepiterator-outlines.o obj/third_party/freetype-testing/freetype_fuzzer_sources/faceprepiterator.o obj/third_party/freetype-testing/freetype_fuzzer_sources/glyphloaditerator-naive.o obj/third_party/freetype-testing/freetype_fuzzer_sources/glyphloaditerator.o obj/third_party/freetype-testing/freetype_fuzzer_sources/glyphrenderiterator-allmodes.o obj/third_party/freetype-testing/freetype_fuzzer_sources/glyphrenderiterator.o obj/third_party/freetype-testing/freetype_fuzzer_sources/FaceFuzzTarget.o obj/third_party/freetype-testing/freetype_fuzzer_sources/FuzzTarget.o obj/third_party/freetype-testing/freetype_fuzzer_sources/cff-ftengine.o obj/third_party/freetype-testing/freetype_fuzzer_sources/cff-render-ftengine.o obj/third_party/freetype-testing/freetype_fuzzer_sources/cff-render.o obj/third_party/freetype-testing/freetype_fuzzer_sources/cff.o obj/third_party/freetype-testing/freetype_fuzzer_sources/cidtype1-ftengine.o obj/third_party/freetype-testing/freetype_fuzzer_sources/cidtype1-render-ftengine.o obj/third_party/freetype-testing/freetype_fuzzer_sources/cidtype1-render.o obj/third_party/freetype-testing/freetype_fuzzer_sources/cidtype1.o obj/third_party/freetype-testing/freetype_fuzzer_sources/colrv1.o obj/third_party/freetype-testing/freetype_fuzzer_sources/truetype-render-i35.o obj/third_party/freetype-testing/freetype_fuzzer_sources/truetype-render-i38.o obj/third_party/freetype-testing/freetype_fuzzer_sources/truetype-render.o obj/third_party/freetype-testing/freetype_fuzzer_sources/truetype.o obj/third_party/freetype-testing/freetype_fuzzer_sources/type1-ftengine.o obj/third_party/freetype-testing/freetype_fuzzer_sources/type1-render-ftengine.o obj/third_party/freetype-testing/freetype_fuzzer_sources/type1-render.o obj/third_party/freetype-testing/freetype_fuzzer_sources/type1.o obj/third_party/freetype-testing/freetype_fuzzer_sources/type42-render.o obj/third_party/freetype-testing/freetype_fuzzer_sources/type42.o obj/third_party/freetype-testing/freetype_fuzzer_sources/outlines.o obj/third_party/freetype-testing/freetype_fuzzer_sources/faceloader.o obj/third_party/freetype-testing/freetype_fuzzer_sources/utils.o obj/third_party/freetype-testing/freetype_fuzzer_sources/facevisitor-autohinter.o obj/third_party/freetype-testing/freetype_fuzzer_sources/facevisitor-charcodes.o obj/third_party/freetype-testing/freetype_fuzzer_sources/facevisitor-cid.o obj/third_party/freetype-testing/freetype_fuzzer_sources/facevisitor-colrv1.o obj/third_party/freetype-testing/freetype_fuzzer_sources/facevisitor-gasp.o obj/third_party/freetype-testing/freetype_fuzzer_sources/facevisitor-kerning.o obj/third_party/freetype-testing/freetype_fuzzer_sources/facevisitor-loadglyphs-bitmaps.o obj/third_party/freetype-testing/freetype_fuzzer_sources/facevisitor-loadglyphs-outlines.o obj/third_party/freetype-testing/freetype_fuzzer_sources/facevisitor-loadglyphs.o obj/third_party/freetype-testing/freetype_fuzzer_sources/facevisitor-multiplemasters.o obj/third_party/freetype-testing/freetype_fuzzer_sources/facevisitor-renderglyphs.o obj/third_party/freetype-testing/freetype_fuzzer_sources/facevisitor-sfntnames.o obj/third_party/freetype-testing/freetype_fuzzer_sources/facevisitor-subglyphs.o obj/third_party/freetype-testing/freetype_fuzzer_sources/facevisitor-trackkerning.o obj/third_party/freetype-testing/freetype_fuzzer_sources/facevisitor-truetypetables.o obj/third_party/freetype-testing/freetype_fuzzer_sources/facevisitor-type1tables.o obj/third_party/freetype-testing/freetype_fuzzer_sources/facevisitor-variants.o obj/third_party/freetype-testing/freetype_fuzzer_sources/glyphvisitor-bitmap-handling.o obj/third_party/freetype-testing/freetype_fuzzer_sources/glyphvisitor-cbox.o obj/third_party/freetype-testing/freetype_fuzzer_sources/glyphvisitor-outlines.o obj/third_party/freetype-testing/freetype_fuzzer_sources/glyphvisitor-transform.o obj/third_party/freetype-testing/freetype_fuzzer_sources/bdf-render.o obj/third_party/freetype-testing/freetype_fuzzer_sources/bdf.o obj/third_party/freetype-testing/freetype_fuzzer_sources/pcf-render.o obj/third_party/freetype-testing/freetype_fuzzer_sources/pcf.o obj/third_party/freetype-testing/freetype_fuzzer_sources/facevisitor-bdf.o || ./libthird_party_freetype_harfbuzz.so.TOC

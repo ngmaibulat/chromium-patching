@@ -1,0 +1,115 @@
+defines = -DIPCZ_STANDALONE -DDCHECK_ALWAYS_ON=1 -DUSE_UDEV -DUSE_AURA=1 -DUSE_GLIB=1 -DUSE_OZONE=1 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_GNU_SOURCE -DCR_CLANG_REVISION=\"llvmorg-21-init-1655-g7b473dfe-1\" -D_LIBCPP_HARDENING_MODE=_LIBCPP_HARDENING_MODE_EXTENSIVE -DCOMPONENT_BUILD -D_LIBCPP_INSTRUMENTED_WITH_ASAN=0 -DCR_LIBCXX_REVISION=7c3087b8a7563d8218b27b7183ba41cf52d41508 -DTMP_REBUILD_HACK -DCR_SYSROOT_KEY=20250129T203412Z-1 -D_DEBUG -DDYNAMIC_ANNOTATIONS_ENABLED=1 -DABSL_CONSUME_DLL -DABSL_FLAGS_STRIP_NAMES=0
+include_dirs = -I../../../.. -Igen -I../../../../buildtools/third_party/libc++ -I../../../../third_party/ipcz/src -Igen/third_party/ipcz/src -I../../../../third_party/ipcz/include -I../../../../third_party/abseil-cpp
+cflags = -Wall -Wextra -Wimplicit-fallthrough -Wextra-semi -Wunreachable-code-aggressive -Wthread-safety -Wgnu -Wno-gnu-anonymous-struct -Wno-gnu-conditional-omitted-operand -Wno-gnu-include-next -Wno-gnu-label-as-value -Wno-gnu-redeclared-enum -Wno-gnu-statement-expression -Wno-gnu-zero-variadic-macro-arguments -Wno-zero-length-array -Wno-missing-field-initializers -Wno-unused-parameter -Wno-psabi -Wloop-analysis -Wno-unneeded-internal-declaration -Wno-cast-function-type -Wno-thread-safety-reference-return -Wno-nontrivial-memcall -Wshadow -Werror -fno-delete-null-pointer-checks -fno-strict-overflow -fno-ident -fno-strict-aliasing -fstack-protector -funwind-tables -fPIC -pthread -fcolor-diagnostics -fmerge-all-constants -fno-sized-deallocation -fcrash-diagnostics-dir=../../../../tools/clang/crashreports -mllvm -instcombine-lower-dbg-declare=0 -mllvm -split-threshold-for-reg-with-hint=0 -ffp-contract=off -Wa,--crel,--allow-experimental-crel -fcomplete-member-pointers -m64 -msse3 -Wno-builtin-macro-redefined -D__DATE__= -D__TIME__= -D__TIMESTAMP__= -ffile-compilation-dir=. -no-canonical-prefixes -ftrivial-auto-var-init=pattern -O0 -fno-omit-frame-pointer -gdwarf-4 -g2 -gdwarf-aranges -gsplit-dwarf -ggnu-pubnames -Xclang -fuse-ctor-homing -fvisibility=hidden -Wheader-hygiene -Wstring-conversion -Wtautological-overlap-compare -Xclang -add-plugin -Xclang find-bad-constructs -Xclang -plugin-arg-find-bad-constructs -Xclang span-ctor-from-string-literal -Xclang -plugin-arg-find-bad-constructs -Xclang raw-ref-template-as-trivial-member -Xclang -plugin-arg-find-bad-constructs -Xclang raw-span-template-as-trivial-member -Xclang -plugin-arg-find-bad-constructs -Xclang check-stack-allocated -Xclang -plugin-arg-find-bad-constructs -Xclang check-ipc -Xclang -add-plugin -Xclang raw-ptr-plugin -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ptr-to-stack-allocated -Xclang -plugin-arg-raw-ptr-plugin -Xclang disable-check-raw-ptr-to-stack-allocated-error -Xclang -plugin-arg-raw-ptr-plugin -Xclang raw-ptr-exclude-path=../../../dawn/ -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ptr-fields -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-span-fields -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ref-fields -DUNSAFE_BUFFERS_BUILD -Xclang -add-plugin -Xclang unsafe-buffers -Xclang -plugin-arg-unsafe-buffers -Xclang ../../../../build/config/unsafe_buffers_paths.txt
+cflags_cc = -Wno-invalid-offsetof -Wenum-compare-conditional -Wno-c++11-narrowing-const-reference -Wno-missing-template-arg-list-after-template-kw -Wno-undefined-bool-conversion -Wno-tautological-undefined-compare -std=c++20 -Wno-trigraphs -gsimple-template-names -fno-exceptions -fno-rtti -nostdinc++ -isystem../../../libc++/src/include -isystem../../../libc++abi/src/include --sysroot=../../../../build/linux/debian_bullseye_amd64-sysroot -fvisibility-inlines-hidden
+label_name = impl_standalone
+target_out_dir = obj/third_party/ipcz/src
+target_output_name = impl_standalone
+
+build obj/third_party/ipcz/src/impl_standalone/api_context.o: cxx ../../../../third_party/ipcz/src/ipcz/api_context.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = api_context.cc
+  source_name_part = api_context
+build obj/third_party/ipcz/src/impl_standalone/api_object.o: cxx ../../../../third_party/ipcz/src/ipcz/api_object.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = api_object.cc
+  source_name_part = api_object
+build obj/third_party/ipcz/src/impl_standalone/application_object.o: cxx ../../../../third_party/ipcz/src/ipcz/application_object.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = application_object.cc
+  source_name_part = application_object
+build obj/third_party/ipcz/src/impl_standalone/block_allocator.o: cxx ../../../../third_party/ipcz/src/ipcz/block_allocator.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = block_allocator.cc
+  source_name_part = block_allocator
+build obj/third_party/ipcz/src/impl_standalone/block_allocator_pool.o: cxx ../../../../third_party/ipcz/src/ipcz/block_allocator_pool.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = block_allocator_pool.cc
+  source_name_part = block_allocator_pool
+build obj/third_party/ipcz/src/impl_standalone/box.o: cxx ../../../../third_party/ipcz/src/ipcz/box.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = box.cc
+  source_name_part = box
+build obj/third_party/ipcz/src/impl_standalone/buffer_pool.o: cxx ../../../../third_party/ipcz/src/ipcz/buffer_pool.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = buffer_pool.cc
+  source_name_part = buffer_pool
+build obj/third_party/ipcz/src/impl_standalone/driver_memory.o: cxx ../../../../third_party/ipcz/src/ipcz/driver_memory.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = driver_memory.cc
+  source_name_part = driver_memory
+build obj/third_party/ipcz/src/impl_standalone/driver_memory_mapping.o: cxx ../../../../third_party/ipcz/src/ipcz/driver_memory_mapping.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = driver_memory_mapping.cc
+  source_name_part = driver_memory_mapping
+build obj/third_party/ipcz/src/impl_standalone/driver_object.o: cxx ../../../../third_party/ipcz/src/ipcz/driver_object.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = driver_object.cc
+  source_name_part = driver_object
+build obj/third_party/ipcz/src/impl_standalone/driver_transport.o: cxx ../../../../third_party/ipcz/src/ipcz/driver_transport.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = driver_transport.cc
+  source_name_part = driver_transport
+build obj/third_party/ipcz/src/impl_standalone/features.o: cxx ../../../../third_party/ipcz/src/ipcz/features.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = features.cc
+  source_name_part = features
+build obj/third_party/ipcz/src/impl_standalone/fragment.o: cxx ../../../../third_party/ipcz/src/ipcz/fragment.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = fragment.cc
+  source_name_part = fragment
+build obj/third_party/ipcz/src/impl_standalone/fragment_ref.o: cxx ../../../../third_party/ipcz/src/ipcz/fragment_ref.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = fragment_ref.cc
+  source_name_part = fragment_ref
+build obj/third_party/ipcz/src/impl_standalone/link_side.o: cxx ../../../../third_party/ipcz/src/ipcz/link_side.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = link_side.cc
+  source_name_part = link_side
+build obj/third_party/ipcz/src/impl_standalone/link_type.o: cxx ../../../../third_party/ipcz/src/ipcz/link_type.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = link_type.cc
+  source_name_part = link_type
+build obj/third_party/ipcz/src/impl_standalone/local_router_link.o: cxx ../../../../third_party/ipcz/src/ipcz/local_router_link.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = local_router_link.cc
+  source_name_part = local_router_link
+build obj/third_party/ipcz/src/impl_standalone/message.o: cxx ../../../../third_party/ipcz/src/ipcz/message.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = message.cc
+  source_name_part = message
+build obj/third_party/ipcz/src/impl_standalone/node.o: cxx ../../../../third_party/ipcz/src/ipcz/node.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = node.cc
+  source_name_part = node
+build obj/third_party/ipcz/src/impl_standalone/node_connector.o: cxx ../../../../third_party/ipcz/src/ipcz/node_connector.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = node_connector.cc
+  source_name_part = node_connector
+build obj/third_party/ipcz/src/impl_standalone/node_link.o: cxx ../../../../third_party/ipcz/src/ipcz/node_link.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = node_link.cc
+  source_name_part = node_link
+build obj/third_party/ipcz/src/impl_standalone/node_link_memory.o: cxx ../../../../third_party/ipcz/src/ipcz/node_link_memory.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = node_link_memory.cc
+  source_name_part = node_link_memory
+build obj/third_party/ipcz/src/impl_standalone/node_messages.o: cxx ../../../../third_party/ipcz/src/ipcz/node_messages.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = node_messages.cc
+  source_name_part = node_messages
+build obj/third_party/ipcz/src/impl_standalone/node_name.o: cxx ../../../../third_party/ipcz/src/ipcz/node_name.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = node_name.cc
+  source_name_part = node_name
+build obj/third_party/ipcz/src/impl_standalone/parcel.o: cxx ../../../../third_party/ipcz/src/ipcz/parcel.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = parcel.cc
+  source_name_part = parcel
+build obj/third_party/ipcz/src/impl_standalone/parcel_wrapper.o: cxx ../../../../third_party/ipcz/src/ipcz/parcel_wrapper.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = parcel_wrapper.cc
+  source_name_part = parcel_wrapper
+build obj/third_party/ipcz/src/impl_standalone/pending_transaction_set.o: cxx ../../../../third_party/ipcz/src/ipcz/pending_transaction_set.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = pending_transaction_set.cc
+  source_name_part = pending_transaction_set
+build obj/third_party/ipcz/src/impl_standalone/ref_counted_fragment.o: cxx ../../../../third_party/ipcz/src/ipcz/ref_counted_fragment.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = ref_counted_fragment.cc
+  source_name_part = ref_counted_fragment
+build obj/third_party/ipcz/src/impl_standalone/remote_router_link.o: cxx ../../../../third_party/ipcz/src/ipcz/remote_router_link.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = remote_router_link.cc
+  source_name_part = remote_router_link
+build obj/third_party/ipcz/src/impl_standalone/route_edge.o: cxx ../../../../third_party/ipcz/src/ipcz/route_edge.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = route_edge.cc
+  source_name_part = route_edge
+build obj/third_party/ipcz/src/impl_standalone/router.o: cxx ../../../../third_party/ipcz/src/ipcz/router.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = router.cc
+  source_name_part = router
+build obj/third_party/ipcz/src/impl_standalone/router_link_state.o: cxx ../../../../third_party/ipcz/src/ipcz/router_link_state.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = router_link_state.cc
+  source_name_part = router_link_state
+build obj/third_party/ipcz/src/impl_standalone/test_messages.o: cxx ../../../../third_party/ipcz/src/ipcz/test_messages.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = test_messages.cc
+  source_name_part = test_messages
+build obj/third_party/ipcz/src/impl_standalone/trap_event_dispatcher.o: cxx ../../../../third_party/ipcz/src/ipcz/trap_event_dispatcher.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = trap_event_dispatcher.cc
+  source_name_part = trap_event_dispatcher
+build obj/third_party/ipcz/src/impl_standalone/trap_set.o: cxx ../../../../third_party/ipcz/src/ipcz/trap_set.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = trap_set.cc
+  source_name_part = trap_set
+
+build phony/third_party/ipcz/src/impl_standalone: phony obj/third_party/ipcz/src/impl_standalone/api_context.o obj/third_party/ipcz/src/impl_standalone/api_object.o obj/third_party/ipcz/src/impl_standalone/application_object.o obj/third_party/ipcz/src/impl_standalone/block_allocator.o obj/third_party/ipcz/src/impl_standalone/block_allocator_pool.o obj/third_party/ipcz/src/impl_standalone/box.o obj/third_party/ipcz/src/impl_standalone/buffer_pool.o obj/third_party/ipcz/src/impl_standalone/driver_memory.o obj/third_party/ipcz/src/impl_standalone/driver_memory_mapping.o obj/third_party/ipcz/src/impl_standalone/driver_object.o obj/third_party/ipcz/src/impl_standalone/driver_transport.o obj/third_party/ipcz/src/impl_standalone/features.o obj/third_party/ipcz/src/impl_standalone/fragment.o obj/third_party/ipcz/src/impl_standalone/fragment_ref.o obj/third_party/ipcz/src/impl_standalone/link_side.o obj/third_party/ipcz/src/impl_standalone/link_type.o obj/third_party/ipcz/src/impl_standalone/local_router_link.o obj/third_party/ipcz/src/impl_standalone/message.o obj/third_party/ipcz/src/impl_standalone/node.o obj/third_party/ipcz/src/impl_standalone/node_connector.o obj/third_party/ipcz/src/impl_standalone/node_link.o obj/third_party/ipcz/src/impl_standalone/node_link_memory.o obj/third_party/ipcz/src/impl_standalone/node_messages.o obj/third_party/ipcz/src/impl_standalone/node_name.o obj/third_party/ipcz/src/impl_standalone/parcel.o obj/third_party/ipcz/src/impl_standalone/parcel_wrapper.o obj/third_party/ipcz/src/impl_standalone/pending_transaction_set.o obj/third_party/ipcz/src/impl_standalone/ref_counted_fragment.o obj/third_party/ipcz/src/impl_standalone/remote_router_link.o obj/third_party/ipcz/src/impl_standalone/route_edge.o obj/third_party/ipcz/src/impl_standalone/router.o obj/third_party/ipcz/src/impl_standalone/router_link_state.o obj/third_party/ipcz/src/impl_standalone/test_messages.o obj/third_party/ipcz/src/impl_standalone/trap_event_dispatcher.o obj/third_party/ipcz/src/impl_standalone/trap_set.o || ./libthird_party_abseil-cpp_absl.so.TOC phony/third_party/ipcz/src/standalone/standalone phony/third_party/ipcz/src/util_standalone

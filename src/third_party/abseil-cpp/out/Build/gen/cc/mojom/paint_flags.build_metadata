@@ -1,0 +1,8 @@
+{
+  "deps": [
+
+  ],
+  "sources": [
+    "../../../../../../../cc/mojom/paint_flags.mojom"
+  ]
+}

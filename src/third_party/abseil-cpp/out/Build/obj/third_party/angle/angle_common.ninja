@@ -1,0 +1,94 @@
+defines = -DDCHECK_ALWAYS_ON=1 -DUSE_UDEV -DUSE_AURA=1 -DUSE_GLIB=1 -DUSE_OZONE=1 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_GNU_SOURCE -DCR_CLANG_REVISION=\"llvmorg-21-init-1655-g7b473dfe-1\" -D_LIBCPP_HARDENING_MODE=_LIBCPP_HARDENING_MODE_EXTENSIVE -DCOMPONENT_BUILD -D_LIBCPP_INSTRUMENTED_WITH_ASAN=0 -DCR_LIBCXX_REVISION=7c3087b8a7563d8218b27b7183ba41cf52d41508 -DTMP_REBUILD_HACK -DCR_SYSROOT_KEY=20250129T203412Z-1 -D_DEBUG -DDYNAMIC_ANNOTATIONS_ENABLED=1 -DANGLE_ASSERT_ALWAYS_ON -DANGLE_IS_LINUX -DANGLE_USE_VULKAN_DISPLAY -DANGLE_USE_X11 -DANGLE_USE_WAYLAND -DANGLE_VULKAN_DISPLAY_MODE_HEADLESS -DANGLE_DEBUG_LAYERS_ENABLED -DANGLE_OUTSIDE_WEBKIT -DANGLE_DELEGATE_WORKERS=1 -DANGLE_ENABLE_DEBUG_ANNOTATIONS -DANGLE_USE_ABSEIL -DABSL_ALLOCATOR_NOTHROW=1 -DABSL_CONSUME_DLL -DABSL_FLAGS_STRIP_NAMES=0
+include_dirs = -I../../../../buildtools/third_party/libc++ -I../../../../third_party/angle/include -I../../../../third_party/angle/src -I../../../../third_party/angle/src/common/base -I../../../../third_party/angle/src/common/third_party/xxhash -I../../../../third_party/abseil-cpp
+cflags = -Wall -Wextra -Wimplicit-fallthrough -Wextra-semi -Wunreachable-code-aggressive -Wthread-safety -Wgnu -Wno-gnu-anonymous-struct -Wno-gnu-conditional-omitted-operand -Wno-gnu-include-next -Wno-gnu-label-as-value -Wno-gnu-redeclared-enum -Wno-gnu-statement-expression -Wno-gnu-zero-variadic-macro-arguments -Wno-zero-length-array -Wno-missing-field-initializers -Wno-unused-parameter -Wno-psabi -Wloop-analysis -Wno-unneeded-internal-declaration -Wno-cast-function-type -Wno-thread-safety-reference-return -Wno-nontrivial-memcall -Wshadow -Werror -fno-delete-null-pointer-checks -fno-strict-overflow -fno-ident -fno-strict-aliasing -fstack-protector -funwind-tables -fPIC -pthread -fcolor-diagnostics -fmerge-all-constants -fno-sized-deallocation -fcrash-diagnostics-dir=../../../../tools/clang/crashreports -mllvm -instcombine-lower-dbg-declare=0 -mllvm -split-threshold-for-reg-with-hint=0 -ffp-contract=off -Wa,--crel,--allow-experimental-crel -fcomplete-member-pointers -m64 -msse3 -Wno-builtin-macro-redefined -D__DATE__= -D__TIME__= -D__TIMESTAMP__= -ffile-compilation-dir=. -no-canonical-prefixes -ftrivial-auto-var-init=pattern -O0 -fno-omit-frame-pointer -gdwarf-4 -g2 -gdwarf-aranges -gsplit-dwarf -ggnu-pubnames -Xclang -fuse-ctor-homing -fvisibility=hidden -Wheader-hygiene -Wstring-conversion -Wtautological-overlap-compare -DUNSAFE_BUFFERS_BUILD -Xclang -add-plugin -Xclang unsafe-buffers -Xclang -plugin-arg-unsafe-buffers -Xclang ../../../../build/config/unsafe_buffers_paths.txt -Wexit-time-destructors -Wglobal-constructors -Wbad-function-cast -Wconditional-uninitialized -Wextra-semi-stmt -Wfloat-conversion -Winconsistent-missing-destructor-override -Wmissing-field-initializers -Wnewline-eof -Wnon-virtual-dtor -Wredundant-parens -Wreturn-std-move -Wshadow -Wshadow-field -Wtautological-type-limit-compare -Wundefined-reinterpret-cast -Wunneeded-internal-declaration -Wunused-but-set-variable -Wsuggest-destructor-override -Wsuggest-override -Wparentheses -Wrange-loop-analysis -Wstrict-prototypes -Wunreachable-code-aggressive -Wshorten-64-to-32
+cflags_cc = -Wno-invalid-offsetof -Wenum-compare-conditional -Wno-c++11-narrowing-const-reference -Wno-missing-template-arg-list-after-template-kw -Wno-undefined-bool-conversion -Wno-tautological-undefined-compare -std=c++20 -Wno-trigraphs -gsimple-template-names -fno-exceptions -fno-rtti -nostdinc++ -isystem../../../libc++/src/include -isystem../../../libc++abi/src/include --sysroot=../../../../build/linux/debian_bullseye_amd64-sysroot -fvisibility-inlines-hidden
+label_name = angle_common
+target_out_dir = obj/third_party/angle
+target_output_name = libangle_common
+
+build obj/third_party/angle/angle_common/Float16ToFloat32.o: cxx ../../../../third_party/angle/src/common/Float16ToFloat32.cpp | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = Float16ToFloat32.cpp
+  source_name_part = Float16ToFloat32
+build obj/third_party/angle/angle_common/MemoryBuffer.o: cxx ../../../../third_party/angle/src/common/MemoryBuffer.cpp | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = MemoryBuffer.cpp
+  source_name_part = MemoryBuffer
+build obj/third_party/angle/angle_common/PackedEGLEnums_autogen.o: cxx ../../../../third_party/angle/src/common/PackedEGLEnums_autogen.cpp | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = PackedEGLEnums_autogen.cpp
+  source_name_part = PackedEGLEnums_autogen
+build obj/third_party/angle/angle_common/PackedEnums.o: cxx ../../../../third_party/angle/src/common/PackedEnums.cpp | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = PackedEnums.cpp
+  source_name_part = PackedEnums
+build obj/third_party/angle/angle_common/PackedGLEnums_autogen.o: cxx ../../../../third_party/angle/src/common/PackedGLEnums_autogen.cpp | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = PackedGLEnums_autogen.cpp
+  source_name_part = PackedGLEnums_autogen
+build obj/third_party/angle/angle_common/PoolAlloc.o: cxx ../../../../third_party/angle/src/common/PoolAlloc.cpp | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = PoolAlloc.cpp
+  source_name_part = PoolAlloc
+build obj/third_party/angle/angle_common/RingBufferAllocator.o: cxx ../../../../third_party/angle/src/common/RingBufferAllocator.cpp | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = RingBufferAllocator.cpp
+  source_name_part = RingBufferAllocator
+build obj/third_party/angle/angle_common/SimpleMutex.o: cxx ../../../../third_party/angle/src/common/SimpleMutex.cpp | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = SimpleMutex.cpp
+  source_name_part = SimpleMutex
+build obj/third_party/angle/angle_common/WorkerThread.o: cxx ../../../../third_party/angle/src/common/WorkerThread.cpp | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = WorkerThread.cpp
+  source_name_part = WorkerThread
+build obj/third_party/angle/angle_common/aligned_memory.o: cxx ../../../../third_party/angle/src/common/aligned_memory.cpp | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = aligned_memory.cpp
+  source_name_part = aligned_memory
+build obj/third_party/angle/angle_common/android_util.o: cxx ../../../../third_party/angle/src/common/android_util.cpp | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = android_util.cpp
+  source_name_part = android_util
+build obj/third_party/angle/angle_common/angleutils.o: cxx ../../../../third_party/angle/src/common/angleutils.cpp | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = angleutils.cpp
+  source_name_part = angleutils
+build obj/third_party/angle/angle_common/sha1.o: cxx ../../../../third_party/angle/src/common/base/anglebase/sha1.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = sha1.cc
+  source_name_part = sha1
+build obj/third_party/angle/angle_common/debug.o: cxx ../../../../third_party/angle/src/common/debug.cpp | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = debug.cpp
+  source_name_part = debug
+build obj/third_party/angle/angle_common/entry_points_enum_autogen.o: cxx ../../../../third_party/angle/src/common/entry_points_enum_autogen.cpp | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = entry_points_enum_autogen.cpp
+  source_name_part = entry_points_enum_autogen
+build obj/third_party/angle/angle_common/event_tracer.o: cxx ../../../../third_party/angle/src/common/event_tracer.cpp | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = event_tracer.cpp
+  source_name_part = event_tracer
+build obj/third_party/angle/angle_common/mathutil.o: cxx ../../../../third_party/angle/src/common/mathutil.cpp | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = mathutil.cpp
+  source_name_part = mathutil
+build obj/third_party/angle/angle_common/matrix_utils.o: cxx ../../../../third_party/angle/src/common/matrix_utils.cpp | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = matrix_utils.cpp
+  source_name_part = matrix_utils
+build obj/third_party/angle/angle_common/platform_helpers.o: cxx ../../../../third_party/angle/src/common/platform_helpers.cpp | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = platform_helpers.cpp
+  source_name_part = platform_helpers
+build obj/third_party/angle/angle_common/string_utils.o: cxx ../../../../third_party/angle/src/common/string_utils.cpp | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = string_utils.cpp
+  source_name_part = string_utils
+build obj/third_party/angle/angle_common/system_utils.o: cxx ../../../../third_party/angle/src/common/system_utils.cpp | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = system_utils.cpp
+  source_name_part = system_utils
+build obj/third_party/angle/angle_common/tls.o: cxx ../../../../third_party/angle/src/common/tls.cpp | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = tls.cpp
+  source_name_part = tls
+build obj/third_party/angle/angle_common/uniform_type_info_autogen.o: cxx ../../../../third_party/angle/src/common/uniform_type_info_autogen.cpp | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = uniform_type_info_autogen.cpp
+  source_name_part = uniform_type_info_autogen
+build obj/third_party/angle/angle_common/utilities.o: cxx ../../../../third_party/angle/src/common/utilities.cpp | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = utilities.cpp
+  source_name_part = utilities
+build obj/third_party/angle/angle_common/backtrace_utils_noop.o: cxx ../../../../third_party/angle/src/common/backtrace_utils_noop.cpp | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = backtrace_utils_noop.cpp
+  source_name_part = backtrace_utils_noop
+build obj/third_party/angle/angle_common/system_utils_linux.o: cxx ../../../../third_party/angle/src/common/system_utils_linux.cpp | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = system_utils_linux.cpp
+  source_name_part = system_utils_linux
+build obj/third_party/angle/angle_common/system_utils_posix.o: cxx ../../../../third_party/angle/src/common/system_utils_posix.cpp | ../../../../build/config/unsafe_buffers_paths.txt || phony/build/chromeos_buildflags
+  source_file_part = system_utils_posix.cpp
+  source_name_part = system_utils_posix
+
+build obj/third_party/angle/libangle_common.a: alink obj/third_party/angle/angle_common/Float16ToFloat32.o obj/third_party/angle/angle_common/MemoryBuffer.o obj/third_party/angle/angle_common/PackedEGLEnums_autogen.o obj/third_party/angle/angle_common/PackedEnums.o obj/third_party/angle/angle_common/PackedGLEnums_autogen.o obj/third_party/angle/angle_common/PoolAlloc.o obj/third_party/angle/angle_common/RingBufferAllocator.o obj/third_party/angle/angle_common/SimpleMutex.o obj/third_party/angle/angle_common/WorkerThread.o obj/third_party/angle/angle_common/aligned_memory.o obj/third_party/angle/angle_common/android_util.o obj/third_party/angle/angle_common/angleutils.o obj/third_party/angle/angle_common/sha1.o obj/third_party/angle/angle_common/debug.o obj/third_party/angle/angle_common/entry_points_enum_autogen.o obj/third_party/angle/angle_common/event_tracer.o obj/third_party/angle/angle_common/mathutil.o obj/third_party/angle/angle_common/matrix_utils.o obj/third_party/angle/angle_common/platform_helpers.o obj/third_party/angle/angle_common/string_utils.o obj/third_party/angle/angle_common/system_utils.o obj/third_party/angle/angle_common/tls.o obj/third_party/angle/angle_common/uniform_type_info_autogen.o obj/third_party/angle/angle_common/utilities.o obj/third_party/angle/angle_common/backtrace_utils_noop.o obj/third_party/angle/angle_common/system_utils_linux.o obj/third_party/angle/angle_common/system_utils_posix.o | ../../../llvm-build/Release+Asserts/lib/clang/21/lib/x86_64-unknown-linux-gnu/libclang_rt.builtins.a ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/angle/angle_abseil phony/third_party/angle/xxhash ./libthird_party_abseil-cpp_absl.so.TOC
+  arflags = -T -S
+  output_extension = .a
+  output_dir = obj/third_party/angle

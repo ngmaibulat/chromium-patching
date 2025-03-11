@@ -1,0 +1,35 @@
+// Copyright 2024 The Chromium Authors. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+
+// https://github.com/webmachinelearning/prompt-api
+
+[
+  Exposed=(Window,Worker),
+  SecureContext,
+  RuntimeEnabled=AIPromptAPI
+]
+interface AILanguageModelFactory {
+  [
+    Measure,
+    CallWith=ScriptState,
+    RaisesException
+  ]
+  Promise<AILanguageModel> create(
+    optional AILanguageModelCreateOptions options = {}
+  );
+  [
+    Measure,
+    CallWith=ScriptState,
+    RaisesException
+  ]
+  Promise<AIAvailability> availability(
+    optional AILanguageModelCreateCoreOptions options = {}
+  );
+  [
+    Measure,
+    CallWith=ScriptState,
+    RaisesException
+  ]
+  Promise<AILanguageModelParams?> params();
+};

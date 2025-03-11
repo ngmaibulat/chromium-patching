@@ -1,0 +1,12 @@
+[
+  {
+    "source": "time_converters.ts",
+    "types": [
+      {
+        "converter": "JsTimeConverter",
+        "mojom": "mojo_base.mojom.JSTime",
+        "ts": "Date"
+      }
+    ]
+  }
+]

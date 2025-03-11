@@ -1,0 +1,89 @@
+defines = -DDCHECK_ALWAYS_ON=1 -DUSE_UDEV -DUSE_AURA=1 -DUSE_GLIB=1 -DUSE_OZONE=1 -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_GNU_SOURCE -DCR_CLANG_REVISION=\"llvmorg-21-init-1655-g7b473dfe-1\" -D_LIBCPP_HARDENING_MODE=_LIBCPP_HARDENING_MODE_EXTENSIVE -DCOMPONENT_BUILD -D_LIBCPP_INSTRUMENTED_WITH_ASAN=0 -DCR_LIBCXX_REVISION=7c3087b8a7563d8218b27b7183ba41cf52d41508 -DTMP_REBUILD_HACK -DCR_SYSROOT_KEY=20250129T203412Z-1 -D_DEBUG -DDYNAMIC_ANNOTATIONS_ENABLED=1 -DOPJ_STATIC -DPDF_USE_PARTITION_ALLOC -DPDF_ENABLE_UNOWNED_PTR_EXCLUSION -DPDF_ENABLE_V8 -DPDF_ENABLE_XFA -DPDF_ENABLE_XFA_BMP -DPDF_ENABLE_XFA_GIF -DPDF_ENABLE_XFA_PNG -DPDF_ENABLE_XFA_TIFF -DPDF_USE_SKIA -DFT_CONFIG_MODULES_H=\"freetype-custom/freetype/config/ftmodule.h\" -DFT_CONFIG_OPTIONS_H=\"freetype-custom/freetype/config/ftoption.h\" -DPDFIUM_REQUIRED_MODULES -DABSL_CONSUME_DLL -DABSL_FLAGS_STRIP_NAMES=0 -DU_USING_ICU_NAMESPACE=0 -DU_ENABLE_DYLOAD=0 -DUSE_CHROMIUM_ICU=1 -DU_ENABLE_TRACING=1 -DU_ENABLE_RESOURCE_TRACING=0 -DICU_UTIL_DATA_IMPL=ICU_UTIL_DATA_FILE
+include_dirs = -I../../../.. -Igen -I../../../../buildtools/third_party/libc++ -I../../../../third_party/pdfium -I../../../../third_party/freetype/include -I../../../../third_party/freetype/include/freetype-custom -I../../../../third_party/freetype/src/include -I../../../../third_party/harfbuzz-ng/src/src -I../../../../third_party/abseil-cpp -I../../../../third_party/icu/source/common -I../../../../third_party/icu/source/i18n -I../../../../base/allocator/partition_allocator/src -Igen/base/allocator/partition_allocator/src
+cflags = -fno-delete-null-pointer-checks -fno-strict-overflow -fno-ident -fno-strict-aliasing -fstack-protector -funwind-tables -fPIC -pthread -fcolor-diagnostics -fmerge-all-constants -fno-sized-deallocation -fcrash-diagnostics-dir=../../../../tools/clang/crashreports -mllvm -instcombine-lower-dbg-declare=0 -mllvm -split-threshold-for-reg-with-hint=0 -ffp-contract=off -Wa,--crel,--allow-experimental-crel -fcomplete-member-pointers -m64 -msse3 -Wno-builtin-macro-redefined -D__DATE__= -D__TIME__= -D__TIMESTAMP__= -ffile-compilation-dir=. -no-canonical-prefixes -ftrivial-auto-var-init=pattern -O0 -fno-omit-frame-pointer -gdwarf-4 -g2 -gdwarf-aranges -gsplit-dwarf -ggnu-pubnames -Xclang -fuse-ctor-homing -fvisibility=hidden -Wheader-hygiene -Wstring-conversion -Wtautological-overlap-compare -Xclang -add-plugin -Xclang find-bad-constructs -Xclang -plugin-arg-find-bad-constructs -Xclang span-ctor-from-string-literal -Xclang -plugin-arg-find-bad-constructs -Xclang raw-ref-template-as-trivial-member -Xclang -plugin-arg-find-bad-constructs -Xclang raw-span-template-as-trivial-member -Xclang -plugin-arg-find-bad-constructs -Xclang check-stack-allocated -Xclang -plugin-arg-find-bad-constructs -Xclang check-ipc -Xclang -add-plugin -Xclang raw-ptr-plugin -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ptr-to-stack-allocated -Xclang -plugin-arg-raw-ptr-plugin -Xclang disable-check-raw-ptr-to-stack-allocated-error -Xclang -plugin-arg-raw-ptr-plugin -Xclang raw-ptr-exclude-path=../../../dawn/ -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ptr-fields -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-span-fields -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ref-fields -DUNSAFE_BUFFERS_BUILD -Xclang -add-plugin -Xclang unsafe-buffers -Xclang -plugin-arg-unsafe-buffers -Xclang ../../../../build/config/unsafe_buffers_paths.txt -Wall -Wno-unused-variable -Wno-c++11-narrowing -Wno-unused-but-set-variable -Wno-misleading-indentation -Wno-missing-field-initializers -Wno-unused-parameter -Wno-psabi -Wloop-analysis -Wno-unneeded-internal-declaration -Wno-cast-function-type -Wno-thread-safety-reference-return -Wno-nontrivial-memcall -Werror -Wc++11-narrowing -Wtautological-unsigned-zero-compare -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ptr-fields -Xclang -plugin-arg-raw-ptr-plugin -Xclang raw-ptr-exclude-path=public -Xclang -plugin-arg-raw-ptr-plugin -Xclang raw-ptr-exclude-path=test -Xclang -add-plugin -Xclang blink-gc-plugin -Xclang -plugin-arg-blink-gc-plugin -Xclang disable-off-heap-collections-of-gced-check -Wno-missing-braces
+cflags_c = -std=c11 --sysroot=../../../../build/linux/debian_bullseye_amd64-sysroot
+label_name = fx_lcms2
+target_out_dir = obj/third_party/pdfium/third_party
+target_output_name = fx_lcms2
+
+build phony/third_party/pdfium/third_party/fx_lcms2.inputdeps: phony phony/base/allocator/partition_allocator/src/partition_alloc/buildflags phony/build/chromeos_buildflags phony/third_party/icu/copy_icudata
+build obj/third_party/pdfium/third_party/fx_lcms2/cmsalpha.o: cc ../../../../third_party/pdfium/third_party/lcms/src/cmsalpha.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/pdfium/third_party/fx_lcms2.inputdeps
+  source_file_part = cmsalpha.c
+  source_name_part = cmsalpha
+build obj/third_party/pdfium/third_party/fx_lcms2/cmscam02.o: cc ../../../../third_party/pdfium/third_party/lcms/src/cmscam02.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/pdfium/third_party/fx_lcms2.inputdeps
+  source_file_part = cmscam02.c
+  source_name_part = cmscam02
+build obj/third_party/pdfium/third_party/fx_lcms2/cmscgats.o: cc ../../../../third_party/pdfium/third_party/lcms/src/cmscgats.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/pdfium/third_party/fx_lcms2.inputdeps
+  source_file_part = cmscgats.c
+  source_name_part = cmscgats
+build obj/third_party/pdfium/third_party/fx_lcms2/cmscnvrt.o: cc ../../../../third_party/pdfium/third_party/lcms/src/cmscnvrt.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/pdfium/third_party/fx_lcms2.inputdeps
+  source_file_part = cmscnvrt.c
+  source_name_part = cmscnvrt
+build obj/third_party/pdfium/third_party/fx_lcms2/cmserr.o: cc ../../../../third_party/pdfium/third_party/lcms/src/cmserr.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/pdfium/third_party/fx_lcms2.inputdeps
+  source_file_part = cmserr.c
+  source_name_part = cmserr
+build obj/third_party/pdfium/third_party/fx_lcms2/cmsgamma.o: cc ../../../../third_party/pdfium/third_party/lcms/src/cmsgamma.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/pdfium/third_party/fx_lcms2.inputdeps
+  source_file_part = cmsgamma.c
+  source_name_part = cmsgamma
+build obj/third_party/pdfium/third_party/fx_lcms2/cmsgmt.o: cc ../../../../third_party/pdfium/third_party/lcms/src/cmsgmt.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/pdfium/third_party/fx_lcms2.inputdeps
+  source_file_part = cmsgmt.c
+  source_name_part = cmsgmt
+build obj/third_party/pdfium/third_party/fx_lcms2/cmshalf.o: cc ../../../../third_party/pdfium/third_party/lcms/src/cmshalf.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/pdfium/third_party/fx_lcms2.inputdeps
+  source_file_part = cmshalf.c
+  source_name_part = cmshalf
+build obj/third_party/pdfium/third_party/fx_lcms2/cmsintrp.o: cc ../../../../third_party/pdfium/third_party/lcms/src/cmsintrp.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/pdfium/third_party/fx_lcms2.inputdeps
+  source_file_part = cmsintrp.c
+  source_name_part = cmsintrp
+build obj/third_party/pdfium/third_party/fx_lcms2/cmsio0.o: cc ../../../../third_party/pdfium/third_party/lcms/src/cmsio0.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/pdfium/third_party/fx_lcms2.inputdeps
+  source_file_part = cmsio0.c
+  source_name_part = cmsio0
+build obj/third_party/pdfium/third_party/fx_lcms2/cmsio1.o: cc ../../../../third_party/pdfium/third_party/lcms/src/cmsio1.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/pdfium/third_party/fx_lcms2.inputdeps
+  source_file_part = cmsio1.c
+  source_name_part = cmsio1
+build obj/third_party/pdfium/third_party/fx_lcms2/cmslut.o: cc ../../../../third_party/pdfium/third_party/lcms/src/cmslut.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/pdfium/third_party/fx_lcms2.inputdeps
+  source_file_part = cmslut.c
+  source_name_part = cmslut
+build obj/third_party/pdfium/third_party/fx_lcms2/cmsmd5.o: cc ../../../../third_party/pdfium/third_party/lcms/src/cmsmd5.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/pdfium/third_party/fx_lcms2.inputdeps
+  source_file_part = cmsmd5.c
+  source_name_part = cmsmd5
+build obj/third_party/pdfium/third_party/fx_lcms2/cmsmtrx.o: cc ../../../../third_party/pdfium/third_party/lcms/src/cmsmtrx.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/pdfium/third_party/fx_lcms2.inputdeps
+  source_file_part = cmsmtrx.c
+  source_name_part = cmsmtrx
+build obj/third_party/pdfium/third_party/fx_lcms2/cmsnamed.o: cc ../../../../third_party/pdfium/third_party/lcms/src/cmsnamed.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/pdfium/third_party/fx_lcms2.inputdeps
+  source_file_part = cmsnamed.c
+  source_name_part = cmsnamed
+build obj/third_party/pdfium/third_party/fx_lcms2/cmsopt.o: cc ../../../../third_party/pdfium/third_party/lcms/src/cmsopt.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/pdfium/third_party/fx_lcms2.inputdeps
+  source_file_part = cmsopt.c
+  source_name_part = cmsopt
+build obj/third_party/pdfium/third_party/fx_lcms2/cmspack.o: cc ../../../../third_party/pdfium/third_party/lcms/src/cmspack.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/pdfium/third_party/fx_lcms2.inputdeps
+  source_file_part = cmspack.c
+  source_name_part = cmspack
+build obj/third_party/pdfium/third_party/fx_lcms2/cmspcs.o: cc ../../../../third_party/pdfium/third_party/lcms/src/cmspcs.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/pdfium/third_party/fx_lcms2.inputdeps
+  source_file_part = cmspcs.c
+  source_name_part = cmspcs
+build obj/third_party/pdfium/third_party/fx_lcms2/cmsplugin.o: cc ../../../../third_party/pdfium/third_party/lcms/src/cmsplugin.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/pdfium/third_party/fx_lcms2.inputdeps
+  source_file_part = cmsplugin.c
+  source_name_part = cmsplugin
+build obj/third_party/pdfium/third_party/fx_lcms2/cmsps2.o: cc ../../../../third_party/pdfium/third_party/lcms/src/cmsps2.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/pdfium/third_party/fx_lcms2.inputdeps
+  source_file_part = cmsps2.c
+  source_name_part = cmsps2
+build obj/third_party/pdfium/third_party/fx_lcms2/cmssamp.o: cc ../../../../third_party/pdfium/third_party/lcms/src/cmssamp.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/pdfium/third_party/fx_lcms2.inputdeps
+  source_file_part = cmssamp.c
+  source_name_part = cmssamp
+build obj/third_party/pdfium/third_party/fx_lcms2/cmssm.o: cc ../../../../third_party/pdfium/third_party/lcms/src/cmssm.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/pdfium/third_party/fx_lcms2.inputdeps
+  source_file_part = cmssm.c
+  source_name_part = cmssm
+build obj/third_party/pdfium/third_party/fx_lcms2/cmstypes.o: cc ../../../../third_party/pdfium/third_party/lcms/src/cmstypes.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/pdfium/third_party/fx_lcms2.inputdeps
+  source_file_part = cmstypes.c
+  source_name_part = cmstypes
+build obj/third_party/pdfium/third_party/fx_lcms2/cmsvirt.o: cc ../../../../third_party/pdfium/third_party/lcms/src/cmsvirt.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/pdfium/third_party/fx_lcms2.inputdeps
+  source_file_part = cmsvirt.c
+  source_name_part = cmsvirt
+build obj/third_party/pdfium/third_party/fx_lcms2/cmswtpnt.o: cc ../../../../third_party/pdfium/third_party/lcms/src/cmswtpnt.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/pdfium/third_party/fx_lcms2.inputdeps
+  source_file_part = cmswtpnt.c
+  source_name_part = cmswtpnt
+build obj/third_party/pdfium/third_party/fx_lcms2/cmsxform.o: cc ../../../../third_party/pdfium/third_party/lcms/src/cmsxform.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/pdfium/third_party/fx_lcms2.inputdeps
+  source_file_part = cmsxform.c
+  source_name_part = cmsxform
+
+build phony/third_party/pdfium/third_party/fx_lcms2: phony obj/third_party/pdfium/third_party/fx_lcms2/cmsalpha.o obj/third_party/pdfium/third_party/fx_lcms2/cmscam02.o obj/third_party/pdfium/third_party/fx_lcms2/cmscgats.o obj/third_party/pdfium/third_party/fx_lcms2/cmscnvrt.o obj/third_party/pdfium/third_party/fx_lcms2/cmserr.o obj/third_party/pdfium/third_party/fx_lcms2/cmsgamma.o obj/third_party/pdfium/third_party/fx_lcms2/cmsgmt.o obj/third_party/pdfium/third_party/fx_lcms2/cmshalf.o obj/third_party/pdfium/third_party/fx_lcms2/cmsintrp.o obj/third_party/pdfium/third_party/fx_lcms2/cmsio0.o obj/third_party/pdfium/third_party/fx_lcms2/cmsio1.o obj/third_party/pdfium/third_party/fx_lcms2/cmslut.o obj/third_party/pdfium/third_party/fx_lcms2/cmsmd5.o obj/third_party/pdfium/third_party/fx_lcms2/cmsmtrx.o obj/third_party/pdfium/third_party/fx_lcms2/cmsnamed.o obj/third_party/pdfium/third_party/fx_lcms2/cmsopt.o obj/third_party/pdfium/third_party/fx_lcms2/cmspack.o obj/third_party/pdfium/third_party/fx_lcms2/cmspcs.o obj/third_party/pdfium/third_party/fx_lcms2/cmsplugin.o obj/third_party/pdfium/third_party/fx_lcms2/cmsps2.o obj/third_party/pdfium/third_party/fx_lcms2/cmssamp.o obj/third_party/pdfium/third_party/fx_lcms2/cmssm.o obj/third_party/pdfium/third_party/fx_lcms2/cmstypes.o obj/third_party/pdfium/third_party/fx_lcms2/cmsvirt.o obj/third_party/pdfium/third_party/fx_lcms2/cmswtpnt.o obj/third_party/pdfium/third_party/fx_lcms2/cmsxform.o || phony/third_party/pdfium/core/fxcrt/fxcrt ./libthird_party_freetype_harfbuzz.so.TOC ./libthird_party_abseil-cpp_absl.so.TOC ./libicuuc.so.TOC phony/base/allocator/partition_allocator/src/partition_alloc/partition_alloc_buildflags ./libbase_allocator_partition_allocator_src_partition_alloc_raw_ptr.so.TOC ./libbase_allocator_partition_allocator_src_partition_alloc_allocator_base.so.TOC ./libbase_allocator_partition_allocator_src_partition_alloc_allocator_core.so.TOC ./libbase_allocator_partition_allocator_src_partition_alloc_allocator_shim.so.TOC

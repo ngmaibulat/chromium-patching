@@ -1,0 +1,25 @@
+defines = -DDCHECK_ALWAYS_ON=1 -DUSE_UDEV -DUSE_AURA=1 -DUSE_GLIB=1 -DUSE_OZONE=1 -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_GNU_SOURCE -DCR_CLANG_REVISION=\"llvmorg-21-init-1655-g7b473dfe-1\" -D_LIBCPP_HARDENING_MODE=_LIBCPP_HARDENING_MODE_EXTENSIVE -DCOMPONENT_BUILD -D_LIBCPP_INSTRUMENTED_WITH_ASAN=0 -DCR_LIBCXX_REVISION=7c3087b8a7563d8218b27b7183ba41cf52d41508 -DTMP_REBUILD_HACK -DCR_SYSROOT_KEY=20250129T203412Z-1 -D_DEBUG -DDYNAMIC_ANNOTATIONS_ENABLED=1 -Dtypeof\(x\)=__typeof__\(x\)
+include_dirs = -Igen/third_party/libdrm/src -I../../../../third_party/libdrm/src -I../../../../third_party/libdrm/src/include -I../../../.. -Igen -I../../../../buildtools/third_party/libc++ -I../../../../third_party/libdrm/src/include/drm
+cflags = -Wno-deprecated-declarations -fno-delete-null-pointer-checks -fno-strict-overflow -fno-ident -fno-strict-aliasing -fstack-protector -funwind-tables -fPIC -pthread -fcolor-diagnostics -fmerge-all-constants -fno-sized-deallocation -fcrash-diagnostics-dir=../../../../tools/clang/crashreports -mllvm -instcombine-lower-dbg-declare=0 -mllvm -split-threshold-for-reg-with-hint=0 -ffp-contract=off -Wa,--crel,--allow-experimental-crel -fcomplete-member-pointers -m64 -msse3 -Wno-builtin-macro-redefined -D__DATE__= -D__TIME__= -D__TIMESTAMP__= -ffile-compilation-dir=. -no-canonical-prefixes -ftrivial-auto-var-init=pattern -O0 -fno-omit-frame-pointer -gdwarf-4 -g2 -gdwarf-aranges -gsplit-dwarf -ggnu-pubnames -Xclang -fuse-ctor-homing -fvisibility=hidden -Wheader-hygiene -Wstring-conversion -Wtautological-overlap-compare -Xclang -add-plugin -Xclang find-bad-constructs -Xclang -plugin-arg-find-bad-constructs -Xclang span-ctor-from-string-literal -Xclang -plugin-arg-find-bad-constructs -Xclang raw-ref-template-as-trivial-member -Xclang -plugin-arg-find-bad-constructs -Xclang raw-span-template-as-trivial-member -Xclang -plugin-arg-find-bad-constructs -Xclang check-stack-allocated -Xclang -plugin-arg-find-bad-constructs -Xclang check-ipc -Xclang -add-plugin -Xclang raw-ptr-plugin -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ptr-to-stack-allocated -Xclang -plugin-arg-raw-ptr-plugin -Xclang disable-check-raw-ptr-to-stack-allocated-error -Xclang -plugin-arg-raw-ptr-plugin -Xclang raw-ptr-exclude-path=../../../dawn/ -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ptr-fields -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-span-fields -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ref-fields -DUNSAFE_BUFFERS_BUILD -Xclang -add-plugin -Xclang unsafe-buffers -Xclang -plugin-arg-unsafe-buffers -Xclang ../../../../build/config/unsafe_buffers_paths.txt -Wall -Wno-unused-variable -Wno-c++11-narrowing -Wno-unused-but-set-variable -Wno-misleading-indentation -Wno-missing-field-initializers -Wno-unused-parameter -Wno-psabi -Wloop-analysis -Wno-unneeded-internal-declaration -Wno-cast-function-type -Wno-thread-safety-reference-return -Wno-nontrivial-memcall -Werror -Wno-\#pragma-messages -DMAJOR_IN_SYSMACROS=1 -Wno-unused-function -Wno-enum-conversion -Wno-unused-result -Wno-format
+cflags_c = -std=c11 --sysroot=../../../../build/linux/debian_bullseye_amd64-sysroot
+label_name = libdrm
+target_out_dir = obj/third_party/libdrm
+target_output_name = libdrm
+
+build obj/third_party/libdrm/libdrm/xf86drm.o: cc ../../../../third_party/libdrm/src/xf86drm.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/libdrm/make_generated_static_table_fourcc
+  source_file_part = xf86drm.c
+  source_name_part = xf86drm
+build obj/third_party/libdrm/libdrm/xf86drmHash.o: cc ../../../../third_party/libdrm/src/xf86drmHash.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/libdrm/make_generated_static_table_fourcc
+  source_file_part = xf86drmHash.c
+  source_name_part = xf86drmHash
+build obj/third_party/libdrm/libdrm/xf86drmMode.o: cc ../../../../third_party/libdrm/src/xf86drmMode.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/libdrm/make_generated_static_table_fourcc
+  source_file_part = xf86drmMode.c
+  source_name_part = xf86drmMode
+build obj/third_party/libdrm/libdrm/xf86drmRandom.o: cc ../../../../third_party/libdrm/src/xf86drmRandom.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/libdrm/make_generated_static_table_fourcc
+  source_file_part = xf86drmRandom.c
+  source_name_part = xf86drmRandom
+
+build obj/third_party/libdrm/libdrm.a: alink obj/third_party/libdrm/libdrm/xf86drm.o obj/third_party/libdrm/libdrm/xf86drmHash.o obj/third_party/libdrm/libdrm/xf86drmMode.o obj/third_party/libdrm/libdrm/xf86drmRandom.o | ../../../llvm-build/Release+Asserts/lib/clang/21/lib/x86_64-unknown-linux-gnu/libclang_rt.builtins.a ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/libdrm/make_generated_static_table_fourcc
+  arflags = -T -S
+  output_extension = .a
+  output_dir = obj/third_party/libdrm

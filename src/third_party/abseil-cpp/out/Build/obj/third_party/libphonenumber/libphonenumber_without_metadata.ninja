@@ -1,0 +1,70 @@
+defines = -DDCHECK_ALWAYS_ON=1 -DUSE_UDEV -DUSE_AURA=1 -DUSE_GLIB=1 -DUSE_OZONE=1 -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_GNU_SOURCE -DCR_CLANG_REVISION=\"llvmorg-21-init-1655-g7b473dfe-1\" -D_LIBCPP_HARDENING_MODE=_LIBCPP_HARDENING_MODE_EXTENSIVE -DCOMPONENT_BUILD -D_LIBCPP_INSTRUMENTED_WITH_ASAN=0 -DCR_LIBCXX_REVISION=7c3087b8a7563d8218b27b7183ba41cf52d41508 -DTMP_REBUILD_HACK -DCR_SYSROOT_KEY=20250129T203412Z-1 -D_DEBUG -DDYNAMIC_ANNOTATIONS_ENABLED=1 -DI18N_PHONENUMBERS_USE_ICU_REGEXP=1 -DI18N_PHONENUMBERS_USE_ALTERNATE_FORMATS=1 -DI18N_PHONENUMBERS_NO_THREAD_SAFETY=1 -DGOOGLE_PROTOBUF_NO_RTTI -DHAVE_PTHREAD -DPROTOBUF_USE_DLLS -DABSL_CONSUME_DLL -DABSL_FLAGS_STRIP_NAMES=0 -DU_USING_ICU_NAMESPACE=0 -DU_ENABLE_DYLOAD=0 -DUSE_CHROMIUM_ICU=1 -DU_ENABLE_TRACING=1 -DU_ENABLE_RESOURCE_TRACING=0 -DICU_UTIL_DATA_IMPL=ICU_UTIL_DATA_FILE
+include_dirs = -I../../../.. -Igen -I../../../../buildtools/third_party/libc++ -I../../../../third_party/libphonenumber/dist/cpp/src -Igen/third_party/libphonenumber -I../../../../third_party/protobuf/src -I../../../../third_party/abseil-cpp -I../../../../third_party/icu/source/common -I../../../../third_party/icu/source/i18n
+cflags = -fno-delete-null-pointer-checks -fno-strict-overflow -fno-ident -fno-strict-aliasing -fstack-protector -funwind-tables -fPIC -pthread -fcolor-diagnostics -fmerge-all-constants -fno-sized-deallocation -fcrash-diagnostics-dir=../../../../tools/clang/crashreports -mllvm -instcombine-lower-dbg-declare=0 -mllvm -split-threshold-for-reg-with-hint=0 -ffp-contract=off -Wa,--crel,--allow-experimental-crel -fcomplete-member-pointers -m64 -msse3 -Wno-builtin-macro-redefined -D__DATE__= -D__TIME__= -D__TIMESTAMP__= -ffile-compilation-dir=. -no-canonical-prefixes -ftrivial-auto-var-init=pattern -O0 -fno-omit-frame-pointer -gdwarf-4 -g2 -gdwarf-aranges -gsplit-dwarf -ggnu-pubnames -Xclang -fuse-ctor-homing -fvisibility=hidden -Wheader-hygiene -Wstring-conversion -Wtautological-overlap-compare -Xclang -add-plugin -Xclang find-bad-constructs -Xclang -plugin-arg-find-bad-constructs -Xclang span-ctor-from-string-literal -Xclang -plugin-arg-find-bad-constructs -Xclang raw-ref-template-as-trivial-member -Xclang -plugin-arg-find-bad-constructs -Xclang raw-span-template-as-trivial-member -Xclang -plugin-arg-find-bad-constructs -Xclang check-stack-allocated -Xclang -plugin-arg-find-bad-constructs -Xclang check-ipc -Xclang -add-plugin -Xclang raw-ptr-plugin -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ptr-to-stack-allocated -Xclang -plugin-arg-raw-ptr-plugin -Xclang disable-check-raw-ptr-to-stack-allocated-error -Xclang -plugin-arg-raw-ptr-plugin -Xclang raw-ptr-exclude-path=../../../dawn/ -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ptr-fields -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-span-fields -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ref-fields -DUNSAFE_BUFFERS_BUILD -Xclang -add-plugin -Xclang unsafe-buffers -Xclang -plugin-arg-unsafe-buffers -Xclang ../../../../build/config/unsafe_buffers_paths.txt -Wall -Wno-unused-variable -Wno-c++11-narrowing -Wno-unused-but-set-variable -Wno-misleading-indentation -Wno-missing-field-initializers -Wno-unused-parameter -Wno-psabi -Wloop-analysis -Wno-unneeded-internal-declaration -Wno-cast-function-type -Wno-thread-safety-reference-return -Wno-nontrivial-memcall -Werror -Wno-unused-private-field
+cflags_c = -std=c11 --sysroot=../../../../build/linux/debian_bullseye_amd64-sysroot
+cflags_cc = -Wno-undefined-bool-conversion -Wno-tautological-undefined-compare -std=c++20 -Wno-trigraphs -gsimple-template-names -fno-exceptions -fno-rtti -nostdinc++ -isystem../../../libc++/src/include -isystem../../../libc++abi/src/include --sysroot=../../../../build/linux/debian_bullseye_amd64-sysroot -fvisibility-inlines-hidden -Wno-invalid-offsetof -Wenum-compare-conditional -Wno-c++11-narrowing-const-reference -Wno-missing-template-arg-list-after-template-kw
+label_name = libphonenumber_without_metadata
+target_out_dir = obj/third_party/libphonenumber
+target_output_name = libphonenumber_without_metadata
+
+build phony/third_party/libphonenumber/libphonenumber_without_metadata.inputs: phony ../../../../build/config/unsafe_buffers_paths.txt ../../../../third_party/libphonenumber/dist/resources/phonemetadata.proto ../../../../third_party/libphonenumber/dist/resources/phonenumber.proto
+build phony/third_party/libphonenumber/libphonenumber_without_metadata.inputdeps: phony phony/build/chromeos_buildflags phony/third_party/icu/copy_icudata phony/third_party/libphonenumber/proto_gen
+build obj/third_party/libphonenumber/libphonenumber_without_metadata/alternate_format.o: cxx ../../../../third_party/libphonenumber/dist/cpp/src/phonenumbers/alternate_format.cc | phony/third_party/libphonenumber/libphonenumber_without_metadata.inputs || phony/third_party/libphonenumber/libphonenumber_without_metadata.inputdeps
+  source_file_part = alternate_format.cc
+  source_name_part = alternate_format
+build obj/third_party/libphonenumber/libphonenumber_without_metadata/asyoutypeformatter.o: cxx ../../../../third_party/libphonenumber/dist/cpp/src/phonenumbers/asyoutypeformatter.cc | phony/third_party/libphonenumber/libphonenumber_without_metadata.inputs || phony/third_party/libphonenumber/libphonenumber_without_metadata.inputdeps
+  source_file_part = asyoutypeformatter.cc
+  source_name_part = asyoutypeformatter
+build obj/third_party/libphonenumber/libphonenumber_without_metadata/string_piece.o: cxx ../../../../third_party/libphonenumber/dist/cpp/src/phonenumbers/base/strings/string_piece.cc | phony/third_party/libphonenumber/libphonenumber_without_metadata.inputs || phony/third_party/libphonenumber/libphonenumber_without_metadata.inputdeps
+  source_file_part = string_piece.cc
+  source_name_part = string_piece
+build obj/third_party/libphonenumber/libphonenumber_without_metadata/default_logger.o: cxx ../../../../third_party/libphonenumber/dist/cpp/src/phonenumbers/default_logger.cc | phony/third_party/libphonenumber/libphonenumber_without_metadata.inputs || phony/third_party/libphonenumber/libphonenumber_without_metadata.inputdeps
+  source_file_part = default_logger.cc
+  source_name_part = default_logger
+build obj/third_party/libphonenumber/libphonenumber_without_metadata/logger.o: cxx ../../../../third_party/libphonenumber/dist/cpp/src/phonenumbers/logger.cc | phony/third_party/libphonenumber/libphonenumber_without_metadata.inputs || phony/third_party/libphonenumber/libphonenumber_without_metadata.inputdeps
+  source_file_part = logger.cc
+  source_name_part = logger
+build obj/third_party/libphonenumber/libphonenumber_without_metadata/phonenumber.o: cxx ../../../../third_party/libphonenumber/dist/cpp/src/phonenumbers/phonenumber.cc | phony/third_party/libphonenumber/libphonenumber_without_metadata.inputs || phony/third_party/libphonenumber/libphonenumber_without_metadata.inputdeps
+  source_file_part = phonenumber.cc
+  source_name_part = phonenumber
+build obj/third_party/libphonenumber/libphonenumber_without_metadata/phonenumbermatch.o: cxx ../../../../third_party/libphonenumber/dist/cpp/src/phonenumbers/phonenumbermatch.cc | phony/third_party/libphonenumber/libphonenumber_without_metadata.inputs || phony/third_party/libphonenumber/libphonenumber_without_metadata.inputdeps
+  source_file_part = phonenumbermatch.cc
+  source_name_part = phonenumbermatch
+build obj/third_party/libphonenumber/libphonenumber_without_metadata/phonenumbermatcher.o: cxx ../../../../third_party/libphonenumber/dist/cpp/src/phonenumbers/phonenumbermatcher.cc | phony/third_party/libphonenumber/libphonenumber_without_metadata.inputs || phony/third_party/libphonenumber/libphonenumber_without_metadata.inputdeps
+  source_file_part = phonenumbermatcher.cc
+  source_name_part = phonenumbermatcher
+build obj/third_party/libphonenumber/libphonenumber_without_metadata/phonenumberutil.o: cxx ../../../../third_party/libphonenumber/dist/cpp/src/phonenumbers/phonenumberutil.cc | phony/third_party/libphonenumber/libphonenumber_without_metadata.inputs || phony/third_party/libphonenumber/libphonenumber_without_metadata.inputdeps
+  source_file_part = phonenumberutil.cc
+  source_name_part = phonenumberutil
+build obj/third_party/libphonenumber/libphonenumber_without_metadata/regex_based_matcher.o: cxx ../../../../third_party/libphonenumber/dist/cpp/src/phonenumbers/regex_based_matcher.cc | phony/third_party/libphonenumber/libphonenumber_without_metadata.inputs || phony/third_party/libphonenumber/libphonenumber_without_metadata.inputdeps
+  source_file_part = regex_based_matcher.cc
+  source_name_part = regex_based_matcher
+build obj/third_party/libphonenumber/libphonenumber_without_metadata/regexp_adapter_icu.o: cxx ../../../../third_party/libphonenumber/dist/cpp/src/phonenumbers/regexp_adapter_icu.cc | phony/third_party/libphonenumber/libphonenumber_without_metadata.inputs || phony/third_party/libphonenumber/libphonenumber_without_metadata.inputdeps
+  source_file_part = regexp_adapter_icu.cc
+  source_name_part = regexp_adapter_icu
+build obj/third_party/libphonenumber/libphonenumber_without_metadata/regexp_cache.o: cxx ../../../../third_party/libphonenumber/dist/cpp/src/phonenumbers/regexp_cache.cc | phony/third_party/libphonenumber/libphonenumber_without_metadata.inputs || phony/third_party/libphonenumber/libphonenumber_without_metadata.inputdeps
+  source_file_part = regexp_cache.cc
+  source_name_part = regexp_cache
+build obj/third_party/libphonenumber/libphonenumber_without_metadata/string_byte_sink.o: cxx ../../../../third_party/libphonenumber/dist/cpp/src/phonenumbers/string_byte_sink.cc | phony/third_party/libphonenumber/libphonenumber_without_metadata.inputs || phony/third_party/libphonenumber/libphonenumber_without_metadata.inputdeps
+  source_file_part = string_byte_sink.cc
+  source_name_part = string_byte_sink
+build obj/third_party/libphonenumber/libphonenumber_without_metadata/stringutil.o: cxx ../../../../third_party/libphonenumber/dist/cpp/src/phonenumbers/stringutil.cc | phony/third_party/libphonenumber/libphonenumber_without_metadata.inputs || phony/third_party/libphonenumber/libphonenumber_without_metadata.inputdeps
+  source_file_part = stringutil.cc
+  source_name_part = stringutil
+build obj/third_party/libphonenumber/libphonenumber_without_metadata/unicodestring.o: cxx ../../../../third_party/libphonenumber/dist/cpp/src/phonenumbers/unicodestring.cc | phony/third_party/libphonenumber/libphonenumber_without_metadata.inputs || phony/third_party/libphonenumber/libphonenumber_without_metadata.inputdeps
+  source_file_part = unicodestring.cc
+  source_name_part = unicodestring
+build obj/third_party/libphonenumber/libphonenumber_without_metadata/rune.o: cc ../../../../third_party/libphonenumber/dist/cpp/src/phonenumbers/utf/rune.c | phony/third_party/libphonenumber/libphonenumber_without_metadata.inputs || phony/third_party/libphonenumber/libphonenumber_without_metadata.inputdeps
+  source_file_part = rune.c
+  source_name_part = rune
+build obj/third_party/libphonenumber/libphonenumber_without_metadata/unicodetext.o: cxx ../../../../third_party/libphonenumber/dist/cpp/src/phonenumbers/utf/unicodetext.cc | phony/third_party/libphonenumber/libphonenumber_without_metadata.inputs || phony/third_party/libphonenumber/libphonenumber_without_metadata.inputdeps
+  source_file_part = unicodetext.cc
+  source_name_part = unicodetext
+build obj/third_party/libphonenumber/libphonenumber_without_metadata/unilib.o: cxx ../../../../third_party/libphonenumber/dist/cpp/src/phonenumbers/utf/unilib.cc | phony/third_party/libphonenumber/libphonenumber_without_metadata.inputs || phony/third_party/libphonenumber/libphonenumber_without_metadata.inputdeps
+  source_file_part = unilib.cc
+  source_name_part = unilib
+
+build obj/third_party/libphonenumber/libphonenumber_without_metadata.a: alink obj/third_party/libphonenumber/libphonenumber_without_metadata/alternate_format.o obj/third_party/libphonenumber/libphonenumber_without_metadata/asyoutypeformatter.o obj/third_party/libphonenumber/libphonenumber_without_metadata/string_piece.o obj/third_party/libphonenumber/libphonenumber_without_metadata/default_logger.o obj/third_party/libphonenumber/libphonenumber_without_metadata/logger.o obj/third_party/libphonenumber/libphonenumber_without_metadata/phonenumber.o obj/third_party/libphonenumber/libphonenumber_without_metadata/phonenumbermatch.o obj/third_party/libphonenumber/libphonenumber_without_metadata/phonenumbermatcher.o obj/third_party/libphonenumber/libphonenumber_without_metadata/phonenumberutil.o obj/third_party/libphonenumber/libphonenumber_without_metadata/regex_based_matcher.o obj/third_party/libphonenumber/libphonenumber_without_metadata/regexp_adapter_icu.o obj/third_party/libphonenumber/libphonenumber_without_metadata/regexp_cache.o obj/third_party/libphonenumber/libphonenumber_without_metadata/string_byte_sink.o obj/third_party/libphonenumber/libphonenumber_without_metadata/stringutil.o obj/third_party/libphonenumber/libphonenumber_without_metadata/unicodestring.o obj/third_party/libphonenumber/libphonenumber_without_metadata/rune.o obj/third_party/libphonenumber/libphonenumber_without_metadata/unicodetext.o obj/third_party/libphonenumber/libphonenumber_without_metadata/unilib.o | ../../../llvm-build/Release+Asserts/lib/clang/21/lib/x86_64-unknown-linux-gnu/libclang_rt.builtins.a phony/third_party/libphonenumber/libphonenumber_without_metadata.inputs || obj/third_party/libphonenumber/libproto.a ./libthird_party_abseil-cpp_absl.so.TOC phony/third_party/icu/icu ./libthird_party_protobuf_protobuf_lite.so.TOC ./libthird_party_icu_icui18n.so.TOC ./libicuuc.so.TOC
+  arflags = -T -S
+  output_extension = .a
+  output_dir = obj/third_party/libphonenumber

@@ -1,0 +1,109 @@
+defines = -DDCHECK_ALWAYS_ON=1 -DUSE_UDEV -DUSE_AURA=1 -DUSE_GLIB=1 -DUSE_OZONE=1 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_GNU_SOURCE -DCR_CLANG_REVISION=\"llvmorg-21-init-1655-g7b473dfe-1\" -D_LIBCPP_HARDENING_MODE=_LIBCPP_HARDENING_MODE_EXTENSIVE -DCOMPONENT_BUILD -D_LIBCPP_INSTRUMENTED_WITH_ASAN=0 -DCR_LIBCXX_REVISION=7c3087b8a7563d8218b27b7183ba41cf52d41508 -DTMP_REBUILD_HACK -DCR_SYSROOT_KEY=20250129T203412Z-1 -D_DEBUG -DDYNAMIC_ANNOTATIONS_ENABLED=1 -DPERFETTO_IMPLEMENTATION
+include_dirs = -I../../../.. -Igen -I../../../../buildtools/third_party/libc++ -I../../../../third_party/perfetto -I../../../../third_party/perfetto/src/profiling/memory/include -I../../../../third_party/perfetto/include -Igen/third_party/perfetto/build_config -Igen/third_party/perfetto
+cflags = -Wall -Wextra -Wimplicit-fallthrough -Wextra-semi -Wunreachable-code-aggressive -Wthread-safety -Wgnu -Wno-gnu-anonymous-struct -Wno-gnu-conditional-omitted-operand -Wno-gnu-include-next -Wno-gnu-label-as-value -Wno-gnu-redeclared-enum -Wno-gnu-statement-expression -Wno-gnu-zero-variadic-macro-arguments -Wno-zero-length-array -Wno-missing-field-initializers -Wno-unused-parameter -Wno-psabi -Wloop-analysis -Wno-unneeded-internal-declaration -Wno-cast-function-type -Wno-thread-safety-reference-return -Wno-nontrivial-memcall -Wshadow -Werror -fno-delete-null-pointer-checks -fno-strict-overflow -fno-ident -fno-strict-aliasing -fstack-protector -funwind-tables -fPIC -pthread -fcolor-diagnostics -fmerge-all-constants -fno-sized-deallocation -fcrash-diagnostics-dir=../../../../tools/clang/crashreports -mllvm -instcombine-lower-dbg-declare=0 -mllvm -split-threshold-for-reg-with-hint=0 -ffp-contract=off -Wa,--crel,--allow-experimental-crel -fcomplete-member-pointers -m64 -msse3 -Wno-builtin-macro-redefined -D__DATE__= -D__TIME__= -D__TIMESTAMP__= -ffile-compilation-dir=. -no-canonical-prefixes -ftrivial-auto-var-init=pattern -O0 -fno-omit-frame-pointer -gdwarf-4 -g2 -gdwarf-aranges -gsplit-dwarf -ggnu-pubnames -Xclang -fuse-ctor-homing -fvisibility=hidden -Wheader-hygiene -Wstring-conversion -Wtautological-overlap-compare -Xclang -add-plugin -Xclang find-bad-constructs -Xclang -plugin-arg-find-bad-constructs -Xclang span-ctor-from-string-literal -Xclang -plugin-arg-find-bad-constructs -Xclang raw-ref-template-as-trivial-member -Xclang -plugin-arg-find-bad-constructs -Xclang raw-span-template-as-trivial-member -Xclang -plugin-arg-find-bad-constructs -Xclang check-stack-allocated -Xclang -plugin-arg-find-bad-constructs -Xclang check-ipc -Xclang -add-plugin -Xclang raw-ptr-plugin -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ptr-to-stack-allocated -Xclang -plugin-arg-raw-ptr-plugin -Xclang disable-check-raw-ptr-to-stack-allocated-error -Xclang -plugin-arg-raw-ptr-plugin -Xclang raw-ptr-exclude-path=../../../dawn/ -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ptr-fields -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-span-fields -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ref-fields -DUNSAFE_BUFFERS_BUILD -Xclang -add-plugin -Xclang unsafe-buffers -Xclang -plugin-arg-unsafe-buffers -Xclang ../../../../build/config/unsafe_buffers_paths.txt
+cflags_cc = -Wno-invalid-offsetof -Wenum-compare-conditional -Wno-c++11-narrowing-const-reference -Wno-missing-template-arg-list-after-template-kw -Wno-undefined-bool-conversion -Wno-tautological-undefined-compare -std=c++20 -Wno-trigraphs -gsimple-template-names -fno-exceptions -fno-rtti -nostdinc++ -isystem../../../libc++/src/include -isystem../../../libc++abi/src/include --sysroot=../../../../build/linux/debian_bullseye_amd64-sysroot -fvisibility-inlines-hidden
+label_name = base
+target_out_dir = obj/third_party/perfetto/src/base
+target_output_name = base
+
+build obj/third_party/perfetto/src/base/base/android_utils.o: cxx ../../../../third_party/perfetto/src/base/android_utils.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/perfetto/gn/gen_buildflags
+  source_file_part = android_utils.cc
+  source_name_part = android_utils
+build obj/third_party/perfetto/src/base/base/base64.o: cxx ../../../../third_party/perfetto/src/base/base64.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/perfetto/gn/gen_buildflags
+  source_file_part = base64.cc
+  source_name_part = base64
+build obj/third_party/perfetto/src/base/base/crash_keys.o: cxx ../../../../third_party/perfetto/src/base/crash_keys.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/perfetto/gn/gen_buildflags
+  source_file_part = crash_keys.cc
+  source_name_part = crash_keys
+build obj/third_party/perfetto/src/base/base/ctrl_c_handler.o: cxx ../../../../third_party/perfetto/src/base/ctrl_c_handler.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/perfetto/gn/gen_buildflags
+  source_file_part = ctrl_c_handler.cc
+  source_name_part = ctrl_c_handler
+build obj/third_party/perfetto/src/base/base/event_fd.o: cxx ../../../../third_party/perfetto/src/base/event_fd.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/perfetto/gn/gen_buildflags
+  source_file_part = event_fd.cc
+  source_name_part = event_fd
+build obj/third_party/perfetto/src/base/base/file_utils.o: cxx ../../../../third_party/perfetto/src/base/file_utils.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/perfetto/gn/gen_buildflags
+  source_file_part = file_utils.cc
+  source_name_part = file_utils
+build obj/third_party/perfetto/src/base/base/getopt_compat.o: cxx ../../../../third_party/perfetto/src/base/getopt_compat.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/perfetto/gn/gen_buildflags
+  source_file_part = getopt_compat.cc
+  source_name_part = getopt_compat
+build obj/third_party/perfetto/src/base/base/logging.o: cxx ../../../../third_party/perfetto/src/base/logging.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/perfetto/gn/gen_buildflags
+  source_file_part = logging.cc
+  source_name_part = logging
+build obj/third_party/perfetto/src/base/base/metatrace.o: cxx ../../../../third_party/perfetto/src/base/metatrace.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/perfetto/gn/gen_buildflags
+  source_file_part = metatrace.cc
+  source_name_part = metatrace
+build obj/third_party/perfetto/src/base/base/paged_memory.o: cxx ../../../../third_party/perfetto/src/base/paged_memory.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/perfetto/gn/gen_buildflags
+  source_file_part = paged_memory.cc
+  source_name_part = paged_memory
+build obj/third_party/perfetto/src/base/base/periodic_task.o: cxx ../../../../third_party/perfetto/src/base/periodic_task.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/perfetto/gn/gen_buildflags
+  source_file_part = periodic_task.cc
+  source_name_part = periodic_task
+build obj/third_party/perfetto/src/base/base/pipe.o: cxx ../../../../third_party/perfetto/src/base/pipe.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/perfetto/gn/gen_buildflags
+  source_file_part = pipe.cc
+  source_name_part = pipe
+build obj/third_party/perfetto/src/base/base/scoped_mmap.o: cxx ../../../../third_party/perfetto/src/base/scoped_mmap.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/perfetto/gn/gen_buildflags
+  source_file_part = scoped_mmap.cc
+  source_name_part = scoped_mmap
+build obj/third_party/perfetto/src/base/base/status.o: cxx ../../../../third_party/perfetto/src/base/status.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/perfetto/gn/gen_buildflags
+  source_file_part = status.cc
+  source_name_part = status
+build obj/third_party/perfetto/src/base/base/string_splitter.o: cxx ../../../../third_party/perfetto/src/base/string_splitter.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/perfetto/gn/gen_buildflags
+  source_file_part = string_splitter.cc
+  source_name_part = string_splitter
+build obj/third_party/perfetto/src/base/base/string_utils.o: cxx ../../../../third_party/perfetto/src/base/string_utils.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/perfetto/gn/gen_buildflags
+  source_file_part = string_utils.cc
+  source_name_part = string_utils
+build obj/third_party/perfetto/src/base/base/string_view.o: cxx ../../../../third_party/perfetto/src/base/string_view.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/perfetto/gn/gen_buildflags
+  source_file_part = string_view.cc
+  source_name_part = string_view
+build obj/third_party/perfetto/src/base/base/string_view_splitter.o: cxx ../../../../third_party/perfetto/src/base/string_view_splitter.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/perfetto/gn/gen_buildflags
+  source_file_part = string_view_splitter.cc
+  source_name_part = string_view_splitter
+build obj/third_party/perfetto/src/base/base/temp_file.o: cxx ../../../../third_party/perfetto/src/base/temp_file.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/perfetto/gn/gen_buildflags
+  source_file_part = temp_file.cc
+  source_name_part = temp_file
+build obj/third_party/perfetto/src/base/base/thread_checker.o: cxx ../../../../third_party/perfetto/src/base/thread_checker.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/perfetto/gn/gen_buildflags
+  source_file_part = thread_checker.cc
+  source_name_part = thread_checker
+build obj/third_party/perfetto/src/base/base/thread_utils.o: cxx ../../../../third_party/perfetto/src/base/thread_utils.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/perfetto/gn/gen_buildflags
+  source_file_part = thread_utils.cc
+  source_name_part = thread_utils
+build obj/third_party/perfetto/src/base/base/time.o: cxx ../../../../third_party/perfetto/src/base/time.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/perfetto/gn/gen_buildflags
+  source_file_part = time.cc
+  source_name_part = time
+build obj/third_party/perfetto/src/base/base/utils.o: cxx ../../../../third_party/perfetto/src/base/utils.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/perfetto/gn/gen_buildflags
+  source_file_part = utils.cc
+  source_name_part = utils
+build obj/third_party/perfetto/src/base/base/uuid.o: cxx ../../../../third_party/perfetto/src/base/uuid.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/perfetto/gn/gen_buildflags
+  source_file_part = uuid.cc
+  source_name_part = uuid
+build obj/third_party/perfetto/src/base/base/virtual_destructors.o: cxx ../../../../third_party/perfetto/src/base/virtual_destructors.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/perfetto/gn/gen_buildflags
+  source_file_part = virtual_destructors.cc
+  source_name_part = virtual_destructors
+build obj/third_party/perfetto/src/base/base/waitable_event.o: cxx ../../../../third_party/perfetto/src/base/waitable_event.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/perfetto/gn/gen_buildflags
+  source_file_part = waitable_event.cc
+  source_name_part = waitable_event
+build obj/third_party/perfetto/src/base/base/watchdog_posix.o: cxx ../../../../third_party/perfetto/src/base/watchdog_posix.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/perfetto/gn/gen_buildflags
+  source_file_part = watchdog_posix.cc
+  source_name_part = watchdog_posix
+build obj/third_party/perfetto/src/base/base/weak_runner.o: cxx ../../../../third_party/perfetto/src/base/weak_runner.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/perfetto/gn/gen_buildflags
+  source_file_part = weak_runner.cc
+  source_name_part = weak_runner
+build obj/third_party/perfetto/src/base/base/thread_task_runner.o: cxx ../../../../third_party/perfetto/src/base/thread_task_runner.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/perfetto/gn/gen_buildflags
+  source_file_part = thread_task_runner.cc
+  source_name_part = thread_task_runner
+build obj/third_party/perfetto/src/base/base/unix_task_runner.o: cxx ../../../../third_party/perfetto/src/base/unix_task_runner.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/perfetto/gn/gen_buildflags
+  source_file_part = unix_task_runner.cc
+  source_name_part = unix_task_runner
+build obj/third_party/perfetto/src/base/base/subprocess.o: cxx ../../../../third_party/perfetto/src/base/subprocess.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/perfetto/gn/gen_buildflags
+  source_file_part = subprocess.cc
+  source_name_part = subprocess
+build obj/third_party/perfetto/src/base/base/subprocess_posix.o: cxx ../../../../third_party/perfetto/src/base/subprocess_posix.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/perfetto/gn/gen_buildflags
+  source_file_part = subprocess_posix.cc
+  source_name_part = subprocess_posix
+build obj/third_party/perfetto/src/base/base/subprocess_windows.o: cxx ../../../../third_party/perfetto/src/base/subprocess_windows.cc | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/perfetto/gn/gen_buildflags
+  source_file_part = subprocess_windows.cc
+  source_name_part = subprocess_windows
+
+build phony/third_party/perfetto/src/base/base: phony obj/third_party/perfetto/src/base/base/android_utils.o obj/third_party/perfetto/src/base/base/base64.o obj/third_party/perfetto/src/base/base/crash_keys.o obj/third_party/perfetto/src/base/base/ctrl_c_handler.o obj/third_party/perfetto/src/base/base/event_fd.o obj/third_party/perfetto/src/base/base/file_utils.o obj/third_party/perfetto/src/base/base/getopt_compat.o obj/third_party/perfetto/src/base/base/logging.o obj/third_party/perfetto/src/base/base/metatrace.o obj/third_party/perfetto/src/base/base/paged_memory.o obj/third_party/perfetto/src/base/base/periodic_task.o obj/third_party/perfetto/src/base/base/pipe.o obj/third_party/perfetto/src/base/base/scoped_mmap.o obj/third_party/perfetto/src/base/base/status.o obj/third_party/perfetto/src/base/base/string_splitter.o obj/third_party/perfetto/src/base/base/string_utils.o obj/third_party/perfetto/src/base/base/string_view.o obj/third_party/perfetto/src/base/base/string_view_splitter.o obj/third_party/perfetto/src/base/base/temp_file.o obj/third_party/perfetto/src/base/base/thread_checker.o obj/third_party/perfetto/src/base/base/thread_utils.o obj/third_party/perfetto/src/base/base/time.o obj/third_party/perfetto/src/base/base/utils.o obj/third_party/perfetto/src/base/base/uuid.o obj/third_party/perfetto/src/base/base/virtual_destructors.o obj/third_party/perfetto/src/base/base/waitable_event.o obj/third_party/perfetto/src/base/base/watchdog_posix.o obj/third_party/perfetto/src/base/base/weak_runner.o obj/third_party/perfetto/src/base/base/thread_task_runner.o obj/third_party/perfetto/src/base/base/unix_task_runner.o obj/third_party/perfetto/src/base/base/subprocess.o obj/third_party/perfetto/src/base/base/subprocess_posix.o obj/third_party/perfetto/src/base/base/subprocess_windows.o || phony/third_party/perfetto/gn/base_platform phony/third_party/perfetto/gn/default_deps phony/third_party/perfetto/src/base/perfetto_base_default_platform

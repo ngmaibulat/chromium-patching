@@ -1,0 +1,105 @@
+defines = -DDCHECK_ALWAYS_ON=1 -DUSE_UDEV -DUSE_AURA=1 -DUSE_GLIB=1 -DUSE_OZONE=1 -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_GNU_SOURCE -DCR_CLANG_REVISION=\"llvmorg-21-init-1655-g7b473dfe-1\" -D_LIBCPP_HARDENING_MODE=_LIBCPP_HARDENING_MODE_EXTENSIVE -DCOMPONENT_BUILD -D_LIBCPP_INSTRUMENTED_WITH_ASAN=0 -DCR_LIBCXX_REVISION=7c3087b8a7563d8218b27b7183ba41cf52d41508 -DTMP_REBUILD_HACK -DCR_SYSROOT_KEY=20250129T203412Z-1 -D_DEBUG -DDYNAMIC_ANNOTATIONS_ENABLED=1 -DI18N_PHONENUMBERS_USE_ICU_REGEXP=1 -DI18N_PHONENUMBERS_USE_ALTERNATE_FORMATS=1 -DI18N_PHONENUMBERS_NO_THREAD_SAFETY=1 -DGOOGLE_PROTOBUF_NO_RTTI -DHAVE_PTHREAD -DPROTOBUF_USE_DLLS -DABSL_CONSUME_DLL -DABSL_FLAGS_STRIP_NAMES=0
+include_dirs = -I../../../.. -Igen -I../../../../buildtools/third_party/libc++ -I../../../../third_party/utf/src -I../../../../third_party/utf/src/include -I../../../../third_party/libphonenumber/dist/cpp/src -Igen/third_party/libphonenumber -I../../../../third_party/protobuf/src -I../../../../third_party/abseil-cpp
+cflags = -fno-delete-null-pointer-checks -fno-strict-overflow -fno-ident -fno-strict-aliasing -fstack-protector -funwind-tables -fPIC -pthread -fcolor-diagnostics -fmerge-all-constants -fno-sized-deallocation -fcrash-diagnostics-dir=../../../../tools/clang/crashreports -mllvm -instcombine-lower-dbg-declare=0 -mllvm -split-threshold-for-reg-with-hint=0 -ffp-contract=off -Wa,--crel,--allow-experimental-crel -fcomplete-member-pointers -m64 -msse3 -Wno-builtin-macro-redefined -D__DATE__= -D__TIME__= -D__TIMESTAMP__= -ffile-compilation-dir=. -no-canonical-prefixes -ftrivial-auto-var-init=pattern -O0 -fno-omit-frame-pointer -gdwarf-4 -g2 -gdwarf-aranges -gsplit-dwarf -ggnu-pubnames -Xclang -fuse-ctor-homing -fvisibility=hidden -Wheader-hygiene -Wstring-conversion -Wtautological-overlap-compare -Xclang -add-plugin -Xclang find-bad-constructs -Xclang -plugin-arg-find-bad-constructs -Xclang span-ctor-from-string-literal -Xclang -plugin-arg-find-bad-constructs -Xclang raw-ref-template-as-trivial-member -Xclang -plugin-arg-find-bad-constructs -Xclang raw-span-template-as-trivial-member -Xclang -plugin-arg-find-bad-constructs -Xclang check-stack-allocated -Xclang -plugin-arg-find-bad-constructs -Xclang check-ipc -Xclang -add-plugin -Xclang raw-ptr-plugin -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ptr-to-stack-allocated -Xclang -plugin-arg-raw-ptr-plugin -Xclang disable-check-raw-ptr-to-stack-allocated-error -Xclang -plugin-arg-raw-ptr-plugin -Xclang raw-ptr-exclude-path=../../../dawn/ -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ptr-fields -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-span-fields -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ref-fields -DUNSAFE_BUFFERS_BUILD -Xclang -add-plugin -Xclang unsafe-buffers -Xclang -plugin-arg-unsafe-buffers -Xclang ../../../../build/config/unsafe_buffers_paths.txt -Wall -Wno-unused-variable -Wno-c++11-narrowing -Wno-unused-but-set-variable -Wno-misleading-indentation -Wno-missing-field-initializers -Wno-unused-parameter -Wno-psabi -Wloop-analysis -Wno-unneeded-internal-declaration -Wno-cast-function-type -Wno-thread-safety-reference-return -Wno-nontrivial-memcall -Werror
+cflags_c = -std=c11 --sysroot=../../../../build/linux/debian_bullseye_amd64-sysroot
+label_name = utf
+target_out_dir = obj/third_party/utf
+target_output_name = libutf
+
+build phony/third_party/utf/utf.inputs: phony ../../../../build/config/unsafe_buffers_paths.txt ../../../../third_party/libphonenumber/dist/resources/phonemetadata.proto ../../../../third_party/libphonenumber/dist/resources/phonenumber.proto
+build phony/third_party/utf/utf.inputdeps: phony phony/build/chromeos_buildflags phony/third_party/icu/copy_icudata phony/third_party/libphonenumber/proto_gen
+build obj/third_party/utf/utf/runestrcat.o: cc ../../../../third_party/utf/src/runestr/runestrcat.c | phony/third_party/utf/utf.inputs || phony/third_party/utf/utf.inputdeps
+  source_file_part = runestrcat.c
+  source_name_part = runestrcat
+build obj/third_party/utf/utf/runestrchr.o: cc ../../../../third_party/utf/src/runestr/runestrchr.c | phony/third_party/utf/utf.inputs || phony/third_party/utf/utf.inputdeps
+  source_file_part = runestrchr.c
+  source_name_part = runestrchr
+build obj/third_party/utf/utf/runestrcmp.o: cc ../../../../third_party/utf/src/runestr/runestrcmp.c | phony/third_party/utf/utf.inputs || phony/third_party/utf/utf.inputdeps
+  source_file_part = runestrcmp.c
+  source_name_part = runestrcmp
+build obj/third_party/utf/utf/runestrcpy.o: cc ../../../../third_party/utf/src/runestr/runestrcpy.c | phony/third_party/utf/utf.inputs || phony/third_party/utf/utf.inputdeps
+  source_file_part = runestrcpy.c
+  source_name_part = runestrcpy
+build obj/third_party/utf/utf/runestrdup.o: cc ../../../../third_party/utf/src/runestr/runestrdup.c | phony/third_party/utf/utf.inputs || phony/third_party/utf/utf.inputdeps
+  source_file_part = runestrdup.c
+  source_name_part = runestrdup
+build obj/third_party/utf/utf/runestrecpy.o: cc ../../../../third_party/utf/src/runestr/runestrecpy.c | phony/third_party/utf/utf.inputs || phony/third_party/utf/utf.inputdeps
+  source_file_part = runestrecpy.c
+  source_name_part = runestrecpy
+build obj/third_party/utf/utf/runestrlen.o: cc ../../../../third_party/utf/src/runestr/runestrlen.c | phony/third_party/utf/utf.inputs || phony/third_party/utf/utf.inputdeps
+  source_file_part = runestrlen.c
+  source_name_part = runestrlen
+build obj/third_party/utf/utf/runestrrchr.o: cc ../../../../third_party/utf/src/runestr/runestrrchr.c | phony/third_party/utf/utf.inputs || phony/third_party/utf/utf.inputdeps
+  source_file_part = runestrrchr.c
+  source_name_part = runestrrchr
+build obj/third_party/utf/utf/runestrstr.o: cc ../../../../third_party/utf/src/runestr/runestrstr.c | phony/third_party/utf/utf.inputs || phony/third_party/utf/utf.inputdeps
+  source_file_part = runestrstr.c
+  source_name_part = runestrstr
+build obj/third_party/utf/utf/isalnumrune.o: cc ../../../../third_party/utf/src/runetype/isalnumrune.c | phony/third_party/utf/utf.inputs || phony/third_party/utf/utf.inputdeps
+  source_file_part = isalnumrune.c
+  source_name_part = isalnumrune
+build obj/third_party/utf/utf/isalpharune.o: cc ../../../../third_party/utf/src/runetype/isalpharune.c | phony/third_party/utf/utf.inputs || phony/third_party/utf/utf.inputdeps
+  source_file_part = isalpharune.c
+  source_name_part = isalpharune
+build obj/third_party/utf/utf/isblankrune.o: cc ../../../../third_party/utf/src/runetype/isblankrune.c | phony/third_party/utf/utf.inputs || phony/third_party/utf/utf.inputdeps
+  source_file_part = isblankrune.c
+  source_name_part = isblankrune
+build obj/third_party/utf/utf/iscntrlrune.o: cc ../../../../third_party/utf/src/runetype/iscntrlrune.c | phony/third_party/utf/utf.inputs || phony/third_party/utf/utf.inputdeps
+  source_file_part = iscntrlrune.c
+  source_name_part = iscntrlrune
+build obj/third_party/utf/utf/isdigitrune.o: cc ../../../../third_party/utf/src/runetype/isdigitrune.c | phony/third_party/utf/utf.inputs || phony/third_party/utf/utf.inputdeps
+  source_file_part = isdigitrune.c
+  source_name_part = isdigitrune
+build obj/third_party/utf/utf/isgraphrune.o: cc ../../../../third_party/utf/src/runetype/isgraphrune.c | phony/third_party/utf/utf.inputs || phony/third_party/utf/utf.inputdeps
+  source_file_part = isgraphrune.c
+  source_name_part = isgraphrune
+build obj/third_party/utf/utf/islowerrune.o: cc ../../../../third_party/utf/src/runetype/islowerrune.c | phony/third_party/utf/utf.inputs || phony/third_party/utf/utf.inputdeps
+  source_file_part = islowerrune.c
+  source_name_part = islowerrune
+build obj/third_party/utf/utf/isprintrune.o: cc ../../../../third_party/utf/src/runetype/isprintrune.c | phony/third_party/utf/utf.inputs || phony/third_party/utf/utf.inputdeps
+  source_file_part = isprintrune.c
+  source_name_part = isprintrune
+build obj/third_party/utf/utf/ispunctrune.o: cc ../../../../third_party/utf/src/runetype/ispunctrune.c | phony/third_party/utf/utf.inputs || phony/third_party/utf/utf.inputdeps
+  source_file_part = ispunctrune.c
+  source_name_part = ispunctrune
+build obj/third_party/utf/utf/isspacerune.o: cc ../../../../third_party/utf/src/runetype/isspacerune.c | phony/third_party/utf/utf.inputs || phony/third_party/utf/utf.inputdeps
+  source_file_part = isspacerune.c
+  source_name_part = isspacerune
+build obj/third_party/utf/utf/istitlerune.o: cc ../../../../third_party/utf/src/runetype/istitlerune.c | phony/third_party/utf/utf.inputs || phony/third_party/utf/utf.inputdeps
+  source_file_part = istitlerune.c
+  source_name_part = istitlerune
+build obj/third_party/utf/utf/isupperrune.o: cc ../../../../third_party/utf/src/runetype/isupperrune.c | phony/third_party/utf/utf.inputs || phony/third_party/utf/utf.inputdeps
+  source_file_part = isupperrune.c
+  source_name_part = isupperrune
+build obj/third_party/utf/utf/isvalidrune.o: cc ../../../../third_party/utf/src/runetype/isvalidrune.c | phony/third_party/utf/utf.inputs || phony/third_party/utf/utf.inputdeps
+  source_file_part = isvalidrune.c
+  source_name_part = isvalidrune
+build obj/third_party/utf/utf/isxdigitrune.o: cc ../../../../third_party/utf/src/runetype/isxdigitrune.c | phony/third_party/utf/utf.inputs || phony/third_party/utf/utf.inputdeps
+  source_file_part = isxdigitrune.c
+  source_name_part = isxdigitrune
+build obj/third_party/utf/utf/runetype.o: cc ../../../../third_party/utf/src/runetype/runetype.c | phony/third_party/utf/utf.inputs || phony/third_party/utf/utf.inputdeps
+  source_file_part = runetype.c
+  source_name_part = runetype
+build obj/third_party/utf/utf/utfecpy.o: cc ../../../../third_party/utf/src/utf/utfecpy.c | phony/third_party/utf/utf.inputs || phony/third_party/utf/utf.inputdeps
+  source_file_part = utfecpy.c
+  source_name_part = utfecpy
+build obj/third_party/utf/utf/utflen.o: cc ../../../../third_party/utf/src/utf/utflen.c | phony/third_party/utf/utf.inputs || phony/third_party/utf/utf.inputdeps
+  source_file_part = utflen.c
+  source_name_part = utflen
+build obj/third_party/utf/utf/utfrrune.o: cc ../../../../third_party/utf/src/utf/utfrrune.c | phony/third_party/utf/utf.inputs || phony/third_party/utf/utf.inputdeps
+  source_file_part = utfrrune.c
+  source_name_part = utfrrune
+build obj/third_party/utf/utf/utfrune.o: cc ../../../../third_party/utf/src/utf/utfrune.c | phony/third_party/utf/utf.inputs || phony/third_party/utf/utf.inputdeps
+  source_file_part = utfrune.c
+  source_name_part = utfrune
+build obj/third_party/utf/utf/utftab.o: cc ../../../../third_party/utf/src/utf/utftab.c | phony/third_party/utf/utf.inputs || phony/third_party/utf/utf.inputdeps
+  source_file_part = utftab.c
+  source_name_part = utftab
+build obj/third_party/utf/utf/utfutf.o: cc ../../../../third_party/utf/src/utf/utfutf.c | phony/third_party/utf/utf.inputs || phony/third_party/utf/utf.inputdeps
+  source_file_part = utfutf.c
+  source_name_part = utfutf
+
+build obj/third_party/utf/libutf.a: alink obj/third_party/utf/utf/runestrcat.o obj/third_party/utf/utf/runestrchr.o obj/third_party/utf/utf/runestrcmp.o obj/third_party/utf/utf/runestrcpy.o obj/third_party/utf/utf/runestrdup.o obj/third_party/utf/utf/runestrecpy.o obj/third_party/utf/utf/runestrlen.o obj/third_party/utf/utf/runestrrchr.o obj/third_party/utf/utf/runestrstr.o obj/third_party/utf/utf/isalnumrune.o obj/third_party/utf/utf/isalpharune.o obj/third_party/utf/utf/isblankrune.o obj/third_party/utf/utf/iscntrlrune.o obj/third_party/utf/utf/isdigitrune.o obj/third_party/utf/utf/isgraphrune.o obj/third_party/utf/utf/islowerrune.o obj/third_party/utf/utf/isprintrune.o obj/third_party/utf/utf/ispunctrune.o obj/third_party/utf/utf/isspacerune.o obj/third_party/utf/utf/istitlerune.o obj/third_party/utf/utf/isupperrune.o obj/third_party/utf/utf/isvalidrune.o obj/third_party/utf/utf/isxdigitrune.o obj/third_party/utf/utf/runetype.o obj/third_party/utf/utf/utfecpy.o obj/third_party/utf/utf/utflen.o obj/third_party/utf/utf/utfrrune.o obj/third_party/utf/utf/utfrune.o obj/third_party/utf/utf/utftab.o obj/third_party/utf/utf/utfutf.o | ../../../llvm-build/Release+Asserts/lib/clang/21/lib/x86_64-unknown-linux-gnu/libclang_rt.builtins.a phony/third_party/utf/utf.inputs || obj/third_party/libphonenumber/libphonenumber.a obj/third_party/libphonenumber/libphonenumber_without_metadata.a obj/third_party/libphonenumber/libproto.a ./libthird_party_protobuf_protobuf_lite.so.TOC ./libthird_party_abseil-cpp_absl.so.TOC ./libthird_party_icu_icui18n.so.TOC ./libicuuc.so.TOC
+  arflags = -T -S
+  output_extension = .a
+  output_dir = obj/third_party/utf

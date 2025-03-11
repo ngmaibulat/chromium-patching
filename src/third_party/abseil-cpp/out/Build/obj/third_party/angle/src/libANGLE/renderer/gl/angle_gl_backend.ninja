@@ -1,0 +1,158 @@
+defines = -DDCHECK_ALWAYS_ON=1 -DUSE_UDEV -DUSE_AURA=1 -DUSE_GLIB=1 -DUSE_OZONE=1 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_GNU_SOURCE -DCR_CLANG_REVISION=\"llvmorg-21-init-1655-g7b473dfe-1\" -D_LIBCPP_HARDENING_MODE=_LIBCPP_HARDENING_MODE_EXTENSIVE -DCOMPONENT_BUILD -D_LIBCPP_INSTRUMENTED_WITH_ASAN=0 -DCR_LIBCXX_REVISION=7c3087b8a7563d8218b27b7183ba41cf52d41508 -DTMP_REBUILD_HACK -DCR_SYSROOT_KEY=20250129T203412Z-1 -D_DEBUG -DDYNAMIC_ANNOTATIONS_ENABLED=1 -DANGLE_ASSERT_ALWAYS_ON -DANGLE_IS_LINUX -DANGLE_USE_VULKAN_DISPLAY -DANGLE_USE_X11 -DANGLE_USE_WAYLAND -DANGLE_VULKAN_DISPLAY_MODE_HEADLESS -DANGLE_DEBUG_LAYERS_ENABLED -DANGLE_OUTSIDE_WEBKIT -DANGLE_ENABLE_OPENGL -DANGLE_ENABLE_GL_DESKTOP_BACKEND -DANGLE_ENABLE_OPENGL_NULL -DANGLE_HAS_LIBDRM -DLIBANGLE_IMPLEMENTATION -DANGLE_ENABLE_OVERLAY=1 -DANGLE_PLATFORM_EXPORT= -DANGLE_DELEGATE_WORKERS=1 -DANGLE_USE_ABSEIL -DABSL_ALLOCATOR_NOTHROW=1 -DABSL_CONSUME_DLL -DABSL_FLAGS_STRIP_NAMES=0 -DANGLE_ENABLE_NULL -DANGLE_ENABLE_VULKAN -DANGLE_ENABLE_SWIFTSHADER -DANGLE_ENABLE_VULKAN_VALIDATION_LAYERS -DANGLE_ENABLE_VULKAN_SHARED_RING_BUFFER_CMD_ALLOC=false -DANGLE_ENABLE_CRC_FOR_PIPELINE_CACHE -Dtypeof\(x\)=__typeof__\(x\) -DVK_USE_PLATFORM_XCB_KHR -DVK_USE_PLATFORM_WAYLAND_KHR
+include_dirs = -I../../../../buildtools/third_party/libc++ -I../../../../third_party/angle/include -I../../../../third_party/angle/src -I../../../../third_party/angle/src/third_party/khronos -I../../../../third_party/angle/src/common/base -I../../../../third_party/angle/src/common/third_party/xxhash -I../../../../third_party/abseil-cpp -I../../../../third_party/wayland/src/egl -I../../../../third_party/wayland/src/src -I../../../../third_party/wayland/include -I../../../../third_party/wayland/include/src -I../../../../third_party/wayland/src/cursor -Igen/third_party/wayland/src/protocol -I../../../../third_party/libdrm/src -I../../../../third_party/libdrm/src/include -I../../../../third_party/libdrm/src/include/drm -I../../../../third_party/vulkan-headers/src/include
+cflags = -Wall -Wextra -Wimplicit-fallthrough -Wextra-semi -Wunreachable-code-aggressive -Wthread-safety -Wgnu -Wno-gnu-anonymous-struct -Wno-gnu-conditional-omitted-operand -Wno-gnu-include-next -Wno-gnu-label-as-value -Wno-gnu-redeclared-enum -Wno-gnu-statement-expression -Wno-gnu-zero-variadic-macro-arguments -Wno-zero-length-array -Wno-missing-field-initializers -Wno-unused-parameter -Wno-psabi -Wloop-analysis -Wno-unneeded-internal-declaration -Wno-cast-function-type -Wno-thread-safety-reference-return -Wno-nontrivial-memcall -Wshadow -Werror -fno-delete-null-pointer-checks -fno-strict-overflow -fno-ident -fno-strict-aliasing -fstack-protector -funwind-tables -fPIC -pthread -fcolor-diagnostics -fmerge-all-constants -fno-sized-deallocation -fcrash-diagnostics-dir=../../../../tools/clang/crashreports -mllvm -instcombine-lower-dbg-declare=0 -mllvm -split-threshold-for-reg-with-hint=0 -ffp-contract=off -Wa,--crel,--allow-experimental-crel -fcomplete-member-pointers -m64 -msse3 -Wno-builtin-macro-redefined -D__DATE__= -D__TIME__= -D__TIMESTAMP__= -ffile-compilation-dir=. -no-canonical-prefixes -ftrivial-auto-var-init=pattern -O0 -fno-omit-frame-pointer -gdwarf-4 -g2 -gdwarf-aranges -gsplit-dwarf -ggnu-pubnames -Xclang -fuse-ctor-homing -fvisibility=hidden -Wheader-hygiene -Wstring-conversion -Wtautological-overlap-compare -DUNSAFE_BUFFERS_BUILD -Xclang -add-plugin -Xclang unsafe-buffers -Xclang -plugin-arg-unsafe-buffers -Xclang ../../../../build/config/unsafe_buffers_paths.txt -Wexit-time-destructors -Wglobal-constructors -Wbad-function-cast -Wconditional-uninitialized -Wextra-semi-stmt -Wfloat-conversion -Winconsistent-missing-destructor-override -Wmissing-field-initializers -Wnewline-eof -Wnon-virtual-dtor -Wredundant-parens -Wreturn-std-move -Wshadow -Wshadow-field -Wtautological-type-limit-compare -Wundefined-reinterpret-cast -Wunneeded-internal-declaration -Wunused-but-set-variable -Wsuggest-destructor-override -Wsuggest-override -Wparentheses -Wrange-loop-analysis -Wstrict-prototypes -Wunreachable-code-aggressive -Wshorten-64-to-32 -Wno-\#pragma-messages -DMAJOR_IN_SYSMACROS=1 -Wno-unused-function -Wno-enum-conversion -Wno-unused-result -Wno-format -Wno-redundant-parens
+cflags_cc = -Wno-invalid-offsetof -Wenum-compare-conditional -Wno-c++11-narrowing-const-reference -Wno-missing-template-arg-list-after-template-kw -Wno-undefined-bool-conversion -Wno-tautological-undefined-compare -std=c++20 -Wno-trigraphs -gsimple-template-names -fno-exceptions -fno-rtti -nostdinc++ -isystem../../../libc++/src/include -isystem../../../libc++abi/src/include --sysroot=../../../../build/linux/debian_bullseye_amd64-sysroot -fvisibility-inlines-hidden
+label_name = angle_gl_backend
+target_out_dir = obj/third_party/angle/src/libANGLE/renderer/gl
+target_output_name = angle_gl_backend
+
+build phony/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend.inputdeps: phony phony/build/chromeos_buildflags phony/third_party/libdrm/make_generated_static_table_fourcc phony/third_party/wayland/wayland_client_protocol_gen phony/third_party/wayland/wayland_protocol_c_gen
+build obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/BlitGL.o: cxx ../../../../third_party/angle/src/libANGLE/renderer/gl/BlitGL.cpp || phony/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend.inputdeps
+  source_file_part = BlitGL.cpp
+  source_name_part = BlitGL
+build obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/BufferGL.o: cxx ../../../../third_party/angle/src/libANGLE/renderer/gl/BufferGL.cpp || phony/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend.inputdeps
+  source_file_part = BufferGL.cpp
+  source_name_part = BufferGL
+build obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/ClearMultiviewGL.o: cxx ../../../../third_party/angle/src/libANGLE/renderer/gl/ClearMultiviewGL.cpp || phony/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend.inputdeps
+  source_file_part = ClearMultiviewGL.cpp
+  source_name_part = ClearMultiviewGL
+build obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/CompilerGL.o: cxx ../../../../third_party/angle/src/libANGLE/renderer/gl/CompilerGL.cpp || phony/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend.inputdeps
+  source_file_part = CompilerGL.cpp
+  source_name_part = CompilerGL
+build obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/ContextGL.o: cxx ../../../../third_party/angle/src/libANGLE/renderer/gl/ContextGL.cpp || phony/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend.inputdeps
+  source_file_part = ContextGL.cpp
+  source_name_part = ContextGL
+build obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/DispatchTableGL_autogen.o: cxx ../../../../third_party/angle/src/libANGLE/renderer/gl/DispatchTableGL_autogen.cpp || phony/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend.inputdeps
+  source_file_part = DispatchTableGL_autogen.cpp
+  source_name_part = DispatchTableGL_autogen
+build obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/DisplayGL.o: cxx ../../../../third_party/angle/src/libANGLE/renderer/gl/DisplayGL.cpp || phony/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend.inputdeps
+  source_file_part = DisplayGL.cpp
+  source_name_part = DisplayGL
+build obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/FenceNVGL.o: cxx ../../../../third_party/angle/src/libANGLE/renderer/gl/FenceNVGL.cpp || phony/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend.inputdeps
+  source_file_part = FenceNVGL.cpp
+  source_name_part = FenceNVGL
+build obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/FramebufferGL.o: cxx ../../../../third_party/angle/src/libANGLE/renderer/gl/FramebufferGL.cpp || phony/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend.inputdeps
+  source_file_part = FramebufferGL.cpp
+  source_name_part = FramebufferGL
+build obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/FunctionsGL.o: cxx ../../../../third_party/angle/src/libANGLE/renderer/gl/FunctionsGL.cpp || phony/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend.inputdeps
+  source_file_part = FunctionsGL.cpp
+  source_name_part = FunctionsGL
+build obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/ImageGL.o: cxx ../../../../third_party/angle/src/libANGLE/renderer/gl/ImageGL.cpp || phony/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend.inputdeps
+  source_file_part = ImageGL.cpp
+  source_name_part = ImageGL
+build obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/MemoryObjectGL.o: cxx ../../../../third_party/angle/src/libANGLE/renderer/gl/MemoryObjectGL.cpp || phony/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend.inputdeps
+  source_file_part = MemoryObjectGL.cpp
+  source_name_part = MemoryObjectGL
+build obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/ProgramExecutableGL.o: cxx ../../../../third_party/angle/src/libANGLE/renderer/gl/ProgramExecutableGL.cpp || phony/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend.inputdeps
+  source_file_part = ProgramExecutableGL.cpp
+  source_name_part = ProgramExecutableGL
+build obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/ProgramGL.o: cxx ../../../../third_party/angle/src/libANGLE/renderer/gl/ProgramGL.cpp || phony/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend.inputdeps
+  source_file_part = ProgramGL.cpp
+  source_name_part = ProgramGL
+build obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/ProgramPipelineGL.o: cxx ../../../../third_party/angle/src/libANGLE/renderer/gl/ProgramPipelineGL.cpp || phony/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend.inputdeps
+  source_file_part = ProgramPipelineGL.cpp
+  source_name_part = ProgramPipelineGL
+build obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/QueryGL.o: cxx ../../../../third_party/angle/src/libANGLE/renderer/gl/QueryGL.cpp || phony/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend.inputdeps
+  source_file_part = QueryGL.cpp
+  source_name_part = QueryGL
+build obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/RenderbufferGL.o: cxx ../../../../third_party/angle/src/libANGLE/renderer/gl/RenderbufferGL.cpp || phony/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend.inputdeps
+  source_file_part = RenderbufferGL.cpp
+  source_name_part = RenderbufferGL
+build obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/RendererGL.o: cxx ../../../../third_party/angle/src/libANGLE/renderer/gl/RendererGL.cpp || phony/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend.inputdeps
+  source_file_part = RendererGL.cpp
+  source_name_part = RendererGL
+build obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/SamplerGL.o: cxx ../../../../third_party/angle/src/libANGLE/renderer/gl/SamplerGL.cpp || phony/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend.inputdeps
+  source_file_part = SamplerGL.cpp
+  source_name_part = SamplerGL
+build obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/SemaphoreGL.o: cxx ../../../../third_party/angle/src/libANGLE/renderer/gl/SemaphoreGL.cpp || phony/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend.inputdeps
+  source_file_part = SemaphoreGL.cpp
+  source_name_part = SemaphoreGL
+build obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/ShaderGL.o: cxx ../../../../third_party/angle/src/libANGLE/renderer/gl/ShaderGL.cpp || phony/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend.inputdeps
+  source_file_part = ShaderGL.cpp
+  source_name_part = ShaderGL
+build obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/StateManagerGL.o: cxx ../../../../third_party/angle/src/libANGLE/renderer/gl/StateManagerGL.cpp || phony/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend.inputdeps
+  source_file_part = StateManagerGL.cpp
+  source_name_part = StateManagerGL
+build obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/SurfaceGL.o: cxx ../../../../third_party/angle/src/libANGLE/renderer/gl/SurfaceGL.cpp || phony/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend.inputdeps
+  source_file_part = SurfaceGL.cpp
+  source_name_part = SurfaceGL
+build obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/SyncGL.o: cxx ../../../../third_party/angle/src/libANGLE/renderer/gl/SyncGL.cpp || phony/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend.inputdeps
+  source_file_part = SyncGL.cpp
+  source_name_part = SyncGL
+build obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/TextureGL.o: cxx ../../../../third_party/angle/src/libANGLE/renderer/gl/TextureGL.cpp || phony/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend.inputdeps
+  source_file_part = TextureGL.cpp
+  source_name_part = TextureGL
+build obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/TransformFeedbackGL.o: cxx ../../../../third_party/angle/src/libANGLE/renderer/gl/TransformFeedbackGL.cpp || phony/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend.inputdeps
+  source_file_part = TransformFeedbackGL.cpp
+  source_name_part = TransformFeedbackGL
+build obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/VertexArrayGL.o: cxx ../../../../third_party/angle/src/libANGLE/renderer/gl/VertexArrayGL.cpp || phony/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend.inputdeps
+  source_file_part = VertexArrayGL.cpp
+  source_name_part = VertexArrayGL
+build obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/formatutilsgl.o: cxx ../../../../third_party/angle/src/libANGLE/renderer/gl/formatutilsgl.cpp || phony/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend.inputdeps
+  source_file_part = formatutilsgl.cpp
+  source_name_part = formatutilsgl
+build obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/renderergl_utils.o: cxx ../../../../third_party/angle/src/libANGLE/renderer/gl/renderergl_utils.cpp || phony/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend.inputdeps
+  source_file_part = renderergl_utils.cpp
+  source_name_part = renderergl_utils
+build obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/DisplayGLX.o: cxx ../../../../third_party/angle/src/libANGLE/renderer/gl/glx/DisplayGLX.cpp || phony/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend.inputdeps
+  source_file_part = DisplayGLX.cpp
+  source_name_part = DisplayGLX
+build obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/FunctionsGLX.o: cxx ../../../../third_party/angle/src/libANGLE/renderer/gl/glx/FunctionsGLX.cpp || phony/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend.inputdeps
+  source_file_part = FunctionsGLX.cpp
+  source_name_part = FunctionsGLX
+build obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/PbufferSurfaceGLX.o: cxx ../../../../third_party/angle/src/libANGLE/renderer/gl/glx/PbufferSurfaceGLX.cpp || phony/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend.inputdeps
+  source_file_part = PbufferSurfaceGLX.cpp
+  source_name_part = PbufferSurfaceGLX
+build obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/PixmapSurfaceGLX.o: cxx ../../../../third_party/angle/src/libANGLE/renderer/gl/glx/PixmapSurfaceGLX.cpp || phony/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend.inputdeps
+  source_file_part = PixmapSurfaceGLX.cpp
+  source_name_part = PixmapSurfaceGLX
+build obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/WindowSurfaceGLX.o: cxx ../../../../third_party/angle/src/libANGLE/renderer/gl/glx/WindowSurfaceGLX.cpp || phony/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend.inputdeps
+  source_file_part = WindowSurfaceGLX.cpp
+  source_name_part = WindowSurfaceGLX
+build obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/glx_utils.o: cxx ../../../../third_party/angle/src/libANGLE/renderer/gl/glx/glx_utils.cpp || phony/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend.inputdeps
+  source_file_part = glx_utils.cpp
+  source_name_part = glx_utils
+build obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/ContextEGL.o: cxx ../../../../third_party/angle/src/libANGLE/renderer/gl/egl/ContextEGL.cpp || phony/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend.inputdeps
+  source_file_part = ContextEGL.cpp
+  source_name_part = ContextEGL
+build obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/DeviceEGL.o: cxx ../../../../third_party/angle/src/libANGLE/renderer/gl/egl/DeviceEGL.cpp || phony/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend.inputdeps
+  source_file_part = DeviceEGL.cpp
+  source_name_part = DeviceEGL
+build obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/DisplayEGL.o: cxx ../../../../third_party/angle/src/libANGLE/renderer/gl/egl/DisplayEGL.cpp || phony/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend.inputdeps
+  source_file_part = DisplayEGL.cpp
+  source_name_part = DisplayEGL
+build obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/DmaBufImageSiblingEGL.o: cxx ../../../../third_party/angle/src/libANGLE/renderer/gl/egl/DmaBufImageSiblingEGL.cpp || phony/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend.inputdeps
+  source_file_part = DmaBufImageSiblingEGL.cpp
+  source_name_part = DmaBufImageSiblingEGL
+build obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/FunctionsEGL.o: cxx ../../../../third_party/angle/src/libANGLE/renderer/gl/egl/FunctionsEGL.cpp || phony/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend.inputdeps
+  source_file_part = FunctionsEGL.cpp
+  source_name_part = FunctionsEGL
+build obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/FunctionsEGLDL.o: cxx ../../../../third_party/angle/src/libANGLE/renderer/gl/egl/FunctionsEGLDL.cpp || phony/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend.inputdeps
+  source_file_part = FunctionsEGLDL.cpp
+  source_name_part = FunctionsEGLDL
+build obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/ImageEGL.o: cxx ../../../../third_party/angle/src/libANGLE/renderer/gl/egl/ImageEGL.cpp || phony/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend.inputdeps
+  source_file_part = ImageEGL.cpp
+  source_name_part = ImageEGL
+build obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/PbufferSurfaceEGL.o: cxx ../../../../third_party/angle/src/libANGLE/renderer/gl/egl/PbufferSurfaceEGL.cpp || phony/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend.inputdeps
+  source_file_part = PbufferSurfaceEGL.cpp
+  source_name_part = PbufferSurfaceEGL
+build obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/RendererEGL.o: cxx ../../../../third_party/angle/src/libANGLE/renderer/gl/egl/RendererEGL.cpp || phony/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend.inputdeps
+  source_file_part = RendererEGL.cpp
+  source_name_part = RendererEGL
+build obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/SurfaceEGL.o: cxx ../../../../third_party/angle/src/libANGLE/renderer/gl/egl/SurfaceEGL.cpp || phony/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend.inputdeps
+  source_file_part = SurfaceEGL.cpp
+  source_name_part = SurfaceEGL
+build obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/SyncEGL.o: cxx ../../../../third_party/angle/src/libANGLE/renderer/gl/egl/SyncEGL.cpp || phony/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend.inputdeps
+  source_file_part = SyncEGL.cpp
+  source_name_part = SyncEGL
+build obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/WindowSurfaceEGL.o: cxx ../../../../third_party/angle/src/libANGLE/renderer/gl/egl/WindowSurfaceEGL.cpp || phony/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend.inputdeps
+  source_file_part = WindowSurfaceEGL.cpp
+  source_name_part = WindowSurfaceEGL
+build obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/egl_utils.o: cxx ../../../../third_party/angle/src/libANGLE/renderer/gl/egl/egl_utils.cpp || phony/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend.inputdeps
+  source_file_part = egl_utils.cpp
+  source_name_part = egl_utils
+build obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/null_functions.o: cxx ../../../../third_party/angle/src/libANGLE/renderer/gl/null_functions.cpp || phony/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend.inputdeps
+  source_file_part = null_functions.cpp
+  source_name_part = null_functions
+
+build phony/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend: phony obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/BlitGL.o obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/BufferGL.o obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/ClearMultiviewGL.o obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/CompilerGL.o obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/ContextGL.o obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/DispatchTableGL_autogen.o obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/DisplayGL.o obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/FenceNVGL.o obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/FramebufferGL.o obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/FunctionsGL.o obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/ImageGL.o obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/MemoryObjectGL.o obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/ProgramExecutableGL.o obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/ProgramGL.o obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/ProgramPipelineGL.o obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/QueryGL.o obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/RenderbufferGL.o obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/RendererGL.o obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/SamplerGL.o obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/SemaphoreGL.o obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/ShaderGL.o obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/StateManagerGL.o obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/SurfaceGL.o obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/SyncGL.o obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/TextureGL.o obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/TransformFeedbackGL.o obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/VertexArrayGL.o obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/formatutilsgl.o obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/renderergl_utils.o obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/DisplayGLX.o obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/FunctionsGLX.o obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/PbufferSurfaceGLX.o obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/PixmapSurfaceGLX.o obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/WindowSurfaceGLX.o obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/glx_utils.o obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/ContextEGL.o obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/DeviceEGL.o obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/DisplayEGL.o obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/DmaBufImageSiblingEGL.o obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/FunctionsEGL.o obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/FunctionsEGLDL.o obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/ImageEGL.o obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/PbufferSurfaceEGL.o obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/RendererEGL.o obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/SurfaceEGL.o obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/SyncEGL.o obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/WindowSurfaceEGL.o obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/egl_utils.o obj/third_party/angle/src/libANGLE/renderer/gl/angle_gl_backend/null_functions.o || phony/third_party/angle/libANGLE_headers obj/third_party/angle/libangle_gpu_info_util.a obj/third_party/angle/libangle_image_util.a phony/build/config/linux/libdrm/libdrm phony/third_party/angle/src/common/linux/angle_dma_buf obj/third_party/angle/libangle_common.a ./libthird_party_abseil-cpp_absl.so.TOC phony/third_party/angle/xxhash phony/third_party/wayland/wayland_client phony/third_party/wayland/wayland_client_protocol phony/third_party/wayland/wayland_util phony/third_party/wayland/wayland_private phony/third_party/wayland/wayland_protocol_c phony/third_party/wayland/wayland_egl phony/third_party/angle/src/common/vulkan/angle_libvulkan_loader phony/third_party/angle/src/common/vulkan/angle_vulkan_icd phony/third_party/angle/src/common/vulkan/angle_vulkan_headers phony/third_party/angle/src/third_party/volk/volk phony/third_party/angle/src/third_party/libXNVCtrl/libXNVCtrl phony/third_party/angle/angle_image_util_headers obj/third_party/libdrm/libdrm.a

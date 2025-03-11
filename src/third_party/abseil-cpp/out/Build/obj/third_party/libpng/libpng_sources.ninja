@@ -1,0 +1,61 @@
+defines = -DPNG_SET_OPTION_SUPPORTED -DPNG_INTEL_SSE_OPT=1 -DDCHECK_ALWAYS_ON=1 -DUSE_UDEV -DUSE_AURA=1 -DUSE_GLIB=1 -DUSE_OZONE=1 -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_GNU_SOURCE -DCR_CLANG_REVISION=\"llvmorg-21-init-1655-g7b473dfe-1\" -D_LIBCPP_HARDENING_MODE=_LIBCPP_HARDENING_MODE_EXTENSIVE -DCOMPONENT_BUILD -D_LIBCPP_INSTRUMENTED_WITH_ASAN=0 -DCR_LIBCXX_REVISION=7c3087b8a7563d8218b27b7183ba41cf52d41508 -DTMP_REBUILD_HACK -DCR_SYSROOT_KEY=20250129T203412Z-1 -D_DEBUG -DDYNAMIC_ANNOTATIONS_ENABLED=1
+include_dirs = -I../../../.. -Igen -I../../../../buildtools/third_party/libc++ -I../../../../third_party/libpng -I../../../../third_party/zlib
+cflags = -fno-delete-null-pointer-checks -fno-strict-overflow -fno-ident -fno-strict-aliasing -fstack-protector -funwind-tables -fPIC -pthread -fcolor-diagnostics -fmerge-all-constants -fno-sized-deallocation -fcrash-diagnostics-dir=../../../../tools/clang/crashreports -mllvm -instcombine-lower-dbg-declare=0 -mllvm -split-threshold-for-reg-with-hint=0 -ffp-contract=off -Wa,--crel,--allow-experimental-crel -fcomplete-member-pointers -m64 -msse3 -Wno-builtin-macro-redefined -D__DATE__= -D__TIME__= -D__TIMESTAMP__= -ffile-compilation-dir=. -no-canonical-prefixes -ftrivial-auto-var-init=pattern -O0 -fno-omit-frame-pointer -gdwarf-4 -g2 -gdwarf-aranges -gsplit-dwarf -ggnu-pubnames -Xclang -fuse-ctor-homing -fvisibility=hidden -Wheader-hygiene -Wstring-conversion -Wtautological-overlap-compare -Xclang -add-plugin -Xclang find-bad-constructs -Xclang -plugin-arg-find-bad-constructs -Xclang span-ctor-from-string-literal -Xclang -plugin-arg-find-bad-constructs -Xclang raw-ref-template-as-trivial-member -Xclang -plugin-arg-find-bad-constructs -Xclang raw-span-template-as-trivial-member -Xclang -plugin-arg-find-bad-constructs -Xclang check-stack-allocated -Xclang -plugin-arg-find-bad-constructs -Xclang check-ipc -Xclang -add-plugin -Xclang raw-ptr-plugin -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ptr-to-stack-allocated -Xclang -plugin-arg-raw-ptr-plugin -Xclang disable-check-raw-ptr-to-stack-allocated-error -Xclang -plugin-arg-raw-ptr-plugin -Xclang raw-ptr-exclude-path=../../../dawn/ -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ptr-fields -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-span-fields -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ref-fields -DUNSAFE_BUFFERS_BUILD -Xclang -add-plugin -Xclang unsafe-buffers -Xclang -plugin-arg-unsafe-buffers -Xclang ../../../../build/config/unsafe_buffers_paths.txt -Wall -Wno-unused-variable -Wno-c++11-narrowing -Wno-unused-but-set-variable -Wno-misleading-indentation -Wno-missing-field-initializers -Wno-unused-parameter -Wno-psabi -Wloop-analysis -Wno-unneeded-internal-declaration -Wno-cast-function-type -Wno-thread-safety-reference-return -Wno-nontrivial-memcall -Werror -Wno-tautological-constant-out-of-range-compare
+cflags_c = -std=c11 --sysroot=../../../../build/linux/debian_bullseye_amd64-sysroot
+label_name = libpng_sources
+target_out_dir = obj/third_party/libpng
+target_output_name = libpng_sources
+
+build obj/third_party/libpng/libpng_sources/png.o: cc ../../../../third_party/libpng/png.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = png.c
+  source_name_part = png
+build obj/third_party/libpng/libpng_sources/pngerror.o: cc ../../../../third_party/libpng/pngerror.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = pngerror.c
+  source_name_part = pngerror
+build obj/third_party/libpng/libpng_sources/pngget.o: cc ../../../../third_party/libpng/pngget.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = pngget.c
+  source_name_part = pngget
+build obj/third_party/libpng/libpng_sources/pngmem.o: cc ../../../../third_party/libpng/pngmem.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = pngmem.c
+  source_name_part = pngmem
+build obj/third_party/libpng/libpng_sources/pngpread.o: cc ../../../../third_party/libpng/pngpread.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = pngpread.c
+  source_name_part = pngpread
+build obj/third_party/libpng/libpng_sources/pngread.o: cc ../../../../third_party/libpng/pngread.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = pngread.c
+  source_name_part = pngread
+build obj/third_party/libpng/libpng_sources/pngrio.o: cc ../../../../third_party/libpng/pngrio.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = pngrio.c
+  source_name_part = pngrio
+build obj/third_party/libpng/libpng_sources/pngrtran.o: cc ../../../../third_party/libpng/pngrtran.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = pngrtran.c
+  source_name_part = pngrtran
+build obj/third_party/libpng/libpng_sources/pngrutil.o: cc ../../../../third_party/libpng/pngrutil.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = pngrutil.c
+  source_name_part = pngrutil
+build obj/third_party/libpng/libpng_sources/pngset.o: cc ../../../../third_party/libpng/pngset.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = pngset.c
+  source_name_part = pngset
+build obj/third_party/libpng/libpng_sources/pngtrans.o: cc ../../../../third_party/libpng/pngtrans.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = pngtrans.c
+  source_name_part = pngtrans
+build obj/third_party/libpng/libpng_sources/pngwio.o: cc ../../../../third_party/libpng/pngwio.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = pngwio.c
+  source_name_part = pngwio
+build obj/third_party/libpng/libpng_sources/pngwrite.o: cc ../../../../third_party/libpng/pngwrite.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = pngwrite.c
+  source_name_part = pngwrite
+build obj/third_party/libpng/libpng_sources/pngwtran.o: cc ../../../../third_party/libpng/pngwtran.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = pngwtran.c
+  source_name_part = pngwtran
+build obj/third_party/libpng/libpng_sources/pngwutil.o: cc ../../../../third_party/libpng/pngwutil.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = pngwutil.c
+  source_name_part = pngwutil
+build obj/third_party/libpng/libpng_sources/filter_sse2_intrinsics.o: cc ../../../../third_party/libpng/intel/filter_sse2_intrinsics.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = filter_sse2_intrinsics.c
+  source_name_part = filter_sse2_intrinsics
+build obj/third_party/libpng/libpng_sources/intel_init.o: cc ../../../../third_party/libpng/intel/intel_init.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = intel_init.c
+  source_name_part = intel_init
+
+build phony/third_party/libpng/libpng_sources: phony obj/third_party/libpng/libpng_sources/png.o obj/third_party/libpng/libpng_sources/pngerror.o obj/third_party/libpng/libpng_sources/pngget.o obj/third_party/libpng/libpng_sources/pngmem.o obj/third_party/libpng/libpng_sources/pngpread.o obj/third_party/libpng/libpng_sources/pngread.o obj/third_party/libpng/libpng_sources/pngrio.o obj/third_party/libpng/libpng_sources/pngrtran.o obj/third_party/libpng/libpng_sources/pngrutil.o obj/third_party/libpng/libpng_sources/pngset.o obj/third_party/libpng/libpng_sources/pngtrans.o obj/third_party/libpng/libpng_sources/pngwio.o obj/third_party/libpng/libpng_sources/pngwrite.o obj/third_party/libpng/libpng_sources/pngwtran.o obj/third_party/libpng/libpng_sources/pngwutil.o obj/third_party/libpng/libpng_sources/filter_sse2_intrinsics.o obj/third_party/libpng/libpng_sources/intel_init.o || ./libchrome_zlib.so.TOC

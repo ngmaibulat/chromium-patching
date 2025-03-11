@@ -1,0 +1,204 @@
+defines = -DDCHECK_ALWAYS_ON=1 -DUSE_UDEV -DUSE_AURA=1 -DUSE_GLIB=1 -DUSE_OZONE=1 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_GNU_SOURCE -DCR_CLANG_REVISION=\"llvmorg-21-init-1655-g7b473dfe-1\" -D_LIBCPP_HARDENING_MODE=_LIBCPP_HARDENING_MODE_EXTENSIVE -DCOMPONENT_BUILD -D_LIBCPP_INSTRUMENTED_WITH_ASAN=0 -DCR_LIBCXX_REVISION=7c3087b8a7563d8218b27b7183ba41cf52d41508 -DTMP_REBUILD_HACK -DCR_SYSROOT_KEY=20250129T203412Z-1 -D_DEBUG -DDYNAMIC_ANNOTATIONS_ENABLED=1 -DGOOGLE_PROTOBUF_NO_RTTI -DHAVE_PTHREAD -DPROTOBUF_USE_DLLS -DABSL_CONSUME_DLL -DABSL_FLAGS_STRIP_NAMES=0
+include_dirs = -I../../../.. -Igen -I../../../../buildtools/third_party/libc++ -I../../../../third_party/protobuf/src -I../../../../third_party/abseil-cpp
+cflags = -Wall -Wextra -Wimplicit-fallthrough -Wextra-semi -Wunreachable-code-aggressive -Wthread-safety -Wgnu -Wno-gnu-anonymous-struct -Wno-gnu-conditional-omitted-operand -Wno-gnu-include-next -Wno-gnu-label-as-value -Wno-gnu-redeclared-enum -Wno-gnu-statement-expression -Wno-gnu-zero-variadic-macro-arguments -Wno-zero-length-array -Wno-missing-field-initializers -Wno-unused-parameter -Wno-psabi -Wloop-analysis -Wno-unneeded-internal-declaration -Wno-cast-function-type -Wno-thread-safety-reference-return -Wno-nontrivial-memcall -Wshadow -Werror -fno-delete-null-pointer-checks -fno-strict-overflow -fno-ident -fno-strict-aliasing -fstack-protector -funwind-tables -fPIC -pthread -fcolor-diagnostics -fmerge-all-constants -fno-sized-deallocation -fcrash-diagnostics-dir=../../../../tools/clang/crashreports -mllvm -instcombine-lower-dbg-declare=0 -mllvm -split-threshold-for-reg-with-hint=0 -ffp-contract=off -Wa,--crel,--allow-experimental-crel -fcomplete-member-pointers -m64 -msse3 -Wno-builtin-macro-redefined -D__DATE__= -D__TIME__= -D__TIMESTAMP__= -ffile-compilation-dir=. -no-canonical-prefixes -ftrivial-auto-var-init=pattern -O0 -fno-omit-frame-pointer -gdwarf-4 -g2 -gdwarf-aranges -gsplit-dwarf -ggnu-pubnames -Xclang -fuse-ctor-homing -fvisibility=hidden -Wheader-hygiene -Wstring-conversion -Wtautological-overlap-compare -Xclang -add-plugin -Xclang find-bad-constructs -Xclang -plugin-arg-find-bad-constructs -Xclang span-ctor-from-string-literal -Xclang -plugin-arg-find-bad-constructs -Xclang raw-ref-template-as-trivial-member -Xclang -plugin-arg-find-bad-constructs -Xclang raw-span-template-as-trivial-member -Xclang -plugin-arg-find-bad-constructs -Xclang check-stack-allocated -Xclang -plugin-arg-find-bad-constructs -Xclang check-ipc -Xclang -add-plugin -Xclang raw-ptr-plugin -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ptr-to-stack-allocated -Xclang -plugin-arg-raw-ptr-plugin -Xclang disable-check-raw-ptr-to-stack-allocated-error -Xclang -plugin-arg-raw-ptr-plugin -Xclang raw-ptr-exclude-path=../../../dawn/ -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ptr-fields -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-span-fields -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ref-fields -DUNSAFE_BUFFERS_BUILD -Xclang -add-plugin -Xclang unsafe-buffers -Xclang -plugin-arg-unsafe-buffers -Xclang ../../../../build/config/unsafe_buffers_paths.txt
+cflags_cc = -Wno-invalid-offsetof -Wenum-compare-conditional -Wno-c++11-narrowing-const-reference -Wno-missing-template-arg-list-after-template-kw -Wno-undefined-bool-conversion -Wno-tautological-undefined-compare -std=c++20 -Wno-trigraphs -gsimple-template-names -fno-exceptions -fno-rtti -nostdinc++ -isystem../../../libc++/src/include -isystem../../../libc++abi/src/include --sysroot=../../../../build/linux/debian_bullseye_amd64-sysroot -fvisibility-inlines-hidden
+label_name = proto_v2
+target_out_dir = obj/components/feed/core/proto
+target_output_name = libproto_v2
+
+build phony/components/feed/core/proto/proto_v2.inputs: phony ../../../../build/config/unsafe_buffers_paths.txt ../../../../components/feed/core/proto/v2/keyvalue_store.proto ../../../../components/feed/core/proto/v2/packing.proto ../../../../components/feed/core/proto/v2/store.proto ../../../../components/feed/core/proto/v2/ui.proto ../../../../components/feed/core/proto/v2/user_actions_store.proto ../../../../components/feed/core/proto/v2/wire/action_diagnostic_info.proto ../../../../components/feed/core/proto/v2/wire/action_payload.proto ../../../../components/feed/core/proto/v2/wire/action_surface.proto ../../../../components/feed/core/proto/v2/wire/capabilities_debug_data.proto ../../../../components/feed/core/proto/v2/wire/capability.proto ../../../../components/feed/core/proto/v2/wire/chrome_client_info.proto ../../../../components/feed/core/proto/v2/wire/chrome_fulfillment_info.proto ../../../../components/feed/core/proto/v2/wire/client_info.proto ../../../../components/feed/core/proto/v2/wire/client_user_profiles.proto ../../../../components/feed/core/proto/v2/wire/code.proto ../../../../components/feed/core/proto/v2/wire/column_types.proto ../../../../components/feed/core/proto/v2/wire/consistency_token.proto ../../../../components/feed/core/proto/v2/wire/content_id.proto ../../../../components/feed/core/proto/v2/wire/content_lifetime.proto ../../../../components/feed/core/proto/v2/wire/cui_server_metadata.proto ../../../../components/feed/core/proto/v2/wire/data_operation.proto ../../../../components/feed/core/proto/v2/wire/device.proto ../../../../components/feed/core/proto/v2/wire/diagnostic_info.proto ../../../../components/feed/core/proto/v2/wire/display_info.proto ../../../../components/feed/core/proto/v2/wire/duration.proto ../../../../components/feed/core/proto/v2/wire/error_details.proto ../../../../components/feed/core/proto/v2/wire/eventid.proto ../../../../components/feed/core/proto/v2/wire/expiration_info.proto ../../../../components/feed/core/proto/v2/wire/feature.proto ../../../../components/feed/core/proto/v2/wire/feed_action.proto ../../../../components/feed/core/proto/v2/wire/feed_entry_point_data.proto ../../../../components/feed/core/proto/v2/wire/feed_entry_point_source.proto ../../../../components/feed/core/proto/v2/wire/feed_query.proto ../../../../components/feed/core/proto/v2/wire/feed_request.proto ../../../../components/feed/core/proto/v2/wire/feed_response.proto ../../../../components/feed/core/proto/v2/wire/feed_streaming.proto ../../../../components/feed/core/proto/v2/wire/info_card.proto ../../../../components/feed/core/proto/v2/wire/language_preferences.proto ../../../../components/feed/core/proto/v2/wire/next_page_token.proto ../../../../components/feed/core/proto/v2/wire/payload_metadata.proto ../../../../components/feed/core/proto/v2/wire/reliability_logging_enums.proto ../../../../components/feed/core/proto/v2/wire/render_data.proto ../../../../components/feed/core/proto/v2/wire/request.proto ../../../../components/feed/core/proto/v2/wire/request_schedule.proto ../../../../components/feed/core/proto/v2/wire/response.proto ../../../../components/feed/core/proto/v2/wire/server_experiment_data.proto ../../../../components/feed/core/proto/v2/wire/stream_structure.proto ../../../../components/feed/core/proto/v2/wire/table.proto ../../../../components/feed/core/proto/v2/wire/there_and_back_again_data.proto ../../../../components/feed/core/proto/v2/wire/timestamp.proto ../../../../components/feed/core/proto/v2/wire/token.proto ../../../../components/feed/core/proto/v2/wire/upload_actions_request.proto ../../../../components/feed/core/proto/v2/wire/upload_actions_response.proto ../../../../components/feed/core/proto/v2/wire/version.proto ../../../../components/feed/core/proto/v2/wire/view_demotion_profile_extension.proto ../../../../components/feed/core/proto/v2/wire/web_feed_id.proto ../../../../components/feed/core/proto/v2/wire/web_feed_identifier_token.proto ../../../../components/feed/core/proto/v2/wire/web_feed_matcher.proto ../../../../components/feed/core/proto/v2/wire/web_feed_token.proto ../../../../components/feed/core/proto/v2/wire/web_feeds.proto ../../../../components/feed/core/proto/v2/wire/xsurface_container.proto ../../../../components/feed/core/proto/v2/wire/xsurface_content.proto ../../../../components/feed/core/proto/v2/xsurface.proto ../../../../components/feed/core/proto/v2/wire/chrome_feed_response_metadata.proto
+build phony/components/feed/core/proto/proto_v2.inputdeps: phony phony/build/chromeos_buildflags phony/components/feed/core/proto/proto_v2_gen
+build obj/components/feed/core/proto/proto_v2/keyvalue_store.pb.o: cxx gen/components/feed/core/proto/v2/keyvalue_store.pb.cc | phony/components/feed/core/proto/proto_v2.inputs || phony/components/feed/core/proto/proto_v2.inputdeps
+  source_file_part = keyvalue_store.pb.cc
+  source_name_part = keyvalue_store.pb
+build obj/components/feed/core/proto/proto_v2/packing.pb.o: cxx gen/components/feed/core/proto/v2/packing.pb.cc | phony/components/feed/core/proto/proto_v2.inputs || phony/components/feed/core/proto/proto_v2.inputdeps
+  source_file_part = packing.pb.cc
+  source_name_part = packing.pb
+build obj/components/feed/core/proto/proto_v2/store.pb.o: cxx gen/components/feed/core/proto/v2/store.pb.cc | phony/components/feed/core/proto/proto_v2.inputs || phony/components/feed/core/proto/proto_v2.inputdeps
+  source_file_part = store.pb.cc
+  source_name_part = store.pb
+build obj/components/feed/core/proto/proto_v2/ui.pb.o: cxx gen/components/feed/core/proto/v2/ui.pb.cc | phony/components/feed/core/proto/proto_v2.inputs || phony/components/feed/core/proto/proto_v2.inputdeps
+  source_file_part = ui.pb.cc
+  source_name_part = ui.pb
+build obj/components/feed/core/proto/proto_v2/user_actions_store.pb.o: cxx gen/components/feed/core/proto/v2/user_actions_store.pb.cc | phony/components/feed/core/proto/proto_v2.inputs || phony/components/feed/core/proto/proto_v2.inputdeps
+  source_file_part = user_actions_store.pb.cc
+  source_name_part = user_actions_store.pb
+build obj/components/feed/core/proto/proto_v2/action_diagnostic_info.pb.o: cxx gen/components/feed/core/proto/v2/wire/action_diagnostic_info.pb.cc | phony/components/feed/core/proto/proto_v2.inputs || phony/components/feed/core/proto/proto_v2.inputdeps
+  source_file_part = action_diagnostic_info.pb.cc
+  source_name_part = action_diagnostic_info.pb
+build obj/components/feed/core/proto/proto_v2/action_payload.pb.o: cxx gen/components/feed/core/proto/v2/wire/action_payload.pb.cc | phony/components/feed/core/proto/proto_v2.inputs || phony/components/feed/core/proto/proto_v2.inputdeps
+  source_file_part = action_payload.pb.cc
+  source_name_part = action_payload.pb
+build obj/components/feed/core/proto/proto_v2/action_surface.pb.o: cxx gen/components/feed/core/proto/v2/wire/action_surface.pb.cc | phony/components/feed/core/proto/proto_v2.inputs || phony/components/feed/core/proto/proto_v2.inputdeps
+  source_file_part = action_surface.pb.cc
+  source_name_part = action_surface.pb
+build obj/components/feed/core/proto/proto_v2/capabilities_debug_data.pb.o: cxx gen/components/feed/core/proto/v2/wire/capabilities_debug_data.pb.cc | phony/components/feed/core/proto/proto_v2.inputs || phony/components/feed/core/proto/proto_v2.inputdeps
+  source_file_part = capabilities_debug_data.pb.cc
+  source_name_part = capabilities_debug_data.pb
+build obj/components/feed/core/proto/proto_v2/capability.pb.o: cxx gen/components/feed/core/proto/v2/wire/capability.pb.cc | phony/components/feed/core/proto/proto_v2.inputs || phony/components/feed/core/proto/proto_v2.inputdeps
+  source_file_part = capability.pb.cc
+  source_name_part = capability.pb
+build obj/components/feed/core/proto/proto_v2/chrome_client_info.pb.o: cxx gen/components/feed/core/proto/v2/wire/chrome_client_info.pb.cc | phony/components/feed/core/proto/proto_v2.inputs || phony/components/feed/core/proto/proto_v2.inputdeps
+  source_file_part = chrome_client_info.pb.cc
+  source_name_part = chrome_client_info.pb
+build obj/components/feed/core/proto/proto_v2/chrome_fulfillment_info.pb.o: cxx gen/components/feed/core/proto/v2/wire/chrome_fulfillment_info.pb.cc | phony/components/feed/core/proto/proto_v2.inputs || phony/components/feed/core/proto/proto_v2.inputdeps
+  source_file_part = chrome_fulfillment_info.pb.cc
+  source_name_part = chrome_fulfillment_info.pb
+build obj/components/feed/core/proto/proto_v2/client_info.pb.o: cxx gen/components/feed/core/proto/v2/wire/client_info.pb.cc | phony/components/feed/core/proto/proto_v2.inputs || phony/components/feed/core/proto/proto_v2.inputdeps
+  source_file_part = client_info.pb.cc
+  source_name_part = client_info.pb
+build obj/components/feed/core/proto/proto_v2/client_user_profiles.pb.o: cxx gen/components/feed/core/proto/v2/wire/client_user_profiles.pb.cc | phony/components/feed/core/proto/proto_v2.inputs || phony/components/feed/core/proto/proto_v2.inputdeps
+  source_file_part = client_user_profiles.pb.cc
+  source_name_part = client_user_profiles.pb
+build obj/components/feed/core/proto/proto_v2/code.pb.o: cxx gen/components/feed/core/proto/v2/wire/code.pb.cc | phony/components/feed/core/proto/proto_v2.inputs || phony/components/feed/core/proto/proto_v2.inputdeps
+  source_file_part = code.pb.cc
+  source_name_part = code.pb
+build obj/components/feed/core/proto/proto_v2/column_types.pb.o: cxx gen/components/feed/core/proto/v2/wire/column_types.pb.cc | phony/components/feed/core/proto/proto_v2.inputs || phony/components/feed/core/proto/proto_v2.inputdeps
+  source_file_part = column_types.pb.cc
+  source_name_part = column_types.pb
+build obj/components/feed/core/proto/proto_v2/consistency_token.pb.o: cxx gen/components/feed/core/proto/v2/wire/consistency_token.pb.cc | phony/components/feed/core/proto/proto_v2.inputs || phony/components/feed/core/proto/proto_v2.inputdeps
+  source_file_part = consistency_token.pb.cc
+  source_name_part = consistency_token.pb
+build obj/components/feed/core/proto/proto_v2/content_id.pb.o: cxx gen/components/feed/core/proto/v2/wire/content_id.pb.cc | phony/components/feed/core/proto/proto_v2.inputs || phony/components/feed/core/proto/proto_v2.inputdeps
+  source_file_part = content_id.pb.cc
+  source_name_part = content_id.pb
+build obj/components/feed/core/proto/proto_v2/content_lifetime.pb.o: cxx gen/components/feed/core/proto/v2/wire/content_lifetime.pb.cc | phony/components/feed/core/proto/proto_v2.inputs || phony/components/feed/core/proto/proto_v2.inputdeps
+  source_file_part = content_lifetime.pb.cc
+  source_name_part = content_lifetime.pb
+build obj/components/feed/core/proto/proto_v2/cui_server_metadata.pb.o: cxx gen/components/feed/core/proto/v2/wire/cui_server_metadata.pb.cc | phony/components/feed/core/proto/proto_v2.inputs || phony/components/feed/core/proto/proto_v2.inputdeps
+  source_file_part = cui_server_metadata.pb.cc
+  source_name_part = cui_server_metadata.pb
+build obj/components/feed/core/proto/proto_v2/data_operation.pb.o: cxx gen/components/feed/core/proto/v2/wire/data_operation.pb.cc | phony/components/feed/core/proto/proto_v2.inputs || phony/components/feed/core/proto/proto_v2.inputdeps
+  source_file_part = data_operation.pb.cc
+  source_name_part = data_operation.pb
+build obj/components/feed/core/proto/proto_v2/device.pb.o: cxx gen/components/feed/core/proto/v2/wire/device.pb.cc | phony/components/feed/core/proto/proto_v2.inputs || phony/components/feed/core/proto/proto_v2.inputdeps
+  source_file_part = device.pb.cc
+  source_name_part = device.pb
+build obj/components/feed/core/proto/proto_v2/diagnostic_info.pb.o: cxx gen/components/feed/core/proto/v2/wire/diagnostic_info.pb.cc | phony/components/feed/core/proto/proto_v2.inputs || phony/components/feed/core/proto/proto_v2.inputdeps
+  source_file_part = diagnostic_info.pb.cc
+  source_name_part = diagnostic_info.pb
+build obj/components/feed/core/proto/proto_v2/display_info.pb.o: cxx gen/components/feed/core/proto/v2/wire/display_info.pb.cc | phony/components/feed/core/proto/proto_v2.inputs || phony/components/feed/core/proto/proto_v2.inputdeps
+  source_file_part = display_info.pb.cc
+  source_name_part = display_info.pb
+build obj/components/feed/core/proto/proto_v2/duration.pb.o: cxx gen/components/feed/core/proto/v2/wire/duration.pb.cc | phony/components/feed/core/proto/proto_v2.inputs || phony/components/feed/core/proto/proto_v2.inputdeps
+  source_file_part = duration.pb.cc
+  source_name_part = duration.pb
+build obj/components/feed/core/proto/proto_v2/error_details.pb.o: cxx gen/components/feed/core/proto/v2/wire/error_details.pb.cc | phony/components/feed/core/proto/proto_v2.inputs || phony/components/feed/core/proto/proto_v2.inputdeps
+  source_file_part = error_details.pb.cc
+  source_name_part = error_details.pb
+build obj/components/feed/core/proto/proto_v2/eventid.pb.o: cxx gen/components/feed/core/proto/v2/wire/eventid.pb.cc | phony/components/feed/core/proto/proto_v2.inputs || phony/components/feed/core/proto/proto_v2.inputdeps
+  source_file_part = eventid.pb.cc
+  source_name_part = eventid.pb
+build obj/components/feed/core/proto/proto_v2/expiration_info.pb.o: cxx gen/components/feed/core/proto/v2/wire/expiration_info.pb.cc | phony/components/feed/core/proto/proto_v2.inputs || phony/components/feed/core/proto/proto_v2.inputdeps
+  source_file_part = expiration_info.pb.cc
+  source_name_part = expiration_info.pb
+build obj/components/feed/core/proto/proto_v2/feature.pb.o: cxx gen/components/feed/core/proto/v2/wire/feature.pb.cc | phony/components/feed/core/proto/proto_v2.inputs || phony/components/feed/core/proto/proto_v2.inputdeps
+  source_file_part = feature.pb.cc
+  source_name_part = feature.pb
+build obj/components/feed/core/proto/proto_v2/feed_action.pb.o: cxx gen/components/feed/core/proto/v2/wire/feed_action.pb.cc | phony/components/feed/core/proto/proto_v2.inputs || phony/components/feed/core/proto/proto_v2.inputdeps
+  source_file_part = feed_action.pb.cc
+  source_name_part = feed_action.pb
+build obj/components/feed/core/proto/proto_v2/feed_entry_point_data.pb.o: cxx gen/components/feed/core/proto/v2/wire/feed_entry_point_data.pb.cc | phony/components/feed/core/proto/proto_v2.inputs || phony/components/feed/core/proto/proto_v2.inputdeps
+  source_file_part = feed_entry_point_data.pb.cc
+  source_name_part = feed_entry_point_data.pb
+build obj/components/feed/core/proto/proto_v2/feed_entry_point_source.pb.o: cxx gen/components/feed/core/proto/v2/wire/feed_entry_point_source.pb.cc | phony/components/feed/core/proto/proto_v2.inputs || phony/components/feed/core/proto/proto_v2.inputdeps
+  source_file_part = feed_entry_point_source.pb.cc
+  source_name_part = feed_entry_point_source.pb
+build obj/components/feed/core/proto/proto_v2/feed_query.pb.o: cxx gen/components/feed/core/proto/v2/wire/feed_query.pb.cc | phony/components/feed/core/proto/proto_v2.inputs || phony/components/feed/core/proto/proto_v2.inputdeps
+  source_file_part = feed_query.pb.cc
+  source_name_part = feed_query.pb
+build obj/components/feed/core/proto/proto_v2/feed_request.pb.o: cxx gen/components/feed/core/proto/v2/wire/feed_request.pb.cc | phony/components/feed/core/proto/proto_v2.inputs || phony/components/feed/core/proto/proto_v2.inputdeps
+  source_file_part = feed_request.pb.cc
+  source_name_part = feed_request.pb
+build obj/components/feed/core/proto/proto_v2/feed_response.pb.o: cxx gen/components/feed/core/proto/v2/wire/feed_response.pb.cc | phony/components/feed/core/proto/proto_v2.inputs || phony/components/feed/core/proto/proto_v2.inputdeps
+  source_file_part = feed_response.pb.cc
+  source_name_part = feed_response.pb
+build obj/components/feed/core/proto/proto_v2/feed_streaming.pb.o: cxx gen/components/feed/core/proto/v2/wire/feed_streaming.pb.cc | phony/components/feed/core/proto/proto_v2.inputs || phony/components/feed/core/proto/proto_v2.inputdeps
+  source_file_part = feed_streaming.pb.cc
+  source_name_part = feed_streaming.pb
+build obj/components/feed/core/proto/proto_v2/info_card.pb.o: cxx gen/components/feed/core/proto/v2/wire/info_card.pb.cc | phony/components/feed/core/proto/proto_v2.inputs || phony/components/feed/core/proto/proto_v2.inputdeps
+  source_file_part = info_card.pb.cc
+  source_name_part = info_card.pb
+build obj/components/feed/core/proto/proto_v2/language_preferences.pb.o: cxx gen/components/feed/core/proto/v2/wire/language_preferences.pb.cc | phony/components/feed/core/proto/proto_v2.inputs || phony/components/feed/core/proto/proto_v2.inputdeps
+  source_file_part = language_preferences.pb.cc
+  source_name_part = language_preferences.pb
+build obj/components/feed/core/proto/proto_v2/next_page_token.pb.o: cxx gen/components/feed/core/proto/v2/wire/next_page_token.pb.cc | phony/components/feed/core/proto/proto_v2.inputs || phony/components/feed/core/proto/proto_v2.inputdeps
+  source_file_part = next_page_token.pb.cc
+  source_name_part = next_page_token.pb
+build obj/components/feed/core/proto/proto_v2/payload_metadata.pb.o: cxx gen/components/feed/core/proto/v2/wire/payload_metadata.pb.cc | phony/components/feed/core/proto/proto_v2.inputs || phony/components/feed/core/proto/proto_v2.inputdeps
+  source_file_part = payload_metadata.pb.cc
+  source_name_part = payload_metadata.pb
+build obj/components/feed/core/proto/proto_v2/reliability_logging_enums.pb.o: cxx gen/components/feed/core/proto/v2/wire/reliability_logging_enums.pb.cc | phony/components/feed/core/proto/proto_v2.inputs || phony/components/feed/core/proto/proto_v2.inputdeps
+  source_file_part = reliability_logging_enums.pb.cc
+  source_name_part = reliability_logging_enums.pb
+build obj/components/feed/core/proto/proto_v2/render_data.pb.o: cxx gen/components/feed/core/proto/v2/wire/render_data.pb.cc | phony/components/feed/core/proto/proto_v2.inputs || phony/components/feed/core/proto/proto_v2.inputdeps
+  source_file_part = render_data.pb.cc
+  source_name_part = render_data.pb
+build obj/components/feed/core/proto/proto_v2/request.pb.o: cxx gen/components/feed/core/proto/v2/wire/request.pb.cc | phony/components/feed/core/proto/proto_v2.inputs || phony/components/feed/core/proto/proto_v2.inputdeps
+  source_file_part = request.pb.cc
+  source_name_part = request.pb
+build obj/components/feed/core/proto/proto_v2/request_schedule.pb.o: cxx gen/components/feed/core/proto/v2/wire/request_schedule.pb.cc | phony/components/feed/core/proto/proto_v2.inputs || phony/components/feed/core/proto/proto_v2.inputdeps
+  source_file_part = request_schedule.pb.cc
+  source_name_part = request_schedule.pb
+build obj/components/feed/core/proto/proto_v2/response.pb.o: cxx gen/components/feed/core/proto/v2/wire/response.pb.cc | phony/components/feed/core/proto/proto_v2.inputs || phony/components/feed/core/proto/proto_v2.inputdeps
+  source_file_part = response.pb.cc
+  source_name_part = response.pb
+build obj/components/feed/core/proto/proto_v2/server_experiment_data.pb.o: cxx gen/components/feed/core/proto/v2/wire/server_experiment_data.pb.cc | phony/components/feed/core/proto/proto_v2.inputs || phony/components/feed/core/proto/proto_v2.inputdeps
+  source_file_part = server_experiment_data.pb.cc
+  source_name_part = server_experiment_data.pb
+build obj/components/feed/core/proto/proto_v2/stream_structure.pb.o: cxx gen/components/feed/core/proto/v2/wire/stream_structure.pb.cc | phony/components/feed/core/proto/proto_v2.inputs || phony/components/feed/core/proto/proto_v2.inputdeps
+  source_file_part = stream_structure.pb.cc
+  source_name_part = stream_structure.pb
+build obj/components/feed/core/proto/proto_v2/table.pb.o: cxx gen/components/feed/core/proto/v2/wire/table.pb.cc | phony/components/feed/core/proto/proto_v2.inputs || phony/components/feed/core/proto/proto_v2.inputdeps
+  source_file_part = table.pb.cc
+  source_name_part = table.pb
+build obj/components/feed/core/proto/proto_v2/there_and_back_again_data.pb.o: cxx gen/components/feed/core/proto/v2/wire/there_and_back_again_data.pb.cc | phony/components/feed/core/proto/proto_v2.inputs || phony/components/feed/core/proto/proto_v2.inputdeps
+  source_file_part = there_and_back_again_data.pb.cc
+  source_name_part = there_and_back_again_data.pb
+build obj/components/feed/core/proto/proto_v2/timestamp.pb.o: cxx gen/components/feed/core/proto/v2/wire/timestamp.pb.cc | phony/components/feed/core/proto/proto_v2.inputs || phony/components/feed/core/proto/proto_v2.inputdeps
+  source_file_part = timestamp.pb.cc
+  source_name_part = timestamp.pb
+build obj/components/feed/core/proto/proto_v2/token.pb.o: cxx gen/components/feed/core/proto/v2/wire/token.pb.cc | phony/components/feed/core/proto/proto_v2.inputs || phony/components/feed/core/proto/proto_v2.inputdeps
+  source_file_part = token.pb.cc
+  source_name_part = token.pb
+build obj/components/feed/core/proto/proto_v2/upload_actions_request.pb.o: cxx gen/components/feed/core/proto/v2/wire/upload_actions_request.pb.cc | phony/components/feed/core/proto/proto_v2.inputs || phony/components/feed/core/proto/proto_v2.inputdeps
+  source_file_part = upload_actions_request.pb.cc
+  source_name_part = upload_actions_request.pb
+build obj/components/feed/core/proto/proto_v2/upload_actions_response.pb.o: cxx gen/components/feed/core/proto/v2/wire/upload_actions_response.pb.cc | phony/components/feed/core/proto/proto_v2.inputs || phony/components/feed/core/proto/proto_v2.inputdeps
+  source_file_part = upload_actions_response.pb.cc
+  source_name_part = upload_actions_response.pb
+build obj/components/feed/core/proto/proto_v2/version.pb.o: cxx gen/components/feed/core/proto/v2/wire/version.pb.cc | phony/components/feed/core/proto/proto_v2.inputs || phony/components/feed/core/proto/proto_v2.inputdeps
+  source_file_part = version.pb.cc
+  source_name_part = version.pb
+build obj/components/feed/core/proto/proto_v2/view_demotion_profile_extension.pb.o: cxx gen/components/feed/core/proto/v2/wire/view_demotion_profile_extension.pb.cc | phony/components/feed/core/proto/proto_v2.inputs || phony/components/feed/core/proto/proto_v2.inputdeps
+  source_file_part = view_demotion_profile_extension.pb.cc
+  source_name_part = view_demotion_profile_extension.pb
+build obj/components/feed/core/proto/proto_v2/web_feed_id.pb.o: cxx gen/components/feed/core/proto/v2/wire/web_feed_id.pb.cc | phony/components/feed/core/proto/proto_v2.inputs || phony/components/feed/core/proto/proto_v2.inputdeps
+  source_file_part = web_feed_id.pb.cc
+  source_name_part = web_feed_id.pb
+build obj/components/feed/core/proto/proto_v2/web_feed_identifier_token.pb.o: cxx gen/components/feed/core/proto/v2/wire/web_feed_identifier_token.pb.cc | phony/components/feed/core/proto/proto_v2.inputs || phony/components/feed/core/proto/proto_v2.inputdeps
+  source_file_part = web_feed_identifier_token.pb.cc
+  source_name_part = web_feed_identifier_token.pb
+build obj/components/feed/core/proto/proto_v2/web_feed_matcher.pb.o: cxx gen/components/feed/core/proto/v2/wire/web_feed_matcher.pb.cc | phony/components/feed/core/proto/proto_v2.inputs || phony/components/feed/core/proto/proto_v2.inputdeps
+  source_file_part = web_feed_matcher.pb.cc
+  source_name_part = web_feed_matcher.pb
+build obj/components/feed/core/proto/proto_v2/web_feed_token.pb.o: cxx gen/components/feed/core/proto/v2/wire/web_feed_token.pb.cc | phony/components/feed/core/proto/proto_v2.inputs || phony/components/feed/core/proto/proto_v2.inputdeps
+  source_file_part = web_feed_token.pb.cc
+  source_name_part = web_feed_token.pb
+build obj/components/feed/core/proto/proto_v2/web_feeds.pb.o: cxx gen/components/feed/core/proto/v2/wire/web_feeds.pb.cc | phony/components/feed/core/proto/proto_v2.inputs || phony/components/feed/core/proto/proto_v2.inputdeps
+  source_file_part = web_feeds.pb.cc
+  source_name_part = web_feeds.pb
+build obj/components/feed/core/proto/proto_v2/xsurface_container.pb.o: cxx gen/components/feed/core/proto/v2/wire/xsurface_container.pb.cc | phony/components/feed/core/proto/proto_v2.inputs || phony/components/feed/core/proto/proto_v2.inputdeps
+  source_file_part = xsurface_container.pb.cc
+  source_name_part = xsurface_container.pb
+build obj/components/feed/core/proto/proto_v2/xsurface_content.pb.o: cxx gen/components/feed/core/proto/v2/wire/xsurface_content.pb.cc | phony/components/feed/core/proto/proto_v2.inputs || phony/components/feed/core/proto/proto_v2.inputdeps
+  source_file_part = xsurface_content.pb.cc
+  source_name_part = xsurface_content.pb
+build obj/components/feed/core/proto/proto_v2/xsurface.pb.o: cxx gen/components/feed/core/proto/v2/xsurface.pb.cc | phony/components/feed/core/proto/proto_v2.inputs || phony/components/feed/core/proto/proto_v2.inputdeps
+  source_file_part = xsurface.pb.cc
+  source_name_part = xsurface.pb
+
+build obj/components/feed/core/proto/libproto_v2.a: alink obj/components/feed/core/proto/proto_v2/keyvalue_store.pb.o obj/components/feed/core/proto/proto_v2/packing.pb.o obj/components/feed/core/proto/proto_v2/store.pb.o obj/components/feed/core/proto/proto_v2/ui.pb.o obj/components/feed/core/proto/proto_v2/user_actions_store.pb.o obj/components/feed/core/proto/proto_v2/action_diagnostic_info.pb.o obj/components/feed/core/proto/proto_v2/action_payload.pb.o obj/components/feed/core/proto/proto_v2/action_surface.pb.o obj/components/feed/core/proto/proto_v2/capabilities_debug_data.pb.o obj/components/feed/core/proto/proto_v2/capability.pb.o obj/components/feed/core/proto/proto_v2/chrome_client_info.pb.o obj/components/feed/core/proto/proto_v2/chrome_fulfillment_info.pb.o obj/components/feed/core/proto/proto_v2/client_info.pb.o obj/components/feed/core/proto/proto_v2/client_user_profiles.pb.o obj/components/feed/core/proto/proto_v2/code.pb.o obj/components/feed/core/proto/proto_v2/column_types.pb.o obj/components/feed/core/proto/proto_v2/consistency_token.pb.o obj/components/feed/core/proto/proto_v2/content_id.pb.o obj/components/feed/core/proto/proto_v2/content_lifetime.pb.o obj/components/feed/core/proto/proto_v2/cui_server_metadata.pb.o obj/components/feed/core/proto/proto_v2/data_operation.pb.o obj/components/feed/core/proto/proto_v2/device.pb.o obj/components/feed/core/proto/proto_v2/diagnostic_info.pb.o obj/components/feed/core/proto/proto_v2/display_info.pb.o obj/components/feed/core/proto/proto_v2/duration.pb.o obj/components/feed/core/proto/proto_v2/error_details.pb.o obj/components/feed/core/proto/proto_v2/eventid.pb.o obj/components/feed/core/proto/proto_v2/expiration_info.pb.o obj/components/feed/core/proto/proto_v2/feature.pb.o obj/components/feed/core/proto/proto_v2/feed_action.pb.o obj/components/feed/core/proto/proto_v2/feed_entry_point_data.pb.o obj/components/feed/core/proto/proto_v2/feed_entry_point_source.pb.o obj/components/feed/core/proto/proto_v2/feed_query.pb.o obj/components/feed/core/proto/proto_v2/feed_request.pb.o obj/components/feed/core/proto/proto_v2/feed_response.pb.o obj/components/feed/core/proto/proto_v2/feed_streaming.pb.o obj/components/feed/core/proto/proto_v2/info_card.pb.o obj/components/feed/core/proto/proto_v2/language_preferences.pb.o obj/components/feed/core/proto/proto_v2/next_page_token.pb.o obj/components/feed/core/proto/proto_v2/payload_metadata.pb.o obj/components/feed/core/proto/proto_v2/reliability_logging_enums.pb.o obj/components/feed/core/proto/proto_v2/render_data.pb.o obj/components/feed/core/proto/proto_v2/request.pb.o obj/components/feed/core/proto/proto_v2/request_schedule.pb.o obj/components/feed/core/proto/proto_v2/response.pb.o obj/components/feed/core/proto/proto_v2/server_experiment_data.pb.o obj/components/feed/core/proto/proto_v2/stream_structure.pb.o obj/components/feed/core/proto/proto_v2/table.pb.o obj/components/feed/core/proto/proto_v2/there_and_back_again_data.pb.o obj/components/feed/core/proto/proto_v2/timestamp.pb.o obj/components/feed/core/proto/proto_v2/token.pb.o obj/components/feed/core/proto/proto_v2/upload_actions_request.pb.o obj/components/feed/core/proto/proto_v2/upload_actions_response.pb.o obj/components/feed/core/proto/proto_v2/version.pb.o obj/components/feed/core/proto/proto_v2/view_demotion_profile_extension.pb.o obj/components/feed/core/proto/proto_v2/web_feed_id.pb.o obj/components/feed/core/proto/proto_v2/web_feed_identifier_token.pb.o obj/components/feed/core/proto/proto_v2/web_feed_matcher.pb.o obj/components/feed/core/proto/proto_v2/web_feed_token.pb.o obj/components/feed/core/proto/proto_v2/web_feeds.pb.o obj/components/feed/core/proto/proto_v2/xsurface_container.pb.o obj/components/feed/core/proto/proto_v2/xsurface_content.pb.o obj/components/feed/core/proto/proto_v2/xsurface.pb.o | ../../../llvm-build/Release+Asserts/lib/clang/21/lib/x86_64-unknown-linux-gnu/libclang_rt.builtins.a phony/components/feed/core/proto/proto_v2.inputs || ./libthird_party_protobuf_protobuf_lite.so.TOC phony/components/feed/core/proto/proto_v2_gen ./libthird_party_abseil-cpp_absl.so.TOC
+  arflags = -T -S
+  output_extension = .a
+  output_dir = obj/components/feed/core/proto

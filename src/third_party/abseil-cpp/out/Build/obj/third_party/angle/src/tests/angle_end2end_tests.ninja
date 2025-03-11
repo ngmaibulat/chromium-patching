@@ -1,0 +1,681 @@
+defines = -DDCHECK_ALWAYS_ON=1 -DUSE_UDEV -DUSE_AURA=1 -DUSE_GLIB=1 -DUSE_OZONE=1 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_GNU_SOURCE -DCR_CLANG_REVISION=\"llvmorg-21-init-1655-g7b473dfe-1\" -D_LIBCPP_HARDENING_MODE=_LIBCPP_HARDENING_MODE_EXTENSIVE -DCOMPONENT_BUILD -D_LIBCPP_INSTRUMENTED_WITH_ASAN=0 -DCR_LIBCXX_REVISION=7c3087b8a7563d8218b27b7183ba41cf52d41508 -DTMP_REBUILD_HACK -DCR_SYSROOT_KEY=20250129T203412Z-1 -D_DEBUG -DDYNAMIC_ANNOTATIONS_ENABLED=1 -DANGLE_ASSERT_ALWAYS_ON -DANGLE_IS_LINUX -DANGLE_USE_VULKAN_DISPLAY -DANGLE_USE_X11 -DANGLE_USE_WAYLAND -DANGLE_VULKAN_DISPLAY_MODE_HEADLESS -DANGLE_DEBUG_LAYERS_ENABLED -DANGLE_OUTSIDE_WEBKIT -DANGLE_HAS_HISTOGRAMS=1 -DANGLE_TEST_ENABLE_RENDERDOC_CAPTURE -DLIBANGLE_IMPLEMENTATION -DANGLE_ENABLE_OVERLAY=1 -DANGLE_PLATFORM_EXPORT= -DGLIB_VERSION_MAX_ALLOWED=GLIB_VERSION_2_56 -DGLIB_VERSION_MIN_REQUIRED=GLIB_VERSION_2_56 -DANGLE_DELEGATE_WORKERS=1 -DANGLE_USE_ABSEIL -DABSL_ALLOCATOR_NOTHROW=1 -DABSL_CONSUME_DLL -DABSL_FLAGS_STRIP_NAMES=0 -DANGLE_ENABLE_OPENGL -DANGLE_ENABLE_GL_DESKTOP_BACKEND -DANGLE_ENABLE_OPENGL_NULL -DANGLE_HAS_LIBDRM -DANGLE_ENABLE_NULL -DANGLE_ENABLE_VULKAN -DANGLE_ENABLE_SWIFTSHADER -DANGLE_ENABLE_VULKAN_VALIDATION_LAYERS -DANGLE_ENABLE_VULKAN_SHARED_RING_BUFFER_CMD_ALLOC=false -DANGLE_ENABLE_CRC_FOR_PIPELINE_CACHE -DGTEST_API_= -DGTEST_HAS_POSIX_RE=0 -DGTEST_LANG_CXX11=1 -DGTEST_HAS_TR1_TUPLE=0 -DGTEST_HAS_ABSL -DGTEST_NO_ABSL_FLAGS -DUNIT_TEST -DRAPIDJSON_HAS_STDSTRING -DANGLE_EGL_LIBRARY_NAME=\"libEGL\" -DANGLE_GLESV2_LIBRARY_NAME=\"libGLESv2\" -DANGLE_MESA_EGL_LIBRARY_NAME=\"mesa/src/egl/libEGL\" -DANGLE_MESA_GLESV2_LIBRARY_NAME=\"mesa/src/mapi/es2api/libGLESv2\" -DANGLE_VULKAN_SECONDARIES_EGL_LIBRARY_NAME=\"libEGL_vulkan_secondaries\" -DANGLE_VULKAN_SECONDARIES_GLESV2_LIBRARY_NAME=\"libGLESv2_vulkan_secondaries\" -DGL_GLES_PROTOTYPES=0 -DEGL_EGL_PROTOTYPES=0 -DANGLE_USE_UTIL_LOADER -DANGLE_HAS_RAPIDJSON -DANGLE_USE_CUSTOM_LIBVULKAN -DANGLE_SHARED_LIBVULKAN=1 -DVK_USE_PLATFORM_XCB_KHR -DVK_USE_PLATFORM_WAYLAND_KHR -DGOOGLE_PROTOBUF_NO_RTTI -DHAVE_PTHREAD -DPROTOBUF_USE_DLLS
+include_dirs = -I../../../../third_party/angle/src/tests -I../../../../buildtools/third_party/libc++ -I../../../../third_party/angle/include -I../../../../third_party/angle/src -Igen -I../../../../third_party/perfetto/include -Igen/third_party/perfetto/build_config -Igen/third_party/perfetto -I../../../../third_party/angle/src/common/base -I../../../../third_party/angle/src/common/third_party/xxhash -I../../../../third_party/abseil-cpp -I../../../../third_party/angle/src/third_party/khronos -I../../../../third_party/wayland/src/egl -I../../../../third_party/wayland/src/src -I../../../../third_party/wayland/include -I../../../../third_party/wayland/include/src -I../../../../third_party/wayland/src/cursor -Igen/third_party/wayland/src/protocol -I../../../../third_party/angle -I../../../../third_party/googletest/custom -I../../../../third_party/googletest/src/googlemock/include -I../../../../third_party/googletest/src/googletest/include -I../../../../third_party/re2/src -I../../../../third_party/angle/third_party/rapidjson/src/include -I../../../../third_party/angle/src/third_party/volk -I../../../../third_party/vulkan-headers/src/include -I../../../../third_party/catapult -I../../../../third_party/protobuf/src
+cflags = -Wall -Wextra -Wimplicit-fallthrough -Wextra-semi -Wunreachable-code-aggressive -Wthread-safety -Wgnu -Wno-gnu-anonymous-struct -Wno-gnu-conditional-omitted-operand -Wno-gnu-include-next -Wno-gnu-label-as-value -Wno-gnu-redeclared-enum -Wno-gnu-statement-expression -Wno-gnu-zero-variadic-macro-arguments -Wno-zero-length-array -Wno-missing-field-initializers -Wno-unused-parameter -Wno-psabi -Wloop-analysis -Wno-unneeded-internal-declaration -Wno-cast-function-type -Wno-thread-safety-reference-return -Wno-nontrivial-memcall -Wshadow -Werror -fno-delete-null-pointer-checks -fno-strict-overflow -fno-ident -fno-strict-aliasing -fstack-protector -funwind-tables -fPIC -pthread -fcolor-diagnostics -fmerge-all-constants -fno-sized-deallocation -fcrash-diagnostics-dir=../../../../tools/clang/crashreports -mllvm -instcombine-lower-dbg-declare=0 -mllvm -split-threshold-for-reg-with-hint=0 -ffp-contract=off -Wa,--crel,--allow-experimental-crel -fcomplete-member-pointers -m64 -msse3 -Wno-builtin-macro-redefined -D__DATE__= -D__TIME__= -D__TIMESTAMP__= -ffile-compilation-dir=. -no-canonical-prefixes -ftrivial-auto-var-init=pattern -O0 -fno-omit-frame-pointer -gdwarf-4 -g2 -gdwarf-aranges -gsplit-dwarf -ggnu-pubnames -Xclang -fuse-ctor-homing -fvisibility=hidden -Wheader-hygiene -Wstring-conversion -Wtautological-overlap-compare -DUNSAFE_BUFFERS_BUILD -Xclang -add-plugin -Xclang unsafe-buffers -Xclang -plugin-arg-unsafe-buffers -Xclang ../../../../build/config/unsafe_buffers_paths.txt -isystem../../../../build/linux/debian_bullseye_amd64-sysroot/usr/include/glib-2.0 -isystem../../../../build/linux/debian_bullseye_amd64-sysroot/usr/lib/x86_64-linux-gnu/glib-2.0/include -Wno-inconsistent-missing-override -Wno-redundant-parens
+cflags_cc = -Wno-invalid-offsetof -Wenum-compare-conditional -Wno-c++11-narrowing-const-reference -Wno-missing-template-arg-list-after-template-kw -Wno-undefined-bool-conversion -Wno-tautological-undefined-compare -std=c++20 -Wno-trigraphs -gsimple-template-names -fno-exceptions -fno-rtti -nostdinc++ -isystem../../../libc++/src/include -isystem../../../libc++abi/src/include --sysroot=../../../../build/linux/debian_bullseye_amd64-sysroot -fvisibility-inlines-hidden
+label_name = angle_end2end_tests
+target_out_dir = obj/third_party/angle/src/tests
+target_output_name = angle_end2end_tests
+
+build phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps: phony phony/base/anchor_functions_buildflags phony/base/build_date phony/base/cfi_buildflags phony/base/check_version_internal_action phony/base/clang_profiling_buildflags phony/base/debugging_buildflags phony/base/feature_list_buildflags phony/base/fuzzing_buildflags phony/base/ios_cronet_buildflags phony/base/logging_log_severity_bindgen_logging_log_severity_bindgen_generator_copy phony/base/logging_rust_log_integration_bindgen_logging_rust_log_integration_bindgen_generator_copy phony/base/orderfile_buildflags phony/base/power_monitor_buildflags phony/base/profiler_buildflags phony/base/protected_memory_buildflags phony/base/rust_logger_cxx_generated_gen phony/base/sanitizer_buildflags phony/base/synchronization_buildflags phony/base/tracing_buildflags phony/base/allocator/buildflags phony/base/allocator/partition_allocator/src/partition_alloc/buildflags phony/base/tracing/protos/chrome_track_event_gen phony/base/tracing/protos/chrome_track_event_zero_gen phony/build/blink_buildflags phony/build/branding_buildflags phony/build/chromecast_buildflags phony/build/chromeos_buildflags phony/build/ios_buildflags phony/build/config/compiler/compiler_buildflags phony/build/rust/std/buildflags phony/build/rust/std/empty_sysroot_for_std_build clang_x64_for_rust_host_build_tools/phony/build/rust/std/prebuilt_rustc_copy_to_sysroot phony/build/rust/std/rules/compiler_builtins_compiler_builtins_vunknown_build_script_output phony/build/rust/std/rules/libc_libc_vunknown_build_script_output phony/build/rust/std/rules/object_object_vunknown_build_script_output phony/build/rust/std/rules/std_std_vunknown_build_script_output phony/third_party/angle/angle_commit_id phony/third_party/angle/angle_program_version_id phony/third_party/angle/src/tests/angle_end2end_tests__runner phony/third_party/catapult/tracing/tracing/proto/histogram_proto_gen phony/third_party/icu/copy_icudata phony/third_party/perfetto/gn/gen_buildflags phony/third_party/perfetto/protos/perfetto/common/cpp_gen phony/third_party/perfetto/protos/perfetto/common/zero_gen phony/third_party/perfetto/protos/perfetto/config/cpp_gen phony/third_party/perfetto/protos/perfetto/config/zero_gen phony/third_party/perfetto/protos/perfetto/config/android/cpp_gen phony/third_party/perfetto/protos/perfetto/config/android/zero_gen phony/third_party/perfetto/protos/perfetto/config/ftrace/cpp_gen phony/third_party/perfetto/protos/perfetto/config/ftrace/zero_gen phony/third_party/perfetto/protos/perfetto/config/gpu/cpp_gen phony/third_party/perfetto/protos/perfetto/config/gpu/zero_gen phony/third_party/perfetto/protos/perfetto/config/inode_file/cpp_gen phony/third_party/perfetto/protos/perfetto/config/inode_file/zero_gen phony/third_party/perfetto/protos/perfetto/config/interceptors/cpp_gen phony/third_party/perfetto/protos/perfetto/config/interceptors/zero_gen phony/third_party/perfetto/protos/perfetto/config/power/cpp_gen phony/third_party/perfetto/protos/perfetto/config/power/zero_gen phony/third_party/perfetto/protos/perfetto/config/process_stats/cpp_gen phony/third_party/perfetto/protos/perfetto/config/process_stats/zero_gen phony/third_party/perfetto/protos/perfetto/config/profiling/cpp_gen phony/third_party/perfetto/protos/perfetto/config/profiling/zero_gen phony/third_party/perfetto/protos/perfetto/config/statsd/cpp_gen phony/third_party/perfetto/protos/perfetto/config/statsd/zero_gen phony/third_party/perfetto/protos/perfetto/config/sys_stats/cpp_gen phony/third_party/perfetto/protos/perfetto/config/sys_stats/zero_gen phony/third_party/perfetto/protos/perfetto/config/system_info/cpp_gen phony/third_party/perfetto/protos/perfetto/config/system_info/zero_gen phony/third_party/perfetto/protos/perfetto/config/track_event/cpp_gen phony/third_party/perfetto/protos/perfetto/config/track_event/zero_gen phony/third_party/perfetto/protos/perfetto/ipc/cpp_gen phony/third_party/perfetto/protos/perfetto/ipc/ipc_gen phony/third_party/perfetto/protos/perfetto/ipc/wire_protocol_cpp_gen phony/third_party/perfetto/protos/perfetto/perfetto_sql/zero_gen phony/third_party/perfetto/protos/perfetto/trace/minimal_zero_gen phony/third_party/perfetto/protos/perfetto/trace/non_minimal_zero_gen phony/third_party/perfetto/protos/perfetto/trace/android/winscope_common_zero_gen phony/third_party/perfetto/protos/perfetto/trace/android/winscope_regular_zero_gen phony/third_party/perfetto/protos/perfetto/trace/android/zero_gen phony/third_party/perfetto/protos/perfetto/trace/chrome/zero_gen phony/third_party/perfetto/protos/perfetto/trace/etw/zero_gen phony/third_party/perfetto/protos/perfetto/trace/filesystem/zero_gen phony/third_party/perfetto/protos/perfetto/trace/ftrace/zero_gen phony/third_party/perfetto/protos/perfetto/trace/gpu/zero_gen phony/third_party/perfetto/protos/perfetto/trace/interned_data/zero_gen phony/third_party/perfetto/protos/perfetto/trace/perfetto/zero_gen phony/third_party/perfetto/protos/perfetto/trace/power/zero_gen phony/third_party/perfetto/protos/perfetto/trace/profiling/zero_gen phony/third_party/perfetto/protos/perfetto/trace/ps/zero_gen phony/third_party/perfetto/protos/perfetto/trace/statsd/zero_gen phony/third_party/perfetto/protos/perfetto/trace/sys_stats/zero_gen phony/third_party/perfetto/protos/perfetto/trace/system_info/zero_gen phony/third_party/perfetto/protos/perfetto/trace/track_event/cpp_gen phony/third_party/perfetto/protos/perfetto/trace/track_event/zero_gen phony/third_party/perfetto/protos/perfetto/trace/translation/zero_gen phony/third_party/perfetto/protos/perfetto/trace_processor/zero_gen phony/third_party/perfetto/src/trace_processor/importers/proto/gen_cc_android_track_event_descriptor phony/third_party/perfetto/src/trace_processor/importers/proto/gen_cc_chrome_track_event_descriptor phony/third_party/perfetto/src/trace_processor/importers/proto/gen_cc_track_event_descriptor phony/third_party/perfetto/src/trace_processor/tables/tables_python clang_x64_for_rust_host_build_tools/phony/third_party/rust/proc_macro2/v1/proc_macro2_lib_v1_build_script_output clang_x64_for_rust_host_build_tools/phony/third_party/rust/rustversion/v1/rustversion_lib_v1_build_script_output phony/third_party/rust/serde/v1/serde_lib_v1_build_script_output phony/third_party/rust/serde_json_lenient/v0_2/serde_json_lenient_lib_v0_2_build_script_output phony/third_party/rust/serde_json_lenient/v0_2/wrapper/wrapper_cxx_generated_gen phony/third_party/spirv-tools/src/spvtools_core_enums_unified1 phony/third_party/spirv-tools/src/spvtools_core_tables_unified1 phony/third_party/spirv-tools/src/spvtools_generators_inc phony/third_party/spirv-tools/src/spvtools_glsl_tables_glsl1-0 phony/third_party/spirv-tools/src/spvtools_language_header_cldebuginfo100 phony/third_party/spirv-tools/src/spvtools_language_header_debuginfo phony/third_party/spirv-tools/src/spvtools_language_header_vkdebuginfo100 phony/third_party/spirv-tools/src/spvtools_opencl_tables_opencl1-0 phony/third_party/spirv-tools/src/spvtools_vendor_tables_debuginfo phony/third_party/spirv-tools/src/spvtools_vendor_tables_nonsemantic.clspvreflection phony/third_party/spirv-tools/src/spvtools_vendor_tables_nonsemantic.shader.debuginfo.100 phony/third_party/spirv-tools/src/spvtools_vendor_tables_nonsemantic.vkspreflection phony/third_party/spirv-tools/src/spvtools_vendor_tables_opencl.debuginfo.100 phony/third_party/spirv-tools/src/spvtools_vendor_tables_spv-amd-gcn-shader phony/third_party/spirv-tools/src/spvtools_vendor_tables_spv-amd-shader-ballot phony/third_party/spirv-tools/src/spvtools_vendor_tables_spv-amd-shader-explicit-vertex-parameter phony/third_party/spirv-tools/src/spvtools_vendor_tables_spv-amd-shader-trinary-minmax phony/third_party/wayland/wayland_client_protocol_gen phony/third_party/wayland/wayland_protocol_c_gen
+build obj/third_party/angle/src/tests/angle_end2end_tests/CapturedTest.o: cxx ../../../../third_party/angle/src/tests/capture_tests/CapturedTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = CapturedTest.cpp
+  source_name_part = CapturedTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/EGLAndroidFrameBufferTargetTest.o: cxx ../../../../third_party/angle/src/tests/egl_tests/EGLAndroidFrameBufferTargetTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = EGLAndroidFrameBufferTargetTest.cpp
+  source_name_part = EGLAndroidFrameBufferTargetTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/EGLBackwardsCompatibleContextTest.o: cxx ../../../../third_party/angle/src/tests/egl_tests/EGLBackwardsCompatibleContextTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = EGLBackwardsCompatibleContextTest.cpp
+  source_name_part = EGLBackwardsCompatibleContextTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/EGLBlobCacheTest.o: cxx ../../../../third_party/angle/src/tests/egl_tests/EGLBlobCacheTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = EGLBlobCacheTest.cpp
+  source_name_part = EGLBlobCacheTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/EGLBufferAgeTest.o: cxx ../../../../third_party/angle/src/tests/egl_tests/EGLBufferAgeTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = EGLBufferAgeTest.cpp
+  source_name_part = EGLBufferAgeTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/EGLChooseConfigTest.o: cxx ../../../../third_party/angle/src/tests/egl_tests/EGLChooseConfigTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = EGLChooseConfigTest.cpp
+  source_name_part = EGLChooseConfigTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/EGLContextASANTest.o: cxx ../../../../third_party/angle/src/tests/egl_tests/EGLContextASANTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = EGLContextASANTest.cpp
+  source_name_part = EGLContextASANTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/EGLContextCompatibilityTest.o: cxx ../../../../third_party/angle/src/tests/egl_tests/EGLContextCompatibilityTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = EGLContextCompatibilityTest.cpp
+  source_name_part = EGLContextCompatibilityTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/EGLContextSharingTest.o: cxx ../../../../third_party/angle/src/tests/egl_tests/EGLContextSharingTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = EGLContextSharingTest.cpp
+  source_name_part = EGLContextSharingTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/EGLCreateContextAttribsTest.o: cxx ../../../../third_party/angle/src/tests/egl_tests/EGLCreateContextAttribsTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = EGLCreateContextAttribsTest.cpp
+  source_name_part = EGLCreateContextAttribsTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/EGLDebugTest.o: cxx ../../../../third_party/angle/src/tests/egl_tests/EGLDebugTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = EGLDebugTest.cpp
+  source_name_part = EGLDebugTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/EGLDisplaySelectionTest.o: cxx ../../../../third_party/angle/src/tests/egl_tests/EGLDisplaySelectionTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = EGLDisplaySelectionTest.cpp
+  source_name_part = EGLDisplaySelectionTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/EGLDisplayTest.o: cxx ../../../../third_party/angle/src/tests/egl_tests/EGLDisplayTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = EGLDisplayTest.cpp
+  source_name_part = EGLDisplayTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/EGLLockSurface3Test.o: cxx ../../../../third_party/angle/src/tests/egl_tests/EGLLockSurface3Test.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = EGLLockSurface3Test.cpp
+  source_name_part = EGLLockSurface3Test
+build obj/third_party/angle/src/tests/angle_end2end_tests/EGLMemoryUsageReportTest.o: cxx ../../../../third_party/angle/src/tests/egl_tests/EGLMemoryUsageReportTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = EGLMemoryUsageReportTest.cpp
+  source_name_part = EGLMemoryUsageReportTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/EGLMultiContextTest.o: cxx ../../../../third_party/angle/src/tests/egl_tests/EGLMultiContextTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = EGLMultiContextTest.cpp
+  source_name_part = EGLMultiContextTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/EGLNoConfigContextTest.o: cxx ../../../../third_party/angle/src/tests/egl_tests/EGLNoConfigContextTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = EGLNoConfigContextTest.cpp
+  source_name_part = EGLNoConfigContextTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/EGLNoErrorTest.o: cxx ../../../../third_party/angle/src/tests/egl_tests/EGLNoErrorTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = EGLNoErrorTest.cpp
+  source_name_part = EGLNoErrorTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/EGLPreRotationTest.o: cxx ../../../../third_party/angle/src/tests/egl_tests/EGLPreRotationTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = EGLPreRotationTest.cpp
+  source_name_part = EGLPreRotationTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/EGLPrintEGLinfoTest.o: cxx ../../../../third_party/angle/src/tests/egl_tests/EGLPrintEGLinfoTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = EGLPrintEGLinfoTest.cpp
+  source_name_part = EGLPrintEGLinfoTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/EGLProgramCacheControlTest.o: cxx ../../../../third_party/angle/src/tests/egl_tests/EGLProgramCacheControlTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = EGLProgramCacheControlTest.cpp
+  source_name_part = EGLProgramCacheControlTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/EGLProtectedContentTest.o: cxx ../../../../third_party/angle/src/tests/egl_tests/EGLProtectedContentTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = EGLProtectedContentTest.cpp
+  source_name_part = EGLProtectedContentTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/EGLQueryContextTest.o: cxx ../../../../third_party/angle/src/tests/egl_tests/EGLQueryContextTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = EGLQueryContextTest.cpp
+  source_name_part = EGLQueryContextTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/EGLReadinessCheckTest.o: cxx ../../../../third_party/angle/src/tests/egl_tests/EGLReadinessCheckTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = EGLReadinessCheckTest.cpp
+  source_name_part = EGLReadinessCheckTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/EGLRecordableTest.o: cxx ../../../../third_party/angle/src/tests/egl_tests/EGLRecordableTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = EGLRecordableTest.cpp
+  source_name_part = EGLRecordableTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/EGLRobustnessTest.o: cxx ../../../../third_party/angle/src/tests/egl_tests/EGLRobustnessTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = EGLRobustnessTest.cpp
+  source_name_part = EGLRobustnessTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/EGLSurfaceTest.o: cxx ../../../../third_party/angle/src/tests/egl_tests/EGLSurfaceTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = EGLSurfaceTest.cpp
+  source_name_part = EGLSurfaceTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/EGLSurfacelessContextTest.o: cxx ../../../../third_party/angle/src/tests/egl_tests/EGLSurfacelessContextTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = EGLSurfacelessContextTest.cpp
+  source_name_part = EGLSurfacelessContextTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/EGLSyncTest.o: cxx ../../../../third_party/angle/src/tests/egl_tests/EGLSyncTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = EGLSyncTest.cpp
+  source_name_part = EGLSyncTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/ActiveTextureCacheTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/ActiveTextureCacheTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = ActiveTextureCacheTest.cpp
+  source_name_part = ActiveTextureCacheTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/AdvancedBlendTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/AdvancedBlendTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = AdvancedBlendTest.cpp
+  source_name_part = AdvancedBlendTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/AtomicCounterBufferTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/AtomicCounterBufferTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = AtomicCounterBufferTest.cpp
+  source_name_part = AtomicCounterBufferTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/AttributeLayoutTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/AttributeLayoutTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = AttributeLayoutTest.cpp
+  source_name_part = AttributeLayoutTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/BPTCCompressedTextureTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/BPTCCompressedTextureTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = BPTCCompressedTextureTest.cpp
+  source_name_part = BPTCCompressedTextureTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/BindGeneratesResourceTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/BindGeneratesResourceTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = BindGeneratesResourceTest.cpp
+  source_name_part = BindGeneratesResourceTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/BindUniformLocationTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/BindUniformLocationTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = BindUniformLocationTest.cpp
+  source_name_part = BindUniformLocationTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/BlendFuncExtendedTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/BlendFuncExtendedTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = BlendFuncExtendedTest.cpp
+  source_name_part = BlendFuncExtendedTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/BlendIntegerTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/BlendIntegerTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = BlendIntegerTest.cpp
+  source_name_part = BlendIntegerTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/BlendMinMaxTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/BlendMinMaxTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = BlendMinMaxTest.cpp
+  source_name_part = BlendMinMaxTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/BlendPackedTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/BlendPackedTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = BlendPackedTest.cpp
+  source_name_part = BlendPackedTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/BlitFramebufferANGLETest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/BlitFramebufferANGLETest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = BlitFramebufferANGLETest.cpp
+  source_name_part = BlitFramebufferANGLETest
+build obj/third_party/angle/src/tests/angle_end2end_tests/BlobCacheTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/BlobCacheTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = BlobCacheTest.cpp
+  source_name_part = BlobCacheTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/BufferDataTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/BufferDataTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = BufferDataTest.cpp
+  source_name_part = BufferDataTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/BuiltinVariableTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/BuiltinVariableTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = BuiltinVariableTest.cpp
+  source_name_part = BuiltinVariableTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/ClearTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/ClearTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = ClearTest.cpp
+  source_name_part = ClearTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/ClientArraysTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/ClientArraysTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = ClientArraysTest.cpp
+  source_name_part = ClientArraysTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/ClipControlTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/ClipControlTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = ClipControlTest.cpp
+  source_name_part = ClipControlTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/ClipDistanceTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/ClipDistanceTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = ClipDistanceTest.cpp
+  source_name_part = ClipDistanceTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/ColorMaskTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/ColorMaskTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = ColorMaskTest.cpp
+  source_name_part = ColorMaskTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/CompressedTextureFormatsTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/CompressedTextureFormatsTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = CompressedTextureFormatsTest.cpp
+  source_name_part = CompressedTextureFormatsTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/ComputeShaderTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/ComputeShaderTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = ComputeShaderTest.cpp
+  source_name_part = ComputeShaderTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/ContextLostTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/ContextLostTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = ContextLostTest.cpp
+  source_name_part = ContextLostTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/ContextNoErrorTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/ContextNoErrorTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = ContextNoErrorTest.cpp
+  source_name_part = ContextNoErrorTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/CopyCompressedTextureTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/CopyCompressedTextureTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = CopyCompressedTextureTest.cpp
+  source_name_part = CopyCompressedTextureTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/CopyTexImageTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/CopyTexImageTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = CopyTexImageTest.cpp
+  source_name_part = CopyTexImageTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/CopyTexture3DTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/CopyTexture3DTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = CopyTexture3DTest.cpp
+  source_name_part = CopyTexture3DTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/CopyTextureTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/CopyTextureTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = CopyTextureTest.cpp
+  source_name_part = CopyTextureTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/CubeMapTextureTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/CubeMapTextureTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = CubeMapTextureTest.cpp
+  source_name_part = CubeMapTextureTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/DXT1CompressedTextureTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/DXT1CompressedTextureTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = DXT1CompressedTextureTest.cpp
+  source_name_part = DXT1CompressedTextureTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/DXTSRGBCompressedTextureTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/DXTSRGBCompressedTextureTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = DXTSRGBCompressedTextureTest.cpp
+  source_name_part = DXTSRGBCompressedTextureTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/DebugMarkerTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/DebugMarkerTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = DebugMarkerTest.cpp
+  source_name_part = DebugMarkerTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/DebugTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/DebugTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = DebugTest.cpp
+  source_name_part = DebugTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/DepthStencilFormatsTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/DepthStencilFormatsTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = DepthStencilFormatsTest.cpp
+  source_name_part = DepthStencilFormatsTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/DepthStencilTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/DepthStencilTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = DepthStencilTest.cpp
+  source_name_part = DepthStencilTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/DepthWriteTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/DepthWriteTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = DepthWriteTest.cpp
+  source_name_part = DepthWriteTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/DifferentStencilMasksTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/DifferentStencilMasksTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = DifferentStencilMasksTest.cpp
+  source_name_part = DifferentStencilMasksTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/DiscardFramebufferEXTTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/DiscardFramebufferEXTTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = DiscardFramebufferEXTTest.cpp
+  source_name_part = DiscardFramebufferEXTTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/DrawBaseVertexBaseInstanceTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/DrawBaseVertexBaseInstanceTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = DrawBaseVertexBaseInstanceTest.cpp
+  source_name_part = DrawBaseVertexBaseInstanceTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/DrawBaseVertexVariantsTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/DrawBaseVertexVariantsTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = DrawBaseVertexVariantsTest.cpp
+  source_name_part = DrawBaseVertexVariantsTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/DrawBuffersTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/DrawBuffersTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = DrawBuffersTest.cpp
+  source_name_part = DrawBuffersTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/DrawElementsIndirectTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/DrawElementsIndirectTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = DrawElementsIndirectTest.cpp
+  source_name_part = DrawElementsIndirectTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/DrawElementsTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/DrawElementsTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = DrawElementsTest.cpp
+  source_name_part = DrawElementsTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/DrawRangeElementsTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/DrawRangeElementsTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = DrawRangeElementsTest.cpp
+  source_name_part = DrawRangeElementsTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/EGLImageMECFriendlyTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/EGLImageMECFriendlyTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = EGLImageMECFriendlyTest.cpp
+  source_name_part = EGLImageMECFriendlyTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/ETCTextureTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/ETCTextureTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = ETCTextureTest.cpp
+  source_name_part = ETCTextureTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/ExternalBufferTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/ExternalBufferTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = ExternalBufferTest.cpp
+  source_name_part = ExternalBufferTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/ExternalWrapTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/ExternalWrapTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = ExternalWrapTest.cpp
+  source_name_part = ExternalWrapTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/FenceSyncTests.o: cxx ../../../../third_party/angle/src/tests/gl_tests/FenceSyncTests.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = FenceSyncTests.cpp
+  source_name_part = FenceSyncTests
+build obj/third_party/angle/src/tests/angle_end2end_tests/FloatingPointSurfaceTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/FloatingPointSurfaceTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = FloatingPointSurfaceTest.cpp
+  source_name_part = FloatingPointSurfaceTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/FragDepthTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/FragDepthTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = FragDepthTest.cpp
+  source_name_part = FragDepthTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/FramebufferFetchTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/FramebufferFetchTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = FramebufferFetchTest.cpp
+  source_name_part = FramebufferFetchTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/FramebufferMixedSamplesTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/FramebufferMixedSamplesTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = FramebufferMixedSamplesTest.cpp
+  source_name_part = FramebufferMixedSamplesTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/FramebufferMultiviewTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/FramebufferMultiviewTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = FramebufferMultiviewTest.cpp
+  source_name_part = FramebufferMultiviewTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/FramebufferRenderMipmapTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/FramebufferRenderMipmapTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = FramebufferRenderMipmapTest.cpp
+  source_name_part = FramebufferRenderMipmapTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/FramebufferTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/FramebufferTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = FramebufferTest.cpp
+  source_name_part = FramebufferTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/GLSLTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/GLSLTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = GLSLTest.cpp
+  source_name_part = GLSLTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/GeometryShaderTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/GeometryShaderTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = GeometryShaderTest.cpp
+  source_name_part = GeometryShaderTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/GetImageTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/GetImageTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = GetImageTest.cpp
+  source_name_part = GetImageTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/GetTexLevelParameterTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/GetTexLevelParameterTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = GetTexLevelParameterTest.cpp
+  source_name_part = GetTexLevelParameterTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/ImageTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/ImageTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = ImageTest.cpp
+  source_name_part = ImageTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/IncompatibleTextureTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/IncompatibleTextureTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = IncompatibleTextureTest.cpp
+  source_name_part = IncompatibleTextureTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/IncompleteTextureTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/IncompleteTextureTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = IncompleteTextureTest.cpp
+  source_name_part = IncompleteTextureTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/IndexBufferOffsetTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/IndexBufferOffsetTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = IndexBufferOffsetTest.cpp
+  source_name_part = IndexBufferOffsetTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/IndexedPointsTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/IndexedPointsTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = IndexedPointsTest.cpp
+  source_name_part = IndexedPointsTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/InstancingTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/InstancingTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = InstancingTest.cpp
+  source_name_part = InstancingTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/KTXCompressedTextureTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/KTXCompressedTextureTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = KTXCompressedTextureTest.cpp
+  source_name_part = KTXCompressedTextureTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/LineLoopTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/LineLoopTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = LineLoopTest.cpp
+  source_name_part = LineLoopTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/LinkAndRelinkTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/LinkAndRelinkTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = LinkAndRelinkTest.cpp
+  source_name_part = LinkAndRelinkTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/MatrixTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/MatrixTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = MatrixTest.cpp
+  source_name_part = MatrixTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/MaxTextureSizeTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/MaxTextureSizeTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = MaxTextureSizeTest.cpp
+  source_name_part = MaxTextureSizeTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/MemoryBarrierTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/MemoryBarrierTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = MemoryBarrierTest.cpp
+  source_name_part = MemoryBarrierTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/MemoryObjectTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/MemoryObjectTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = MemoryObjectTest.cpp
+  source_name_part = MemoryObjectTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/MemorySizeTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/MemorySizeTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = MemorySizeTest.cpp
+  source_name_part = MemorySizeTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/MipmapTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/MipmapTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = MipmapTest.cpp
+  source_name_part = MipmapTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/MultiDrawTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/MultiDrawTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = MultiDrawTest.cpp
+  source_name_part = MultiDrawTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/MultisampleCompatibilityTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/MultisampleCompatibilityTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = MultisampleCompatibilityTest.cpp
+  source_name_part = MultisampleCompatibilityTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/MultisampleTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/MultisampleTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = MultisampleTest.cpp
+  source_name_part = MultisampleTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/MultisampledRenderToTextureTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/MultisampledRenderToTextureTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = MultisampledRenderToTextureTest.cpp
+  source_name_part = MultisampledRenderToTextureTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/MultithreadingTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/MultithreadingTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = MultithreadingTest.cpp
+  source_name_part = MultithreadingTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/MultiviewDrawTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/MultiviewDrawTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = MultiviewDrawTest.cpp
+  source_name_part = MultiviewDrawTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/ObjectAllocationTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/ObjectAllocationTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = ObjectAllocationTest.cpp
+  source_name_part = ObjectAllocationTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/OcclusionQueriesTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/OcclusionQueriesTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = OcclusionQueriesTest.cpp
+  source_name_part = OcclusionQueriesTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/PBOExtensionTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/PBOExtensionTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = PBOExtensionTest.cpp
+  source_name_part = PBOExtensionTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/PVRTCCompressedTextureTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/PVRTCCompressedTextureTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = PVRTCCompressedTextureTest.cpp
+  source_name_part = PVRTCCompressedTextureTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/PackUnpackTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/PackUnpackTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = PackUnpackTest.cpp
+  source_name_part = PackUnpackTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/ParallelShaderCompileTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/ParallelShaderCompileTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = ParallelShaderCompileTest.cpp
+  source_name_part = ParallelShaderCompileTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/PbufferTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/PbufferTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = PbufferTest.cpp
+  source_name_part = PbufferTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/PixelLocalStorageTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/PixelLocalStorageTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = PixelLocalStorageTest.cpp
+  source_name_part = PixelLocalStorageTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/PixmapTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/PixmapTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = PixmapTest.cpp
+  source_name_part = PixmapTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/PointSpritesTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/PointSpritesTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = PointSpritesTest.cpp
+  source_name_part = PointSpritesTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/PolygonModeTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/PolygonModeTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = PolygonModeTest.cpp
+  source_name_part = PolygonModeTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/PolygonOffsetClampTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/PolygonOffsetClampTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = PolygonOffsetClampTest.cpp
+  source_name_part = PolygonOffsetClampTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/ProgramBinaryTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/ProgramBinaryTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = ProgramBinaryTest.cpp
+  source_name_part = ProgramBinaryTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/ProgramInterfaceTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/ProgramInterfaceTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = ProgramInterfaceTest.cpp
+  source_name_part = ProgramInterfaceTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/ProgramParameterTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/ProgramParameterTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = ProgramParameterTest.cpp
+  source_name_part = ProgramParameterTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/ProgramPipelineTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/ProgramPipelineTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = ProgramPipelineTest.cpp
+  source_name_part = ProgramPipelineTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/ProvokingVertexTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/ProvokingVertexTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = ProvokingVertexTest.cpp
+  source_name_part = ProvokingVertexTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/QueryObjectValidation.o: cxx ../../../../third_party/angle/src/tests/gl_tests/QueryObjectValidation.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = QueryObjectValidation.cpp
+  source_name_part = QueryObjectValidation
+build obj/third_party/angle/src/tests/angle_end2end_tests/ReadOnlyFeedbackLoopTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/ReadOnlyFeedbackLoopTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = ReadOnlyFeedbackLoopTest.cpp
+  source_name_part = ReadOnlyFeedbackLoopTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/ReadPixelsTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/ReadPixelsTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = ReadPixelsTest.cpp
+  source_name_part = ReadPixelsTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/RenderbufferMultisampleTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/RenderbufferMultisampleTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = RenderbufferMultisampleTest.cpp
+  source_name_part = RenderbufferMultisampleTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/RendererTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/RendererTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = RendererTest.cpp
+  source_name_part = RendererTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/RequestExtensionTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/RequestExtensionTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = RequestExtensionTest.cpp
+  source_name_part = RequestExtensionTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/RobustBufferAccessBehaviorTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/RobustBufferAccessBehaviorTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = RobustBufferAccessBehaviorTest.cpp
+  source_name_part = RobustBufferAccessBehaviorTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/RobustClientMemoryTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/RobustClientMemoryTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = RobustClientMemoryTest.cpp
+  source_name_part = RobustClientMemoryTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/RobustFragmentShaderOutputTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/RobustFragmentShaderOutputTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = RobustFragmentShaderOutputTest.cpp
+  source_name_part = RobustFragmentShaderOutputTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/RobustResourceInitTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/RobustResourceInitTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = RobustResourceInitTest.cpp
+  source_name_part = RobustResourceInitTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/S3TCTextureSizesTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/S3TCTextureSizesTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = S3TCTextureSizesTest.cpp
+  source_name_part = S3TCTextureSizesTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/SRGBFramebufferTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/SRGBFramebufferTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = SRGBFramebufferTest.cpp
+  source_name_part = SRGBFramebufferTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/SRGBTextureTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/SRGBTextureTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = SRGBTextureTest.cpp
+  source_name_part = SRGBTextureTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/SampleVariablesTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/SampleVariablesTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = SampleVariablesTest.cpp
+  source_name_part = SampleVariablesTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/SamplersTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/SamplersTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = SamplersTest.cpp
+  source_name_part = SamplersTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/SemaphoreTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/SemaphoreTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = SemaphoreTest.cpp
+  source_name_part = SemaphoreTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/ShaderAlgorithmTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/ShaderAlgorithmTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = ShaderAlgorithmTest.cpp
+  source_name_part = ShaderAlgorithmTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/ShaderBinaryTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/ShaderBinaryTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = ShaderBinaryTest.cpp
+  source_name_part = ShaderBinaryTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/ShaderInterpTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/ShaderInterpTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = ShaderInterpTest.cpp
+  source_name_part = ShaderInterpTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/ShaderMultisampleInterpolation.o: cxx ../../../../third_party/angle/src/tests/gl_tests/ShaderMultisampleInterpolation.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = ShaderMultisampleInterpolation.cpp
+  source_name_part = ShaderMultisampleInterpolation
+build obj/third_party/angle/src/tests/angle_end2end_tests/ShaderNonConstGlobalInitializerTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/ShaderNonConstGlobalInitializerTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = ShaderNonConstGlobalInitializerTest.cpp
+  source_name_part = ShaderNonConstGlobalInitializerTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/ShaderOpTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/ShaderOpTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = ShaderOpTest.cpp
+  source_name_part = ShaderOpTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/ShaderStorageBufferTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/ShaderStorageBufferTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = ShaderStorageBufferTest.cpp
+  source_name_part = ShaderStorageBufferTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/ShadingRateQcomTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/ShadingRateQcomTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = ShadingRateQcomTest.cpp
+  source_name_part = ShadingRateQcomTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/ShadowSamplerFunctionsTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/ShadowSamplerFunctionsTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = ShadowSamplerFunctionsTest.cpp
+  source_name_part = ShadowSamplerFunctionsTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/SimpleOperationTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/SimpleOperationTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = SimpleOperationTest.cpp
+  source_name_part = SimpleOperationTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/SixteenBppTextureTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/SixteenBppTextureTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = SixteenBppTextureTest.cpp
+  source_name_part = SixteenBppTextureTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/StateChangeTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/StateChangeTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = StateChangeTest.cpp
+  source_name_part = StateChangeTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/SwizzleTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/SwizzleTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = SwizzleTest.cpp
+  source_name_part = SwizzleTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/SyncQueriesTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/SyncQueriesTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = SyncQueriesTest.cpp
+  source_name_part = SyncQueriesTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/TextureExternalUpdateTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/TextureExternalUpdateTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = TextureExternalUpdateTest.cpp
+  source_name_part = TextureExternalUpdateTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/TextureFixedRateCompressionTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/TextureFixedRateCompressionTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = TextureFixedRateCompressionTest.cpp
+  source_name_part = TextureFixedRateCompressionTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/TextureMultisampleTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/TextureMultisampleTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = TextureMultisampleTest.cpp
+  source_name_part = TextureMultisampleTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/TextureRectangleTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/TextureRectangleTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = TextureRectangleTest.cpp
+  source_name_part = TextureRectangleTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/TextureTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/TextureTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = TextureTest.cpp
+  source_name_part = TextureTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/TextureUploadFormatTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/TextureUploadFormatTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = TextureUploadFormatTest.cpp
+  source_name_part = TextureUploadFormatTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/TiledRenderingTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/TiledRenderingTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = TiledRenderingTest.cpp
+  source_name_part = TiledRenderingTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/TimerQueriesTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/TimerQueriesTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = TimerQueriesTest.cpp
+  source_name_part = TimerQueriesTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/TransformFeedbackTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/TransformFeedbackTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = TransformFeedbackTest.cpp
+  source_name_part = TransformFeedbackTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/UniformBufferTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/UniformBufferTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = UniformBufferTest.cpp
+  source_name_part = UniformBufferTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/UniformTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/UniformTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = UniformTest.cpp
+  source_name_part = UniformTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/UnpackAlignmentTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/UnpackAlignmentTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = UnpackAlignmentTest.cpp
+  source_name_part = UnpackAlignmentTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/UnpackRowLength.o: cxx ../../../../third_party/angle/src/tests/gl_tests/UnpackRowLength.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = UnpackRowLength.cpp
+  source_name_part = UnpackRowLength
+build obj/third_party/angle/src/tests/angle_end2end_tests/VertexAttributeTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/VertexAttributeTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = VertexAttributeTest.cpp
+  source_name_part = VertexAttributeTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/ViewportTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/ViewportTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = ViewportTest.cpp
+  source_name_part = ViewportTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/VulkanPerformanceCounterTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/VulkanPerformanceCounterTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = VulkanPerformanceCounterTest.cpp
+  source_name_part = VulkanPerformanceCounterTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/WEBGLVideoTextureTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/WEBGLVideoTextureTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = WEBGLVideoTextureTest.cpp
+  source_name_part = WEBGLVideoTextureTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/WebGLCompatibilityTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/WebGLCompatibilityTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = WebGLCompatibilityTest.cpp
+  source_name_part = WebGLCompatibilityTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/WebGLCompressedTextureAvailabilityTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/WebGLCompressedTextureAvailabilityTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = WebGLCompressedTextureAvailabilityTest.cpp
+  source_name_part = WebGLCompressedTextureAvailabilityTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/WebGLFramebufferTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/WebGLFramebufferTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = WebGLFramebufferTest.cpp
+  source_name_part = WebGLFramebufferTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/WebGLReadOutsideFramebufferTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/WebGLReadOutsideFramebufferTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = WebGLReadOutsideFramebufferTest.cpp
+  source_name_part = WebGLReadOutsideFramebufferTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/AlphaFuncTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/gles1/AlphaFuncTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = AlphaFuncTest.cpp
+  source_name_part = AlphaFuncTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/BGRATextureTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/gles1/BGRATextureTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = BGRATextureTest.cpp
+  source_name_part = BGRATextureTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/BasicDrawTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/gles1/BasicDrawTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = BasicDrawTest.cpp
+  source_name_part = BasicDrawTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/BootAnimationTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/gles1/BootAnimationTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = BootAnimationTest.cpp
+  source_name_part = BootAnimationTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/ClientActiveTextureTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/gles1/ClientActiveTextureTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = ClientActiveTextureTest.cpp
+  source_name_part = ClientActiveTextureTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/ClientStateEnable.o: cxx ../../../../third_party/angle/src/tests/gl_tests/gles1/ClientStateEnable.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = ClientStateEnable.cpp
+  source_name_part = ClientStateEnable
+build obj/third_party/angle/src/tests/angle_end2end_tests/ClipPlaneTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/gles1/ClipPlaneTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = ClipPlaneTest.cpp
+  source_name_part = ClipPlaneTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/ColorMaterialTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/gles1/ColorMaterialTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = ColorMaterialTest.cpp
+  source_name_part = ColorMaterialTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/CurrentColorTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/gles1/CurrentColorTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = CurrentColorTest.cpp
+  source_name_part = CurrentColorTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/CurrentNormalTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/gles1/CurrentNormalTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = CurrentNormalTest.cpp
+  source_name_part = CurrentNormalTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/CurrentTextureCoordsTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/gles1/CurrentTextureCoordsTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = CurrentTextureCoordsTest.cpp
+  source_name_part = CurrentTextureCoordsTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/DrawTextureTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/gles1/DrawTextureTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = DrawTextureTest.cpp
+  source_name_part = DrawTextureTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/FogTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/gles1/FogTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = FogTest.cpp
+  source_name_part = FogTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/FramebufferObjectTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/gles1/FramebufferObjectTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = FramebufferObjectTest.cpp
+  source_name_part = FramebufferObjectTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/LightsTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/gles1/LightsTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = LightsTest.cpp
+  source_name_part = LightsTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/MaterialsTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/gles1/MaterialsTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = MaterialsTest.cpp
+  source_name_part = MaterialsTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/MatrixBuiltinsTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/gles1/MatrixBuiltinsTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = MatrixBuiltinsTest.cpp
+  source_name_part = MatrixBuiltinsTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/MatrixLoadTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/gles1/MatrixLoadTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = MatrixLoadTest.cpp
+  source_name_part = MatrixLoadTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/MatrixModeTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/gles1/MatrixModeTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = MatrixModeTest.cpp
+  source_name_part = MatrixModeTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/MatrixMultTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/gles1/MatrixMultTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = MatrixMultTest.cpp
+  source_name_part = MatrixMultTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/MatrixStackTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/gles1/MatrixStackTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = MatrixStackTest.cpp
+  source_name_part = MatrixStackTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/PalettedTextureTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/gles1/PalettedTextureTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = PalettedTextureTest.cpp
+  source_name_part = PalettedTextureTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/PointParameterTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/gles1/PointParameterTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = PointParameterTest.cpp
+  source_name_part = PointParameterTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/PointSpriteTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/gles1/PointSpriteTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = PointSpriteTest.cpp
+  source_name_part = PointSpriteTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/QueryTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/gles1/QueryTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = QueryTest.cpp
+  source_name_part = QueryTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/ShadeModelTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/gles1/ShadeModelTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = ShadeModelTest.cpp
+  source_name_part = ShadeModelTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/TextureEnvTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/gles1/TextureEnvTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = TextureEnvTest.cpp
+  source_name_part = TextureEnvTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/TextureParameterTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/gles1/TextureParameterTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = TextureParameterTest.cpp
+  source_name_part = TextureParameterTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/TextureTargetEnableTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/gles1/TextureTargetEnableTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = TextureTargetEnableTest.cpp
+  source_name_part = TextureTargetEnableTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/VertexPointerTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/gles1/VertexPointerTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = VertexPointerTest.cpp
+  source_name_part = VertexPointerTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/GPUTestExpectationsTest.o: cxx ../../../../third_party/angle/src/tests/test_expectations/GPUTestExpectationsTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = GPUTestExpectationsTest.cpp
+  source_name_part = GPUTestExpectationsTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/ANGLETest.o: cxx ../../../../third_party/angle/src/tests/test_utils/ANGLETest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = ANGLETest.cpp
+  source_name_part = ANGLETest
+build obj/third_party/angle/src/tests/angle_end2end_tests/ANGLETestCL.o: cxx ../../../../third_party/angle/src/tests/test_utils/ANGLETestCL.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = ANGLETestCL.cpp
+  source_name_part = ANGLETestCL
+build obj/third_party/angle/src/tests/angle_end2end_tests/MultiviewTest.o: cxx ../../../../third_party/angle/src/tests/test_utils/MultiviewTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = MultiviewTest.cpp
+  source_name_part = MultiviewTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/system_info_util.o: cxx ../../../../third_party/angle/src/tests/test_utils/system_info_util.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = system_info_util.cpp
+  source_name_part = system_info_util
+build obj/third_party/angle/src/tests/angle_end2end_tests/angle_end2end_tests_main.o: cxx ../../../../third_party/angle/src/tests/angle_end2end_tests_main.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = angle_end2end_tests_main.cpp
+  source_name_part = angle_end2end_tests_main
+build obj/third_party/angle/src/tests/angle_end2end_tests/EGLX11VisualTest.o: cxx ../../../../third_party/angle/src/tests/egl_tests/EGLX11VisualTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = EGLX11VisualTest.cpp
+  source_name_part = EGLX11VisualTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/EGLWaylandTest.o: cxx ../../../../third_party/angle/src/tests/egl_tests/EGLWaylandTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = EGLWaylandTest.cpp
+  source_name_part = EGLWaylandTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/VulkanExternalImageTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/VulkanExternalImageTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = VulkanExternalImageTest.cpp
+  source_name_part = VulkanExternalImageTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/VulkanImageTest.o: cxx ../../../../third_party/angle/src/tests/gl_tests/VulkanImageTest.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = VulkanImageTest.cpp
+  source_name_part = VulkanImageTest
+build obj/third_party/angle/src/tests/angle_end2end_tests/VulkanHelper.o: cxx ../../../../third_party/angle/src/tests/test_utils/VulkanHelper.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = VulkanHelper.cpp
+  source_name_part = VulkanHelper
+build obj/third_party/angle/src/tests/angle_end2end_tests/TestSuite.o: cxx ../../../../third_party/angle/src/tests/test_utils/runner/TestSuite.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = TestSuite.cpp
+  source_name_part = TestSuite
+build obj/third_party/angle/src/tests/angle_end2end_tests/HistogramWriter.o: cxx ../../../../third_party/angle/src/tests/test_utils/runner/HistogramWriter.cpp | ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/src/tests/angle_end2end_tests.inputdeps
+  source_file_part = HistogramWriter.cpp
+  source_name_part = HistogramWriter
+
+build ./angle_end2end_tests: link obj/third_party/angle/src/tests/angle_end2end_tests/CapturedTest.o obj/third_party/angle/src/tests/angle_end2end_tests/EGLAndroidFrameBufferTargetTest.o obj/third_party/angle/src/tests/angle_end2end_tests/EGLBackwardsCompatibleContextTest.o obj/third_party/angle/src/tests/angle_end2end_tests/EGLBlobCacheTest.o obj/third_party/angle/src/tests/angle_end2end_tests/EGLBufferAgeTest.o obj/third_party/angle/src/tests/angle_end2end_tests/EGLChooseConfigTest.o obj/third_party/angle/src/tests/angle_end2end_tests/EGLContextASANTest.o obj/third_party/angle/src/tests/angle_end2end_tests/EGLContextCompatibilityTest.o obj/third_party/angle/src/tests/angle_end2end_tests/EGLContextSharingTest.o obj/third_party/angle/src/tests/angle_end2end_tests/EGLCreateContextAttribsTest.o obj/third_party/angle/src/tests/angle_end2end_tests/EGLDebugTest.o obj/third_party/angle/src/tests/angle_end2end_tests/EGLDisplaySelectionTest.o obj/third_party/angle/src/tests/angle_end2end_tests/EGLDisplayTest.o obj/third_party/angle/src/tests/angle_end2end_tests/EGLLockSurface3Test.o obj/third_party/angle/src/tests/angle_end2end_tests/EGLMemoryUsageReportTest.o obj/third_party/angle/src/tests/angle_end2end_tests/EGLMultiContextTest.o obj/third_party/angle/src/tests/angle_end2end_tests/EGLNoConfigContextTest.o obj/third_party/angle/src/tests/angle_end2end_tests/EGLNoErrorTest.o obj/third_party/angle/src/tests/angle_end2end_tests/EGLPreRotationTest.o obj/third_party/angle/src/tests/angle_end2end_tests/EGLPrintEGLinfoTest.o obj/third_party/angle/src/tests/angle_end2end_tests/EGLProgramCacheControlTest.o obj/third_party/angle/src/tests/angle_end2end_tests/EGLProtectedContentTest.o obj/third_party/angle/src/tests/angle_end2end_tests/EGLQueryContextTest.o obj/third_party/angle/src/tests/angle_end2end_tests/EGLReadinessCheckTest.o obj/third_party/angle/src/tests/angle_end2end_tests/EGLRecordableTest.o obj/third_party/angle/src/tests/angle_end2end_tests/EGLRobustnessTest.o obj/third_party/angle/src/tests/angle_end2end_tests/EGLSurfaceTest.o obj/third_party/angle/src/tests/angle_end2end_tests/EGLSurfacelessContextTest.o obj/third_party/angle/src/tests/angle_end2end_tests/EGLSyncTest.o obj/third_party/angle/src/tests/angle_end2end_tests/ActiveTextureCacheTest.o obj/third_party/angle/src/tests/angle_end2end_tests/AdvancedBlendTest.o obj/third_party/angle/src/tests/angle_end2end_tests/AtomicCounterBufferTest.o obj/third_party/angle/src/tests/angle_end2end_tests/AttributeLayoutTest.o obj/third_party/angle/src/tests/angle_end2end_tests/BPTCCompressedTextureTest.o obj/third_party/angle/src/tests/angle_end2end_tests/BindGeneratesResourceTest.o obj/third_party/angle/src/tests/angle_end2end_tests/BindUniformLocationTest.o obj/third_party/angle/src/tests/angle_end2end_tests/BlendFuncExtendedTest.o obj/third_party/angle/src/tests/angle_end2end_tests/BlendIntegerTest.o obj/third_party/angle/src/tests/angle_end2end_tests/BlendMinMaxTest.o obj/third_party/angle/src/tests/angle_end2end_tests/BlendPackedTest.o obj/third_party/angle/src/tests/angle_end2end_tests/BlitFramebufferANGLETest.o obj/third_party/angle/src/tests/angle_end2end_tests/BlobCacheTest.o obj/third_party/angle/src/tests/angle_end2end_tests/BufferDataTest.o obj/third_party/angle/src/tests/angle_end2end_tests/BuiltinVariableTest.o obj/third_party/angle/src/tests/angle_end2end_tests/ClearTest.o obj/third_party/angle/src/tests/angle_end2end_tests/ClientArraysTest.o obj/third_party/angle/src/tests/angle_end2end_tests/ClipControlTest.o obj/third_party/angle/src/tests/angle_end2end_tests/ClipDistanceTest.o obj/third_party/angle/src/tests/angle_end2end_tests/ColorMaskTest.o obj/third_party/angle/src/tests/angle_end2end_tests/CompressedTextureFormatsTest.o obj/third_party/angle/src/tests/angle_end2end_tests/ComputeShaderTest.o obj/third_party/angle/src/tests/angle_end2end_tests/ContextLostTest.o obj/third_party/angle/src/tests/angle_end2end_tests/ContextNoErrorTest.o obj/third_party/angle/src/tests/angle_end2end_tests/CopyCompressedTextureTest.o obj/third_party/angle/src/tests/angle_end2end_tests/CopyTexImageTest.o obj/third_party/angle/src/tests/angle_end2end_tests/CopyTexture3DTest.o obj/third_party/angle/src/tests/angle_end2end_tests/CopyTextureTest.o obj/third_party/angle/src/tests/angle_end2end_tests/CubeMapTextureTest.o obj/third_party/angle/src/tests/angle_end2end_tests/DXT1CompressedTextureTest.o obj/third_party/angle/src/tests/angle_end2end_tests/DXTSRGBCompressedTextureTest.o obj/third_party/angle/src/tests/angle_end2end_tests/DebugMarkerTest.o obj/third_party/angle/src/tests/angle_end2end_tests/DebugTest.o obj/third_party/angle/src/tests/angle_end2end_tests/DepthStencilFormatsTest.o obj/third_party/angle/src/tests/angle_end2end_tests/DepthStencilTest.o obj/third_party/angle/src/tests/angle_end2end_tests/DepthWriteTest.o obj/third_party/angle/src/tests/angle_end2end_tests/DifferentStencilMasksTest.o obj/third_party/angle/src/tests/angle_end2end_tests/DiscardFramebufferEXTTest.o obj/third_party/angle/src/tests/angle_end2end_tests/DrawBaseVertexBaseInstanceTest.o obj/third_party/angle/src/tests/angle_end2end_tests/DrawBaseVertexVariantsTest.o obj/third_party/angle/src/tests/angle_end2end_tests/DrawBuffersTest.o obj/third_party/angle/src/tests/angle_end2end_tests/DrawElementsIndirectTest.o obj/third_party/angle/src/tests/angle_end2end_tests/DrawElementsTest.o obj/third_party/angle/src/tests/angle_end2end_tests/DrawRangeElementsTest.o obj/third_party/angle/src/tests/angle_end2end_tests/EGLImageMECFriendlyTest.o obj/third_party/angle/src/tests/angle_end2end_tests/ETCTextureTest.o obj/third_party/angle/src/tests/angle_end2end_tests/ExternalBufferTest.o obj/third_party/angle/src/tests/angle_end2end_tests/ExternalWrapTest.o obj/third_party/angle/src/tests/angle_end2end_tests/FenceSyncTests.o obj/third_party/angle/src/tests/angle_end2end_tests/FloatingPointSurfaceTest.o obj/third_party/angle/src/tests/angle_end2end_tests/FragDepthTest.o obj/third_party/angle/src/tests/angle_end2end_tests/FramebufferFetchTest.o obj/third_party/angle/src/tests/angle_end2end_tests/FramebufferMixedSamplesTest.o obj/third_party/angle/src/tests/angle_end2end_tests/FramebufferMultiviewTest.o obj/third_party/angle/src/tests/angle_end2end_tests/FramebufferRenderMipmapTest.o obj/third_party/angle/src/tests/angle_end2end_tests/FramebufferTest.o obj/third_party/angle/src/tests/angle_end2end_tests/GLSLTest.o obj/third_party/angle/src/tests/angle_end2end_tests/GeometryShaderTest.o obj/third_party/angle/src/tests/angle_end2end_tests/GetImageTest.o obj/third_party/angle/src/tests/angle_end2end_tests/GetTexLevelParameterTest.o obj/third_party/angle/src/tests/angle_end2end_tests/ImageTest.o obj/third_party/angle/src/tests/angle_end2end_tests/IncompatibleTextureTest.o obj/third_party/angle/src/tests/angle_end2end_tests/IncompleteTextureTest.o obj/third_party/angle/src/tests/angle_end2end_tests/IndexBufferOffsetTest.o obj/third_party/angle/src/tests/angle_end2end_tests/IndexedPointsTest.o obj/third_party/angle/src/tests/angle_end2end_tests/InstancingTest.o obj/third_party/angle/src/tests/angle_end2end_tests/KTXCompressedTextureTest.o obj/third_party/angle/src/tests/angle_end2end_tests/LineLoopTest.o obj/third_party/angle/src/tests/angle_end2end_tests/LinkAndRelinkTest.o obj/third_party/angle/src/tests/angle_end2end_tests/MatrixTest.o obj/third_party/angle/src/tests/angle_end2end_tests/MaxTextureSizeTest.o obj/third_party/angle/src/tests/angle_end2end_tests/MemoryBarrierTest.o obj/third_party/angle/src/tests/angle_end2end_tests/MemoryObjectTest.o obj/third_party/angle/src/tests/angle_end2end_tests/MemorySizeTest.o obj/third_party/angle/src/tests/angle_end2end_tests/MipmapTest.o obj/third_party/angle/src/tests/angle_end2end_tests/MultiDrawTest.o obj/third_party/angle/src/tests/angle_end2end_tests/MultisampleCompatibilityTest.o obj/third_party/angle/src/tests/angle_end2end_tests/MultisampleTest.o obj/third_party/angle/src/tests/angle_end2end_tests/MultisampledRenderToTextureTest.o obj/third_party/angle/src/tests/angle_end2end_tests/MultithreadingTest.o obj/third_party/angle/src/tests/angle_end2end_tests/MultiviewDrawTest.o obj/third_party/angle/src/tests/angle_end2end_tests/ObjectAllocationTest.o obj/third_party/angle/src/tests/angle_end2end_tests/OcclusionQueriesTest.o obj/third_party/angle/src/tests/angle_end2end_tests/PBOExtensionTest.o obj/third_party/angle/src/tests/angle_end2end_tests/PVRTCCompressedTextureTest.o obj/third_party/angle/src/tests/angle_end2end_tests/PackUnpackTest.o obj/third_party/angle/src/tests/angle_end2end_tests/ParallelShaderCompileTest.o obj/third_party/angle/src/tests/angle_end2end_tests/PbufferTest.o obj/third_party/angle/src/tests/angle_end2end_tests/PixelLocalStorageTest.o obj/third_party/angle/src/tests/angle_end2end_tests/PixmapTest.o obj/third_party/angle/src/tests/angle_end2end_tests/PointSpritesTest.o obj/third_party/angle/src/tests/angle_end2end_tests/PolygonModeTest.o obj/third_party/angle/src/tests/angle_end2end_tests/PolygonOffsetClampTest.o obj/third_party/angle/src/tests/angle_end2end_tests/ProgramBinaryTest.o obj/third_party/angle/src/tests/angle_end2end_tests/ProgramInterfaceTest.o obj/third_party/angle/src/tests/angle_end2end_tests/ProgramParameterTest.o obj/third_party/angle/src/tests/angle_end2end_tests/ProgramPipelineTest.o obj/third_party/angle/src/tests/angle_end2end_tests/ProvokingVertexTest.o obj/third_party/angle/src/tests/angle_end2end_tests/QueryObjectValidation.o obj/third_party/angle/src/tests/angle_end2end_tests/ReadOnlyFeedbackLoopTest.o obj/third_party/angle/src/tests/angle_end2end_tests/ReadPixelsTest.o obj/third_party/angle/src/tests/angle_end2end_tests/RenderbufferMultisampleTest.o obj/third_party/angle/src/tests/angle_end2end_tests/RendererTest.o obj/third_party/angle/src/tests/angle_end2end_tests/RequestExtensionTest.o obj/third_party/angle/src/tests/angle_end2end_tests/RobustBufferAccessBehaviorTest.o obj/third_party/angle/src/tests/angle_end2end_tests/RobustClientMemoryTest.o obj/third_party/angle/src/tests/angle_end2end_tests/RobustFragmentShaderOutputTest.o obj/third_party/angle/src/tests/angle_end2end_tests/RobustResourceInitTest.o obj/third_party/angle/src/tests/angle_end2end_tests/S3TCTextureSizesTest.o obj/third_party/angle/src/tests/angle_end2end_tests/SRGBFramebufferTest.o obj/third_party/angle/src/tests/angle_end2end_tests/SRGBTextureTest.o obj/third_party/angle/src/tests/angle_end2end_tests/SampleVariablesTest.o obj/third_party/angle/src/tests/angle_end2end_tests/SamplersTest.o obj/third_party/angle/src/tests/angle_end2end_tests/SemaphoreTest.o obj/third_party/angle/src/tests/angle_end2end_tests/ShaderAlgorithmTest.o obj/third_party/angle/src/tests/angle_end2end_tests/ShaderBinaryTest.o obj/third_party/angle/src/tests/angle_end2end_tests/ShaderInterpTest.o obj/third_party/angle/src/tests/angle_end2end_tests/ShaderMultisampleInterpolation.o obj/third_party/angle/src/tests/angle_end2end_tests/ShaderNonConstGlobalInitializerTest.o obj/third_party/angle/src/tests/angle_end2end_tests/ShaderOpTest.o obj/third_party/angle/src/tests/angle_end2end_tests/ShaderStorageBufferTest.o obj/third_party/angle/src/tests/angle_end2end_tests/ShadingRateQcomTest.o obj/third_party/angle/src/tests/angle_end2end_tests/ShadowSamplerFunctionsTest.o obj/third_party/angle/src/tests/angle_end2end_tests/SimpleOperationTest.o obj/third_party/angle/src/tests/angle_end2end_tests/SixteenBppTextureTest.o obj/third_party/angle/src/tests/angle_end2end_tests/StateChangeTest.o obj/third_party/angle/src/tests/angle_end2end_tests/SwizzleTest.o obj/third_party/angle/src/tests/angle_end2end_tests/SyncQueriesTest.o obj/third_party/angle/src/tests/angle_end2end_tests/TextureExternalUpdateTest.o obj/third_party/angle/src/tests/angle_end2end_tests/TextureFixedRateCompressionTest.o obj/third_party/angle/src/tests/angle_end2end_tests/TextureMultisampleTest.o obj/third_party/angle/src/tests/angle_end2end_tests/TextureRectangleTest.o obj/third_party/angle/src/tests/angle_end2end_tests/TextureTest.o obj/third_party/angle/src/tests/angle_end2end_tests/TextureUploadFormatTest.o obj/third_party/angle/src/tests/angle_end2end_tests/TiledRenderingTest.o obj/third_party/angle/src/tests/angle_end2end_tests/TimerQueriesTest.o obj/third_party/angle/src/tests/angle_end2end_tests/TransformFeedbackTest.o obj/third_party/angle/src/tests/angle_end2end_tests/UniformBufferTest.o obj/third_party/angle/src/tests/angle_end2end_tests/UniformTest.o obj/third_party/angle/src/tests/angle_end2end_tests/UnpackAlignmentTest.o obj/third_party/angle/src/tests/angle_end2end_tests/UnpackRowLength.o obj/third_party/angle/src/tests/angle_end2end_tests/VertexAttributeTest.o obj/third_party/angle/src/tests/angle_end2end_tests/ViewportTest.o obj/third_party/angle/src/tests/angle_end2end_tests/VulkanPerformanceCounterTest.o obj/third_party/angle/src/tests/angle_end2end_tests/WEBGLVideoTextureTest.o obj/third_party/angle/src/tests/angle_end2end_tests/WebGLCompatibilityTest.o obj/third_party/angle/src/tests/angle_end2end_tests/WebGLCompressedTextureAvailabilityTest.o obj/third_party/angle/src/tests/angle_end2end_tests/WebGLFramebufferTest.o obj/third_party/angle/src/tests/angle_end2end_tests/WebGLReadOutsideFramebufferTest.o obj/third_party/angle/src/tests/angle_end2end_tests/AlphaFuncTest.o obj/third_party/angle/src/tests/angle_end2end_tests/BGRATextureTest.o obj/third_party/angle/src/tests/angle_end2end_tests/BasicDrawTest.o obj/third_party/angle/src/tests/angle_end2end_tests/BootAnimationTest.o obj/third_party/angle/src/tests/angle_end2end_tests/ClientActiveTextureTest.o obj/third_party/angle/src/tests/angle_end2end_tests/ClientStateEnable.o obj/third_party/angle/src/tests/angle_end2end_tests/ClipPlaneTest.o obj/third_party/angle/src/tests/angle_end2end_tests/ColorMaterialTest.o obj/third_party/angle/src/tests/angle_end2end_tests/CurrentColorTest.o obj/third_party/angle/src/tests/angle_end2end_tests/CurrentNormalTest.o obj/third_party/angle/src/tests/angle_end2end_tests/CurrentTextureCoordsTest.o obj/third_party/angle/src/tests/angle_end2end_tests/DrawTextureTest.o obj/third_party/angle/src/tests/angle_end2end_tests/FogTest.o obj/third_party/angle/src/tests/angle_end2end_tests/FramebufferObjectTest.o obj/third_party/angle/src/tests/angle_end2end_tests/LightsTest.o obj/third_party/angle/src/tests/angle_end2end_tests/MaterialsTest.o obj/third_party/angle/src/tests/angle_end2end_tests/MatrixBuiltinsTest.o obj/third_party/angle/src/tests/angle_end2end_tests/MatrixLoadTest.o obj/third_party/angle/src/tests/angle_end2end_tests/MatrixModeTest.o obj/third_party/angle/src/tests/angle_end2end_tests/MatrixMultTest.o obj/third_party/angle/src/tests/angle_end2end_tests/MatrixStackTest.o obj/third_party/angle/src/tests/angle_end2end_tests/PalettedTextureTest.o obj/third_party/angle/src/tests/angle_end2end_tests/PointParameterTest.o obj/third_party/angle/src/tests/angle_end2end_tests/PointSpriteTest.o obj/third_party/angle/src/tests/angle_end2end_tests/QueryTest.o obj/third_party/angle/src/tests/angle_end2end_tests/ShadeModelTest.o obj/third_party/angle/src/tests/angle_end2end_tests/TextureEnvTest.o obj/third_party/angle/src/tests/angle_end2end_tests/TextureParameterTest.o obj/third_party/angle/src/tests/angle_end2end_tests/TextureTargetEnableTest.o obj/third_party/angle/src/tests/angle_end2end_tests/VertexPointerTest.o obj/third_party/angle/src/tests/angle_end2end_tests/GPUTestExpectationsTest.o obj/third_party/angle/src/tests/angle_end2end_tests/ANGLETest.o obj/third_party/angle/src/tests/angle_end2end_tests/ANGLETestCL.o obj/third_party/angle/src/tests/angle_end2end_tests/MultiviewTest.o obj/third_party/angle/src/tests/angle_end2end_tests/system_info_util.o obj/third_party/angle/src/tests/angle_end2end_tests/angle_end2end_tests_main.o obj/third_party/angle/src/tests/angle_end2end_tests/EGLX11VisualTest.o obj/third_party/angle/src/tests/angle_end2end_tests/EGLWaylandTest.o obj/third_party/angle/src/tests/angle_end2end_tests/VulkanExternalImageTest.o obj/third_party/angle/src/tests/angle_end2end_tests/VulkanImageTest.o obj/third_party/angle/src/tests/angle_end2end_tests/VulkanHelper.o obj/third_party/angle/src/tests/angle_end2end_tests/TestSuite.o obj/third_party/angle/src/tests/angle_end2end_tests/HistogramWriter.o obj/third_party/angle/util/angle_test_utils/Timer.o obj/third_party/angle/util/angle_test_utils/test_utils.o obj/third_party/angle/util/angle_test_utils/crash_handler_posix.o obj/third_party/angle/util/angle_test_utils/test_utils_posix.o obj/third_party/googletest/gmock/gmock-cardinalities.o obj/third_party/googletest/gmock/gmock-internal-utils.o obj/third_party/googletest/gmock/gmock-matchers.o obj/third_party/googletest/gmock/gmock-spec-builders.o obj/third_party/googletest/gmock/gmock.o obj/third_party/googletest/gtest/stack_trace_getter.o obj/third_party/googletest/gtest/chrome_custom_temp_dir.o obj/third_party/googletest/gtest/gtest_port_wrapper.o obj/third_party/googletest/gtest/gtest-assertion-result.o obj/third_party/googletest/gtest/gtest-death-test.o obj/third_party/googletest/gtest/gtest-filepath.o obj/third_party/googletest/gtest/gtest-matchers.o obj/third_party/googletest/gtest/gtest-printers.o obj/third_party/googletest/gtest/gtest-test-part.o obj/third_party/googletest/gtest/gtest-typed-test.o obj/third_party/googletest/gtest/gtest.o obj/third_party/angle/src/tests/angle_common_test_utils_shared/MultiThreadSteps.o obj/third_party/angle/src/tests/angle_common_test_utils_shared/RenderDoc.o obj/third_party/angle/src/tests/angle_common_test_utils_shared/angle_test_configs.o obj/third_party/angle/src/tests/angle_common_test_utils_shared/angle_test_instantiate.o obj/third_party/angle/src/tests/angle_common_test_utils_shared/angle_test_platform.o obj/third_party/angle/angle_gl_enum_utils/gl_enum_utils.o obj/third_party/angle/angle_gl_enum_utils/gl_enum_utils_autogen.o obj/third_party/angle/angle_json_serializer/JsonSerializer.o obj/third_party/catapult/tracing/tracing/histogram/histogram.o obj/third_party/catapult/tracing/tracing/histogram/running_statistics.o obj/third_party/catapult/tracing/tracing/reserved_infos/reserved_infos.o obj/third_party/angle/xxhash/xxhash.o obj/third_party/wayland/wayland_client/wayland-client.o obj/third_party/wayland/wayland_util/wayland-util.o obj/third_party/wayland/wayland_private/connection.o obj/third_party/wayland/wayland_private/wayland-os.o obj/third_party/wayland/wayland_protocol_c/wayland-protocol.o obj/third_party/wayland/wayland_egl/wayland-egl.o obj/third_party/angle/src/common/vulkan/angle_libvulkan_loader/libvulkan_loader.o obj/third_party/angle/src/common/vulkan/angle_vulkan_icd/vulkan_icd.o obj/third_party/angle/src/third_party/volk/volk/volk.o obj/third_party/angle/src/third_party/libXNVCtrl/libXNVCtrl/NVCtrl.o obj/third_party/angle/angle_version_info/angle_version_info.o obj/third_party/angle/src/common/spirv/angle_spirv_base/angle_spirv_utils.o obj/third_party/angle/src/common/spirv/angle_spirv_builder/spirv_instruction_builder_autogen.o obj/third_party/angle/libangle_common.a obj/third_party/angle/src/tests/libangle_test_expectations.a obj/testing/gtest/libgtest.a obj/third_party/angle/libangle_image_util.a obj/third_party/angle/libtranslator.a obj/third_party/angle/libangle_gpu_info_util.a obj/third_party/re2/libre2.a obj/third_party/angle/libangle_common_shader_state.a obj/third_party/angle/libpreprocessor.a obj/third_party/spirv-tools/src/libspvtools_val.a obj/third_party/spirv-tools/src/libspvtools.a obj/third_party/catapult/tracing/tracing/proto/libhistogram_proto.a | ./libthird_party_abseil-cpp_absl.so.TOC ./libbase.so.TOC ./libbase_allocator_partition_allocator_src_partition_alloc_raw_ptr.so.TOC ./libbase_allocator_partition_allocator_src_partition_alloc_allocator_base.so.TOC ./libbase_allocator_partition_allocator_src_partition_alloc_allocator_core.so.TOC ./libbase_allocator_partition_allocator_src_partition_alloc_allocator_shim.so.TOC ./libthird_party_boringssl.so.TOC ./libthird_party_perfetto_libperfetto.so.TOC ./libangle_util.so.TOC ./libthird_party_protobuf_protobuf_lite.so.TOC ./libc++.so.TOC ../../../llvm-build/Release+Asserts/lib/clang/21/lib/x86_64-unknown-linux-gnu/libclang_rt.builtins.a ../../../catapult/tracing/tracing/proto/histogram.proto || phony/third_party/angle/util/angle_test_utils phony/testing/gmock/gmock phony/third_party/googletest/gmock phony/third_party/googletest/gtest phony/third_party/angle/src/tests/angle_common_test_utils_shared phony/third_party/angle/angle_gl_enum_utils phony/third_party/angle/angle_json_serializer phony/third_party/angle/src/common/vulkan/vulkan phony/third_party/catapult/tracing/tracing/histogram phony/third_party/catapult/tracing/tracing/reserved_infos phony/third_party/angle/src/tests/angle_end2end_tests__runner phony/build/config/executable_deps phony/third_party/angle/xxhash phony/third_party/wayland/wayland_client phony/third_party/wayland/wayland_client_protocol phony/third_party/wayland/wayland_util phony/third_party/wayland/wayland_private phony/third_party/wayland/wayland_protocol_c phony/third_party/wayland/wayland_egl phony/third_party/angle/src/common/vulkan/angle_libvulkan_loader phony/third_party/angle/src/common/vulkan/angle_vulkan_icd phony/third_party/angle/src/common/vulkan/angle_vulkan_headers phony/third_party/angle/src/third_party/volk/volk phony/third_party/angle/src/third_party/libXNVCtrl/libXNVCtrl phony/third_party/abseil-cpp/absl_full phony/third_party/angle/angle_image_util_headers phony/third_party/angle/angle_version_info phony/third_party/angle/angle_version phony/third_party/angle/src/common/spirv/angle_spirv_headers phony/third_party/angle/src/common/spirv/angle_spirv_base phony/third_party/angle/src/common/spirv/angle_spirv_builder phony/third_party/angle/angle
+  ldflags = -Werror -fuse-ld=lld -Wl,--fatal-warnings -Wl,--build-id=fast -fPIC -Wl,-z,noexecstack -Wl,-z,relro -Wl,--color-diagnostics -Wl,--undefined-version -Wl,--no-call-graph-profile-sort -m64 -no-canonical-prefixes -Wl,--gdb-index -Wl,-z,defs -Wl,--as-needed -nostdlib++ --sysroot=../../../../build/linux/debian_bullseye_amd64-sysroot -rdynamic -pie -Wl,--disable-new-dtags -Wl,-rpath=\$$ORIGIN
+  libs = ../../../../third_party/llvm-build/Release+Asserts/lib/clang/21/lib/x86_64-unknown-linux-gnu/libclang_rt.builtins.a -ldl -lpthread -lrt -lgmodule-2.0 -lglib-2.0 -lgobject-2.0 -lgthread-2.0 -lX11 -lXi -lXext -lpci -lffi_pic -lxcb
+  frameworks =
+  swiftmodules =
+  output_extension =
+  output_dir = .
+  solibs = ./libthird_party_abseil-cpp_absl.so ./libbase.so ./libbase_allocator_partition_allocator_src_partition_alloc_raw_ptr.so ./libbase_allocator_partition_allocator_src_partition_alloc_allocator_base.so ./libbase_allocator_partition_allocator_src_partition_alloc_allocator_core.so ./libbase_allocator_partition_allocator_src_partition_alloc_allocator_shim.so ./libthird_party_boringssl.so ./libthird_party_perfetto_libperfetto.so ./libangle_util.so ./libthird_party_protobuf_protobuf_lite.so ./libc++.so

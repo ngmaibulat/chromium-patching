@@ -1,0 +1,54 @@
+defines = -DDCHECK_ALWAYS_ON=1 -DUSE_UDEV -DUSE_AURA=1 -DUSE_GLIB=1 -DUSE_OZONE=1 -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_GNU_SOURCE -DCR_CLANG_REVISION=\"llvmorg-21-init-1655-g7b473dfe-1\" -D_LIBCPP_HARDENING_MODE=_LIBCPP_HARDENING_MODE_EXTENSIVE -DCOMPONENT_BUILD -D_LIBCPP_INSTRUMENTED_WITH_ASAN=0 -DCR_LIBCXX_REVISION=7c3087b8a7563d8218b27b7183ba41cf52d41508 -DTMP_REBUILD_HACK -DCR_SYSROOT_KEY=20250129T203412Z-1 -D_DEBUG -DDYNAMIC_ANNOTATIONS_ENABLED=1 -DDARTS_DISABLE_EXCEPTIONS=1 -DSENTENCEPIECE_DISABLE_EXCEPTIONS=1 -DGOOGLE_PROTOBUF_NO_RTTI -DHAVE_PTHREAD -DPROTOBUF_USE_DLLS -DABSL_CONSUME_DLL -DABSL_FLAGS_STRIP_NAMES=0
+include_dirs = -I../../../.. -Igen -I../../../../buildtools/third_party/libc++ -I../../../../third_party/sentencepiece/src/src -I../../../../third_party/sentencepiece/src -I../../../../third_party/sentencepiece/shims -Igen/third_party/sentencepiece/src -Igen/third_party/sentencepiece/src/src -I../../../../third_party/protobuf/src -I../../../../third_party/abseil-cpp
+cflags = -fno-delete-null-pointer-checks -fno-strict-overflow -fno-ident -fno-strict-aliasing -fstack-protector -funwind-tables -fPIC -pthread -fcolor-diagnostics -fmerge-all-constants -fno-sized-deallocation -fcrash-diagnostics-dir=../../../../tools/clang/crashreports -mllvm -instcombine-lower-dbg-declare=0 -mllvm -split-threshold-for-reg-with-hint=0 -ffp-contract=off -Wa,--crel,--allow-experimental-crel -fcomplete-member-pointers -m64 -msse3 -Wno-builtin-macro-redefined -D__DATE__= -D__TIME__= -D__TIMESTAMP__= -ffile-compilation-dir=. -no-canonical-prefixes -ftrivial-auto-var-init=pattern -O0 -fno-omit-frame-pointer -gdwarf-4 -g2 -gdwarf-aranges -gsplit-dwarf -ggnu-pubnames -Xclang -fuse-ctor-homing -fvisibility=hidden -Wheader-hygiene -Wstring-conversion -Wtautological-overlap-compare -Xclang -add-plugin -Xclang find-bad-constructs -Xclang -plugin-arg-find-bad-constructs -Xclang span-ctor-from-string-literal -Xclang -plugin-arg-find-bad-constructs -Xclang raw-ref-template-as-trivial-member -Xclang -plugin-arg-find-bad-constructs -Xclang raw-span-template-as-trivial-member -Xclang -plugin-arg-find-bad-constructs -Xclang check-stack-allocated -Xclang -plugin-arg-find-bad-constructs -Xclang check-ipc -Xclang -add-plugin -Xclang raw-ptr-plugin -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ptr-to-stack-allocated -Xclang -plugin-arg-raw-ptr-plugin -Xclang disable-check-raw-ptr-to-stack-allocated-error -Xclang -plugin-arg-raw-ptr-plugin -Xclang raw-ptr-exclude-path=../../../dawn/ -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ptr-fields -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-span-fields -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ref-fields -DUNSAFE_BUFFERS_BUILD -Xclang -add-plugin -Xclang unsafe-buffers -Xclang -plugin-arg-unsafe-buffers -Xclang ../../../../build/config/unsafe_buffers_paths.txt -Wall -Wno-unused-variable -Wno-c++11-narrowing -Wno-unused-but-set-variable -Wno-misleading-indentation -Wno-missing-field-initializers -Wno-unused-parameter -Wno-psabi -Wloop-analysis -Wno-unneeded-internal-declaration -Wno-cast-function-type -Wno-thread-safety-reference-return -Wno-nontrivial-memcall -Werror -Wno-deprecated-anon-enum-enum-conversion -Wno-macro-redefined
+cflags_cc = -Wno-undefined-bool-conversion -Wno-tautological-undefined-compare -std=c++20 -Wno-trigraphs -gsimple-template-names -fno-exceptions -fno-rtti -nostdinc++ -isystem../../../libc++/src/include -isystem../../../libc++abi/src/include --sysroot=../../../../build/linux/debian_bullseye_amd64-sysroot -fvisibility-inlines-hidden -Wno-invalid-offsetof -Wenum-compare-conditional -Wno-c++11-narrowing-const-reference -Wno-missing-template-arg-list-after-template-kw
+label_name = sentencepiece
+target_out_dir = obj/third_party/sentencepiece
+target_output_name = libsentencepiece
+
+build phony/third_party/sentencepiece/sentencepiece.inputs: phony ../../../../build/config/unsafe_buffers_paths.txt ../../../../third_party/sentencepiece/src/src/sentencepiece.proto ../../../../third_party/sentencepiece/src/src/sentencepiece_model.proto
+build phony/third_party/sentencepiece/sentencepiece.inputdeps: phony phony/build/chromeos_buildflags phony/third_party/sentencepiece/sentencepiece_proto_gen
+build obj/third_party/sentencepiece/sentencepiece/bpe_model.o: cxx ../../../../third_party/sentencepiece/src/src/bpe_model.cc | phony/third_party/sentencepiece/sentencepiece.inputs || phony/third_party/sentencepiece/sentencepiece.inputdeps
+  source_file_part = bpe_model.cc
+  source_name_part = bpe_model
+build obj/third_party/sentencepiece/sentencepiece/builder.o: cxx ../../../../third_party/sentencepiece/src/src/builder.cc | phony/third_party/sentencepiece/sentencepiece.inputs || phony/third_party/sentencepiece/sentencepiece.inputdeps
+  source_file_part = builder.cc
+  source_name_part = builder
+build obj/third_party/sentencepiece/sentencepiece/char_model.o: cxx ../../../../third_party/sentencepiece/src/src/char_model.cc | phony/third_party/sentencepiece/sentencepiece.inputs || phony/third_party/sentencepiece/sentencepiece.inputdeps
+  source_file_part = char_model.cc
+  source_name_part = char_model
+build obj/third_party/sentencepiece/sentencepiece/error.o: cxx ../../../../third_party/sentencepiece/src/src/error.cc | phony/third_party/sentencepiece/sentencepiece.inputs || phony/third_party/sentencepiece/sentencepiece.inputdeps
+  source_file_part = error.cc
+  source_name_part = error
+build obj/third_party/sentencepiece/sentencepiece/filesystem.o: cxx ../../../../third_party/sentencepiece/src/src/filesystem.cc | phony/third_party/sentencepiece/sentencepiece.inputs || phony/third_party/sentencepiece/sentencepiece.inputdeps
+  source_file_part = filesystem.cc
+  source_name_part = filesystem
+build obj/third_party/sentencepiece/sentencepiece/model_factory.o: cxx ../../../../third_party/sentencepiece/src/src/model_factory.cc | phony/third_party/sentencepiece/sentencepiece.inputs || phony/third_party/sentencepiece/sentencepiece.inputdeps
+  source_file_part = model_factory.cc
+  source_name_part = model_factory
+build obj/third_party/sentencepiece/sentencepiece/model_interface.o: cxx ../../../../third_party/sentencepiece/src/src/model_interface.cc | phony/third_party/sentencepiece/sentencepiece.inputs || phony/third_party/sentencepiece/sentencepiece.inputdeps
+  source_file_part = model_interface.cc
+  source_name_part = model_interface
+build obj/third_party/sentencepiece/sentencepiece/normalizer.o: cxx ../../../../third_party/sentencepiece/src/src/normalizer.cc | phony/third_party/sentencepiece/sentencepiece.inputs || phony/third_party/sentencepiece/sentencepiece.inputdeps
+  source_file_part = normalizer.cc
+  source_name_part = normalizer
+build obj/third_party/sentencepiece/sentencepiece/sentencepiece_processor.o: cxx ../../../../third_party/sentencepiece/src/src/sentencepiece_processor.cc | phony/third_party/sentencepiece/sentencepiece.inputs || phony/third_party/sentencepiece/sentencepiece.inputdeps
+  source_file_part = sentencepiece_processor.cc
+  source_name_part = sentencepiece_processor
+build obj/third_party/sentencepiece/sentencepiece/unicode_script.o: cxx ../../../../third_party/sentencepiece/src/src/unicode_script.cc | phony/third_party/sentencepiece/sentencepiece.inputs || phony/third_party/sentencepiece/sentencepiece.inputdeps
+  source_file_part = unicode_script.cc
+  source_name_part = unicode_script
+build obj/third_party/sentencepiece/sentencepiece/unigram_model.o: cxx ../../../../third_party/sentencepiece/src/src/unigram_model.cc | phony/third_party/sentencepiece/sentencepiece.inputs || phony/third_party/sentencepiece/sentencepiece.inputdeps
+  source_file_part = unigram_model.cc
+  source_name_part = unigram_model
+build obj/third_party/sentencepiece/sentencepiece/util.o: cxx ../../../../third_party/sentencepiece/src/src/util.cc | phony/third_party/sentencepiece/sentencepiece.inputs || phony/third_party/sentencepiece/sentencepiece.inputdeps
+  source_file_part = util.cc
+  source_name_part = util
+build obj/third_party/sentencepiece/sentencepiece/word_model.o: cxx ../../../../third_party/sentencepiece/src/src/word_model.cc | phony/third_party/sentencepiece/sentencepiece.inputs || phony/third_party/sentencepiece/sentencepiece.inputdeps
+  source_file_part = word_model.cc
+  source_name_part = word_model
+
+build obj/third_party/sentencepiece/libsentencepiece.a: alink obj/third_party/sentencepiece/sentencepiece/bpe_model.o obj/third_party/sentencepiece/sentencepiece/builder.o obj/third_party/sentencepiece/sentencepiece/char_model.o obj/third_party/sentencepiece/sentencepiece/error.o obj/third_party/sentencepiece/sentencepiece/filesystem.o obj/third_party/sentencepiece/sentencepiece/model_factory.o obj/third_party/sentencepiece/sentencepiece/model_interface.o obj/third_party/sentencepiece/sentencepiece/normalizer.o obj/third_party/sentencepiece/sentencepiece/sentencepiece_processor.o obj/third_party/sentencepiece/sentencepiece/unicode_script.o obj/third_party/sentencepiece/sentencepiece/unigram_model.o obj/third_party/sentencepiece/sentencepiece/util.o obj/third_party/sentencepiece/sentencepiece/word_model.o | ../../../llvm-build/Release+Asserts/lib/clang/21/lib/x86_64-unknown-linux-gnu/libclang_rt.builtins.a phony/third_party/sentencepiece/sentencepiece.inputs || obj/third_party/sentencepiece/libsentencepiece_proto.a ./libthird_party_abseil-cpp_absl.so.TOC ./libthird_party_protobuf_protobuf_lite.so.TOC
+  arflags = -T -S
+  output_extension = .a
+  output_dir = obj/third_party/sentencepiece

@@ -1,0 +1,105 @@
+defines = -DDCHECK_ALWAYS_ON=1 -DUSE_UDEV -DUSE_AURA=1 -DUSE_GLIB=1 -DUSE_OZONE=1 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_GNU_SOURCE -DCR_CLANG_REVISION=\"llvmorg-21-init-1655-g7b473dfe-1\" -D_LIBCPP_HARDENING_MODE=_LIBCPP_HARDENING_MODE_EXTENSIVE -DCOMPONENT_BUILD -D_LIBCPP_INSTRUMENTED_WITH_ASAN=0 -DCR_LIBCXX_REVISION=7c3087b8a7563d8218b27b7183ba41cf52d41508 -DTMP_REBUILD_HACK -DCR_SYSROOT_KEY=20250129T203412Z-1 -D_DEBUG -DDYNAMIC_ANNOTATIONS_ENABLED=1 -DGOOGLE_PROTOBUF_NO_RTTI -DHAVE_PTHREAD -DPROTOBUF_USE_DLLS -DABSL_CONSUME_DLL -DABSL_FLAGS_STRIP_NAMES=0
+include_dirs = -I../../../.. -Igen -I../../../../buildtools/third_party/libc++ -I../../../../third_party/protobuf/src -Igen/third_party/metrics_proto -I../../../../third_party/abseil-cpp
+cflags = -Wall -Wextra -Wimplicit-fallthrough -Wextra-semi -Wunreachable-code-aggressive -Wthread-safety -Wgnu -Wno-gnu-anonymous-struct -Wno-gnu-conditional-omitted-operand -Wno-gnu-include-next -Wno-gnu-label-as-value -Wno-gnu-redeclared-enum -Wno-gnu-statement-expression -Wno-gnu-zero-variadic-macro-arguments -Wno-zero-length-array -Wno-missing-field-initializers -Wno-unused-parameter -Wno-psabi -Wloop-analysis -Wno-unneeded-internal-declaration -Wno-cast-function-type -Wno-thread-safety-reference-return -Wno-nontrivial-memcall -Wshadow -Werror -fno-delete-null-pointer-checks -fno-strict-overflow -fno-ident -fno-strict-aliasing -fstack-protector -funwind-tables -fPIC -pthread -fcolor-diagnostics -fmerge-all-constants -fno-sized-deallocation -fcrash-diagnostics-dir=../../../../tools/clang/crashreports -mllvm -instcombine-lower-dbg-declare=0 -mllvm -split-threshold-for-reg-with-hint=0 -ffp-contract=off -Wa,--crel,--allow-experimental-crel -fcomplete-member-pointers -m64 -msse3 -Wno-builtin-macro-redefined -D__DATE__= -D__TIME__= -D__TIMESTAMP__= -ffile-compilation-dir=. -no-canonical-prefixes -ftrivial-auto-var-init=pattern -O0 -fno-omit-frame-pointer -gdwarf-4 -g2 -gdwarf-aranges -gsplit-dwarf -ggnu-pubnames -Xclang -fuse-ctor-homing -fvisibility=hidden -Wheader-hygiene -Wstring-conversion -Wtautological-overlap-compare -Xclang -add-plugin -Xclang find-bad-constructs -Xclang -plugin-arg-find-bad-constructs -Xclang span-ctor-from-string-literal -Xclang -plugin-arg-find-bad-constructs -Xclang raw-ref-template-as-trivial-member -Xclang -plugin-arg-find-bad-constructs -Xclang raw-span-template-as-trivial-member -Xclang -plugin-arg-find-bad-constructs -Xclang check-stack-allocated -Xclang -plugin-arg-find-bad-constructs -Xclang check-ipc -Xclang -add-plugin -Xclang raw-ptr-plugin -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ptr-to-stack-allocated -Xclang -plugin-arg-raw-ptr-plugin -Xclang disable-check-raw-ptr-to-stack-allocated-error -Xclang -plugin-arg-raw-ptr-plugin -Xclang raw-ptr-exclude-path=../../../dawn/ -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ptr-fields -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-span-fields -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ref-fields -DUNSAFE_BUFFERS_BUILD -Xclang -add-plugin -Xclang unsafe-buffers -Xclang -plugin-arg-unsafe-buffers -Xclang ../../../../build/config/unsafe_buffers_paths.txt
+cflags_cc = -Wno-invalid-offsetof -Wenum-compare-conditional -Wno-c++11-narrowing-const-reference -Wno-missing-template-arg-list-after-template-kw -Wno-undefined-bool-conversion -Wno-tautological-undefined-compare -std=c++20 -Wno-trigraphs -gsimple-template-names -fno-exceptions -fno-rtti -nostdinc++ -isystem../../../libc++/src/include -isystem../../../libc++abi/src/include --sysroot=../../../../build/linux/debian_bullseye_amd64-sysroot -fvisibility-inlines-hidden
+label_name = metrics_proto
+target_out_dir = obj/third_party/metrics_proto
+target_output_name = libmetrics_proto
+
+build phony/third_party/metrics_proto/metrics_proto.inputs: phony ../../../../build/config/unsafe_buffers_paths.txt ../../../../third_party/metrics_proto/call_stack_profile.proto ../../../../third_party/metrics_proto/cast_logs.proto ../../../../third_party/metrics_proto/chrome_os_app_list_launch_event.proto ../../../../third_party/metrics_proto/chrome_user_metrics_extension.proto ../../../../third_party/metrics_proto/custom_tab_session.proto ../../../../third_party/metrics_proto/device_state.proto ../../../../third_party/metrics_proto/dwa/deidentified_web_analytics.proto ../../../../third_party/metrics_proto/execution_context.proto ../../../../third_party/metrics_proto/extension_install.proto ../../../../third_party/metrics_proto/histogram_event.proto ../../../../third_party/metrics_proto/omnibox_event.proto ../../../../third_party/metrics_proto/omnibox_focus_type.proto ../../../../third_party/metrics_proto/omnibox_input_type.proto ../../../../third_party/metrics_proto/omnibox_scoring_signals.proto ../../../../third_party/metrics_proto/perf_data.proto ../../../../third_party/metrics_proto/perf_stat.proto ../../../../third_party/metrics_proto/printer_event.proto ../../../../third_party/metrics_proto/reporting_info.proto ../../../../third_party/metrics_proto/sampled_profile.proto ../../../../third_party/metrics_proto/structured_data.proto ../../../../third_party/metrics_proto/system_profile.proto ../../../../third_party/metrics_proto/trace_log.proto ../../../../third_party/metrics_proto/translate_event.proto ../../../../third_party/metrics_proto/ukm/aggregate.proto ../../../../third_party/metrics_proto/ukm/entry.proto ../../../../third_party/metrics_proto/ukm/report.proto ../../../../third_party/metrics_proto/ukm/source.proto ../../../../third_party/metrics_proto/ukm/web_features.proto ../../../../third_party/metrics_proto/user_action_event.proto ../../../../third_party/metrics_proto/user_demographics.proto
+build phony/third_party/metrics_proto/metrics_proto.inputdeps: phony phony/build/chromeos_buildflags phony/third_party/metrics_proto/metrics_proto_gen
+build obj/third_party/metrics_proto/metrics_proto/call_stack_profile.pb.o: cxx gen/third_party/metrics_proto/call_stack_profile.pb.cc | phony/third_party/metrics_proto/metrics_proto.inputs || phony/third_party/metrics_proto/metrics_proto.inputdeps
+  source_file_part = call_stack_profile.pb.cc
+  source_name_part = call_stack_profile.pb
+build obj/third_party/metrics_proto/metrics_proto/cast_logs.pb.o: cxx gen/third_party/metrics_proto/cast_logs.pb.cc | phony/third_party/metrics_proto/metrics_proto.inputs || phony/third_party/metrics_proto/metrics_proto.inputdeps
+  source_file_part = cast_logs.pb.cc
+  source_name_part = cast_logs.pb
+build obj/third_party/metrics_proto/metrics_proto/chrome_os_app_list_launch_event.pb.o: cxx gen/third_party/metrics_proto/chrome_os_app_list_launch_event.pb.cc | phony/third_party/metrics_proto/metrics_proto.inputs || phony/third_party/metrics_proto/metrics_proto.inputdeps
+  source_file_part = chrome_os_app_list_launch_event.pb.cc
+  source_name_part = chrome_os_app_list_launch_event.pb
+build obj/third_party/metrics_proto/metrics_proto/chrome_user_metrics_extension.pb.o: cxx gen/third_party/metrics_proto/chrome_user_metrics_extension.pb.cc | phony/third_party/metrics_proto/metrics_proto.inputs || phony/third_party/metrics_proto/metrics_proto.inputdeps
+  source_file_part = chrome_user_metrics_extension.pb.cc
+  source_name_part = chrome_user_metrics_extension.pb
+build obj/third_party/metrics_proto/metrics_proto/custom_tab_session.pb.o: cxx gen/third_party/metrics_proto/custom_tab_session.pb.cc | phony/third_party/metrics_proto/metrics_proto.inputs || phony/third_party/metrics_proto/metrics_proto.inputdeps
+  source_file_part = custom_tab_session.pb.cc
+  source_name_part = custom_tab_session.pb
+build obj/third_party/metrics_proto/metrics_proto/device_state.pb.o: cxx gen/third_party/metrics_proto/device_state.pb.cc | phony/third_party/metrics_proto/metrics_proto.inputs || phony/third_party/metrics_proto/metrics_proto.inputdeps
+  source_file_part = device_state.pb.cc
+  source_name_part = device_state.pb
+build obj/third_party/metrics_proto/metrics_proto/deidentified_web_analytics.pb.o: cxx gen/third_party/metrics_proto/dwa/deidentified_web_analytics.pb.cc | phony/third_party/metrics_proto/metrics_proto.inputs || phony/third_party/metrics_proto/metrics_proto.inputdeps
+  source_file_part = deidentified_web_analytics.pb.cc
+  source_name_part = deidentified_web_analytics.pb
+build obj/third_party/metrics_proto/metrics_proto/execution_context.pb.o: cxx gen/third_party/metrics_proto/execution_context.pb.cc | phony/third_party/metrics_proto/metrics_proto.inputs || phony/third_party/metrics_proto/metrics_proto.inputdeps
+  source_file_part = execution_context.pb.cc
+  source_name_part = execution_context.pb
+build obj/third_party/metrics_proto/metrics_proto/extension_install.pb.o: cxx gen/third_party/metrics_proto/extension_install.pb.cc | phony/third_party/metrics_proto/metrics_proto.inputs || phony/third_party/metrics_proto/metrics_proto.inputdeps
+  source_file_part = extension_install.pb.cc
+  source_name_part = extension_install.pb
+build obj/third_party/metrics_proto/metrics_proto/histogram_event.pb.o: cxx gen/third_party/metrics_proto/histogram_event.pb.cc | phony/third_party/metrics_proto/metrics_proto.inputs || phony/third_party/metrics_proto/metrics_proto.inputdeps
+  source_file_part = histogram_event.pb.cc
+  source_name_part = histogram_event.pb
+build obj/third_party/metrics_proto/metrics_proto/omnibox_event.pb.o: cxx gen/third_party/metrics_proto/omnibox_event.pb.cc | phony/third_party/metrics_proto/metrics_proto.inputs || phony/third_party/metrics_proto/metrics_proto.inputdeps
+  source_file_part = omnibox_event.pb.cc
+  source_name_part = omnibox_event.pb
+build obj/third_party/metrics_proto/metrics_proto/omnibox_focus_type.pb.o: cxx gen/third_party/metrics_proto/omnibox_focus_type.pb.cc | phony/third_party/metrics_proto/metrics_proto.inputs || phony/third_party/metrics_proto/metrics_proto.inputdeps
+  source_file_part = omnibox_focus_type.pb.cc
+  source_name_part = omnibox_focus_type.pb
+build obj/third_party/metrics_proto/metrics_proto/omnibox_input_type.pb.o: cxx gen/third_party/metrics_proto/omnibox_input_type.pb.cc | phony/third_party/metrics_proto/metrics_proto.inputs || phony/third_party/metrics_proto/metrics_proto.inputdeps
+  source_file_part = omnibox_input_type.pb.cc
+  source_name_part = omnibox_input_type.pb
+build obj/third_party/metrics_proto/metrics_proto/omnibox_scoring_signals.pb.o: cxx gen/third_party/metrics_proto/omnibox_scoring_signals.pb.cc | phony/third_party/metrics_proto/metrics_proto.inputs || phony/third_party/metrics_proto/metrics_proto.inputdeps
+  source_file_part = omnibox_scoring_signals.pb.cc
+  source_name_part = omnibox_scoring_signals.pb
+build obj/third_party/metrics_proto/metrics_proto/perf_data.pb.o: cxx gen/third_party/metrics_proto/perf_data.pb.cc | phony/third_party/metrics_proto/metrics_proto.inputs || phony/third_party/metrics_proto/metrics_proto.inputdeps
+  source_file_part = perf_data.pb.cc
+  source_name_part = perf_data.pb
+build obj/third_party/metrics_proto/metrics_proto/perf_stat.pb.o: cxx gen/third_party/metrics_proto/perf_stat.pb.cc | phony/third_party/metrics_proto/metrics_proto.inputs || phony/third_party/metrics_proto/metrics_proto.inputdeps
+  source_file_part = perf_stat.pb.cc
+  source_name_part = perf_stat.pb
+build obj/third_party/metrics_proto/metrics_proto/printer_event.pb.o: cxx gen/third_party/metrics_proto/printer_event.pb.cc | phony/third_party/metrics_proto/metrics_proto.inputs || phony/third_party/metrics_proto/metrics_proto.inputdeps
+  source_file_part = printer_event.pb.cc
+  source_name_part = printer_event.pb
+build obj/third_party/metrics_proto/metrics_proto/reporting_info.pb.o: cxx gen/third_party/metrics_proto/reporting_info.pb.cc | phony/third_party/metrics_proto/metrics_proto.inputs || phony/third_party/metrics_proto/metrics_proto.inputdeps
+  source_file_part = reporting_info.pb.cc
+  source_name_part = reporting_info.pb
+build obj/third_party/metrics_proto/metrics_proto/sampled_profile.pb.o: cxx gen/third_party/metrics_proto/sampled_profile.pb.cc | phony/third_party/metrics_proto/metrics_proto.inputs || phony/third_party/metrics_proto/metrics_proto.inputdeps
+  source_file_part = sampled_profile.pb.cc
+  source_name_part = sampled_profile.pb
+build obj/third_party/metrics_proto/metrics_proto/structured_data.pb.o: cxx gen/third_party/metrics_proto/structured_data.pb.cc | phony/third_party/metrics_proto/metrics_proto.inputs || phony/third_party/metrics_proto/metrics_proto.inputdeps
+  source_file_part = structured_data.pb.cc
+  source_name_part = structured_data.pb
+build obj/third_party/metrics_proto/metrics_proto/system_profile.pb.o: cxx gen/third_party/metrics_proto/system_profile.pb.cc | phony/third_party/metrics_proto/metrics_proto.inputs || phony/third_party/metrics_proto/metrics_proto.inputdeps
+  source_file_part = system_profile.pb.cc
+  source_name_part = system_profile.pb
+build obj/third_party/metrics_proto/metrics_proto/trace_log.pb.o: cxx gen/third_party/metrics_proto/trace_log.pb.cc | phony/third_party/metrics_proto/metrics_proto.inputs || phony/third_party/metrics_proto/metrics_proto.inputdeps
+  source_file_part = trace_log.pb.cc
+  source_name_part = trace_log.pb
+build obj/third_party/metrics_proto/metrics_proto/translate_event.pb.o: cxx gen/third_party/metrics_proto/translate_event.pb.cc | phony/third_party/metrics_proto/metrics_proto.inputs || phony/third_party/metrics_proto/metrics_proto.inputdeps
+  source_file_part = translate_event.pb.cc
+  source_name_part = translate_event.pb
+build obj/third_party/metrics_proto/metrics_proto/aggregate.pb.o: cxx gen/third_party/metrics_proto/ukm/aggregate.pb.cc | phony/third_party/metrics_proto/metrics_proto.inputs || phony/third_party/metrics_proto/metrics_proto.inputdeps
+  source_file_part = aggregate.pb.cc
+  source_name_part = aggregate.pb
+build obj/third_party/metrics_proto/metrics_proto/entry.pb.o: cxx gen/third_party/metrics_proto/ukm/entry.pb.cc | phony/third_party/metrics_proto/metrics_proto.inputs || phony/third_party/metrics_proto/metrics_proto.inputdeps
+  source_file_part = entry.pb.cc
+  source_name_part = entry.pb
+build obj/third_party/metrics_proto/metrics_proto/report.pb.o: cxx gen/third_party/metrics_proto/ukm/report.pb.cc | phony/third_party/metrics_proto/metrics_proto.inputs || phony/third_party/metrics_proto/metrics_proto.inputdeps
+  source_file_part = report.pb.cc
+  source_name_part = report.pb
+build obj/third_party/metrics_proto/metrics_proto/source.pb.o: cxx gen/third_party/metrics_proto/ukm/source.pb.cc | phony/third_party/metrics_proto/metrics_proto.inputs || phony/third_party/metrics_proto/metrics_proto.inputdeps
+  source_file_part = source.pb.cc
+  source_name_part = source.pb
+build obj/third_party/metrics_proto/metrics_proto/web_features.pb.o: cxx gen/third_party/metrics_proto/ukm/web_features.pb.cc | phony/third_party/metrics_proto/metrics_proto.inputs || phony/third_party/metrics_proto/metrics_proto.inputdeps
+  source_file_part = web_features.pb.cc
+  source_name_part = web_features.pb
+build obj/third_party/metrics_proto/metrics_proto/user_action_event.pb.o: cxx gen/third_party/metrics_proto/user_action_event.pb.cc | phony/third_party/metrics_proto/metrics_proto.inputs || phony/third_party/metrics_proto/metrics_proto.inputdeps
+  source_file_part = user_action_event.pb.cc
+  source_name_part = user_action_event.pb
+build obj/third_party/metrics_proto/metrics_proto/user_demographics.pb.o: cxx gen/third_party/metrics_proto/user_demographics.pb.cc | phony/third_party/metrics_proto/metrics_proto.inputs || phony/third_party/metrics_proto/metrics_proto.inputdeps
+  source_file_part = user_demographics.pb.cc
+  source_name_part = user_demographics.pb
+
+build obj/third_party/metrics_proto/libmetrics_proto.a: alink obj/third_party/metrics_proto/metrics_proto/call_stack_profile.pb.o obj/third_party/metrics_proto/metrics_proto/cast_logs.pb.o obj/third_party/metrics_proto/metrics_proto/chrome_os_app_list_launch_event.pb.o obj/third_party/metrics_proto/metrics_proto/chrome_user_metrics_extension.pb.o obj/third_party/metrics_proto/metrics_proto/custom_tab_session.pb.o obj/third_party/metrics_proto/metrics_proto/device_state.pb.o obj/third_party/metrics_proto/metrics_proto/deidentified_web_analytics.pb.o obj/third_party/metrics_proto/metrics_proto/execution_context.pb.o obj/third_party/metrics_proto/metrics_proto/extension_install.pb.o obj/third_party/metrics_proto/metrics_proto/histogram_event.pb.o obj/third_party/metrics_proto/metrics_proto/omnibox_event.pb.o obj/third_party/metrics_proto/metrics_proto/omnibox_focus_type.pb.o obj/third_party/metrics_proto/metrics_proto/omnibox_input_type.pb.o obj/third_party/metrics_proto/metrics_proto/omnibox_scoring_signals.pb.o obj/third_party/metrics_proto/metrics_proto/perf_data.pb.o obj/third_party/metrics_proto/metrics_proto/perf_stat.pb.o obj/third_party/metrics_proto/metrics_proto/printer_event.pb.o obj/third_party/metrics_proto/metrics_proto/reporting_info.pb.o obj/third_party/metrics_proto/metrics_proto/sampled_profile.pb.o obj/third_party/metrics_proto/metrics_proto/structured_data.pb.o obj/third_party/metrics_proto/metrics_proto/system_profile.pb.o obj/third_party/metrics_proto/metrics_proto/trace_log.pb.o obj/third_party/metrics_proto/metrics_proto/translate_event.pb.o obj/third_party/metrics_proto/metrics_proto/aggregate.pb.o obj/third_party/metrics_proto/metrics_proto/entry.pb.o obj/third_party/metrics_proto/metrics_proto/report.pb.o obj/third_party/metrics_proto/metrics_proto/source.pb.o obj/third_party/metrics_proto/metrics_proto/web_features.pb.o obj/third_party/metrics_proto/metrics_proto/user_action_event.pb.o obj/third_party/metrics_proto/metrics_proto/user_demographics.pb.o | ../../../llvm-build/Release+Asserts/lib/clang/21/lib/x86_64-unknown-linux-gnu/libclang_rt.builtins.a phony/third_party/metrics_proto/metrics_proto.inputs || ./libthird_party_protobuf_protobuf_lite.so.TOC phony/third_party/metrics_proto/metrics_proto_gen ./libthird_party_abseil-cpp_absl.so.TOC
+  arflags = -T -S
+  output_extension = .a
+  output_dir = obj/third_party/metrics_proto

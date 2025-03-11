@@ -1,0 +1,756 @@
+defines = -DDCHECK_ALWAYS_ON=1 -DUSE_UDEV -DUSE_AURA=1 -DUSE_GLIB=1 -DUSE_OZONE=1 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_GNU_SOURCE -DCR_CLANG_REVISION=\"llvmorg-21-init-1655-g7b473dfe-1\" -D_LIBCPP_HARDENING_MODE=_LIBCPP_HARDENING_MODE_EXTENSIVE -DCOMPONENT_BUILD -D_LIBCPP_INSTRUMENTED_WITH_ASAN=0 -DCR_LIBCXX_REVISION=7c3087b8a7563d8218b27b7183ba41cf52d41508 -DTMP_REBUILD_HACK -DCR_SYSROOT_KEY=20250129T203412Z-1 -D_DEBUG -DDYNAMIC_ANNOTATIONS_ENABLED=1 -DV8_TYPED_ARRAY_MAX_SIZE_IN_HEAP=64 -DCPPGC_VERIFY_HEAP -DENABLE_DISASSEMBLER -DOBJECT_PRINT -DVERIFY_HEAP -DV8_TRACE_MAPS -DV8_ENABLE_ALLOCATION_TIMEOUT -DV8_ENABLE_FORCE_SLOW_PATH -DV8_ENABLE_DOUBLE_CONST_STORE_CHECK -DV8_INTL_SUPPORT -DENABLE_LOCAL_HANDLE_ZAPPING -DENABLE_GLOBAL_HANDLE_ZAPPING -DV8_CODE_COMMENTS -DV8_ENABLE_DEBUG_CODE -DV8_ENABLE_SLOW_DEBUG_CODE_BY_DEFAULT -DV8_ENABLE_HEAP_SNAPSHOT_VERIFY -DV8_SNAPSHOT_NATIVE_CODE_COUNTERS -DV8_USE_EXTERNAL_STARTUP_DATA -DV8_ATOMIC_OBJECT_FIELD_WRITES -DV8_ENABLE_LAZY_SOURCE_POSITIONS -DV8_WIN64_UNWINDING_INFO -DV8_ENABLE_REGEXP_INTERPRETER_THREADED_DISPATCH -DV8_SHORT_BUILTIN_CALLS -DV8_EXTERNAL_CODE_SPACE -DV8_ENABLE_SPARKPLUG -DV8_ENABLE_MAGLEV -DV8_ENABLE_TURBOFAN -DV8_ENABLE_WEBASSEMBLY -DV8_ENABLE_CONTINUATION_PRESERVED_EMBEDDER_DATA -DV8_ALLOCATION_FOLDING -DV8_ALLOCATION_SITE_TRACKING -DV8_ADVANCED_BIGINT_ALGORITHMS -DV8_STATIC_ROOTS -DV8_USE_ZLIB -DV8_USE_LIBM_TRIG_FUNCTIONS -DV8_ENABLE_WASM_SIMD256_REVEC -DV8_ENABLE_SLOW_TRACING -DV8_ENABLE_BUILTIN_JUMP_TABLE_SWITCH -DV8_ENABLE_EXTENSIBLE_RO_SNAPSHOT -DV8_ENABLE_BLACK_ALLOCATED_PAGES -DV8_ENABLE_LEAPTIERING -DV8_WASM_RANDOM_FUZZERS -DV8_ARRAY_BUFFER_INTERNAL_FIELD_COUNT=0 -DV8_ARRAY_BUFFER_VIEW_INTERNAL_FIELD_COUNT=0 -DV8_PROMISE_INTERNAL_FIELD_COUNT=0 -DV8_ENABLE_CHECKS -DV8_ENABLE_MEMORY_ACCOUNTING_CHECKS -DV8_COMPRESS_POINTERS -DV8_COMPRESS_POINTERS_IN_SHARED_CAGE -DV8_31BIT_SMIS_ON_64BIT_ARCH -DV8_ENABLE_SANDBOX -DV8_DEPRECATION_WARNINGS -DV8_USE_PERFETTO -DV8_HAVE_TARGET_OS -DV8_TARGET_OS_LINUX -DCPPGC_ENABLE_API_CHECKS -DCPPGC_CAGED_HEAP -DCPPGC_YOUNG_GENERATION -DCPPGC_POINTER_COMPRESSION -DCPPGC_ENABLE_LARGER_CAGE -DCPPGC_SLIM_WRITE_BARRIER -DV8_TARGET_ARCH_X64 -DDEBUG -DV8_RUNTIME_CALL_STATS -DBUILDING_V8_SHARED_PRIVATE -DABSL_ALLOCATOR_NOTHROW=1 -DABSL_CONSUME_DLL -DABSL_FLAGS_STRIP_NAMES=0 -DU_USING_ICU_NAMESPACE=0 -DU_ENABLE_DYLOAD=0 -DUSE_CHROMIUM_ICU=1 -DU_ENABLE_TRACING=1 -DU_ENABLE_RESOURCE_TRACING=0 -DICU_UTIL_DATA_IMPL=ICU_UTIL_DATA_FILE -DUSING_V8_BASE_SHARED
+include_dirs = -I../../../.. -Igen -I../../../../buildtools/third_party/libc++ -I../../../../v8 -I../../../../v8/include -Igen/v8 -I../../../../third_party/perfetto/include -Igen/third_party/perfetto -Igen/third_party/perfetto/build_config -I../../../../third_party/abseil-cpp -I../../../../third_party/icu/source/common -I../../../../third_party/icu/source/i18n -Igen/v8/include -I../../../../third_party/fp16/src/include -I../../../../third_party/protobuf/src
+cflags = -Wall -Wextra -Wimplicit-fallthrough -Wextra-semi -Wunreachable-code-aggressive -Wthread-safety -Wgnu -Wno-gnu-anonymous-struct -Wno-gnu-conditional-omitted-operand -Wno-gnu-include-next -Wno-gnu-label-as-value -Wno-gnu-redeclared-enum -Wno-gnu-statement-expression -Wno-gnu-zero-variadic-macro-arguments -Wno-zero-length-array -Wno-missing-field-initializers -Wno-unused-parameter -Wno-psabi -Wloop-analysis -Wno-unneeded-internal-declaration -Wno-cast-function-type -Wno-thread-safety-reference-return -Wno-nontrivial-memcall -Wshadow -Werror -fno-delete-null-pointer-checks -fno-strict-overflow -fno-ident -fno-strict-aliasing -fstack-protector -funwind-tables -fPIC -pthread -fcolor-diagnostics -fmerge-all-constants -fno-sized-deallocation -fcrash-diagnostics-dir=../../../../tools/clang/crashreports -mllvm -instcombine-lower-dbg-declare=0 -mllvm -split-threshold-for-reg-with-hint=0 -ffp-contract=off -Wa,--crel,--allow-experimental-crel -fcomplete-member-pointers -m64 -msse3 -Wno-builtin-macro-redefined -D__DATE__= -D__TIME__= -D__TIMESTAMP__= -ffile-compilation-dir=. -no-canonical-prefixes -ftrivial-auto-var-init=pattern -fno-omit-frame-pointer -gdwarf-4 -g2 -gdwarf-aranges -gsplit-dwarf -ggnu-pubnames -Xclang -fuse-ctor-homing -fvisibility=hidden -Wheader-hygiene -Wstring-conversion -Wtautological-overlap-compare -Xclang -add-plugin -Xclang find-bad-constructs -Xclang -plugin-arg-find-bad-constructs -Xclang span-ctor-from-string-literal -Xclang -plugin-arg-find-bad-constructs -Xclang raw-ref-template-as-trivial-member -Xclang -plugin-arg-find-bad-constructs -Xclang raw-span-template-as-trivial-member -Xclang -plugin-arg-find-bad-constructs -Xclang check-stack-allocated -Xclang -plugin-arg-find-bad-constructs -Xclang check-ipc -Xclang -add-plugin -Xclang raw-ptr-plugin -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ptr-to-stack-allocated -Xclang -plugin-arg-raw-ptr-plugin -Xclang disable-check-raw-ptr-to-stack-allocated-error -Xclang -plugin-arg-raw-ptr-plugin -Xclang raw-ptr-exclude-path=../../../dawn/ -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ptr-fields -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-span-fields -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ref-fields -DUNSAFE_BUFFERS_BUILD -Xclang -add-plugin -Xclang unsafe-buffers -Xclang -plugin-arg-unsafe-buffers -Xclang ../../../../build/config/unsafe_buffers_paths.txt -Wunreachable-code -Wctad-maybe-unsupported -Wno-invalid-offsetof -Wshorten-64-to-32 -Wmissing-field-initializers -O3 -fdata-sections -ffunction-sections -fno-unique-section-names -fno-math-errno -Wexit-time-destructors
+cflags_cc = -Wno-invalid-offsetof -Wenum-compare-conditional -Wno-c++11-narrowing-const-reference -Wno-missing-template-arg-list-after-template-kw -Wno-undefined-bool-conversion -Wno-tautological-undefined-compare -std=c++20 -Wno-trigraphs -gsimple-template-names -fno-exceptions -fno-rtti -nostdinc++ -isystem../../../libc++/src/include -isystem../../../libc++abi/src/include --sysroot=../../../../build/linux/debian_bullseye_amd64-sysroot -fvisibility-inlines-hidden
+label_name = torque_generated_definitions
+target_out_dir = obj/v8
+target_output_name = torque_generated_definitions
+
+build phony/v8/torque_generated_definitions.inputs: phony ../../../../build/config/unsafe_buffers_paths.txt ../../../../third_party/perfetto/protos/perfetto/common/android_energy_consumer_descriptor.proto ../../../../third_party/perfetto/protos/perfetto/common/android_log_constants.proto ../../../../third_party/perfetto/protos/perfetto/common/builtin_clock.proto ../../../../third_party/perfetto/protos/perfetto/common/commit_data_request.proto ../../../../third_party/perfetto/protos/perfetto/common/data_source_descriptor.proto ../../../../third_party/perfetto/protos/perfetto/common/descriptor.proto ../../../../third_party/perfetto/protos/perfetto/common/ftrace_descriptor.proto ../../../../third_party/perfetto/protos/perfetto/common/gpu_counter_descriptor.proto ../../../../third_party/perfetto/protos/perfetto/common/interceptor_descriptor.proto ../../../../third_party/perfetto/protos/perfetto/common/observable_events.proto ../../../../third_party/perfetto/protos/perfetto/common/perf_events.proto ../../../../third_party/perfetto/protos/perfetto/common/protolog_common.proto ../../../../third_party/perfetto/protos/perfetto/common/sys_stats_counters.proto ../../../../third_party/perfetto/protos/perfetto/common/trace_stats.proto ../../../../third_party/perfetto/protos/perfetto/common/tracing_service_capabilities.proto ../../../../third_party/perfetto/protos/perfetto/common/tracing_service_state.proto ../../../../third_party/perfetto/protos/perfetto/common/track_event_descriptor.proto ../../../../third_party/perfetto/protos/perfetto/common/android_energy_consumer_descriptor.proto ../../../../third_party/perfetto/protos/perfetto/common/android_log_constants.proto ../../../../third_party/perfetto/protos/perfetto/common/builtin_clock.proto ../../../../third_party/perfetto/protos/perfetto/common/commit_data_request.proto ../../../../third_party/perfetto/protos/perfetto/common/data_source_descriptor.proto ../../../../third_party/perfetto/protos/perfetto/common/descriptor.proto ../../../../third_party/perfetto/protos/perfetto/common/ftrace_descriptor.proto ../../../../third_party/perfetto/protos/perfetto/common/gpu_counter_descriptor.proto ../../../../third_party/perfetto/protos/perfetto/common/interceptor_descriptor.proto ../../../../third_party/perfetto/protos/perfetto/common/observable_events.proto ../../../../third_party/perfetto/protos/perfetto/common/perf_events.proto ../../../../third_party/perfetto/protos/perfetto/common/protolog_common.proto ../../../../third_party/perfetto/protos/perfetto/common/sys_stats_counters.proto ../../../../third_party/perfetto/protos/perfetto/common/trace_stats.proto ../../../../third_party/perfetto/protos/perfetto/common/tracing_service_capabilities.proto ../../../../third_party/perfetto/protos/perfetto/common/tracing_service_state.proto ../../../../third_party/perfetto/protos/perfetto/common/track_event_descriptor.proto ../../../../third_party/perfetto/protos/perfetto/config/chrome/chrome_config.proto ../../../../third_party/perfetto/protos/perfetto/config/chrome/histogram_samples.proto ../../../../third_party/perfetto/protos/perfetto/config/chrome/scenario_config.proto ../../../../third_party/perfetto/protos/perfetto/config/chrome/system_metrics.proto ../../../../third_party/perfetto/protos/perfetto/config/chrome/v8_config.proto ../../../../third_party/perfetto/protos/perfetto/config/data_source_config.proto ../../../../third_party/perfetto/protos/perfetto/config/etw/etw_config.proto ../../../../third_party/perfetto/protos/perfetto/config/interceptor_config.proto ../../../../third_party/perfetto/protos/perfetto/config/stress_test_config.proto ../../../../third_party/perfetto/protos/perfetto/config/test_config.proto ../../../../third_party/perfetto/protos/perfetto/config/trace_config.proto ../../../../third_party/perfetto/protos/perfetto/config/chrome/chrome_config.proto ../../../../third_party/perfetto/protos/perfetto/config/chrome/histogram_samples.proto ../../../../third_party/perfetto/protos/perfetto/config/chrome/scenario_config.proto ../../../../third_party/perfetto/protos/perfetto/config/chrome/system_metrics.proto ../../../../third_party/perfetto/protos/perfetto/config/chrome/v8_config.proto ../../../../third_party/perfetto/protos/perfetto/config/data_source_config.proto ../../../../third_party/perfetto/protos/perfetto/config/etw/etw_config.proto ../../../../third_party/perfetto/protos/perfetto/config/interceptor_config.proto ../../../../third_party/perfetto/protos/perfetto/config/stress_test_config.proto ../../../../third_party/perfetto/protos/perfetto/config/test_config.proto ../../../../third_party/perfetto/protos/perfetto/config/trace_config.proto ../../../../third_party/perfetto/protos/perfetto/config/android/android_game_intervention_list_config.proto ../../../../third_party/perfetto/protos/perfetto/config/android/android_input_event_config.proto ../../../../third_party/perfetto/protos/perfetto/config/android/android_log_config.proto ../../../../third_party/perfetto/protos/perfetto/config/android/android_polled_state_config.proto ../../../../third_party/perfetto/protos/perfetto/config/android/android_sdk_sysprop_guard_config.proto ../../../../third_party/perfetto/protos/perfetto/config/android/android_system_property_config.proto ../../../../third_party/perfetto/protos/perfetto/config/android/kernel_wakelocks_config.proto ../../../../third_party/perfetto/protos/perfetto/config/android/network_trace_config.proto ../../../../third_party/perfetto/protos/perfetto/config/android/packages_list_config.proto ../../../../third_party/perfetto/protos/perfetto/config/android/pixel_modem_config.proto ../../../../third_party/perfetto/protos/perfetto/config/android/protolog_config.proto ../../../../third_party/perfetto/protos/perfetto/config/android/surfaceflinger_layers_config.proto ../../../../third_party/perfetto/protos/perfetto/config/android/surfaceflinger_transactions_config.proto ../../../../third_party/perfetto/protos/perfetto/config/android/windowmanager_config.proto ../../../../third_party/perfetto/protos/perfetto/config/ftrace/ftrace_config.proto ../../../../third_party/perfetto/protos/perfetto/config/gpu/gpu_counter_config.proto ../../../../third_party/perfetto/protos/perfetto/config/gpu/gpu_renderstages_config.proto ../../../../third_party/perfetto/protos/perfetto/config/gpu/vulkan_memory_config.proto ../../../../third_party/perfetto/protos/perfetto/config/inode_file/inode_file_config.proto ../../../../third_party/perfetto/protos/perfetto/config/interceptors/console_config.proto ../../../../third_party/perfetto/protos/perfetto/config/power/android_power_config.proto ../../../../third_party/perfetto/protos/perfetto/config/process_stats/process_stats_config.proto ../../../../third_party/perfetto/protos/perfetto/config/profiling/heapprofd_config.proto ../../../../third_party/perfetto/protos/perfetto/config/profiling/java_hprof_config.proto ../../../../third_party/perfetto/protos/perfetto/config/profiling/perf_event_config.proto ../../../../third_party/perfetto/protos/perfetto/config/statsd/atom_ids.proto ../../../../third_party/perfetto/protos/perfetto/config/statsd/statsd_tracing_config.proto ../../../../third_party/perfetto/protos/perfetto/config/sys_stats/sys_stats_config.proto ../../../../third_party/perfetto/protos/perfetto/config/system_info/system_info.proto ../../../../third_party/perfetto/protos/perfetto/config/track_event/track_event_config.proto ../../../../third_party/perfetto/protos/perfetto/common/android_energy_consumer_descriptor.proto ../../../../third_party/perfetto/protos/perfetto/common/android_log_constants.proto ../../../../third_party/perfetto/protos/perfetto/common/builtin_clock.proto ../../../../third_party/perfetto/protos/perfetto/common/commit_data_request.proto ../../../../third_party/perfetto/protos/perfetto/common/data_source_descriptor.proto ../../../../third_party/perfetto/protos/perfetto/common/descriptor.proto ../../../../third_party/perfetto/protos/perfetto/common/ftrace_descriptor.proto ../../../../third_party/perfetto/protos/perfetto/common/gpu_counter_descriptor.proto ../../../../third_party/perfetto/protos/perfetto/common/interceptor_descriptor.proto ../../../../third_party/perfetto/protos/perfetto/common/observable_events.proto ../../../../third_party/perfetto/protos/perfetto/common/perf_events.proto ../../../../third_party/perfetto/protos/perfetto/common/protolog_common.proto ../../../../third_party/perfetto/protos/perfetto/common/sys_stats_counters.proto ../../../../third_party/perfetto/protos/perfetto/common/trace_stats.proto ../../../../third_party/perfetto/protos/perfetto/common/tracing_service_capabilities.proto ../../../../third_party/perfetto/protos/perfetto/common/tracing_service_state.proto ../../../../third_party/perfetto/protos/perfetto/common/track_event_descriptor.proto ../../../../third_party/perfetto/protos/perfetto/config/track_event/track_event_config.proto ../../../../third_party/perfetto/protos/perfetto/trace/clock_snapshot.proto ../../../../third_party/perfetto/protos/perfetto/trace/trace_uuid.proto ../../../../third_party/perfetto/protos/perfetto/trace/trigger.proto ../../../../third_party/perfetto/protos/perfetto/trace/system_info.proto ../../../../third_party/perfetto/protos/perfetto/trace/clock_snapshot.proto ../../../../third_party/perfetto/protos/perfetto/trace/trace_uuid.proto ../../../../third_party/perfetto/protos/perfetto/trace/trigger.proto ../../../../third_party/perfetto/protos/perfetto/trace/system_info.proto ../../../../third_party/perfetto/protos/perfetto/trace/remote_clock_sync.proto ../../../../third_party/perfetto/protos/perfetto/trace/trace_packet_defaults.proto ../../../../third_party/perfetto/protos/perfetto/trace/test_event.proto ../../../../third_party/perfetto/protos/perfetto/trace/test_extensions.proto ../../../../third_party/perfetto/protos/perfetto/trace/trace_packet.proto ../../../../third_party/perfetto/protos/perfetto/trace/trace.proto ../../../../third_party/perfetto/protos/perfetto/trace/extension_descriptor.proto ../../../../third_party/perfetto/protos/perfetto/trace/memory_graph.proto ../../../../third_party/perfetto/protos/perfetto/trace/ui_state.proto ../../../../third_party/perfetto/protos/perfetto/trace/remote_clock_sync.proto ../../../../third_party/perfetto/protos/perfetto/trace/trace_packet_defaults.proto ../../../../third_party/perfetto/protos/perfetto/trace/test_event.proto ../../../../third_party/perfetto/protos/perfetto/trace/test_extensions.proto ../../../../third_party/perfetto/protos/perfetto/trace/trace_packet.proto ../../../../third_party/perfetto/protos/perfetto/trace/trace.proto ../../../../third_party/perfetto/protos/perfetto/trace/extension_descriptor.proto ../../../../third_party/perfetto/protos/perfetto/trace/memory_graph.proto ../../../../third_party/perfetto/protos/perfetto/trace/ui_state.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_active_processes.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_application_state_info.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_compositor_scheduler_state.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_content_settings_event_info.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_frame_reporter.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_histogram_sample.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_keyed_service.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_latency_info.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_legacy_ipc.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_message_pump.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_mojo_event_info.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_process_descriptor.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_renderer_scheduler_state.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_thread_descriptor.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_user_event.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_window_handle_event_info.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/counter_descriptor.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/debug_annotation.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/log_message.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/process_descriptor.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/range_of_interest.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/screenshot.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/source_location.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/task_execution.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/thread_descriptor.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/track_descriptor.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/track_event.proto ../../../../third_party/perfetto/protos/perfetto/trace/android/android_game_intervention_list.proto ../../../../third_party/perfetto/protos/perfetto/trace/android/android_log.proto ../../../../third_party/perfetto/protos/perfetto/trace/android/android_system_property.proto ../../../../third_party/perfetto/protos/perfetto/trace/android/bluetooth_trace.proto ../../../../third_party/perfetto/protos/perfetto/trace/android/camera_event.proto ../../../../third_party/perfetto/protos/perfetto/trace/android/frame_timeline_event.proto ../../../../third_party/perfetto/protos/perfetto/trace/android/gpu_mem_event.proto ../../../../third_party/perfetto/protos/perfetto/trace/android/graphics_frame_event.proto ../../../../third_party/perfetto/protos/perfetto/trace/android/initial_display_state.proto ../../../../third_party/perfetto/protos/perfetto/trace/android/kernel_wakelock_data.proto ../../../../third_party/perfetto/protos/perfetto/trace/android/network_trace.proto ../../../../third_party/perfetto/protos/perfetto/trace/android/packages_list.proto ../../../../third_party/perfetto/protos/perfetto/trace/android/pixel_modem_events.proto ../../../../third_party/perfetto/protos/perfetto/trace/android/protolog.proto ../../../../third_party/perfetto/protos/perfetto/trace/android/shell_transition.proto ../../../../third_party/perfetto/protos/perfetto/trace/android/surfaceflinger_common.proto ../../../../third_party/perfetto/protos/perfetto/trace/android/surfaceflinger_layers.proto ../../../../third_party/perfetto/protos/perfetto/trace/android/surfaceflinger_transactions.proto ../../../../third_party/perfetto/protos/perfetto/trace/android/graphics/point.proto ../../../../third_party/perfetto/protos/perfetto/trace/android/graphics/rect.proto ../../../../third_party/perfetto/protos/perfetto/trace/android/winscope_extensions.proto ../../../../third_party/perfetto/protos/perfetto/trace/chrome/chrome_benchmark_metadata.proto ../../../../third_party/perfetto/protos/perfetto/trace/chrome/chrome_metadata.proto ../../../../third_party/perfetto/protos/perfetto/trace/chrome/chrome_trace_event.proto ../../../../third_party/perfetto/protos/perfetto/trace/chrome/chrome_trigger.proto ../../../../third_party/perfetto/protos/perfetto/trace/chrome/v8.proto ../../../../third_party/perfetto/protos/perfetto/trace/etw/etw.proto ../../../../third_party/perfetto/protos/perfetto/trace/etw/etw_event.proto ../../../../third_party/perfetto/protos/perfetto/trace/etw/etw_event_bundle.proto ../../../../third_party/perfetto/protos/perfetto/trace/filesystem/inode_file_map.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/ftrace_event.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/ftrace_event_bundle.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/ftrace_stats.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/test_bundle_wrapper.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/generic.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/android_fs.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/bcl_exynos.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/binder.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/block.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/cgroup.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/clk.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/cma.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/compaction.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/cpm_trace.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/cpuhp.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/cros_ec.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/dcvsh.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/devfreq.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/dma_fence.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/dmabuf_heap.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/dpu.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/drm.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/ext4.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/f2fs.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/fastrpc.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/fence.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/filemap.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/fs.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/ftrace.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/g2d.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/google_icc_trace.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/google_irm_trace.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/gpu_mem.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/gpu_scheduler.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/hyp.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/i2c.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/ion.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/ipi.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/irq.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/kgsl.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/kmem.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/kvm.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/lowmemorykiller.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/lwis.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/mali.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/mdss.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/mm_event.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/net.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/oom.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/panel.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/perf_trace_counters.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/pixel_mm.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/power.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/printk.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/raw_syscalls.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/regulator.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/rpm.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/samsung.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/sched.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/scm.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/sde.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/signal.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/skb.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/sock.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/sync.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/synthetic.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/systrace.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/task.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/tcp.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/thermal.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/thermal_exynos.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/trusty.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/ufs.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/v4l2.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/virtio_gpu.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/virtio_video.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/vmscan.proto ../../../../third_party/perfetto/protos/perfetto/trace/ftrace/workqueue.proto ../../../../third_party/perfetto/protos/perfetto/trace/gpu/gpu_counter_event.proto ../../../../third_party/perfetto/protos/perfetto/trace/gpu/gpu_log.proto ../../../../third_party/perfetto/protos/perfetto/trace/gpu/gpu_render_stage_event.proto ../../../../third_party/perfetto/protos/perfetto/trace/gpu/vulkan_api_event.proto ../../../../third_party/perfetto/protos/perfetto/trace/gpu/vulkan_memory_event.proto ../../../../third_party/perfetto/protos/perfetto/trace/interned_data/interned_data.proto ../../../../third_party/perfetto/protos/perfetto/trace/profiling/deobfuscation.proto ../../../../third_party/perfetto/protos/perfetto/trace/profiling/heap_graph.proto ../../../../third_party/perfetto/protos/perfetto/trace/profiling/profile_common.proto ../../../../third_party/perfetto/protos/perfetto/trace/profiling/profile_packet.proto ../../../../third_party/perfetto/protos/perfetto/trace/profiling/smaps.proto ../../../../third_party/perfetto/protos/perfetto/trace/perfetto/perfetto_metatrace.proto ../../../../third_party/perfetto/protos/perfetto/trace/perfetto/tracing_service_event.proto ../../../../third_party/perfetto/protos/perfetto/trace/power/android_energy_estimation_breakdown.proto ../../../../third_party/perfetto/protos/perfetto/trace/power/android_entity_state_residency.proto ../../../../third_party/perfetto/protos/perfetto/trace/power/battery_counters.proto ../../../../third_party/perfetto/protos/perfetto/trace/power/power_rails.proto ../../../../third_party/perfetto/protos/perfetto/trace/ps/process_stats.proto ../../../../third_party/perfetto/protos/perfetto/trace/ps/process_tree.proto ../../../../third_party/perfetto/protos/perfetto/trace/statsd/statsd_atom.proto ../../../../third_party/perfetto/protos/perfetto/trace/sys_stats/sys_stats.proto ../../../../third_party/perfetto/protos/perfetto/trace/system_info/cpu_info.proto ../../../../third_party/perfetto/protos/perfetto/trace/translation/translation_table.proto ../../../../third_party/perfetto/protos/perfetto/trace/interned_data/interned_data.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_active_processes.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_application_state_info.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_compositor_scheduler_state.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_content_settings_event_info.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_frame_reporter.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_histogram_sample.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_keyed_service.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_latency_info.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_legacy_ipc.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_message_pump.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_mojo_event_info.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_process_descriptor.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_renderer_scheduler_state.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_thread_descriptor.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_user_event.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_window_handle_event_info.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/counter_descriptor.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/debug_annotation.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/log_message.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/process_descriptor.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/range_of_interest.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/screenshot.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/source_location.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/task_execution.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/thread_descriptor.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/track_descriptor.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/track_event.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_active_processes.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_application_state_info.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_compositor_scheduler_state.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_content_settings_event_info.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_frame_reporter.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_histogram_sample.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_keyed_service.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_latency_info.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_legacy_ipc.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_message_pump.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_mojo_event_info.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_process_descriptor.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_renderer_scheduler_state.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_thread_descriptor.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_user_event.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/chrome_window_handle_event_info.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/counter_descriptor.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/debug_annotation.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/log_message.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/process_descriptor.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/range_of_interest.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/screenshot.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/source_location.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/task_execution.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/thread_descriptor.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/track_descriptor.proto ../../../../third_party/perfetto/protos/perfetto/trace/track_event/track_event.proto ../../../../third_party/perfetto/protos/perfetto/trace/chrome/chrome_benchmark_metadata.proto ../../../../third_party/perfetto/protos/perfetto/trace/chrome/chrome_metadata.proto ../../../../third_party/perfetto/protos/perfetto/trace/chrome/chrome_trace_event.proto ../../../../third_party/perfetto/protos/perfetto/trace/chrome/chrome_trigger.proto ../../../../third_party/perfetto/protos/perfetto/trace/chrome/v8.proto ../../../../third_party/perfetto/protos/perfetto/trace/etw/etw.proto ../../../../third_party/perfetto/protos/perfetto/trace/etw/etw_event.proto ../../../../third_party/perfetto/protos/perfetto/trace/etw/etw_event_bundle.proto ../../../../third_party/perfetto/protos/perfetto/trace/profiling/deobfuscation.proto ../../../../third_party/perfetto/protos/perfetto/trace/profiling/heap_graph.proto ../../../../third_party/perfetto/protos/perfetto/trace/profiling/profile_common.proto ../../../../third_party/perfetto/protos/perfetto/trace/profiling/profile_packet.proto ../../../../third_party/perfetto/protos/perfetto/trace/profiling/smaps.proto ../../../../third_party/perfetto/protos/perfetto/trace/ps/process_stats.proto ../../../../third_party/perfetto/protos/perfetto/trace/ps/process_tree.proto
+build phony/v8/torque_generated_definitions.inputdeps: phony phony/build/chromeos_buildflags phony/third_party/icu/copy_icudata phony/third_party/perfetto/gn/gen_buildflags phony/third_party/perfetto/protos/perfetto/common/cpp_gen phony/third_party/perfetto/protos/perfetto/common/zero_gen phony/third_party/perfetto/protos/perfetto/config/cpp_gen phony/third_party/perfetto/protos/perfetto/config/zero_gen phony/third_party/perfetto/protos/perfetto/config/android/cpp_gen phony/third_party/perfetto/protos/perfetto/config/android/zero_gen phony/third_party/perfetto/protos/perfetto/config/ftrace/cpp_gen phony/third_party/perfetto/protos/perfetto/config/ftrace/zero_gen phony/third_party/perfetto/protos/perfetto/config/gpu/cpp_gen phony/third_party/perfetto/protos/perfetto/config/gpu/zero_gen phony/third_party/perfetto/protos/perfetto/config/inode_file/cpp_gen phony/third_party/perfetto/protos/perfetto/config/inode_file/zero_gen phony/third_party/perfetto/protos/perfetto/config/interceptors/cpp_gen phony/third_party/perfetto/protos/perfetto/config/interceptors/zero_gen phony/third_party/perfetto/protos/perfetto/config/power/cpp_gen phony/third_party/perfetto/protos/perfetto/config/power/zero_gen phony/third_party/perfetto/protos/perfetto/config/process_stats/cpp_gen phony/third_party/perfetto/protos/perfetto/config/process_stats/zero_gen phony/third_party/perfetto/protos/perfetto/config/profiling/cpp_gen phony/third_party/perfetto/protos/perfetto/config/profiling/zero_gen phony/third_party/perfetto/protos/perfetto/config/statsd/cpp_gen phony/third_party/perfetto/protos/perfetto/config/statsd/zero_gen phony/third_party/perfetto/protos/perfetto/config/sys_stats/cpp_gen phony/third_party/perfetto/protos/perfetto/config/sys_stats/zero_gen phony/third_party/perfetto/protos/perfetto/config/system_info/cpp_gen phony/third_party/perfetto/protos/perfetto/config/system_info/zero_gen phony/third_party/perfetto/protos/perfetto/config/track_event/cpp_gen phony/third_party/perfetto/protos/perfetto/config/track_event/zero_gen phony/third_party/perfetto/protos/perfetto/ipc/cpp_gen phony/third_party/perfetto/protos/perfetto/ipc/ipc_gen phony/third_party/perfetto/protos/perfetto/ipc/wire_protocol_cpp_gen phony/third_party/perfetto/protos/perfetto/perfetto_sql/zero_gen phony/third_party/perfetto/protos/perfetto/trace/minimal_zero_gen phony/third_party/perfetto/protos/perfetto/trace/non_minimal_zero_gen phony/third_party/perfetto/protos/perfetto/trace/android/winscope_common_zero_gen phony/third_party/perfetto/protos/perfetto/trace/android/winscope_regular_zero_gen phony/third_party/perfetto/protos/perfetto/trace/android/zero_gen phony/third_party/perfetto/protos/perfetto/trace/chrome/zero_gen phony/third_party/perfetto/protos/perfetto/trace/etw/zero_gen phony/third_party/perfetto/protos/perfetto/trace/filesystem/zero_gen phony/third_party/perfetto/protos/perfetto/trace/ftrace/zero_gen phony/third_party/perfetto/protos/perfetto/trace/gpu/zero_gen phony/third_party/perfetto/protos/perfetto/trace/interned_data/zero_gen phony/third_party/perfetto/protos/perfetto/trace/perfetto/zero_gen phony/third_party/perfetto/protos/perfetto/trace/power/zero_gen phony/third_party/perfetto/protos/perfetto/trace/profiling/zero_gen phony/third_party/perfetto/protos/perfetto/trace/ps/zero_gen phony/third_party/perfetto/protos/perfetto/trace/statsd/zero_gen phony/third_party/perfetto/protos/perfetto/trace/sys_stats/zero_gen phony/third_party/perfetto/protos/perfetto/trace/system_info/zero_gen phony/third_party/perfetto/protos/perfetto/trace/track_event/cpp_gen phony/third_party/perfetto/protos/perfetto/trace/track_event/zero_gen phony/third_party/perfetto/protos/perfetto/trace/translation/zero_gen phony/third_party/perfetto/protos/perfetto/trace_processor/zero_gen phony/third_party/perfetto/src/trace_processor/importers/proto/gen_cc_android_track_event_descriptor phony/third_party/perfetto/src/trace_processor/importers/proto/gen_cc_chrome_track_event_descriptor phony/third_party/perfetto/src/trace_processor/importers/proto/gen_cc_track_event_descriptor phony/third_party/perfetto/src/trace_processor/tables/tables_python phony/v8/generate_bytecode_builtins_list phony/v8/run_torque
+build obj/v8/torque_generated_definitions/class-verifiers.o: cxx gen/v8/torque-generated/class-verifiers.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = class-verifiers.cc
+  source_name_part = class-verifiers
+build obj/v8/torque_generated_definitions/factory.o: cxx gen/v8/torque-generated/factory.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = factory.cc
+  source_name_part = factory
+build obj/v8/torque_generated_definitions/objects-printer.o: cxx gen/v8/torque-generated/objects-printer.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = objects-printer.cc
+  source_name_part = objects-printer
+build obj/v8/torque_generated_definitions/aggregate-error-tq.o: cxx gen/v8/torque-generated/src/builtins/aggregate-error-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = aggregate-error-tq.cc
+  source_name_part = aggregate-error-tq
+build obj/v8/torque_generated_definitions/array-at-tq.o: cxx gen/v8/torque-generated/src/builtins/array-at-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = array-at-tq.cc
+  source_name_part = array-at-tq
+build obj/v8/torque_generated_definitions/array-concat-tq.o: cxx gen/v8/torque-generated/src/builtins/array-concat-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = array-concat-tq.cc
+  source_name_part = array-concat-tq
+build obj/v8/torque_generated_definitions/array-copywithin-tq.o: cxx gen/v8/torque-generated/src/builtins/array-copywithin-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = array-copywithin-tq.cc
+  source_name_part = array-copywithin-tq
+build obj/v8/torque_generated_definitions/array-every-tq.o: cxx gen/v8/torque-generated/src/builtins/array-every-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = array-every-tq.cc
+  source_name_part = array-every-tq
+build obj/v8/torque_generated_definitions/array-filter-tq.o: cxx gen/v8/torque-generated/src/builtins/array-filter-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = array-filter-tq.cc
+  source_name_part = array-filter-tq
+build obj/v8/torque_generated_definitions/array-find-tq.o: cxx gen/v8/torque-generated/src/builtins/array-find-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = array-find-tq.cc
+  source_name_part = array-find-tq
+build obj/v8/torque_generated_definitions/array-findindex-tq.o: cxx gen/v8/torque-generated/src/builtins/array-findindex-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = array-findindex-tq.cc
+  source_name_part = array-findindex-tq
+build obj/v8/torque_generated_definitions/array-findlast-tq.o: cxx gen/v8/torque-generated/src/builtins/array-findlast-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = array-findlast-tq.cc
+  source_name_part = array-findlast-tq
+build obj/v8/torque_generated_definitions/array-findlastindex-tq.o: cxx gen/v8/torque-generated/src/builtins/array-findlastindex-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = array-findlastindex-tq.cc
+  source_name_part = array-findlastindex-tq
+build obj/v8/torque_generated_definitions/array-flat-tq.o: cxx gen/v8/torque-generated/src/builtins/array-flat-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = array-flat-tq.cc
+  source_name_part = array-flat-tq
+build obj/v8/torque_generated_definitions/array-foreach-tq.o: cxx gen/v8/torque-generated/src/builtins/array-foreach-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = array-foreach-tq.cc
+  source_name_part = array-foreach-tq
+build obj/v8/torque_generated_definitions/array-from-async-tq.o: cxx gen/v8/torque-generated/src/builtins/array-from-async-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = array-from-async-tq.cc
+  source_name_part = array-from-async-tq
+build obj/v8/torque_generated_definitions/array-from-tq.o: cxx gen/v8/torque-generated/src/builtins/array-from-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = array-from-tq.cc
+  source_name_part = array-from-tq
+build obj/v8/torque_generated_definitions/array-isarray-tq.o: cxx gen/v8/torque-generated/src/builtins/array-isarray-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = array-isarray-tq.cc
+  source_name_part = array-isarray-tq
+build obj/v8/torque_generated_definitions/array-join-tq.o: cxx gen/v8/torque-generated/src/builtins/array-join-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = array-join-tq.cc
+  source_name_part = array-join-tq
+build obj/v8/torque_generated_definitions/array-lastindexof-tq.o: cxx gen/v8/torque-generated/src/builtins/array-lastindexof-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = array-lastindexof-tq.cc
+  source_name_part = array-lastindexof-tq
+build obj/v8/torque_generated_definitions/array-map-tq.o: cxx gen/v8/torque-generated/src/builtins/array-map-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = array-map-tq.cc
+  source_name_part = array-map-tq
+build obj/v8/torque_generated_definitions/array-of-tq.o: cxx gen/v8/torque-generated/src/builtins/array-of-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = array-of-tq.cc
+  source_name_part = array-of-tq
+build obj/v8/torque_generated_definitions/array-reduce-right-tq.o: cxx gen/v8/torque-generated/src/builtins/array-reduce-right-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = array-reduce-right-tq.cc
+  source_name_part = array-reduce-right-tq
+build obj/v8/torque_generated_definitions/array-reduce-tq.o: cxx gen/v8/torque-generated/src/builtins/array-reduce-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = array-reduce-tq.cc
+  source_name_part = array-reduce-tq
+build obj/v8/torque_generated_definitions/array-reverse-tq.o: cxx gen/v8/torque-generated/src/builtins/array-reverse-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = array-reverse-tq.cc
+  source_name_part = array-reverse-tq
+build obj/v8/torque_generated_definitions/array-shift-tq.o: cxx gen/v8/torque-generated/src/builtins/array-shift-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = array-shift-tq.cc
+  source_name_part = array-shift-tq
+build obj/v8/torque_generated_definitions/array-slice-tq.o: cxx gen/v8/torque-generated/src/builtins/array-slice-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = array-slice-tq.cc
+  source_name_part = array-slice-tq
+build obj/v8/torque_generated_definitions/array-some-tq.o: cxx gen/v8/torque-generated/src/builtins/array-some-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = array-some-tq.cc
+  source_name_part = array-some-tq
+build obj/v8/torque_generated_definitions/array-splice-tq.o: cxx gen/v8/torque-generated/src/builtins/array-splice-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = array-splice-tq.cc
+  source_name_part = array-splice-tq
+build obj/v8/torque_generated_definitions/array-to-reversed-tq.o: cxx gen/v8/torque-generated/src/builtins/array-to-reversed-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = array-to-reversed-tq.cc
+  source_name_part = array-to-reversed-tq
+build obj/v8/torque_generated_definitions/array-to-sorted-tq.o: cxx gen/v8/torque-generated/src/builtins/array-to-sorted-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = array-to-sorted-tq.cc
+  source_name_part = array-to-sorted-tq
+build obj/v8/torque_generated_definitions/array-to-spliced-tq.o: cxx gen/v8/torque-generated/src/builtins/array-to-spliced-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = array-to-spliced-tq.cc
+  source_name_part = array-to-spliced-tq
+build obj/v8/torque_generated_definitions/array-unshift-tq.o: cxx gen/v8/torque-generated/src/builtins/array-unshift-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = array-unshift-tq.cc
+  source_name_part = array-unshift-tq
+build obj/v8/torque_generated_definitions/array-with-tq.o: cxx gen/v8/torque-generated/src/builtins/array-with-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = array-with-tq.cc
+  source_name_part = array-with-tq
+build obj/v8/torque_generated_definitions/array-tq.o: cxx gen/v8/torque-generated/src/builtins/array-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = array-tq.cc
+  source_name_part = array-tq
+build obj/v8/torque_generated_definitions/arraybuffer-tq.o: cxx gen/v8/torque-generated/src/builtins/arraybuffer-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = arraybuffer-tq.cc
+  source_name_part = arraybuffer-tq
+build obj/v8/torque_generated_definitions/base-tq.o: cxx gen/v8/torque-generated/src/builtins/base-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = base-tq.cc
+  source_name_part = base-tq
+build obj/v8/torque_generated_definitions/boolean-tq.o: cxx gen/v8/torque-generated/src/builtins/boolean-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = boolean-tq.cc
+  source_name_part = boolean-tq
+build obj/v8/torque_generated_definitions/builtins-bigint-tq.o: cxx gen/v8/torque-generated/src/builtins/builtins-bigint-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = builtins-bigint-tq.cc
+  source_name_part = builtins-bigint-tq
+build obj/v8/torque_generated_definitions/builtins-string-tq.o: cxx gen/v8/torque-generated/src/builtins/builtins-string-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = builtins-string-tq.cc
+  source_name_part = builtins-string-tq
+build obj/v8/torque_generated_definitions/cast-tq.o: cxx gen/v8/torque-generated/src/builtins/cast-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = cast-tq.cc
+  source_name_part = cast-tq
+build obj/v8/torque_generated_definitions/collections-tq.o: cxx gen/v8/torque-generated/src/builtins/collections-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = collections-tq.cc
+  source_name_part = collections-tq
+build obj/v8/torque_generated_definitions/constructor-tq.o: cxx gen/v8/torque-generated/src/builtins/constructor-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = constructor-tq.cc
+  source_name_part = constructor-tq
+build obj/v8/torque_generated_definitions/conversion-tq.o: cxx gen/v8/torque-generated/src/builtins/conversion-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = conversion-tq.cc
+  source_name_part = conversion-tq
+build obj/v8/torque_generated_definitions/convert-tq.o: cxx gen/v8/torque-generated/src/builtins/convert-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = convert-tq.cc
+  source_name_part = convert-tq
+build obj/v8/torque_generated_definitions/console-tq.o: cxx gen/v8/torque-generated/src/builtins/console-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = console-tq.cc
+  source_name_part = console-tq
+build obj/v8/torque_generated_definitions/data-view-tq.o: cxx gen/v8/torque-generated/src/builtins/data-view-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = data-view-tq.cc
+  source_name_part = data-view-tq
+build obj/v8/torque_generated_definitions/finalization-registry-tq.o: cxx gen/v8/torque-generated/src/builtins/finalization-registry-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = finalization-registry-tq.cc
+  source_name_part = finalization-registry-tq
+build obj/v8/torque_generated_definitions/frames-tq.o: cxx gen/v8/torque-generated/src/builtins/frames-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = frames-tq.cc
+  source_name_part = frames-tq
+build obj/v8/torque_generated_definitions/frame-arguments-tq.o: cxx gen/v8/torque-generated/src/builtins/frame-arguments-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = frame-arguments-tq.cc
+  source_name_part = frame-arguments-tq
+build obj/v8/torque_generated_definitions/function-tq.o: cxx gen/v8/torque-generated/src/builtins/function-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = function-tq.cc
+  source_name_part = function-tq
+build obj/v8/torque_generated_definitions/growable-fixed-array-tq.o: cxx gen/v8/torque-generated/src/builtins/growable-fixed-array-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = growable-fixed-array-tq.cc
+  source_name_part = growable-fixed-array-tq
+build obj/v8/torque_generated_definitions/ic-callable-tq.o: cxx gen/v8/torque-generated/src/builtins/ic-callable-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = ic-callable-tq.cc
+  source_name_part = ic-callable-tq
+build obj/v8/torque_generated_definitions/ic-tq.o: cxx gen/v8/torque-generated/src/builtins/ic-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = ic-tq.cc
+  source_name_part = ic-tq
+build obj/v8/torque_generated_definitions/internal-coverage-tq.o: cxx gen/v8/torque-generated/src/builtins/internal-coverage-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = internal-coverage-tq.cc
+  source_name_part = internal-coverage-tq
+build obj/v8/torque_generated_definitions/internal-tq.o: cxx gen/v8/torque-generated/src/builtins/internal-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = internal-tq.cc
+  source_name_part = internal-tq
+build obj/v8/torque_generated_definitions/iterator-tq.o: cxx gen/v8/torque-generated/src/builtins/iterator-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = iterator-tq.cc
+  source_name_part = iterator-tq
+build obj/v8/torque_generated_definitions/iterator-from-tq.o: cxx gen/v8/torque-generated/src/builtins/iterator-from-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = iterator-from-tq.cc
+  source_name_part = iterator-from-tq
+build obj/v8/torque_generated_definitions/iterator-helpers-tq.o: cxx gen/v8/torque-generated/src/builtins/iterator-helpers-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = iterator-helpers-tq.cc
+  source_name_part = iterator-helpers-tq
+build obj/v8/torque_generated_definitions/map-groupby-tq.o: cxx gen/v8/torque-generated/src/builtins/map-groupby-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = map-groupby-tq.cc
+  source_name_part = map-groupby-tq
+build obj/v8/torque_generated_definitions/math-tq.o: cxx gen/v8/torque-generated/src/builtins/math-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = math-tq.cc
+  source_name_part = math-tq
+build obj/v8/torque_generated_definitions/number-tq.o: cxx gen/v8/torque-generated/src/builtins/number-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = number-tq.cc
+  source_name_part = number-tq
+build obj/v8/torque_generated_definitions/object-fromentries-tq.o: cxx gen/v8/torque-generated/src/builtins/object-fromentries-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = object-fromentries-tq.cc
+  source_name_part = object-fromentries-tq
+build obj/v8/torque_generated_definitions/object-groupby-tq.o: cxx gen/v8/torque-generated/src/builtins/object-groupby-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = object-groupby-tq.cc
+  source_name_part = object-groupby-tq
+build obj/v8/torque_generated_definitions/object-tq.o: cxx gen/v8/torque-generated/src/builtins/object-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = object-tq.cc
+  source_name_part = object-tq
+build obj/v8/torque_generated_definitions/promise-abstract-operations-tq.o: cxx gen/v8/torque-generated/src/builtins/promise-abstract-operations-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = promise-abstract-operations-tq.cc
+  source_name_part = promise-abstract-operations-tq
+build obj/v8/torque_generated_definitions/promise-all-tq.o: cxx gen/v8/torque-generated/src/builtins/promise-all-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = promise-all-tq.cc
+  source_name_part = promise-all-tq
+build obj/v8/torque_generated_definitions/promise-all-element-closure-tq.o: cxx gen/v8/torque-generated/src/builtins/promise-all-element-closure-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = promise-all-element-closure-tq.cc
+  source_name_part = promise-all-element-closure-tq
+build obj/v8/torque_generated_definitions/promise-any-tq.o: cxx gen/v8/torque-generated/src/builtins/promise-any-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = promise-any-tq.cc
+  source_name_part = promise-any-tq
+build obj/v8/torque_generated_definitions/promise-constructor-tq.o: cxx gen/v8/torque-generated/src/builtins/promise-constructor-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = promise-constructor-tq.cc
+  source_name_part = promise-constructor-tq
+build obj/v8/torque_generated_definitions/promise-finally-tq.o: cxx gen/v8/torque-generated/src/builtins/promise-finally-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = promise-finally-tq.cc
+  source_name_part = promise-finally-tq
+build obj/v8/torque_generated_definitions/promise-jobs-tq.o: cxx gen/v8/torque-generated/src/builtins/promise-jobs-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = promise-jobs-tq.cc
+  source_name_part = promise-jobs-tq
+build obj/v8/torque_generated_definitions/promise-misc-tq.o: cxx gen/v8/torque-generated/src/builtins/promise-misc-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = promise-misc-tq.cc
+  source_name_part = promise-misc-tq
+build obj/v8/torque_generated_definitions/promise-race-tq.o: cxx gen/v8/torque-generated/src/builtins/promise-race-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = promise-race-tq.cc
+  source_name_part = promise-race-tq
+build obj/v8/torque_generated_definitions/promise-reaction-job-tq.o: cxx gen/v8/torque-generated/src/builtins/promise-reaction-job-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = promise-reaction-job-tq.cc
+  source_name_part = promise-reaction-job-tq
+build obj/v8/torque_generated_definitions/promise-resolve-tq.o: cxx gen/v8/torque-generated/src/builtins/promise-resolve-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = promise-resolve-tq.cc
+  source_name_part = promise-resolve-tq
+build obj/v8/torque_generated_definitions/promise-then-tq.o: cxx gen/v8/torque-generated/src/builtins/promise-then-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = promise-then-tq.cc
+  source_name_part = promise-then-tq
+build obj/v8/torque_generated_definitions/promise-try-tq.o: cxx gen/v8/torque-generated/src/builtins/promise-try-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = promise-try-tq.cc
+  source_name_part = promise-try-tq
+build obj/v8/torque_generated_definitions/promise-withresolvers-tq.o: cxx gen/v8/torque-generated/src/builtins/promise-withresolvers-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = promise-withresolvers-tq.cc
+  source_name_part = promise-withresolvers-tq
+build obj/v8/torque_generated_definitions/proxy-constructor-tq.o: cxx gen/v8/torque-generated/src/builtins/proxy-constructor-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = proxy-constructor-tq.cc
+  source_name_part = proxy-constructor-tq
+build obj/v8/torque_generated_definitions/proxy-delete-property-tq.o: cxx gen/v8/torque-generated/src/builtins/proxy-delete-property-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = proxy-delete-property-tq.cc
+  source_name_part = proxy-delete-property-tq
+build obj/v8/torque_generated_definitions/proxy-get-property-tq.o: cxx gen/v8/torque-generated/src/builtins/proxy-get-property-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = proxy-get-property-tq.cc
+  source_name_part = proxy-get-property-tq
+build obj/v8/torque_generated_definitions/proxy-get-prototype-of-tq.o: cxx gen/v8/torque-generated/src/builtins/proxy-get-prototype-of-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = proxy-get-prototype-of-tq.cc
+  source_name_part = proxy-get-prototype-of-tq
+build obj/v8/torque_generated_definitions/proxy-has-property-tq.o: cxx gen/v8/torque-generated/src/builtins/proxy-has-property-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = proxy-has-property-tq.cc
+  source_name_part = proxy-has-property-tq
+build obj/v8/torque_generated_definitions/proxy-is-extensible-tq.o: cxx gen/v8/torque-generated/src/builtins/proxy-is-extensible-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = proxy-is-extensible-tq.cc
+  source_name_part = proxy-is-extensible-tq
+build obj/v8/torque_generated_definitions/proxy-prevent-extensions-tq.o: cxx gen/v8/torque-generated/src/builtins/proxy-prevent-extensions-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = proxy-prevent-extensions-tq.cc
+  source_name_part = proxy-prevent-extensions-tq
+build obj/v8/torque_generated_definitions/proxy-revocable-tq.o: cxx gen/v8/torque-generated/src/builtins/proxy-revocable-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = proxy-revocable-tq.cc
+  source_name_part = proxy-revocable-tq
+build obj/v8/torque_generated_definitions/proxy-revoke-tq.o: cxx gen/v8/torque-generated/src/builtins/proxy-revoke-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = proxy-revoke-tq.cc
+  source_name_part = proxy-revoke-tq
+build obj/v8/torque_generated_definitions/proxy-set-property-tq.o: cxx gen/v8/torque-generated/src/builtins/proxy-set-property-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = proxy-set-property-tq.cc
+  source_name_part = proxy-set-property-tq
+build obj/v8/torque_generated_definitions/proxy-set-prototype-of-tq.o: cxx gen/v8/torque-generated/src/builtins/proxy-set-prototype-of-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = proxy-set-prototype-of-tq.cc
+  source_name_part = proxy-set-prototype-of-tq
+build obj/v8/torque_generated_definitions/proxy-tq.o: cxx gen/v8/torque-generated/src/builtins/proxy-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = proxy-tq.cc
+  source_name_part = proxy-tq
+build obj/v8/torque_generated_definitions/reflect-tq.o: cxx gen/v8/torque-generated/src/builtins/reflect-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = reflect-tq.cc
+  source_name_part = reflect-tq
+build obj/v8/torque_generated_definitions/regexp-exec-tq.o: cxx gen/v8/torque-generated/src/builtins/regexp-exec-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = regexp-exec-tq.cc
+  source_name_part = regexp-exec-tq
+build obj/v8/torque_generated_definitions/regexp-match-all-tq.o: cxx gen/v8/torque-generated/src/builtins/regexp-match-all-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = regexp-match-all-tq.cc
+  source_name_part = regexp-match-all-tq
+build obj/v8/torque_generated_definitions/regexp-match-tq.o: cxx gen/v8/torque-generated/src/builtins/regexp-match-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = regexp-match-tq.cc
+  source_name_part = regexp-match-tq
+build obj/v8/torque_generated_definitions/regexp-replace-tq.o: cxx gen/v8/torque-generated/src/builtins/regexp-replace-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = regexp-replace-tq.cc
+  source_name_part = regexp-replace-tq
+build obj/v8/torque_generated_definitions/regexp-search-tq.o: cxx gen/v8/torque-generated/src/builtins/regexp-search-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = regexp-search-tq.cc
+  source_name_part = regexp-search-tq
+build obj/v8/torque_generated_definitions/regexp-source-tq.o: cxx gen/v8/torque-generated/src/builtins/regexp-source-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = regexp-source-tq.cc
+  source_name_part = regexp-source-tq
+build obj/v8/torque_generated_definitions/regexp-split-tq.o: cxx gen/v8/torque-generated/src/builtins/regexp-split-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = regexp-split-tq.cc
+  source_name_part = regexp-split-tq
+build obj/v8/torque_generated_definitions/regexp-test-tq.o: cxx gen/v8/torque-generated/src/builtins/regexp-test-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = regexp-test-tq.cc
+  source_name_part = regexp-test-tq
+build obj/v8/torque_generated_definitions/regexp-tq.o: cxx gen/v8/torque-generated/src/builtins/regexp-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = regexp-tq.cc
+  source_name_part = regexp-tq
+build obj/v8/torque_generated_definitions/set-difference-tq.o: cxx gen/v8/torque-generated/src/builtins/set-difference-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = set-difference-tq.cc
+  source_name_part = set-difference-tq
+build obj/v8/torque_generated_definitions/set-intersection-tq.o: cxx gen/v8/torque-generated/src/builtins/set-intersection-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = set-intersection-tq.cc
+  source_name_part = set-intersection-tq
+build obj/v8/torque_generated_definitions/set-is-disjoint-from-tq.o: cxx gen/v8/torque-generated/src/builtins/set-is-disjoint-from-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = set-is-disjoint-from-tq.cc
+  source_name_part = set-is-disjoint-from-tq
+build obj/v8/torque_generated_definitions/set-is-subset-of-tq.o: cxx gen/v8/torque-generated/src/builtins/set-is-subset-of-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = set-is-subset-of-tq.cc
+  source_name_part = set-is-subset-of-tq
+build obj/v8/torque_generated_definitions/set-is-superset-of-tq.o: cxx gen/v8/torque-generated/src/builtins/set-is-superset-of-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = set-is-superset-of-tq.cc
+  source_name_part = set-is-superset-of-tq
+build obj/v8/torque_generated_definitions/set-symmetric-difference-tq.o: cxx gen/v8/torque-generated/src/builtins/set-symmetric-difference-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = set-symmetric-difference-tq.cc
+  source_name_part = set-symmetric-difference-tq
+build obj/v8/torque_generated_definitions/set-union-tq.o: cxx gen/v8/torque-generated/src/builtins/set-union-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = set-union-tq.cc
+  source_name_part = set-union-tq
+build obj/v8/torque_generated_definitions/string-at-tq.o: cxx gen/v8/torque-generated/src/builtins/string-at-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = string-at-tq.cc
+  source_name_part = string-at-tq
+build obj/v8/torque_generated_definitions/string-endswith-tq.o: cxx gen/v8/torque-generated/src/builtins/string-endswith-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = string-endswith-tq.cc
+  source_name_part = string-endswith-tq
+build obj/v8/torque_generated_definitions/string-html-tq.o: cxx gen/v8/torque-generated/src/builtins/string-html-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = string-html-tq.cc
+  source_name_part = string-html-tq
+build obj/v8/torque_generated_definitions/string-includes-tq.o: cxx gen/v8/torque-generated/src/builtins/string-includes-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = string-includes-tq.cc
+  source_name_part = string-includes-tq
+build obj/v8/torque_generated_definitions/string-indexof-tq.o: cxx gen/v8/torque-generated/src/builtins/string-indexof-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = string-indexof-tq.cc
+  source_name_part = string-indexof-tq
+build obj/v8/torque_generated_definitions/string-iswellformed-tq.o: cxx gen/v8/torque-generated/src/builtins/string-iswellformed-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = string-iswellformed-tq.cc
+  source_name_part = string-iswellformed-tq
+build obj/v8/torque_generated_definitions/string-iterator-tq.o: cxx gen/v8/torque-generated/src/builtins/string-iterator-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = string-iterator-tq.cc
+  source_name_part = string-iterator-tq
+build obj/v8/torque_generated_definitions/string-match-search-tq.o: cxx gen/v8/torque-generated/src/builtins/string-match-search-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = string-match-search-tq.cc
+  source_name_part = string-match-search-tq
+build obj/v8/torque_generated_definitions/string-pad-tq.o: cxx gen/v8/torque-generated/src/builtins/string-pad-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = string-pad-tq.cc
+  source_name_part = string-pad-tq
+build obj/v8/torque_generated_definitions/string-repeat-tq.o: cxx gen/v8/torque-generated/src/builtins/string-repeat-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = string-repeat-tq.cc
+  source_name_part = string-repeat-tq
+build obj/v8/torque_generated_definitions/string-replaceall-tq.o: cxx gen/v8/torque-generated/src/builtins/string-replaceall-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = string-replaceall-tq.cc
+  source_name_part = string-replaceall-tq
+build obj/v8/torque_generated_definitions/string-slice-tq.o: cxx gen/v8/torque-generated/src/builtins/string-slice-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = string-slice-tq.cc
+  source_name_part = string-slice-tq
+build obj/v8/torque_generated_definitions/string-startswith-tq.o: cxx gen/v8/torque-generated/src/builtins/string-startswith-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = string-startswith-tq.cc
+  source_name_part = string-startswith-tq
+build obj/v8/torque_generated_definitions/string-substr-tq.o: cxx gen/v8/torque-generated/src/builtins/string-substr-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = string-substr-tq.cc
+  source_name_part = string-substr-tq
+build obj/v8/torque_generated_definitions/string-substring-tq.o: cxx gen/v8/torque-generated/src/builtins/string-substring-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = string-substring-tq.cc
+  source_name_part = string-substring-tq
+build obj/v8/torque_generated_definitions/string-towellformed-tq.o: cxx gen/v8/torque-generated/src/builtins/string-towellformed-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = string-towellformed-tq.cc
+  source_name_part = string-towellformed-tq
+build obj/v8/torque_generated_definitions/string-trim-tq.o: cxx gen/v8/torque-generated/src/builtins/string-trim-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = string-trim-tq.cc
+  source_name_part = string-trim-tq
+build obj/v8/torque_generated_definitions/suppressed-error-tq.o: cxx gen/v8/torque-generated/src/builtins/suppressed-error-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = suppressed-error-tq.cc
+  source_name_part = suppressed-error-tq
+build obj/v8/torque_generated_definitions/symbol-tq.o: cxx gen/v8/torque-generated/src/builtins/symbol-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = symbol-tq.cc
+  source_name_part = symbol-tq
+build obj/v8/torque_generated_definitions/torque-internal-tq.o: cxx gen/v8/torque-generated/src/builtins/torque-internal-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = torque-internal-tq.cc
+  source_name_part = torque-internal-tq
+build obj/v8/torque_generated_definitions/typed-array-at-tq.o: cxx gen/v8/torque-generated/src/builtins/typed-array-at-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = typed-array-at-tq.cc
+  source_name_part = typed-array-at-tq
+build obj/v8/torque_generated_definitions/typed-array-createtypedarray-tq.o: cxx gen/v8/torque-generated/src/builtins/typed-array-createtypedarray-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = typed-array-createtypedarray-tq.cc
+  source_name_part = typed-array-createtypedarray-tq
+build obj/v8/torque_generated_definitions/typed-array-every-tq.o: cxx gen/v8/torque-generated/src/builtins/typed-array-every-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = typed-array-every-tq.cc
+  source_name_part = typed-array-every-tq
+build obj/v8/torque_generated_definitions/typed-array-entries-tq.o: cxx gen/v8/torque-generated/src/builtins/typed-array-entries-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = typed-array-entries-tq.cc
+  source_name_part = typed-array-entries-tq
+build obj/v8/torque_generated_definitions/typed-array-filter-tq.o: cxx gen/v8/torque-generated/src/builtins/typed-array-filter-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = typed-array-filter-tq.cc
+  source_name_part = typed-array-filter-tq
+build obj/v8/torque_generated_definitions/typed-array-find-tq.o: cxx gen/v8/torque-generated/src/builtins/typed-array-find-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = typed-array-find-tq.cc
+  source_name_part = typed-array-find-tq
+build obj/v8/torque_generated_definitions/typed-array-findindex-tq.o: cxx gen/v8/torque-generated/src/builtins/typed-array-findindex-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = typed-array-findindex-tq.cc
+  source_name_part = typed-array-findindex-tq
+build obj/v8/torque_generated_definitions/typed-array-findlast-tq.o: cxx gen/v8/torque-generated/src/builtins/typed-array-findlast-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = typed-array-findlast-tq.cc
+  source_name_part = typed-array-findlast-tq
+build obj/v8/torque_generated_definitions/typed-array-findlastindex-tq.o: cxx gen/v8/torque-generated/src/builtins/typed-array-findlastindex-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = typed-array-findlastindex-tq.cc
+  source_name_part = typed-array-findlastindex-tq
+build obj/v8/torque_generated_definitions/typed-array-foreach-tq.o: cxx gen/v8/torque-generated/src/builtins/typed-array-foreach-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = typed-array-foreach-tq.cc
+  source_name_part = typed-array-foreach-tq
+build obj/v8/torque_generated_definitions/typed-array-from-tq.o: cxx gen/v8/torque-generated/src/builtins/typed-array-from-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = typed-array-from-tq.cc
+  source_name_part = typed-array-from-tq
+build obj/v8/torque_generated_definitions/typed-array-keys-tq.o: cxx gen/v8/torque-generated/src/builtins/typed-array-keys-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = typed-array-keys-tq.cc
+  source_name_part = typed-array-keys-tq
+build obj/v8/torque_generated_definitions/typed-array-of-tq.o: cxx gen/v8/torque-generated/src/builtins/typed-array-of-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = typed-array-of-tq.cc
+  source_name_part = typed-array-of-tq
+build obj/v8/torque_generated_definitions/typed-array-reduce-tq.o: cxx gen/v8/torque-generated/src/builtins/typed-array-reduce-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = typed-array-reduce-tq.cc
+  source_name_part = typed-array-reduce-tq
+build obj/v8/torque_generated_definitions/typed-array-reduceright-tq.o: cxx gen/v8/torque-generated/src/builtins/typed-array-reduceright-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = typed-array-reduceright-tq.cc
+  source_name_part = typed-array-reduceright-tq
+build obj/v8/torque_generated_definitions/typed-array-set-tq.o: cxx gen/v8/torque-generated/src/builtins/typed-array-set-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = typed-array-set-tq.cc
+  source_name_part = typed-array-set-tq
+build obj/v8/torque_generated_definitions/typed-array-slice-tq.o: cxx gen/v8/torque-generated/src/builtins/typed-array-slice-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = typed-array-slice-tq.cc
+  source_name_part = typed-array-slice-tq
+build obj/v8/torque_generated_definitions/typed-array-some-tq.o: cxx gen/v8/torque-generated/src/builtins/typed-array-some-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = typed-array-some-tq.cc
+  source_name_part = typed-array-some-tq
+build obj/v8/torque_generated_definitions/typed-array-sort-tq.o: cxx gen/v8/torque-generated/src/builtins/typed-array-sort-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = typed-array-sort-tq.cc
+  source_name_part = typed-array-sort-tq
+build obj/v8/torque_generated_definitions/typed-array-subarray-tq.o: cxx gen/v8/torque-generated/src/builtins/typed-array-subarray-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = typed-array-subarray-tq.cc
+  source_name_part = typed-array-subarray-tq
+build obj/v8/torque_generated_definitions/typed-array-to-reversed-tq.o: cxx gen/v8/torque-generated/src/builtins/typed-array-to-reversed-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = typed-array-to-reversed-tq.cc
+  source_name_part = typed-array-to-reversed-tq
+build obj/v8/torque_generated_definitions/typed-array-to-sorted-tq.o: cxx gen/v8/torque-generated/src/builtins/typed-array-to-sorted-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = typed-array-to-sorted-tq.cc
+  source_name_part = typed-array-to-sorted-tq
+build obj/v8/torque_generated_definitions/typed-array-values-tq.o: cxx gen/v8/torque-generated/src/builtins/typed-array-values-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = typed-array-values-tq.cc
+  source_name_part = typed-array-values-tq
+build obj/v8/torque_generated_definitions/typed-array-with-tq.o: cxx gen/v8/torque-generated/src/builtins/typed-array-with-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = typed-array-with-tq.cc
+  source_name_part = typed-array-with-tq
+build obj/v8/torque_generated_definitions/typed-array-tq.o: cxx gen/v8/torque-generated/src/builtins/typed-array-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = typed-array-tq.cc
+  source_name_part = typed-array-tq
+build obj/v8/torque_generated_definitions/weak-ref-tq.o: cxx gen/v8/torque-generated/src/builtins/weak-ref-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = weak-ref-tq.cc
+  source_name_part = weak-ref-tq
+build obj/v8/torque_generated_definitions/handler-configuration-tq.o: cxx gen/v8/torque-generated/src/ic/handler-configuration-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = handler-configuration-tq.cc
+  source_name_part = handler-configuration-tq
+build obj/v8/torque_generated_definitions/allocation-site-tq.o: cxx gen/v8/torque-generated/src/objects/allocation-site-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = allocation-site-tq.cc
+  source_name_part = allocation-site-tq
+build obj/v8/torque_generated_definitions/api-callbacks-tq.o: cxx gen/v8/torque-generated/src/objects/api-callbacks-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = api-callbacks-tq.cc
+  source_name_part = api-callbacks-tq
+build obj/v8/torque_generated_definitions/arguments-tq.o: cxx gen/v8/torque-generated/src/objects/arguments-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = arguments-tq.cc
+  source_name_part = arguments-tq
+build obj/v8/torque_generated_definitions/bigint-tq.o: cxx gen/v8/torque-generated/src/objects/bigint-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = bigint-tq.cc
+  source_name_part = bigint-tq
+build obj/v8/torque_generated_definitions/call-site-info-tq.o: cxx gen/v8/torque-generated/src/objects/call-site-info-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = call-site-info-tq.cc
+  source_name_part = call-site-info-tq
+build obj/v8/torque_generated_definitions/cell-tq.o: cxx gen/v8/torque-generated/src/objects/cell-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = cell-tq.cc
+  source_name_part = cell-tq
+build obj/v8/torque_generated_definitions/bytecode-array-tq.o: cxx gen/v8/torque-generated/src/objects/bytecode-array-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = bytecode-array-tq.cc
+  source_name_part = bytecode-array-tq
+build obj/v8/torque_generated_definitions/contexts-tq.o: cxx gen/v8/torque-generated/src/objects/contexts-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = contexts-tq.cc
+  source_name_part = contexts-tq
+build obj/v8/torque_generated_definitions/data-handler-tq.o: cxx gen/v8/torque-generated/src/objects/data-handler-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = data-handler-tq.cc
+  source_name_part = data-handler-tq
+build obj/v8/torque_generated_definitions/debug-objects-tq.o: cxx gen/v8/torque-generated/src/objects/debug-objects-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = debug-objects-tq.cc
+  source_name_part = debug-objects-tq
+build obj/v8/torque_generated_definitions/descriptor-array-tq.o: cxx gen/v8/torque-generated/src/objects/descriptor-array-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = descriptor-array-tq.cc
+  source_name_part = descriptor-array-tq
+build obj/v8/torque_generated_definitions/embedder-data-array-tq.o: cxx gen/v8/torque-generated/src/objects/embedder-data-array-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = embedder-data-array-tq.cc
+  source_name_part = embedder-data-array-tq
+build obj/v8/torque_generated_definitions/feedback-cell-tq.o: cxx gen/v8/torque-generated/src/objects/feedback-cell-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = feedback-cell-tq.cc
+  source_name_part = feedback-cell-tq
+build obj/v8/torque_generated_definitions/feedback-vector-tq.o: cxx gen/v8/torque-generated/src/objects/feedback-vector-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = feedback-vector-tq.cc
+  source_name_part = feedback-vector-tq
+build obj/v8/torque_generated_definitions/fixed-array-tq.o: cxx gen/v8/torque-generated/src/objects/fixed-array-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = fixed-array-tq.cc
+  source_name_part = fixed-array-tq
+build obj/v8/torque_generated_definitions/foreign-tq.o: cxx gen/v8/torque-generated/src/objects/foreign-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = foreign-tq.cc
+  source_name_part = foreign-tq
+build obj/v8/torque_generated_definitions/free-space-tq.o: cxx gen/v8/torque-generated/src/objects/free-space-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = free-space-tq.cc
+  source_name_part = free-space-tq
+build obj/v8/torque_generated_definitions/heap-number-tq.o: cxx gen/v8/torque-generated/src/objects/heap-number-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = heap-number-tq.cc
+  source_name_part = heap-number-tq
+build obj/v8/torque_generated_definitions/heap-object-tq.o: cxx gen/v8/torque-generated/src/objects/heap-object-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = heap-object-tq.cc
+  source_name_part = heap-object-tq
+build obj/v8/torque_generated_definitions/js-array-buffer-tq.o: cxx gen/v8/torque-generated/src/objects/js-array-buffer-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = js-array-buffer-tq.cc
+  source_name_part = js-array-buffer-tq
+build obj/v8/torque_generated_definitions/js-array-tq.o: cxx gen/v8/torque-generated/src/objects/js-array-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = js-array-tq.cc
+  source_name_part = js-array-tq
+build obj/v8/torque_generated_definitions/js-atomics-synchronization-tq.o: cxx gen/v8/torque-generated/src/objects/js-atomics-synchronization-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = js-atomics-synchronization-tq.cc
+  source_name_part = js-atomics-synchronization-tq
+build obj/v8/torque_generated_definitions/js-collection-iterator-tq.o: cxx gen/v8/torque-generated/src/objects/js-collection-iterator-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = js-collection-iterator-tq.cc
+  source_name_part = js-collection-iterator-tq
+build obj/v8/torque_generated_definitions/js-collection-tq.o: cxx gen/v8/torque-generated/src/objects/js-collection-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = js-collection-tq.cc
+  source_name_part = js-collection-tq
+build obj/v8/torque_generated_definitions/js-disposable-stack-tq.o: cxx gen/v8/torque-generated/src/objects/js-disposable-stack-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = js-disposable-stack-tq.cc
+  source_name_part = js-disposable-stack-tq
+build obj/v8/torque_generated_definitions/js-function-tq.o: cxx gen/v8/torque-generated/src/objects/js-function-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = js-function-tq.cc
+  source_name_part = js-function-tq
+build obj/v8/torque_generated_definitions/js-generator-tq.o: cxx gen/v8/torque-generated/src/objects/js-generator-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = js-generator-tq.cc
+  source_name_part = js-generator-tq
+build obj/v8/torque_generated_definitions/js-iterator-helpers-tq.o: cxx gen/v8/torque-generated/src/objects/js-iterator-helpers-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = js-iterator-helpers-tq.cc
+  source_name_part = js-iterator-helpers-tq
+build obj/v8/torque_generated_definitions/js-objects-tq.o: cxx gen/v8/torque-generated/src/objects/js-objects-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = js-objects-tq.cc
+  source_name_part = js-objects-tq
+build obj/v8/torque_generated_definitions/js-promise-tq.o: cxx gen/v8/torque-generated/src/objects/js-promise-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = js-promise-tq.cc
+  source_name_part = js-promise-tq
+build obj/v8/torque_generated_definitions/js-proxy-tq.o: cxx gen/v8/torque-generated/src/objects/js-proxy-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = js-proxy-tq.cc
+  source_name_part = js-proxy-tq
+build obj/v8/torque_generated_definitions/js-raw-json-tq.o: cxx gen/v8/torque-generated/src/objects/js-raw-json-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = js-raw-json-tq.cc
+  source_name_part = js-raw-json-tq
+build obj/v8/torque_generated_definitions/js-regexp-string-iterator-tq.o: cxx gen/v8/torque-generated/src/objects/js-regexp-string-iterator-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = js-regexp-string-iterator-tq.cc
+  source_name_part = js-regexp-string-iterator-tq
+build obj/v8/torque_generated_definitions/js-regexp-tq.o: cxx gen/v8/torque-generated/src/objects/js-regexp-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = js-regexp-tq.cc
+  source_name_part = js-regexp-tq
+build obj/v8/torque_generated_definitions/js-shadow-realm-tq.o: cxx gen/v8/torque-generated/src/objects/js-shadow-realm-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = js-shadow-realm-tq.cc
+  source_name_part = js-shadow-realm-tq
+build obj/v8/torque_generated_definitions/js-shared-array-tq.o: cxx gen/v8/torque-generated/src/objects/js-shared-array-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = js-shared-array-tq.cc
+  source_name_part = js-shared-array-tq
+build obj/v8/torque_generated_definitions/js-struct-tq.o: cxx gen/v8/torque-generated/src/objects/js-struct-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = js-struct-tq.cc
+  source_name_part = js-struct-tq
+build obj/v8/torque_generated_definitions/js-temporal-objects-tq.o: cxx gen/v8/torque-generated/src/objects/js-temporal-objects-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = js-temporal-objects-tq.cc
+  source_name_part = js-temporal-objects-tq
+build obj/v8/torque_generated_definitions/js-weak-refs-tq.o: cxx gen/v8/torque-generated/src/objects/js-weak-refs-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = js-weak-refs-tq.cc
+  source_name_part = js-weak-refs-tq
+build obj/v8/torque_generated_definitions/literal-objects-tq.o: cxx gen/v8/torque-generated/src/objects/literal-objects-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = literal-objects-tq.cc
+  source_name_part = literal-objects-tq
+build obj/v8/torque_generated_definitions/map-tq.o: cxx gen/v8/torque-generated/src/objects/map-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = map-tq.cc
+  source_name_part = map-tq
+build obj/v8/torque_generated_definitions/megadom-handler-tq.o: cxx gen/v8/torque-generated/src/objects/megadom-handler-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = megadom-handler-tq.cc
+  source_name_part = megadom-handler-tq
+build obj/v8/torque_generated_definitions/microtask-tq.o: cxx gen/v8/torque-generated/src/objects/microtask-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = microtask-tq.cc
+  source_name_part = microtask-tq
+build obj/v8/torque_generated_definitions/module-tq.o: cxx gen/v8/torque-generated/src/objects/module-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = module-tq.cc
+  source_name_part = module-tq
+build obj/v8/torque_generated_definitions/name-tq.o: cxx gen/v8/torque-generated/src/objects/name-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = name-tq.cc
+  source_name_part = name-tq
+build obj/v8/torque_generated_definitions/oddball-tq.o: cxx gen/v8/torque-generated/src/objects/oddball-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = oddball-tq.cc
+  source_name_part = oddball-tq
+build obj/v8/torque_generated_definitions/hole-tq.o: cxx gen/v8/torque-generated/src/objects/hole-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = hole-tq.cc
+  source_name_part = hole-tq
+build obj/v8/torque_generated_definitions/trusted-object-tq.o: cxx gen/v8/torque-generated/src/objects/trusted-object-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = trusted-object-tq.cc
+  source_name_part = trusted-object-tq
+build obj/v8/torque_generated_definitions/ordered-hash-table-tq.o: cxx gen/v8/torque-generated/src/objects/ordered-hash-table-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = ordered-hash-table-tq.cc
+  source_name_part = ordered-hash-table-tq
+build obj/v8/torque_generated_definitions/primitive-heap-object-tq.o: cxx gen/v8/torque-generated/src/objects/primitive-heap-object-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = primitive-heap-object-tq.cc
+  source_name_part = primitive-heap-object-tq
+build obj/v8/torque_generated_definitions/promise-tq.o: cxx gen/v8/torque-generated/src/objects/promise-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = promise-tq.cc
+  source_name_part = promise-tq
+build obj/v8/torque_generated_definitions/property-array-tq.o: cxx gen/v8/torque-generated/src/objects/property-array-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = property-array-tq.cc
+  source_name_part = property-array-tq
+build obj/v8/torque_generated_definitions/property-cell-tq.o: cxx gen/v8/torque-generated/src/objects/property-cell-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = property-cell-tq.cc
+  source_name_part = property-cell-tq
+build obj/v8/torque_generated_definitions/property-descriptor-object-tq.o: cxx gen/v8/torque-generated/src/objects/property-descriptor-object-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = property-descriptor-object-tq.cc
+  source_name_part = property-descriptor-object-tq
+build obj/v8/torque_generated_definitions/prototype-info-tq.o: cxx gen/v8/torque-generated/src/objects/prototype-info-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = prototype-info-tq.cc
+  source_name_part = prototype-info-tq
+build obj/v8/torque_generated_definitions/regexp-match-info-tq.o: cxx gen/v8/torque-generated/src/objects/regexp-match-info-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = regexp-match-info-tq.cc
+  source_name_part = regexp-match-info-tq
+build obj/v8/torque_generated_definitions/scope-info-tq.o: cxx gen/v8/torque-generated/src/objects/scope-info-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = scope-info-tq.cc
+  source_name_part = scope-info-tq
+build obj/v8/torque_generated_definitions/script-tq.o: cxx gen/v8/torque-generated/src/objects/script-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = script-tq.cc
+  source_name_part = script-tq
+build obj/v8/torque_generated_definitions/shared-function-info-tq.o: cxx gen/v8/torque-generated/src/objects/shared-function-info-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = shared-function-info-tq.cc
+  source_name_part = shared-function-info-tq
+build obj/v8/torque_generated_definitions/source-text-module-tq.o: cxx gen/v8/torque-generated/src/objects/source-text-module-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = source-text-module-tq.cc
+  source_name_part = source-text-module-tq
+build obj/v8/torque_generated_definitions/string-tq.o: cxx gen/v8/torque-generated/src/objects/string-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = string-tq.cc
+  source_name_part = string-tq
+build obj/v8/torque_generated_definitions/struct-tq.o: cxx gen/v8/torque-generated/src/objects/struct-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = struct-tq.cc
+  source_name_part = struct-tq
+build obj/v8/torque_generated_definitions/swiss-hash-table-helpers-tq.o: cxx gen/v8/torque-generated/src/objects/swiss-hash-table-helpers-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = swiss-hash-table-helpers-tq.cc
+  source_name_part = swiss-hash-table-helpers-tq
+build obj/v8/torque_generated_definitions/swiss-name-dictionary-tq.o: cxx gen/v8/torque-generated/src/objects/swiss-name-dictionary-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = swiss-name-dictionary-tq.cc
+  source_name_part = swiss-name-dictionary-tq
+build obj/v8/torque_generated_definitions/synthetic-module-tq.o: cxx gen/v8/torque-generated/src/objects/synthetic-module-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = synthetic-module-tq.cc
+  source_name_part = synthetic-module-tq
+build obj/v8/torque_generated_definitions/template-objects-tq.o: cxx gen/v8/torque-generated/src/objects/template-objects-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = template-objects-tq.cc
+  source_name_part = template-objects-tq
+build obj/v8/torque_generated_definitions/templates-tq.o: cxx gen/v8/torque-generated/src/objects/templates-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = templates-tq.cc
+  source_name_part = templates-tq
+build obj/v8/torque_generated_definitions/torque-defined-classes-tq.o: cxx gen/v8/torque-generated/src/objects/torque-defined-classes-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = torque-defined-classes-tq.cc
+  source_name_part = torque-defined-classes-tq
+build obj/v8/torque_generated_definitions/turbofan-types-tq.o: cxx gen/v8/torque-generated/src/objects/turbofan-types-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = turbofan-types-tq.cc
+  source_name_part = turbofan-types-tq
+build obj/v8/torque_generated_definitions/turboshaft-types-tq.o: cxx gen/v8/torque-generated/src/objects/turboshaft-types-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = turboshaft-types-tq.cc
+  source_name_part = turboshaft-types-tq
+build obj/v8/torque_generated_definitions/test-torque-tq.o: cxx gen/v8/torque-generated/test/torque/test-torque-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = test-torque-tq.cc
+  source_name_part = test-torque-tq
+build obj/v8/torque_generated_definitions/array-sort-tq.o: cxx gen/v8/torque-generated/third_party/v8/builtins/array-sort-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = array-sort-tq.cc
+  source_name_part = array-sort-tq
+build obj/v8/torque_generated_definitions/intl-objects-tq.o: cxx gen/v8/torque-generated/src/objects/intl-objects-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = intl-objects-tq.cc
+  source_name_part = intl-objects-tq
+build obj/v8/torque_generated_definitions/js-break-iterator-tq.o: cxx gen/v8/torque-generated/src/objects/js-break-iterator-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = js-break-iterator-tq.cc
+  source_name_part = js-break-iterator-tq
+build obj/v8/torque_generated_definitions/js-collator-tq.o: cxx gen/v8/torque-generated/src/objects/js-collator-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = js-collator-tq.cc
+  source_name_part = js-collator-tq
+build obj/v8/torque_generated_definitions/js-date-time-format-tq.o: cxx gen/v8/torque-generated/src/objects/js-date-time-format-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = js-date-time-format-tq.cc
+  source_name_part = js-date-time-format-tq
+build obj/v8/torque_generated_definitions/js-display-names-tq.o: cxx gen/v8/torque-generated/src/objects/js-display-names-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = js-display-names-tq.cc
+  source_name_part = js-display-names-tq
+build obj/v8/torque_generated_definitions/js-duration-format-tq.o: cxx gen/v8/torque-generated/src/objects/js-duration-format-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = js-duration-format-tq.cc
+  source_name_part = js-duration-format-tq
+build obj/v8/torque_generated_definitions/js-list-format-tq.o: cxx gen/v8/torque-generated/src/objects/js-list-format-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = js-list-format-tq.cc
+  source_name_part = js-list-format-tq
+build obj/v8/torque_generated_definitions/js-locale-tq.o: cxx gen/v8/torque-generated/src/objects/js-locale-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = js-locale-tq.cc
+  source_name_part = js-locale-tq
+build obj/v8/torque_generated_definitions/js-number-format-tq.o: cxx gen/v8/torque-generated/src/objects/js-number-format-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = js-number-format-tq.cc
+  source_name_part = js-number-format-tq
+build obj/v8/torque_generated_definitions/js-plural-rules-tq.o: cxx gen/v8/torque-generated/src/objects/js-plural-rules-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = js-plural-rules-tq.cc
+  source_name_part = js-plural-rules-tq
+build obj/v8/torque_generated_definitions/js-relative-time-format-tq.o: cxx gen/v8/torque-generated/src/objects/js-relative-time-format-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = js-relative-time-format-tq.cc
+  source_name_part = js-relative-time-format-tq
+build obj/v8/torque_generated_definitions/js-segment-iterator-tq.o: cxx gen/v8/torque-generated/src/objects/js-segment-iterator-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = js-segment-iterator-tq.cc
+  source_name_part = js-segment-iterator-tq
+build obj/v8/torque_generated_definitions/js-segmenter-tq.o: cxx gen/v8/torque-generated/src/objects/js-segmenter-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = js-segmenter-tq.cc
+  source_name_part = js-segmenter-tq
+build obj/v8/torque_generated_definitions/js-segments-tq.o: cxx gen/v8/torque-generated/src/objects/js-segments-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = js-segments-tq.cc
+  source_name_part = js-segments-tq
+build obj/v8/torque_generated_definitions/js-to-js-tq.o: cxx gen/v8/torque-generated/src/builtins/js-to-js-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = js-to-js-tq.cc
+  source_name_part = js-to-js-tq
+build obj/v8/torque_generated_definitions/js-to-wasm-tq.o: cxx gen/v8/torque-generated/src/builtins/js-to-wasm-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = js-to-wasm-tq.cc
+  source_name_part = js-to-wasm-tq
+build obj/v8/torque_generated_definitions/wasm-tq.o: cxx gen/v8/torque-generated/src/builtins/wasm-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = wasm-tq.cc
+  source_name_part = wasm-tq
+build obj/v8/torque_generated_definitions/wasm-strings-tq.o: cxx gen/v8/torque-generated/src/builtins/wasm-strings-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = wasm-strings-tq.cc
+  source_name_part = wasm-strings-tq
+build obj/v8/torque_generated_definitions/wasm-to-js-tq.o: cxx gen/v8/torque-generated/src/builtins/wasm-to-js-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = wasm-to-js-tq.cc
+  source_name_part = wasm-to-js-tq
+build obj/v8/torque_generated_definitions/debug-wasm-objects-tq.o: cxx gen/v8/torque-generated/src/debug/debug-wasm-objects-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = debug-wasm-objects-tq.cc
+  source_name_part = debug-wasm-objects-tq
+build obj/v8/torque_generated_definitions/wasm-objects-tq.o: cxx gen/v8/torque-generated/src/wasm/wasm-objects-tq.cc | phony/v8/torque_generated_definitions.inputs || phony/v8/torque_generated_definitions.inputdeps
+  source_file_part = wasm-objects-tq.cc
+  source_name_part = wasm-objects-tq
+
+build phony/v8/torque_generated_definitions: phony obj/v8/torque_generated_definitions/class-verifiers.o obj/v8/torque_generated_definitions/factory.o obj/v8/torque_generated_definitions/objects-printer.o obj/v8/torque_generated_definitions/aggregate-error-tq.o obj/v8/torque_generated_definitions/array-at-tq.o obj/v8/torque_generated_definitions/array-concat-tq.o obj/v8/torque_generated_definitions/array-copywithin-tq.o obj/v8/torque_generated_definitions/array-every-tq.o obj/v8/torque_generated_definitions/array-filter-tq.o obj/v8/torque_generated_definitions/array-find-tq.o obj/v8/torque_generated_definitions/array-findindex-tq.o obj/v8/torque_generated_definitions/array-findlast-tq.o obj/v8/torque_generated_definitions/array-findlastindex-tq.o obj/v8/torque_generated_definitions/array-flat-tq.o obj/v8/torque_generated_definitions/array-foreach-tq.o obj/v8/torque_generated_definitions/array-from-async-tq.o obj/v8/torque_generated_definitions/array-from-tq.o obj/v8/torque_generated_definitions/array-isarray-tq.o obj/v8/torque_generated_definitions/array-join-tq.o obj/v8/torque_generated_definitions/array-lastindexof-tq.o obj/v8/torque_generated_definitions/array-map-tq.o obj/v8/torque_generated_definitions/array-of-tq.o obj/v8/torque_generated_definitions/array-reduce-right-tq.o obj/v8/torque_generated_definitions/array-reduce-tq.o obj/v8/torque_generated_definitions/array-reverse-tq.o obj/v8/torque_generated_definitions/array-shift-tq.o obj/v8/torque_generated_definitions/array-slice-tq.o obj/v8/torque_generated_definitions/array-some-tq.o obj/v8/torque_generated_definitions/array-splice-tq.o obj/v8/torque_generated_definitions/array-to-reversed-tq.o obj/v8/torque_generated_definitions/array-to-sorted-tq.o obj/v8/torque_generated_definitions/array-to-spliced-tq.o obj/v8/torque_generated_definitions/array-unshift-tq.o obj/v8/torque_generated_definitions/array-with-tq.o obj/v8/torque_generated_definitions/array-tq.o obj/v8/torque_generated_definitions/arraybuffer-tq.o obj/v8/torque_generated_definitions/base-tq.o obj/v8/torque_generated_definitions/boolean-tq.o obj/v8/torque_generated_definitions/builtins-bigint-tq.o obj/v8/torque_generated_definitions/builtins-string-tq.o obj/v8/torque_generated_definitions/cast-tq.o obj/v8/torque_generated_definitions/collections-tq.o obj/v8/torque_generated_definitions/constructor-tq.o obj/v8/torque_generated_definitions/conversion-tq.o obj/v8/torque_generated_definitions/convert-tq.o obj/v8/torque_generated_definitions/console-tq.o obj/v8/torque_generated_definitions/data-view-tq.o obj/v8/torque_generated_definitions/finalization-registry-tq.o obj/v8/torque_generated_definitions/frames-tq.o obj/v8/torque_generated_definitions/frame-arguments-tq.o obj/v8/torque_generated_definitions/function-tq.o obj/v8/torque_generated_definitions/growable-fixed-array-tq.o obj/v8/torque_generated_definitions/ic-callable-tq.o obj/v8/torque_generated_definitions/ic-tq.o obj/v8/torque_generated_definitions/internal-coverage-tq.o obj/v8/torque_generated_definitions/internal-tq.o obj/v8/torque_generated_definitions/iterator-tq.o obj/v8/torque_generated_definitions/iterator-from-tq.o obj/v8/torque_generated_definitions/iterator-helpers-tq.o obj/v8/torque_generated_definitions/map-groupby-tq.o obj/v8/torque_generated_definitions/math-tq.o obj/v8/torque_generated_definitions/number-tq.o obj/v8/torque_generated_definitions/object-fromentries-tq.o obj/v8/torque_generated_definitions/object-groupby-tq.o obj/v8/torque_generated_definitions/object-tq.o obj/v8/torque_generated_definitions/promise-abstract-operations-tq.o obj/v8/torque_generated_definitions/promise-all-tq.o obj/v8/torque_generated_definitions/promise-all-element-closure-tq.o obj/v8/torque_generated_definitions/promise-any-tq.o obj/v8/torque_generated_definitions/promise-constructor-tq.o obj/v8/torque_generated_definitions/promise-finally-tq.o obj/v8/torque_generated_definitions/promise-jobs-tq.o obj/v8/torque_generated_definitions/promise-misc-tq.o obj/v8/torque_generated_definitions/promise-race-tq.o obj/v8/torque_generated_definitions/promise-reaction-job-tq.o obj/v8/torque_generated_definitions/promise-resolve-tq.o obj/v8/torque_generated_definitions/promise-then-tq.o obj/v8/torque_generated_definitions/promise-try-tq.o obj/v8/torque_generated_definitions/promise-withresolvers-tq.o obj/v8/torque_generated_definitions/proxy-constructor-tq.o obj/v8/torque_generated_definitions/proxy-delete-property-tq.o obj/v8/torque_generated_definitions/proxy-get-property-tq.o obj/v8/torque_generated_definitions/proxy-get-prototype-of-tq.o obj/v8/torque_generated_definitions/proxy-has-property-tq.o obj/v8/torque_generated_definitions/proxy-is-extensible-tq.o obj/v8/torque_generated_definitions/proxy-prevent-extensions-tq.o obj/v8/torque_generated_definitions/proxy-revocable-tq.o obj/v8/torque_generated_definitions/proxy-revoke-tq.o obj/v8/torque_generated_definitions/proxy-set-property-tq.o obj/v8/torque_generated_definitions/proxy-set-prototype-of-tq.o obj/v8/torque_generated_definitions/proxy-tq.o obj/v8/torque_generated_definitions/reflect-tq.o obj/v8/torque_generated_definitions/regexp-exec-tq.o obj/v8/torque_generated_definitions/regexp-match-all-tq.o obj/v8/torque_generated_definitions/regexp-match-tq.o obj/v8/torque_generated_definitions/regexp-replace-tq.o obj/v8/torque_generated_definitions/regexp-search-tq.o obj/v8/torque_generated_definitions/regexp-source-tq.o obj/v8/torque_generated_definitions/regexp-split-tq.o obj/v8/torque_generated_definitions/regexp-test-tq.o obj/v8/torque_generated_definitions/regexp-tq.o obj/v8/torque_generated_definitions/set-difference-tq.o obj/v8/torque_generated_definitions/set-intersection-tq.o obj/v8/torque_generated_definitions/set-is-disjoint-from-tq.o obj/v8/torque_generated_definitions/set-is-subset-of-tq.o obj/v8/torque_generated_definitions/set-is-superset-of-tq.o obj/v8/torque_generated_definitions/set-symmetric-difference-tq.o obj/v8/torque_generated_definitions/set-union-tq.o obj/v8/torque_generated_definitions/string-at-tq.o obj/v8/torque_generated_definitions/string-endswith-tq.o obj/v8/torque_generated_definitions/string-html-tq.o obj/v8/torque_generated_definitions/string-includes-tq.o obj/v8/torque_generated_definitions/string-indexof-tq.o obj/v8/torque_generated_definitions/string-iswellformed-tq.o obj/v8/torque_generated_definitions/string-iterator-tq.o obj/v8/torque_generated_definitions/string-match-search-tq.o obj/v8/torque_generated_definitions/string-pad-tq.o obj/v8/torque_generated_definitions/string-repeat-tq.o obj/v8/torque_generated_definitions/string-replaceall-tq.o obj/v8/torque_generated_definitions/string-slice-tq.o obj/v8/torque_generated_definitions/string-startswith-tq.o obj/v8/torque_generated_definitions/string-substr-tq.o obj/v8/torque_generated_definitions/string-substring-tq.o obj/v8/torque_generated_definitions/string-towellformed-tq.o obj/v8/torque_generated_definitions/string-trim-tq.o obj/v8/torque_generated_definitions/suppressed-error-tq.o obj/v8/torque_generated_definitions/symbol-tq.o obj/v8/torque_generated_definitions/torque-internal-tq.o obj/v8/torque_generated_definitions/typed-array-at-tq.o obj/v8/torque_generated_definitions/typed-array-createtypedarray-tq.o obj/v8/torque_generated_definitions/typed-array-every-tq.o obj/v8/torque_generated_definitions/typed-array-entries-tq.o obj/v8/torque_generated_definitions/typed-array-filter-tq.o obj/v8/torque_generated_definitions/typed-array-find-tq.o obj/v8/torque_generated_definitions/typed-array-findindex-tq.o obj/v8/torque_generated_definitions/typed-array-findlast-tq.o obj/v8/torque_generated_definitions/typed-array-findlastindex-tq.o obj/v8/torque_generated_definitions/typed-array-foreach-tq.o obj/v8/torque_generated_definitions/typed-array-from-tq.o obj/v8/torque_generated_definitions/typed-array-keys-tq.o obj/v8/torque_generated_definitions/typed-array-of-tq.o obj/v8/torque_generated_definitions/typed-array-reduce-tq.o obj/v8/torque_generated_definitions/typed-array-reduceright-tq.o obj/v8/torque_generated_definitions/typed-array-set-tq.o obj/v8/torque_generated_definitions/typed-array-slice-tq.o obj/v8/torque_generated_definitions/typed-array-some-tq.o obj/v8/torque_generated_definitions/typed-array-sort-tq.o obj/v8/torque_generated_definitions/typed-array-subarray-tq.o obj/v8/torque_generated_definitions/typed-array-to-reversed-tq.o obj/v8/torque_generated_definitions/typed-array-to-sorted-tq.o obj/v8/torque_generated_definitions/typed-array-values-tq.o obj/v8/torque_generated_definitions/typed-array-with-tq.o obj/v8/torque_generated_definitions/typed-array-tq.o obj/v8/torque_generated_definitions/weak-ref-tq.o obj/v8/torque_generated_definitions/handler-configuration-tq.o obj/v8/torque_generated_definitions/allocation-site-tq.o obj/v8/torque_generated_definitions/api-callbacks-tq.o obj/v8/torque_generated_definitions/arguments-tq.o obj/v8/torque_generated_definitions/bigint-tq.o obj/v8/torque_generated_definitions/call-site-info-tq.o obj/v8/torque_generated_definitions/cell-tq.o obj/v8/torque_generated_definitions/bytecode-array-tq.o obj/v8/torque_generated_definitions/contexts-tq.o obj/v8/torque_generated_definitions/data-handler-tq.o obj/v8/torque_generated_definitions/debug-objects-tq.o obj/v8/torque_generated_definitions/descriptor-array-tq.o obj/v8/torque_generated_definitions/embedder-data-array-tq.o obj/v8/torque_generated_definitions/feedback-cell-tq.o obj/v8/torque_generated_definitions/feedback-vector-tq.o obj/v8/torque_generated_definitions/fixed-array-tq.o obj/v8/torque_generated_definitions/foreign-tq.o obj/v8/torque_generated_definitions/free-space-tq.o obj/v8/torque_generated_definitions/heap-number-tq.o obj/v8/torque_generated_definitions/heap-object-tq.o obj/v8/torque_generated_definitions/js-array-buffer-tq.o obj/v8/torque_generated_definitions/js-array-tq.o obj/v8/torque_generated_definitions/js-atomics-synchronization-tq.o obj/v8/torque_generated_definitions/js-collection-iterator-tq.o obj/v8/torque_generated_definitions/js-collection-tq.o obj/v8/torque_generated_definitions/js-disposable-stack-tq.o obj/v8/torque_generated_definitions/js-function-tq.o obj/v8/torque_generated_definitions/js-generator-tq.o obj/v8/torque_generated_definitions/js-iterator-helpers-tq.o obj/v8/torque_generated_definitions/js-objects-tq.o obj/v8/torque_generated_definitions/js-promise-tq.o obj/v8/torque_generated_definitions/js-proxy-tq.o obj/v8/torque_generated_definitions/js-raw-json-tq.o obj/v8/torque_generated_definitions/js-regexp-string-iterator-tq.o obj/v8/torque_generated_definitions/js-regexp-tq.o obj/v8/torque_generated_definitions/js-shadow-realm-tq.o obj/v8/torque_generated_definitions/js-shared-array-tq.o obj/v8/torque_generated_definitions/js-struct-tq.o obj/v8/torque_generated_definitions/js-temporal-objects-tq.o obj/v8/torque_generated_definitions/js-weak-refs-tq.o obj/v8/torque_generated_definitions/literal-objects-tq.o obj/v8/torque_generated_definitions/map-tq.o obj/v8/torque_generated_definitions/megadom-handler-tq.o obj/v8/torque_generated_definitions/microtask-tq.o obj/v8/torque_generated_definitions/module-tq.o obj/v8/torque_generated_definitions/name-tq.o obj/v8/torque_generated_definitions/oddball-tq.o obj/v8/torque_generated_definitions/hole-tq.o obj/v8/torque_generated_definitions/trusted-object-tq.o obj/v8/torque_generated_definitions/ordered-hash-table-tq.o obj/v8/torque_generated_definitions/primitive-heap-object-tq.o obj/v8/torque_generated_definitions/promise-tq.o obj/v8/torque_generated_definitions/property-array-tq.o obj/v8/torque_generated_definitions/property-cell-tq.o obj/v8/torque_generated_definitions/property-descriptor-object-tq.o obj/v8/torque_generated_definitions/prototype-info-tq.o obj/v8/torque_generated_definitions/regexp-match-info-tq.o obj/v8/torque_generated_definitions/scope-info-tq.o obj/v8/torque_generated_definitions/script-tq.o obj/v8/torque_generated_definitions/shared-function-info-tq.o obj/v8/torque_generated_definitions/source-text-module-tq.o obj/v8/torque_generated_definitions/string-tq.o obj/v8/torque_generated_definitions/struct-tq.o obj/v8/torque_generated_definitions/swiss-hash-table-helpers-tq.o obj/v8/torque_generated_definitions/swiss-name-dictionary-tq.o obj/v8/torque_generated_definitions/synthetic-module-tq.o obj/v8/torque_generated_definitions/template-objects-tq.o obj/v8/torque_generated_definitions/templates-tq.o obj/v8/torque_generated_definitions/torque-defined-classes-tq.o obj/v8/torque_generated_definitions/turbofan-types-tq.o obj/v8/torque_generated_definitions/turboshaft-types-tq.o obj/v8/torque_generated_definitions/test-torque-tq.o obj/v8/torque_generated_definitions/array-sort-tq.o obj/v8/torque_generated_definitions/intl-objects-tq.o obj/v8/torque_generated_definitions/js-break-iterator-tq.o obj/v8/torque_generated_definitions/js-collator-tq.o obj/v8/torque_generated_definitions/js-date-time-format-tq.o obj/v8/torque_generated_definitions/js-display-names-tq.o obj/v8/torque_generated_definitions/js-duration-format-tq.o obj/v8/torque_generated_definitions/js-list-format-tq.o obj/v8/torque_generated_definitions/js-locale-tq.o obj/v8/torque_generated_definitions/js-number-format-tq.o obj/v8/torque_generated_definitions/js-plural-rules-tq.o obj/v8/torque_generated_definitions/js-relative-time-format-tq.o obj/v8/torque_generated_definitions/js-segment-iterator-tq.o obj/v8/torque_generated_definitions/js-segmenter-tq.o obj/v8/torque_generated_definitions/js-segments-tq.o obj/v8/torque_generated_definitions/js-to-js-tq.o obj/v8/torque_generated_definitions/js-to-wasm-tq.o obj/v8/torque_generated_definitions/wasm-tq.o obj/v8/torque_generated_definitions/wasm-strings-tq.o obj/v8/torque_generated_definitions/wasm-to-js-tq.o obj/v8/torque_generated_definitions/debug-wasm-objects-tq.o obj/v8/torque_generated_definitions/wasm-objects-tq.o || phony/v8/v8_abseil phony/v8/v8_maybe_icu phony/v8/generate_bytecode_builtins_list phony/v8/run_torque phony/v8/v8_internal_headers ./libv8_libbase.so.TOC phony/v8/v8_tracing ./libthird_party_abseil-cpp_absl.so.TOC ./libthird_party_icu_icui18n.so.TOC ./libicuuc.so.TOC phony/v8/v8_flags phony/v8/v8_shared_internal_headers phony/v8/v8_headers phony/v8/cppgc_headers ./libv8_libplatform.so.TOC ./libthird_party_perfetto_libperfetto.so.TOC phony/v8/v8_heap_base_headers

@@ -1,0 +1,82 @@
+defines = -D_GLFW_EGL_LIBRARY=\"libEGL.so\" -D_GLFW_X11 -DDCHECK_ALWAYS_ON=1 -DUSE_UDEV -DUSE_AURA=1 -DUSE_GLIB=1 -DUSE_OZONE=1 -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_GNU_SOURCE -DCR_CLANG_REVISION=\"llvmorg-21-init-1655-g7b473dfe-1\" -D_LIBCPP_HARDENING_MODE=_LIBCPP_HARDENING_MODE_EXTENSIVE -DCOMPONENT_BUILD -D_LIBCPP_INSTRUMENTED_WITH_ASAN=0 -DCR_LIBCXX_REVISION=7c3087b8a7563d8218b27b7183ba41cf52d41508 -DTMP_REBUILD_HACK -DCR_SYSROOT_KEY=20250129T203412Z-1 -D_DEBUG -DDYNAMIC_ANNOTATIONS_ENABLED=1
+include_dirs = -I../../../.. -Igen -I../../../../buildtools/third_party/libc++ -I../../../../third_party/dawn/third_party/glfw/include
+cflags = -fno-delete-null-pointer-checks -fno-strict-overflow -fno-ident -fno-strict-aliasing -fstack-protector -funwind-tables -fPIC -pthread -fcolor-diagnostics -fmerge-all-constants -fno-sized-deallocation -fcrash-diagnostics-dir=../../../../tools/clang/crashreports -mllvm -instcombine-lower-dbg-declare=0 -mllvm -split-threshold-for-reg-with-hint=0 -ffp-contract=off -Wa,--crel,--allow-experimental-crel -fcomplete-member-pointers -m64 -msse3 -Wno-builtin-macro-redefined -D__DATE__= -D__TIME__= -D__TIMESTAMP__= -ffile-compilation-dir=. -no-canonical-prefixes -ftrivial-auto-var-init=pattern -O0 -fno-omit-frame-pointer -gdwarf-4 -g2 -gdwarf-aranges -gsplit-dwarf -ggnu-pubnames -Xclang -fuse-ctor-homing -fvisibility=hidden -Wheader-hygiene -Wstring-conversion -Wtautological-overlap-compare -Xclang -add-plugin -Xclang find-bad-constructs -Xclang -plugin-arg-find-bad-constructs -Xclang span-ctor-from-string-literal -Xclang -plugin-arg-find-bad-constructs -Xclang raw-ref-template-as-trivial-member -Xclang -plugin-arg-find-bad-constructs -Xclang raw-span-template-as-trivial-member -Xclang -plugin-arg-find-bad-constructs -Xclang check-stack-allocated -Xclang -plugin-arg-find-bad-constructs -Xclang check-ipc -Xclang -add-plugin -Xclang raw-ptr-plugin -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ptr-to-stack-allocated -Xclang -plugin-arg-raw-ptr-plugin -Xclang disable-check-raw-ptr-to-stack-allocated-error -Xclang -plugin-arg-raw-ptr-plugin -Xclang raw-ptr-exclude-path=../../../dawn/ -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ptr-fields -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-span-fields -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ref-fields -DUNSAFE_BUFFERS_BUILD -Xclang -add-plugin -Xclang unsafe-buffers -Xclang -plugin-arg-unsafe-buffers -Xclang ../../../../build/config/unsafe_buffers_paths.txt -Wall -Wno-unused-variable -Wno-c++11-narrowing -Wno-unused-but-set-variable -Wno-misleading-indentation -Wno-missing-field-initializers -Wno-unused-parameter -Wno-psabi -Wloop-analysis -Wno-unneeded-internal-declaration -Wno-cast-function-type -Wno-thread-safety-reference-return -Wno-nontrivial-memcall -Werror
+cflags_c = -Wno-sign-compare -Wno-missing-field-initializers -Wno-macro-redefined -std=c11 --sysroot=../../../../build/linux/debian_bullseye_amd64-sysroot
+label_name = glfw
+target_out_dir = obj/third_party/dawn/third_party/gn/glfw
+target_output_name = libglfw
+
+build obj/third_party/dawn/third_party/gn/glfw/glfw/context.o: cc ../../../../third_party/dawn/third_party/glfw/src/context.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = context.c
+  source_name_part = context
+build obj/third_party/dawn/third_party/gn/glfw/glfw/egl_context.o: cc ../../../../third_party/dawn/third_party/glfw/src/egl_context.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = egl_context.c
+  source_name_part = egl_context
+build obj/third_party/dawn/third_party/gn/glfw/glfw/init.o: cc ../../../../third_party/dawn/third_party/glfw/src/init.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = init.c
+  source_name_part = init
+build obj/third_party/dawn/third_party/gn/glfw/glfw/input.o: cc ../../../../third_party/dawn/third_party/glfw/src/input.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = input.c
+  source_name_part = input
+build obj/third_party/dawn/third_party/gn/glfw/glfw/monitor.o: cc ../../../../third_party/dawn/third_party/glfw/src/monitor.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = monitor.c
+  source_name_part = monitor
+build obj/third_party/dawn/third_party/gn/glfw/glfw/null_init.o: cc ../../../../third_party/dawn/third_party/glfw/src/null_init.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = null_init.c
+  source_name_part = null_init
+build obj/third_party/dawn/third_party/gn/glfw/glfw/null_joystick.o: cc ../../../../third_party/dawn/third_party/glfw/src/null_joystick.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = null_joystick.c
+  source_name_part = null_joystick
+build obj/third_party/dawn/third_party/gn/glfw/glfw/null_monitor.o: cc ../../../../third_party/dawn/third_party/glfw/src/null_monitor.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = null_monitor.c
+  source_name_part = null_monitor
+build obj/third_party/dawn/third_party/gn/glfw/glfw/null_window.o: cc ../../../../third_party/dawn/third_party/glfw/src/null_window.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = null_window.c
+  source_name_part = null_window
+build obj/third_party/dawn/third_party/gn/glfw/glfw/osmesa_context.o: cc ../../../../third_party/dawn/third_party/glfw/src/osmesa_context.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = osmesa_context.c
+  source_name_part = osmesa_context
+build obj/third_party/dawn/third_party/gn/glfw/glfw/platform.o: cc ../../../../third_party/dawn/third_party/glfw/src/platform.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = platform.c
+  source_name_part = platform
+build obj/third_party/dawn/third_party/gn/glfw/glfw/vulkan.o: cc ../../../../third_party/dawn/third_party/glfw/src/vulkan.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = vulkan.c
+  source_name_part = vulkan
+build obj/third_party/dawn/third_party/gn/glfw/glfw/window.o: cc ../../../../third_party/dawn/third_party/glfw/src/window.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = window.c
+  source_name_part = window
+build obj/third_party/dawn/third_party/gn/glfw/glfw/posix_module.o: cc ../../../../third_party/dawn/third_party/glfw/src/posix_module.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = posix_module.c
+  source_name_part = posix_module
+build obj/third_party/dawn/third_party/gn/glfw/glfw/posix_thread.o: cc ../../../../third_party/dawn/third_party/glfw/src/posix_thread.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = posix_thread.c
+  source_name_part = posix_thread
+build obj/third_party/dawn/third_party/gn/glfw/glfw/posix_time.o: cc ../../../../third_party/dawn/third_party/glfw/src/posix_time.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = posix_time.c
+  source_name_part = posix_time
+build obj/third_party/dawn/third_party/gn/glfw/glfw/glx_context.o: cc ../../../../third_party/dawn/third_party/glfw/src/glx_context.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = glx_context.c
+  source_name_part = glx_context
+build obj/third_party/dawn/third_party/gn/glfw/glfw/x11_init.o: cc ../../../../third_party/dawn/third_party/glfw/src/x11_init.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = x11_init.c
+  source_name_part = x11_init
+build obj/third_party/dawn/third_party/gn/glfw/glfw/x11_monitor.o: cc ../../../../third_party/dawn/third_party/glfw/src/x11_monitor.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = x11_monitor.c
+  source_name_part = x11_monitor
+build obj/third_party/dawn/third_party/gn/glfw/glfw/x11_window.o: cc ../../../../third_party/dawn/third_party/glfw/src/x11_window.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = x11_window.c
+  source_name_part = x11_window
+build obj/third_party/dawn/third_party/gn/glfw/glfw/xkb_unicode.o: cc ../../../../third_party/dawn/third_party/glfw/src/xkb_unicode.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = xkb_unicode.c
+  source_name_part = xkb_unicode
+build obj/third_party/dawn/third_party/gn/glfw/glfw/linux_joystick.o: cc ../../../../third_party/dawn/third_party/glfw/src/linux_joystick.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = linux_joystick.c
+  source_name_part = linux_joystick
+build obj/third_party/dawn/third_party/gn/glfw/glfw/posix_poll.o: cc ../../../../third_party/dawn/third_party/glfw/src/posix_poll.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = posix_poll.c
+  source_name_part = posix_poll
+
+build obj/third_party/dawn/third_party/gn/glfw/libglfw.a: alink obj/third_party/dawn/third_party/gn/glfw/glfw/context.o obj/third_party/dawn/third_party/gn/glfw/glfw/egl_context.o obj/third_party/dawn/third_party/gn/glfw/glfw/init.o obj/third_party/dawn/third_party/gn/glfw/glfw/input.o obj/third_party/dawn/third_party/gn/glfw/glfw/monitor.o obj/third_party/dawn/third_party/gn/glfw/glfw/null_init.o obj/third_party/dawn/third_party/gn/glfw/glfw/null_joystick.o obj/third_party/dawn/third_party/gn/glfw/glfw/null_monitor.o obj/third_party/dawn/third_party/gn/glfw/glfw/null_window.o obj/third_party/dawn/third_party/gn/glfw/glfw/osmesa_context.o obj/third_party/dawn/third_party/gn/glfw/glfw/platform.o obj/third_party/dawn/third_party/gn/glfw/glfw/vulkan.o obj/third_party/dawn/third_party/gn/glfw/glfw/window.o obj/third_party/dawn/third_party/gn/glfw/glfw/posix_module.o obj/third_party/dawn/third_party/gn/glfw/glfw/posix_thread.o obj/third_party/dawn/third_party/gn/glfw/glfw/posix_time.o obj/third_party/dawn/third_party/gn/glfw/glfw/glx_context.o obj/third_party/dawn/third_party/gn/glfw/glfw/x11_init.o obj/third_party/dawn/third_party/gn/glfw/glfw/x11_monitor.o obj/third_party/dawn/third_party/gn/glfw/glfw/x11_window.o obj/third_party/dawn/third_party/gn/glfw/glfw/xkb_unicode.o obj/third_party/dawn/third_party/gn/glfw/glfw/linux_joystick.o obj/third_party/dawn/third_party/gn/glfw/glfw/posix_poll.o | ../../../llvm-build/Release+Asserts/lib/clang/21/lib/x86_64-unknown-linux-gnu/libclang_rt.builtins.a ../../../../build/config/unsafe_buffers_paths.txt ||
+  arflags = -T -S
+  output_extension = .a
+  output_dir = obj/third_party/dawn/third_party/gn/glfw

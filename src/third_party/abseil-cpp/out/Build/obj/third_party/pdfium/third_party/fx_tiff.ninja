@@ -1,0 +1,113 @@
+defines = -DDCHECK_ALWAYS_ON=1 -DUSE_UDEV -DUSE_AURA=1 -DUSE_GLIB=1 -DUSE_OZONE=1 -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_GNU_SOURCE -DCR_CLANG_REVISION=\"llvmorg-21-init-1655-g7b473dfe-1\" -D_LIBCPP_HARDENING_MODE=_LIBCPP_HARDENING_MODE_EXTENSIVE -DCOMPONENT_BUILD -D_LIBCPP_INSTRUMENTED_WITH_ASAN=0 -DCR_LIBCXX_REVISION=7c3087b8a7563d8218b27b7183ba41cf52d41508 -DTMP_REBUILD_HACK -DCR_SYSROOT_KEY=20250129T203412Z-1 -D_DEBUG -DDYNAMIC_ANNOTATIONS_ENABLED=1 -DOPJ_STATIC -DPDF_USE_PARTITION_ALLOC -DPDF_ENABLE_UNOWNED_PTR_EXCLUSION -DPDF_ENABLE_V8 -DPDF_ENABLE_XFA -DPDF_ENABLE_XFA_BMP -DPDF_ENABLE_XFA_GIF -DPDF_ENABLE_XFA_PNG -DPDF_ENABLE_XFA_TIFF -DPDF_USE_SKIA -DFT_CONFIG_MODULES_H=\"freetype-custom/freetype/config/ftmodule.h\" -DFT_CONFIG_OPTIONS_H=\"freetype-custom/freetype/config/ftoption.h\" -DPDFIUM_REQUIRED_MODULES -DABSL_CONSUME_DLL -DABSL_FLAGS_STRIP_NAMES=0 -DU_USING_ICU_NAMESPACE=0 -DU_ENABLE_DYLOAD=0 -DUSE_CHROMIUM_ICU=1 -DU_ENABLE_TRACING=1 -DU_ENABLE_RESOURCE_TRACING=0 -DICU_UTIL_DATA_IMPL=ICU_UTIL_DATA_FILE -DUSE_LIBJPEG_TURBO=1 -DMANGLE_JPEG_NAMES
+include_dirs = -I../../../.. -Igen -I../../../../buildtools/third_party/libc++ -I../../../../third_party/pdfium -I../../../../third_party/zlib -I../../../../third_party/freetype/include -I../../../../third_party/freetype/include/freetype-custom -I../../../../third_party/freetype/src/include -I../../../../third_party/harfbuzz-ng/src/src -I../../../../third_party/abseil-cpp -I../../../../third_party/icu/source/common -I../../../../third_party/icu/source/i18n -I../../../../base/allocator/partition_allocator/src -Igen/base/allocator/partition_allocator/src -I../../../../third_party/libjpeg_turbo/src
+cflags = -fno-delete-null-pointer-checks -fno-strict-overflow -fno-ident -fno-strict-aliasing -fstack-protector -funwind-tables -fPIC -pthread -fcolor-diagnostics -fmerge-all-constants -fno-sized-deallocation -fcrash-diagnostics-dir=../../../../tools/clang/crashreports -mllvm -instcombine-lower-dbg-declare=0 -mllvm -split-threshold-for-reg-with-hint=0 -ffp-contract=off -Wa,--crel,--allow-experimental-crel -fcomplete-member-pointers -m64 -msse3 -Wno-builtin-macro-redefined -D__DATE__= -D__TIME__= -D__TIMESTAMP__= -ffile-compilation-dir=. -no-canonical-prefixes -ftrivial-auto-var-init=pattern -O0 -fno-omit-frame-pointer -gdwarf-4 -g2 -gdwarf-aranges -gsplit-dwarf -ggnu-pubnames -Xclang -fuse-ctor-homing -fvisibility=hidden -Wheader-hygiene -Wstring-conversion -Wtautological-overlap-compare -Xclang -add-plugin -Xclang find-bad-constructs -Xclang -plugin-arg-find-bad-constructs -Xclang span-ctor-from-string-literal -Xclang -plugin-arg-find-bad-constructs -Xclang raw-ref-template-as-trivial-member -Xclang -plugin-arg-find-bad-constructs -Xclang raw-span-template-as-trivial-member -Xclang -plugin-arg-find-bad-constructs -Xclang check-stack-allocated -Xclang -plugin-arg-find-bad-constructs -Xclang check-ipc -Xclang -add-plugin -Xclang raw-ptr-plugin -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ptr-to-stack-allocated -Xclang -plugin-arg-raw-ptr-plugin -Xclang disable-check-raw-ptr-to-stack-allocated-error -Xclang -plugin-arg-raw-ptr-plugin -Xclang raw-ptr-exclude-path=../../../dawn/ -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ptr-fields -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-span-fields -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ref-fields -DUNSAFE_BUFFERS_BUILD -Xclang -add-plugin -Xclang unsafe-buffers -Xclang -plugin-arg-unsafe-buffers -Xclang ../../../../build/config/unsafe_buffers_paths.txt -Wall -Wno-unused-variable -Wno-c++11-narrowing -Wno-unused-but-set-variable -Wno-misleading-indentation -Wno-missing-field-initializers -Wno-unused-parameter -Wno-psabi -Wloop-analysis -Wno-unneeded-internal-declaration -Wno-cast-function-type -Wno-thread-safety-reference-return -Wno-nontrivial-memcall -Werror -Wc++11-narrowing -Wtautological-unsigned-zero-compare -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ptr-fields -Xclang -plugin-arg-raw-ptr-plugin -Xclang raw-ptr-exclude-path=public -Xclang -plugin-arg-raw-ptr-plugin -Xclang raw-ptr-exclude-path=test -Xclang -add-plugin -Xclang blink-gc-plugin -Xclang -plugin-arg-blink-gc-plugin -Xclang disable-off-heap-collections-of-gced-check
+cflags_c = -std=c11 --sysroot=../../../../build/linux/debian_bullseye_amd64-sysroot
+label_name = fx_tiff
+target_out_dir = obj/third_party/pdfium/third_party
+target_output_name = fx_tiff
+
+build phony/third_party/pdfium/third_party/fx_tiff.inputdeps: phony phony/base/allocator/partition_allocator/src/partition_alloc/buildflags phony/build/chromeos_buildflags phony/third_party/icu/copy_icudata
+build obj/third_party/pdfium/third_party/fx_tiff/tif_aux.o: cc ../../../../third_party/pdfium/third_party/libtiff/tif_aux.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/pdfium/third_party/fx_tiff.inputdeps
+  source_file_part = tif_aux.c
+  source_name_part = tif_aux
+build obj/third_party/pdfium/third_party/fx_tiff/tif_close.o: cc ../../../../third_party/pdfium/third_party/libtiff/tif_close.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/pdfium/third_party/fx_tiff.inputdeps
+  source_file_part = tif_close.c
+  source_name_part = tif_close
+build obj/third_party/pdfium/third_party/fx_tiff/tif_codec.o: cc ../../../../third_party/pdfium/third_party/libtiff/tif_codec.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/pdfium/third_party/fx_tiff.inputdeps
+  source_file_part = tif_codec.c
+  source_name_part = tif_codec
+build obj/third_party/pdfium/third_party/fx_tiff/tif_color.o: cc ../../../../third_party/pdfium/third_party/libtiff/tif_color.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/pdfium/third_party/fx_tiff.inputdeps
+  source_file_part = tif_color.c
+  source_name_part = tif_color
+build obj/third_party/pdfium/third_party/fx_tiff/tif_compress.o: cc ../../../../third_party/pdfium/third_party/libtiff/tif_compress.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/pdfium/third_party/fx_tiff.inputdeps
+  source_file_part = tif_compress.c
+  source_name_part = tif_compress
+build obj/third_party/pdfium/third_party/fx_tiff/tif_dir.o: cc ../../../../third_party/pdfium/third_party/libtiff/tif_dir.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/pdfium/third_party/fx_tiff.inputdeps
+  source_file_part = tif_dir.c
+  source_name_part = tif_dir
+build obj/third_party/pdfium/third_party/fx_tiff/tif_dirinfo.o: cc ../../../../third_party/pdfium/third_party/libtiff/tif_dirinfo.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/pdfium/third_party/fx_tiff.inputdeps
+  source_file_part = tif_dirinfo.c
+  source_name_part = tif_dirinfo
+build obj/third_party/pdfium/third_party/fx_tiff/tif_dirread.o: cc ../../../../third_party/pdfium/third_party/libtiff/tif_dirread.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/pdfium/third_party/fx_tiff.inputdeps
+  source_file_part = tif_dirread.c
+  source_name_part = tif_dirread
+build obj/third_party/pdfium/third_party/fx_tiff/tif_dirwrite.o: cc ../../../../third_party/pdfium/third_party/libtiff/tif_dirwrite.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/pdfium/third_party/fx_tiff.inputdeps
+  source_file_part = tif_dirwrite.c
+  source_name_part = tif_dirwrite
+build obj/third_party/pdfium/third_party/fx_tiff/tif_dumpmode.o: cc ../../../../third_party/pdfium/third_party/libtiff/tif_dumpmode.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/pdfium/third_party/fx_tiff.inputdeps
+  source_file_part = tif_dumpmode.c
+  source_name_part = tif_dumpmode
+build obj/third_party/pdfium/third_party/fx_tiff/tif_error.o: cc ../../../../third_party/pdfium/third_party/libtiff/tif_error.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/pdfium/third_party/fx_tiff.inputdeps
+  source_file_part = tif_error.c
+  source_name_part = tif_error
+build obj/third_party/pdfium/third_party/fx_tiff/tif_extension.o: cc ../../../../third_party/pdfium/third_party/libtiff/tif_extension.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/pdfium/third_party/fx_tiff.inputdeps
+  source_file_part = tif_extension.c
+  source_name_part = tif_extension
+build obj/third_party/pdfium/third_party/fx_tiff/tif_fax3.o: cc ../../../../third_party/pdfium/third_party/libtiff/tif_fax3.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/pdfium/third_party/fx_tiff.inputdeps
+  source_file_part = tif_fax3.c
+  source_name_part = tif_fax3
+build obj/third_party/pdfium/third_party/fx_tiff/tif_fax3sm.o: cc ../../../../third_party/pdfium/third_party/libtiff/tif_fax3sm.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/pdfium/third_party/fx_tiff.inputdeps
+  source_file_part = tif_fax3sm.c
+  source_name_part = tif_fax3sm
+build obj/third_party/pdfium/third_party/fx_tiff/tif_flush.o: cc ../../../../third_party/pdfium/third_party/libtiff/tif_flush.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/pdfium/third_party/fx_tiff.inputdeps
+  source_file_part = tif_flush.c
+  source_name_part = tif_flush
+build obj/third_party/pdfium/third_party/fx_tiff/tif_getimage.o: cc ../../../../third_party/pdfium/third_party/libtiff/tif_getimage.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/pdfium/third_party/fx_tiff.inputdeps
+  source_file_part = tif_getimage.c
+  source_name_part = tif_getimage
+build obj/third_party/pdfium/third_party/fx_tiff/tif_hash_set.o: cc ../../../../third_party/pdfium/third_party/libtiff/tif_hash_set.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/pdfium/third_party/fx_tiff.inputdeps
+  source_file_part = tif_hash_set.c
+  source_name_part = tif_hash_set
+build obj/third_party/pdfium/third_party/fx_tiff/tif_jpeg.o: cc ../../../../third_party/pdfium/third_party/libtiff/tif_jpeg.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/pdfium/third_party/fx_tiff.inputdeps
+  source_file_part = tif_jpeg.c
+  source_name_part = tif_jpeg
+build obj/third_party/pdfium/third_party/fx_tiff/tif_luv.o: cc ../../../../third_party/pdfium/third_party/libtiff/tif_luv.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/pdfium/third_party/fx_tiff.inputdeps
+  source_file_part = tif_luv.c
+  source_name_part = tif_luv
+build obj/third_party/pdfium/third_party/fx_tiff/tif_lzw.o: cc ../../../../third_party/pdfium/third_party/libtiff/tif_lzw.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/pdfium/third_party/fx_tiff.inputdeps
+  source_file_part = tif_lzw.c
+  source_name_part = tif_lzw
+build obj/third_party/pdfium/third_party/fx_tiff/tif_next.o: cc ../../../../third_party/pdfium/third_party/libtiff/tif_next.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/pdfium/third_party/fx_tiff.inputdeps
+  source_file_part = tif_next.c
+  source_name_part = tif_next
+build obj/third_party/pdfium/third_party/fx_tiff/tif_open.o: cc ../../../../third_party/pdfium/third_party/libtiff/tif_open.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/pdfium/third_party/fx_tiff.inputdeps
+  source_file_part = tif_open.c
+  source_name_part = tif_open
+build obj/third_party/pdfium/third_party/fx_tiff/tif_packbits.o: cc ../../../../third_party/pdfium/third_party/libtiff/tif_packbits.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/pdfium/third_party/fx_tiff.inputdeps
+  source_file_part = tif_packbits.c
+  source_name_part = tif_packbits
+build obj/third_party/pdfium/third_party/fx_tiff/tif_pixarlog.o: cc ../../../../third_party/pdfium/third_party/libtiff/tif_pixarlog.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/pdfium/third_party/fx_tiff.inputdeps
+  source_file_part = tif_pixarlog.c
+  source_name_part = tif_pixarlog
+build obj/third_party/pdfium/third_party/fx_tiff/tif_predict.o: cc ../../../../third_party/pdfium/third_party/libtiff/tif_predict.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/pdfium/third_party/fx_tiff.inputdeps
+  source_file_part = tif_predict.c
+  source_name_part = tif_predict
+build obj/third_party/pdfium/third_party/fx_tiff/tif_print.o: cc ../../../../third_party/pdfium/third_party/libtiff/tif_print.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/pdfium/third_party/fx_tiff.inputdeps
+  source_file_part = tif_print.c
+  source_name_part = tif_print
+build obj/third_party/pdfium/third_party/fx_tiff/tif_read.o: cc ../../../../third_party/pdfium/third_party/libtiff/tif_read.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/pdfium/third_party/fx_tiff.inputdeps
+  source_file_part = tif_read.c
+  source_name_part = tif_read
+build obj/third_party/pdfium/third_party/fx_tiff/tif_strip.o: cc ../../../../third_party/pdfium/third_party/libtiff/tif_strip.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/pdfium/third_party/fx_tiff.inputdeps
+  source_file_part = tif_strip.c
+  source_name_part = tif_strip
+build obj/third_party/pdfium/third_party/fx_tiff/tif_swab.o: cc ../../../../third_party/pdfium/third_party/libtiff/tif_swab.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/pdfium/third_party/fx_tiff.inputdeps
+  source_file_part = tif_swab.c
+  source_name_part = tif_swab
+build obj/third_party/pdfium/third_party/fx_tiff/tif_thunder.o: cc ../../../../third_party/pdfium/third_party/libtiff/tif_thunder.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/pdfium/third_party/fx_tiff.inputdeps
+  source_file_part = tif_thunder.c
+  source_name_part = tif_thunder
+build obj/third_party/pdfium/third_party/fx_tiff/tif_tile.o: cc ../../../../third_party/pdfium/third_party/libtiff/tif_tile.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/pdfium/third_party/fx_tiff.inputdeps
+  source_file_part = tif_tile.c
+  source_name_part = tif_tile
+build obj/third_party/pdfium/third_party/fx_tiff/tif_version.o: cc ../../../../third_party/pdfium/third_party/libtiff/tif_version.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/pdfium/third_party/fx_tiff.inputdeps
+  source_file_part = tif_version.c
+  source_name_part = tif_version
+build obj/third_party/pdfium/third_party/fx_tiff/tif_warning.o: cc ../../../../third_party/pdfium/third_party/libtiff/tif_warning.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/pdfium/third_party/fx_tiff.inputdeps
+  source_file_part = tif_warning.c
+  source_name_part = tif_warning
+build obj/third_party/pdfium/third_party/fx_tiff/tif_write.o: cc ../../../../third_party/pdfium/third_party/libtiff/tif_write.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/pdfium/third_party/fx_tiff.inputdeps
+  source_file_part = tif_write.c
+  source_name_part = tif_write
+
+build phony/third_party/pdfium/third_party/fx_tiff: phony obj/third_party/pdfium/third_party/fx_tiff/tif_aux.o obj/third_party/pdfium/third_party/fx_tiff/tif_close.o obj/third_party/pdfium/third_party/fx_tiff/tif_codec.o obj/third_party/pdfium/third_party/fx_tiff/tif_color.o obj/third_party/pdfium/third_party/fx_tiff/tif_compress.o obj/third_party/pdfium/third_party/fx_tiff/tif_dir.o obj/third_party/pdfium/third_party/fx_tiff/tif_dirinfo.o obj/third_party/pdfium/third_party/fx_tiff/tif_dirread.o obj/third_party/pdfium/third_party/fx_tiff/tif_dirwrite.o obj/third_party/pdfium/third_party/fx_tiff/tif_dumpmode.o obj/third_party/pdfium/third_party/fx_tiff/tif_error.o obj/third_party/pdfium/third_party/fx_tiff/tif_extension.o obj/third_party/pdfium/third_party/fx_tiff/tif_fax3.o obj/third_party/pdfium/third_party/fx_tiff/tif_fax3sm.o obj/third_party/pdfium/third_party/fx_tiff/tif_flush.o obj/third_party/pdfium/third_party/fx_tiff/tif_getimage.o obj/third_party/pdfium/third_party/fx_tiff/tif_hash_set.o obj/third_party/pdfium/third_party/fx_tiff/tif_jpeg.o obj/third_party/pdfium/third_party/fx_tiff/tif_luv.o obj/third_party/pdfium/third_party/fx_tiff/tif_lzw.o obj/third_party/pdfium/third_party/fx_tiff/tif_next.o obj/third_party/pdfium/third_party/fx_tiff/tif_open.o obj/third_party/pdfium/third_party/fx_tiff/tif_packbits.o obj/third_party/pdfium/third_party/fx_tiff/tif_pixarlog.o obj/third_party/pdfium/third_party/fx_tiff/tif_predict.o obj/third_party/pdfium/third_party/fx_tiff/tif_print.o obj/third_party/pdfium/third_party/fx_tiff/tif_read.o obj/third_party/pdfium/third_party/fx_tiff/tif_strip.o obj/third_party/pdfium/third_party/fx_tiff/tif_swab.o obj/third_party/pdfium/third_party/fx_tiff/tif_thunder.o obj/third_party/pdfium/third_party/fx_tiff/tif_tile.o obj/third_party/pdfium/third_party/fx_tiff/tif_version.o obj/third_party/pdfium/third_party/fx_tiff/tif_warning.o obj/third_party/pdfium/third_party/fx_tiff/tif_write.o || phony/third_party/pdfium/third_party/zlib phony/third_party/pdfium/core/fxcrt/fxcrt phony/third_party/jpeg ./libchrome_zlib.so.TOC ./libthird_party_freetype_harfbuzz.so.TOC ./libthird_party_abseil-cpp_absl.so.TOC ./libicuuc.so.TOC phony/base/allocator/partition_allocator/src/partition_alloc/partition_alloc_buildflags ./libbase_allocator_partition_allocator_src_partition_alloc_raw_ptr.so.TOC ./libbase_allocator_partition_allocator_src_partition_alloc_allocator_base.so.TOC ./libbase_allocator_partition_allocator_src_partition_alloc_allocator_core.so.TOC ./libbase_allocator_partition_allocator_src_partition_alloc_allocator_shim.so.TOC obj/third_party/libjpeg_turbo/libjpeg.a obj/third_party/libjpeg_turbo/libjpeg12.a obj/third_party/libjpeg_turbo/libjpeg16.a obj/third_party/libjpeg_turbo/libsimd.a obj/third_party/libjpeg_turbo/libsimd_asm.a

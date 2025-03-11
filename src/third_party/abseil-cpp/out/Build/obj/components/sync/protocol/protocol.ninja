@@ -1,0 +1,252 @@
+defines = -DDCHECK_ALWAYS_ON=1 -DUSE_UDEV -DUSE_AURA=1 -DUSE_GLIB=1 -DUSE_OZONE=1 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_GNU_SOURCE -DCR_CLANG_REVISION=\"llvmorg-21-init-1655-g7b473dfe-1\" -D_LIBCPP_HARDENING_MODE=_LIBCPP_HARDENING_MODE_EXTENSIVE -DCOMPONENT_BUILD -D_LIBCPP_INSTRUMENTED_WITH_ASAN=0 -DCR_LIBCXX_REVISION=7c3087b8a7563d8218b27b7183ba41cf52d41508 -DTMP_REBUILD_HACK -DCR_SYSROOT_KEY=20250129T203412Z-1 -D_DEBUG -DDYNAMIC_ANNOTATIONS_ENABLED=1 -DGOOGLE_PROTOBUF_NO_RTTI -DHAVE_PTHREAD -DPROTOBUF_USE_DLLS -DABSL_CONSUME_DLL -DABSL_FLAGS_STRIP_NAMES=0
+include_dirs = -I../../../.. -Igen -I../../../../buildtools/third_party/libc++ -I../../../../third_party/protobuf/src -I../../../../third_party/abseil-cpp
+cflags = -Wall -Wextra -Wimplicit-fallthrough -Wextra-semi -Wunreachable-code-aggressive -Wthread-safety -Wgnu -Wno-gnu-anonymous-struct -Wno-gnu-conditional-omitted-operand -Wno-gnu-include-next -Wno-gnu-label-as-value -Wno-gnu-redeclared-enum -Wno-gnu-statement-expression -Wno-gnu-zero-variadic-macro-arguments -Wno-zero-length-array -Wno-missing-field-initializers -Wno-unused-parameter -Wno-psabi -Wloop-analysis -Wno-unneeded-internal-declaration -Wno-cast-function-type -Wno-thread-safety-reference-return -Wno-nontrivial-memcall -Wshadow -Werror -fno-delete-null-pointer-checks -fno-strict-overflow -fno-ident -fno-strict-aliasing -fstack-protector -funwind-tables -fPIC -pthread -fcolor-diagnostics -fmerge-all-constants -fno-sized-deallocation -fcrash-diagnostics-dir=../../../../tools/clang/crashreports -mllvm -instcombine-lower-dbg-declare=0 -mllvm -split-threshold-for-reg-with-hint=0 -ffp-contract=off -Wa,--crel,--allow-experimental-crel -fcomplete-member-pointers -m64 -msse3 -Wno-builtin-macro-redefined -D__DATE__= -D__TIME__= -D__TIMESTAMP__= -ffile-compilation-dir=. -no-canonical-prefixes -ftrivial-auto-var-init=pattern -O0 -fno-omit-frame-pointer -gdwarf-4 -g2 -gdwarf-aranges -gsplit-dwarf -ggnu-pubnames -Xclang -fuse-ctor-homing -fvisibility=hidden -Wheader-hygiene -Wstring-conversion -Wtautological-overlap-compare -Xclang -add-plugin -Xclang find-bad-constructs -Xclang -plugin-arg-find-bad-constructs -Xclang span-ctor-from-string-literal -Xclang -plugin-arg-find-bad-constructs -Xclang raw-ref-template-as-trivial-member -Xclang -plugin-arg-find-bad-constructs -Xclang raw-span-template-as-trivial-member -Xclang -plugin-arg-find-bad-constructs -Xclang check-stack-allocated -Xclang -plugin-arg-find-bad-constructs -Xclang check-ipc -Xclang -add-plugin -Xclang raw-ptr-plugin -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ptr-to-stack-allocated -Xclang -plugin-arg-raw-ptr-plugin -Xclang disable-check-raw-ptr-to-stack-allocated-error -Xclang -plugin-arg-raw-ptr-plugin -Xclang raw-ptr-exclude-path=../../../dawn/ -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ptr-fields -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-span-fields -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ref-fields -DUNSAFE_BUFFERS_BUILD -Xclang -add-plugin -Xclang unsafe-buffers -Xclang -plugin-arg-unsafe-buffers -Xclang ../../../../build/config/unsafe_buffers_paths.txt -Wexit-time-destructors
+cflags_cc = -Wno-invalid-offsetof -Wenum-compare-conditional -Wno-c++11-narrowing-const-reference -Wno-missing-template-arg-list-after-template-kw -Wno-undefined-bool-conversion -Wno-tautological-undefined-compare -std=c++20 -Wno-trigraphs -gsimple-template-names -fno-exceptions -fno-rtti -nostdinc++ -isystem../../../libc++/src/include -isystem../../../libc++abi/src/include --sysroot=../../../../build/linux/debian_bullseye_amd64-sysroot -fvisibility-inlines-hidden
+label_name = protocol
+target_out_dir = obj/components/sync/protocol
+target_output_name = libprotocol
+
+build phony/components/sync/protocol/protocol.inputs: phony ../../../../build/config/unsafe_buffers_paths.txt ../../../../components/sync/protocol/app_list_specifics.proto ../../../../components/sync/protocol/app_setting_specifics.proto ../../../../components/sync/protocol/app_specifics.proto ../../../../components/sync/protocol/arc_package_specifics.proto ../../../../components/sync/protocol/autofill_loyalty_card_specifics.proto ../../../../components/sync/protocol/autofill_offer_specifics.proto ../../../../components/sync/protocol/autofill_specifics.proto ../../../../components/sync/protocol/autofill_wallet_credential_specifics.proto ../../../../components/sync/protocol/autofill_wallet_usage_specifics.proto ../../../../components/sync/protocol/bookmark_model_metadata.proto ../../../../components/sync/protocol/bookmark_specifics.proto ../../../../components/sync/protocol/client_commands.proto ../../../../components/sync/protocol/client_debug_info.proto ../../../../components/sync/protocol/collaboration_group_metadata.proto ../../../../components/sync/protocol/collaboration_group_specifics.proto ../../../../components/sync/protocol/contact_info_specifics.proto ../../../../components/sync/protocol/cookie_specifics.proto ../../../../components/sync/protocol/data_type_progress_marker.proto ../../../../components/sync/protocol/data_type_state.proto ../../../../components/sync/protocol/data_type_store_schema_descriptor.proto ../../../../components/sync/protocol/deletion_origin.proto ../../../../components/sync/protocol/device_info_specifics.proto ../../../../components/sync/protocol/dictionary_specifics.proto ../../../../components/sync/protocol/encryption.proto ../../../../components/sync/protocol/entity_metadata.proto ../../../../components/sync/protocol/entity_specifics.proto ../../../../components/sync/protocol/extension_setting_specifics.proto ../../../../components/sync/protocol/extension_specifics.proto ../../../../components/sync/protocol/gaia_password_reuse.proto ../../../../components/sync/protocol/get_updates_caller_info.proto ../../../../components/sync/protocol/history_delete_directive_specifics.proto ../../../../components/sync/protocol/history_specifics.proto ../../../../components/sync/protocol/history_status.proto ../../../../components/sync/protocol/loopback_server.proto ../../../../components/sync/protocol/managed_user_setting_specifics.proto ../../../../components/sync/protocol/managed_user_shared_setting_specifics.proto ../../../../components/sync/protocol/nigori_local_data.proto ../../../../components/sync/protocol/nigori_specifics.proto ../../../../components/sync/protocol/note_entity.proto ../../../../components/sync/protocol/os_preference_specifics.proto ../../../../components/sync/protocol/os_priority_preference_specifics.proto ../../../../components/sync/protocol/password_sharing_invitation_specifics.proto ../../../../components/sync/protocol/password_sharing_recipients.proto ../../../../components/sync/protocol/password_specifics.proto ../../../../components/sync/protocol/persisted_entity_data.proto ../../../../components/sync/protocol/plus_address_setting_specifics.proto ../../../../components/sync/protocol/plus_address_specifics.proto ../../../../components/sync/protocol/power_bookmark_specifics.proto ../../../../components/sync/protocol/preference_specifics.proto ../../../../components/sync/protocol/printer_specifics.proto ../../../../components/sync/protocol/printers_authorization_server_specifics.proto ../../../../components/sync/protocol/priority_preference_specifics.proto ../../../../components/sync/protocol/product_comparison_specifics.proto ../../../../components/sync/protocol/reading_list_specifics.proto ../../../../components/sync/protocol/saved_tab_group_specifics.proto ../../../../components/sync/protocol/search_engine_specifics.proto ../../../../components/sync/protocol/security_event_specifics.proto ../../../../components/sync/protocol/send_tab_to_self_specifics.proto ../../../../components/sync/protocol/session_specifics.proto ../../../../components/sync/protocol/shared_tab_group_data_specifics.proto ../../../../components/sync/protocol/sharing_message_specifics.proto ../../../../components/sync/protocol/sync.proto ../../../../components/sync/protocol/sync_entity.proto ../../../../components/sync/protocol/sync_enums.proto ../../../../components/sync/protocol/sync_invalidations_payload.proto ../../../../components/sync/protocol/tab_group_attribution_metadata.proto ../../../../components/sync/protocol/test.proto ../../../../components/sync/protocol/theme_specifics.proto ../../../../components/sync/protocol/typed_url_specifics.proto ../../../../components/sync/protocol/unencrypted_sharing_message.proto ../../../../components/sync/protocol/unique_position.proto ../../../../components/sync/protocol/user_consent_specifics.proto ../../../../components/sync/protocol/user_consent_types.proto ../../../../components/sync/protocol/user_event_specifics.proto ../../../../components/sync/protocol/web_apk_specifics.proto ../../../../components/sync/protocol/web_app_specifics.proto ../../../../components/sync/protocol/webauthn_credential_specifics.proto ../../../../components/sync/protocol/wifi_configuration_specifics.proto ../../../../components/sync/protocol/workspace_desk_specifics.proto
+build phony/components/sync/protocol/protocol.inputdeps: phony phony/build/chromeos_buildflags phony/components/sync/protocol/protocol_gen
+build obj/components/sync/protocol/protocol/app_list_specifics.pb.o: cxx gen/components/sync/protocol/app_list_specifics.pb.cc | phony/components/sync/protocol/protocol.inputs || phony/components/sync/protocol/protocol.inputdeps
+  source_file_part = app_list_specifics.pb.cc
+  source_name_part = app_list_specifics.pb
+build obj/components/sync/protocol/protocol/app_setting_specifics.pb.o: cxx gen/components/sync/protocol/app_setting_specifics.pb.cc | phony/components/sync/protocol/protocol.inputs || phony/components/sync/protocol/protocol.inputdeps
+  source_file_part = app_setting_specifics.pb.cc
+  source_name_part = app_setting_specifics.pb
+build obj/components/sync/protocol/protocol/app_specifics.pb.o: cxx gen/components/sync/protocol/app_specifics.pb.cc | phony/components/sync/protocol/protocol.inputs || phony/components/sync/protocol/protocol.inputdeps
+  source_file_part = app_specifics.pb.cc
+  source_name_part = app_specifics.pb
+build obj/components/sync/protocol/protocol/arc_package_specifics.pb.o: cxx gen/components/sync/protocol/arc_package_specifics.pb.cc | phony/components/sync/protocol/protocol.inputs || phony/components/sync/protocol/protocol.inputdeps
+  source_file_part = arc_package_specifics.pb.cc
+  source_name_part = arc_package_specifics.pb
+build obj/components/sync/protocol/protocol/autofill_loyalty_card_specifics.pb.o: cxx gen/components/sync/protocol/autofill_loyalty_card_specifics.pb.cc | phony/components/sync/protocol/protocol.inputs || phony/components/sync/protocol/protocol.inputdeps
+  source_file_part = autofill_loyalty_card_specifics.pb.cc
+  source_name_part = autofill_loyalty_card_specifics.pb
+build obj/components/sync/protocol/protocol/autofill_offer_specifics.pb.o: cxx gen/components/sync/protocol/autofill_offer_specifics.pb.cc | phony/components/sync/protocol/protocol.inputs || phony/components/sync/protocol/protocol.inputdeps
+  source_file_part = autofill_offer_specifics.pb.cc
+  source_name_part = autofill_offer_specifics.pb
+build obj/components/sync/protocol/protocol/autofill_specifics.pb.o: cxx gen/components/sync/protocol/autofill_specifics.pb.cc | phony/components/sync/protocol/protocol.inputs || phony/components/sync/protocol/protocol.inputdeps
+  source_file_part = autofill_specifics.pb.cc
+  source_name_part = autofill_specifics.pb
+build obj/components/sync/protocol/protocol/autofill_wallet_credential_specifics.pb.o: cxx gen/components/sync/protocol/autofill_wallet_credential_specifics.pb.cc | phony/components/sync/protocol/protocol.inputs || phony/components/sync/protocol/protocol.inputdeps
+  source_file_part = autofill_wallet_credential_specifics.pb.cc
+  source_name_part = autofill_wallet_credential_specifics.pb
+build obj/components/sync/protocol/protocol/autofill_wallet_usage_specifics.pb.o: cxx gen/components/sync/protocol/autofill_wallet_usage_specifics.pb.cc | phony/components/sync/protocol/protocol.inputs || phony/components/sync/protocol/protocol.inputdeps
+  source_file_part = autofill_wallet_usage_specifics.pb.cc
+  source_name_part = autofill_wallet_usage_specifics.pb
+build obj/components/sync/protocol/protocol/bookmark_model_metadata.pb.o: cxx gen/components/sync/protocol/bookmark_model_metadata.pb.cc | phony/components/sync/protocol/protocol.inputs || phony/components/sync/protocol/protocol.inputdeps
+  source_file_part = bookmark_model_metadata.pb.cc
+  source_name_part = bookmark_model_metadata.pb
+build obj/components/sync/protocol/protocol/bookmark_specifics.pb.o: cxx gen/components/sync/protocol/bookmark_specifics.pb.cc | phony/components/sync/protocol/protocol.inputs || phony/components/sync/protocol/protocol.inputdeps
+  source_file_part = bookmark_specifics.pb.cc
+  source_name_part = bookmark_specifics.pb
+build obj/components/sync/protocol/protocol/client_commands.pb.o: cxx gen/components/sync/protocol/client_commands.pb.cc | phony/components/sync/protocol/protocol.inputs || phony/components/sync/protocol/protocol.inputdeps
+  source_file_part = client_commands.pb.cc
+  source_name_part = client_commands.pb
+build obj/components/sync/protocol/protocol/client_debug_info.pb.o: cxx gen/components/sync/protocol/client_debug_info.pb.cc | phony/components/sync/protocol/protocol.inputs || phony/components/sync/protocol/protocol.inputdeps
+  source_file_part = client_debug_info.pb.cc
+  source_name_part = client_debug_info.pb
+build obj/components/sync/protocol/protocol/collaboration_group_metadata.pb.o: cxx gen/components/sync/protocol/collaboration_group_metadata.pb.cc | phony/components/sync/protocol/protocol.inputs || phony/components/sync/protocol/protocol.inputdeps
+  source_file_part = collaboration_group_metadata.pb.cc
+  source_name_part = collaboration_group_metadata.pb
+build obj/components/sync/protocol/protocol/collaboration_group_specifics.pb.o: cxx gen/components/sync/protocol/collaboration_group_specifics.pb.cc | phony/components/sync/protocol/protocol.inputs || phony/components/sync/protocol/protocol.inputdeps
+  source_file_part = collaboration_group_specifics.pb.cc
+  source_name_part = collaboration_group_specifics.pb
+build obj/components/sync/protocol/protocol/contact_info_specifics.pb.o: cxx gen/components/sync/protocol/contact_info_specifics.pb.cc | phony/components/sync/protocol/protocol.inputs || phony/components/sync/protocol/protocol.inputdeps
+  source_file_part = contact_info_specifics.pb.cc
+  source_name_part = contact_info_specifics.pb
+build obj/components/sync/protocol/protocol/cookie_specifics.pb.o: cxx gen/components/sync/protocol/cookie_specifics.pb.cc | phony/components/sync/protocol/protocol.inputs || phony/components/sync/protocol/protocol.inputdeps
+  source_file_part = cookie_specifics.pb.cc
+  source_name_part = cookie_specifics.pb
+build obj/components/sync/protocol/protocol/data_type_progress_marker.pb.o: cxx gen/components/sync/protocol/data_type_progress_marker.pb.cc | phony/components/sync/protocol/protocol.inputs || phony/components/sync/protocol/protocol.inputdeps
+  source_file_part = data_type_progress_marker.pb.cc
+  source_name_part = data_type_progress_marker.pb
+build obj/components/sync/protocol/protocol/data_type_state.pb.o: cxx gen/components/sync/protocol/data_type_state.pb.cc | phony/components/sync/protocol/protocol.inputs || phony/components/sync/protocol/protocol.inputdeps
+  source_file_part = data_type_state.pb.cc
+  source_name_part = data_type_state.pb
+build obj/components/sync/protocol/protocol/data_type_store_schema_descriptor.pb.o: cxx gen/components/sync/protocol/data_type_store_schema_descriptor.pb.cc | phony/components/sync/protocol/protocol.inputs || phony/components/sync/protocol/protocol.inputdeps
+  source_file_part = data_type_store_schema_descriptor.pb.cc
+  source_name_part = data_type_store_schema_descriptor.pb
+build obj/components/sync/protocol/protocol/deletion_origin.pb.o: cxx gen/components/sync/protocol/deletion_origin.pb.cc | phony/components/sync/protocol/protocol.inputs || phony/components/sync/protocol/protocol.inputdeps
+  source_file_part = deletion_origin.pb.cc
+  source_name_part = deletion_origin.pb
+build obj/components/sync/protocol/protocol/device_info_specifics.pb.o: cxx gen/components/sync/protocol/device_info_specifics.pb.cc | phony/components/sync/protocol/protocol.inputs || phony/components/sync/protocol/protocol.inputdeps
+  source_file_part = device_info_specifics.pb.cc
+  source_name_part = device_info_specifics.pb
+build obj/components/sync/protocol/protocol/dictionary_specifics.pb.o: cxx gen/components/sync/protocol/dictionary_specifics.pb.cc | phony/components/sync/protocol/protocol.inputs || phony/components/sync/protocol/protocol.inputdeps
+  source_file_part = dictionary_specifics.pb.cc
+  source_name_part = dictionary_specifics.pb
+build obj/components/sync/protocol/protocol/encryption.pb.o: cxx gen/components/sync/protocol/encryption.pb.cc | phony/components/sync/protocol/protocol.inputs || phony/components/sync/protocol/protocol.inputdeps
+  source_file_part = encryption.pb.cc
+  source_name_part = encryption.pb
+build obj/components/sync/protocol/protocol/entity_metadata.pb.o: cxx gen/components/sync/protocol/entity_metadata.pb.cc | phony/components/sync/protocol/protocol.inputs || phony/components/sync/protocol/protocol.inputdeps
+  source_file_part = entity_metadata.pb.cc
+  source_name_part = entity_metadata.pb
+build obj/components/sync/protocol/protocol/entity_specifics.pb.o: cxx gen/components/sync/protocol/entity_specifics.pb.cc | phony/components/sync/protocol/protocol.inputs || phony/components/sync/protocol/protocol.inputdeps
+  source_file_part = entity_specifics.pb.cc
+  source_name_part = entity_specifics.pb
+build obj/components/sync/protocol/protocol/extension_setting_specifics.pb.o: cxx gen/components/sync/protocol/extension_setting_specifics.pb.cc | phony/components/sync/protocol/protocol.inputs || phony/components/sync/protocol/protocol.inputdeps
+  source_file_part = extension_setting_specifics.pb.cc
+  source_name_part = extension_setting_specifics.pb
+build obj/components/sync/protocol/protocol/extension_specifics.pb.o: cxx gen/components/sync/protocol/extension_specifics.pb.cc | phony/components/sync/protocol/protocol.inputs || phony/components/sync/protocol/protocol.inputdeps
+  source_file_part = extension_specifics.pb.cc
+  source_name_part = extension_specifics.pb
+build obj/components/sync/protocol/protocol/gaia_password_reuse.pb.o: cxx gen/components/sync/protocol/gaia_password_reuse.pb.cc | phony/components/sync/protocol/protocol.inputs || phony/components/sync/protocol/protocol.inputdeps
+  source_file_part = gaia_password_reuse.pb.cc
+  source_name_part = gaia_password_reuse.pb
+build obj/components/sync/protocol/protocol/get_updates_caller_info.pb.o: cxx gen/components/sync/protocol/get_updates_caller_info.pb.cc | phony/components/sync/protocol/protocol.inputs || phony/components/sync/protocol/protocol.inputdeps
+  source_file_part = get_updates_caller_info.pb.cc
+  source_name_part = get_updates_caller_info.pb
+build obj/components/sync/protocol/protocol/history_delete_directive_specifics.pb.o: cxx gen/components/sync/protocol/history_delete_directive_specifics.pb.cc | phony/components/sync/protocol/protocol.inputs || phony/components/sync/protocol/protocol.inputdeps
+  source_file_part = history_delete_directive_specifics.pb.cc
+  source_name_part = history_delete_directive_specifics.pb
+build obj/components/sync/protocol/protocol/history_specifics.pb.o: cxx gen/components/sync/protocol/history_specifics.pb.cc | phony/components/sync/protocol/protocol.inputs || phony/components/sync/protocol/protocol.inputdeps
+  source_file_part = history_specifics.pb.cc
+  source_name_part = history_specifics.pb
+build obj/components/sync/protocol/protocol/history_status.pb.o: cxx gen/components/sync/protocol/history_status.pb.cc | phony/components/sync/protocol/protocol.inputs || phony/components/sync/protocol/protocol.inputdeps
+  source_file_part = history_status.pb.cc
+  source_name_part = history_status.pb
+build obj/components/sync/protocol/protocol/loopback_server.pb.o: cxx gen/components/sync/protocol/loopback_server.pb.cc | phony/components/sync/protocol/protocol.inputs || phony/components/sync/protocol/protocol.inputdeps
+  source_file_part = loopback_server.pb.cc
+  source_name_part = loopback_server.pb
+build obj/components/sync/protocol/protocol/managed_user_setting_specifics.pb.o: cxx gen/components/sync/protocol/managed_user_setting_specifics.pb.cc | phony/components/sync/protocol/protocol.inputs || phony/components/sync/protocol/protocol.inputdeps
+  source_file_part = managed_user_setting_specifics.pb.cc
+  source_name_part = managed_user_setting_specifics.pb
+build obj/components/sync/protocol/protocol/managed_user_shared_setting_specifics.pb.o: cxx gen/components/sync/protocol/managed_user_shared_setting_specifics.pb.cc | phony/components/sync/protocol/protocol.inputs || phony/components/sync/protocol/protocol.inputdeps
+  source_file_part = managed_user_shared_setting_specifics.pb.cc
+  source_name_part = managed_user_shared_setting_specifics.pb
+build obj/components/sync/protocol/protocol/nigori_local_data.pb.o: cxx gen/components/sync/protocol/nigori_local_data.pb.cc | phony/components/sync/protocol/protocol.inputs || phony/components/sync/protocol/protocol.inputdeps
+  source_file_part = nigori_local_data.pb.cc
+  source_name_part = nigori_local_data.pb
+build obj/components/sync/protocol/protocol/nigori_specifics.pb.o: cxx gen/components/sync/protocol/nigori_specifics.pb.cc | phony/components/sync/protocol/protocol.inputs || phony/components/sync/protocol/protocol.inputdeps
+  source_file_part = nigori_specifics.pb.cc
+  source_name_part = nigori_specifics.pb
+build obj/components/sync/protocol/protocol/note_entity.pb.o: cxx gen/components/sync/protocol/note_entity.pb.cc | phony/components/sync/protocol/protocol.inputs || phony/components/sync/protocol/protocol.inputdeps
+  source_file_part = note_entity.pb.cc
+  source_name_part = note_entity.pb
+build obj/components/sync/protocol/protocol/os_preference_specifics.pb.o: cxx gen/components/sync/protocol/os_preference_specifics.pb.cc | phony/components/sync/protocol/protocol.inputs || phony/components/sync/protocol/protocol.inputdeps
+  source_file_part = os_preference_specifics.pb.cc
+  source_name_part = os_preference_specifics.pb
+build obj/components/sync/protocol/protocol/os_priority_preference_specifics.pb.o: cxx gen/components/sync/protocol/os_priority_preference_specifics.pb.cc | phony/components/sync/protocol/protocol.inputs || phony/components/sync/protocol/protocol.inputdeps
+  source_file_part = os_priority_preference_specifics.pb.cc
+  source_name_part = os_priority_preference_specifics.pb
+build obj/components/sync/protocol/protocol/password_sharing_invitation_specifics.pb.o: cxx gen/components/sync/protocol/password_sharing_invitation_specifics.pb.cc | phony/components/sync/protocol/protocol.inputs || phony/components/sync/protocol/protocol.inputdeps
+  source_file_part = password_sharing_invitation_specifics.pb.cc
+  source_name_part = password_sharing_invitation_specifics.pb
+build obj/components/sync/protocol/protocol/password_sharing_recipients.pb.o: cxx gen/components/sync/protocol/password_sharing_recipients.pb.cc | phony/components/sync/protocol/protocol.inputs || phony/components/sync/protocol/protocol.inputdeps
+  source_file_part = password_sharing_recipients.pb.cc
+  source_name_part = password_sharing_recipients.pb
+build obj/components/sync/protocol/protocol/password_specifics.pb.o: cxx gen/components/sync/protocol/password_specifics.pb.cc | phony/components/sync/protocol/protocol.inputs || phony/components/sync/protocol/protocol.inputdeps
+  source_file_part = password_specifics.pb.cc
+  source_name_part = password_specifics.pb
+build obj/components/sync/protocol/protocol/persisted_entity_data.pb.o: cxx gen/components/sync/protocol/persisted_entity_data.pb.cc | phony/components/sync/protocol/protocol.inputs || phony/components/sync/protocol/protocol.inputdeps
+  source_file_part = persisted_entity_data.pb.cc
+  source_name_part = persisted_entity_data.pb
+build obj/components/sync/protocol/protocol/plus_address_setting_specifics.pb.o: cxx gen/components/sync/protocol/plus_address_setting_specifics.pb.cc | phony/components/sync/protocol/protocol.inputs || phony/components/sync/protocol/protocol.inputdeps
+  source_file_part = plus_address_setting_specifics.pb.cc
+  source_name_part = plus_address_setting_specifics.pb
+build obj/components/sync/protocol/protocol/plus_address_specifics.pb.o: cxx gen/components/sync/protocol/plus_address_specifics.pb.cc | phony/components/sync/protocol/protocol.inputs || phony/components/sync/protocol/protocol.inputdeps
+  source_file_part = plus_address_specifics.pb.cc
+  source_name_part = plus_address_specifics.pb
+build obj/components/sync/protocol/protocol/power_bookmark_specifics.pb.o: cxx gen/components/sync/protocol/power_bookmark_specifics.pb.cc | phony/components/sync/protocol/protocol.inputs || phony/components/sync/protocol/protocol.inputdeps
+  source_file_part = power_bookmark_specifics.pb.cc
+  source_name_part = power_bookmark_specifics.pb
+build obj/components/sync/protocol/protocol/preference_specifics.pb.o: cxx gen/components/sync/protocol/preference_specifics.pb.cc | phony/components/sync/protocol/protocol.inputs || phony/components/sync/protocol/protocol.inputdeps
+  source_file_part = preference_specifics.pb.cc
+  source_name_part = preference_specifics.pb
+build obj/components/sync/protocol/protocol/printer_specifics.pb.o: cxx gen/components/sync/protocol/printer_specifics.pb.cc | phony/components/sync/protocol/protocol.inputs || phony/components/sync/protocol/protocol.inputdeps
+  source_file_part = printer_specifics.pb.cc
+  source_name_part = printer_specifics.pb
+build obj/components/sync/protocol/protocol/printers_authorization_server_specifics.pb.o: cxx gen/components/sync/protocol/printers_authorization_server_specifics.pb.cc | phony/components/sync/protocol/protocol.inputs || phony/components/sync/protocol/protocol.inputdeps
+  source_file_part = printers_authorization_server_specifics.pb.cc
+  source_name_part = printers_authorization_server_specifics.pb
+build obj/components/sync/protocol/protocol/priority_preference_specifics.pb.o: cxx gen/components/sync/protocol/priority_preference_specifics.pb.cc | phony/components/sync/protocol/protocol.inputs || phony/components/sync/protocol/protocol.inputdeps
+  source_file_part = priority_preference_specifics.pb.cc
+  source_name_part = priority_preference_specifics.pb
+build obj/components/sync/protocol/protocol/product_comparison_specifics.pb.o: cxx gen/components/sync/protocol/product_comparison_specifics.pb.cc | phony/components/sync/protocol/protocol.inputs || phony/components/sync/protocol/protocol.inputdeps
+  source_file_part = product_comparison_specifics.pb.cc
+  source_name_part = product_comparison_specifics.pb
+build obj/components/sync/protocol/protocol/reading_list_specifics.pb.o: cxx gen/components/sync/protocol/reading_list_specifics.pb.cc | phony/components/sync/protocol/protocol.inputs || phony/components/sync/protocol/protocol.inputdeps
+  source_file_part = reading_list_specifics.pb.cc
+  source_name_part = reading_list_specifics.pb
+build obj/components/sync/protocol/protocol/saved_tab_group_specifics.pb.o: cxx gen/components/sync/protocol/saved_tab_group_specifics.pb.cc | phony/components/sync/protocol/protocol.inputs || phony/components/sync/protocol/protocol.inputdeps
+  source_file_part = saved_tab_group_specifics.pb.cc
+  source_name_part = saved_tab_group_specifics.pb
+build obj/components/sync/protocol/protocol/search_engine_specifics.pb.o: cxx gen/components/sync/protocol/search_engine_specifics.pb.cc | phony/components/sync/protocol/protocol.inputs || phony/components/sync/protocol/protocol.inputdeps
+  source_file_part = search_engine_specifics.pb.cc
+  source_name_part = search_engine_specifics.pb
+build obj/components/sync/protocol/protocol/security_event_specifics.pb.o: cxx gen/components/sync/protocol/security_event_specifics.pb.cc | phony/components/sync/protocol/protocol.inputs || phony/components/sync/protocol/protocol.inputdeps
+  source_file_part = security_event_specifics.pb.cc
+  source_name_part = security_event_specifics.pb
+build obj/components/sync/protocol/protocol/send_tab_to_self_specifics.pb.o: cxx gen/components/sync/protocol/send_tab_to_self_specifics.pb.cc | phony/components/sync/protocol/protocol.inputs || phony/components/sync/protocol/protocol.inputdeps
+  source_file_part = send_tab_to_self_specifics.pb.cc
+  source_name_part = send_tab_to_self_specifics.pb
+build obj/components/sync/protocol/protocol/session_specifics.pb.o: cxx gen/components/sync/protocol/session_specifics.pb.cc | phony/components/sync/protocol/protocol.inputs || phony/components/sync/protocol/protocol.inputdeps
+  source_file_part = session_specifics.pb.cc
+  source_name_part = session_specifics.pb
+build obj/components/sync/protocol/protocol/shared_tab_group_data_specifics.pb.o: cxx gen/components/sync/protocol/shared_tab_group_data_specifics.pb.cc | phony/components/sync/protocol/protocol.inputs || phony/components/sync/protocol/protocol.inputdeps
+  source_file_part = shared_tab_group_data_specifics.pb.cc
+  source_name_part = shared_tab_group_data_specifics.pb
+build obj/components/sync/protocol/protocol/sharing_message_specifics.pb.o: cxx gen/components/sync/protocol/sharing_message_specifics.pb.cc | phony/components/sync/protocol/protocol.inputs || phony/components/sync/protocol/protocol.inputdeps
+  source_file_part = sharing_message_specifics.pb.cc
+  source_name_part = sharing_message_specifics.pb
+build obj/components/sync/protocol/protocol/sync.pb.o: cxx gen/components/sync/protocol/sync.pb.cc | phony/components/sync/protocol/protocol.inputs || phony/components/sync/protocol/protocol.inputdeps
+  source_file_part = sync.pb.cc
+  source_name_part = sync.pb
+build obj/components/sync/protocol/protocol/sync_entity.pb.o: cxx gen/components/sync/protocol/sync_entity.pb.cc | phony/components/sync/protocol/protocol.inputs || phony/components/sync/protocol/protocol.inputdeps
+  source_file_part = sync_entity.pb.cc
+  source_name_part = sync_entity.pb
+build obj/components/sync/protocol/protocol/sync_enums.pb.o: cxx gen/components/sync/protocol/sync_enums.pb.cc | phony/components/sync/protocol/protocol.inputs || phony/components/sync/protocol/protocol.inputdeps
+  source_file_part = sync_enums.pb.cc
+  source_name_part = sync_enums.pb
+build obj/components/sync/protocol/protocol/sync_invalidations_payload.pb.o: cxx gen/components/sync/protocol/sync_invalidations_payload.pb.cc | phony/components/sync/protocol/protocol.inputs || phony/components/sync/protocol/protocol.inputdeps
+  source_file_part = sync_invalidations_payload.pb.cc
+  source_name_part = sync_invalidations_payload.pb
+build obj/components/sync/protocol/protocol/tab_group_attribution_metadata.pb.o: cxx gen/components/sync/protocol/tab_group_attribution_metadata.pb.cc | phony/components/sync/protocol/protocol.inputs || phony/components/sync/protocol/protocol.inputdeps
+  source_file_part = tab_group_attribution_metadata.pb.cc
+  source_name_part = tab_group_attribution_metadata.pb
+build obj/components/sync/protocol/protocol/test.pb.o: cxx gen/components/sync/protocol/test.pb.cc | phony/components/sync/protocol/protocol.inputs || phony/components/sync/protocol/protocol.inputdeps
+  source_file_part = test.pb.cc
+  source_name_part = test.pb
+build obj/components/sync/protocol/protocol/theme_specifics.pb.o: cxx gen/components/sync/protocol/theme_specifics.pb.cc | phony/components/sync/protocol/protocol.inputs || phony/components/sync/protocol/protocol.inputdeps
+  source_file_part = theme_specifics.pb.cc
+  source_name_part = theme_specifics.pb
+build obj/components/sync/protocol/protocol/typed_url_specifics.pb.o: cxx gen/components/sync/protocol/typed_url_specifics.pb.cc | phony/components/sync/protocol/protocol.inputs || phony/components/sync/protocol/protocol.inputdeps
+  source_file_part = typed_url_specifics.pb.cc
+  source_name_part = typed_url_specifics.pb
+build obj/components/sync/protocol/protocol/unencrypted_sharing_message.pb.o: cxx gen/components/sync/protocol/unencrypted_sharing_message.pb.cc | phony/components/sync/protocol/protocol.inputs || phony/components/sync/protocol/protocol.inputdeps
+  source_file_part = unencrypted_sharing_message.pb.cc
+  source_name_part = unencrypted_sharing_message.pb
+build obj/components/sync/protocol/protocol/unique_position.pb.o: cxx gen/components/sync/protocol/unique_position.pb.cc | phony/components/sync/protocol/protocol.inputs || phony/components/sync/protocol/protocol.inputdeps
+  source_file_part = unique_position.pb.cc
+  source_name_part = unique_position.pb
+build obj/components/sync/protocol/protocol/user_consent_specifics.pb.o: cxx gen/components/sync/protocol/user_consent_specifics.pb.cc | phony/components/sync/protocol/protocol.inputs || phony/components/sync/protocol/protocol.inputdeps
+  source_file_part = user_consent_specifics.pb.cc
+  source_name_part = user_consent_specifics.pb
+build obj/components/sync/protocol/protocol/user_consent_types.pb.o: cxx gen/components/sync/protocol/user_consent_types.pb.cc | phony/components/sync/protocol/protocol.inputs || phony/components/sync/protocol/protocol.inputdeps
+  source_file_part = user_consent_types.pb.cc
+  source_name_part = user_consent_types.pb
+build obj/components/sync/protocol/protocol/user_event_specifics.pb.o: cxx gen/components/sync/protocol/user_event_specifics.pb.cc | phony/components/sync/protocol/protocol.inputs || phony/components/sync/protocol/protocol.inputdeps
+  source_file_part = user_event_specifics.pb.cc
+  source_name_part = user_event_specifics.pb
+build obj/components/sync/protocol/protocol/web_apk_specifics.pb.o: cxx gen/components/sync/protocol/web_apk_specifics.pb.cc | phony/components/sync/protocol/protocol.inputs || phony/components/sync/protocol/protocol.inputdeps
+  source_file_part = web_apk_specifics.pb.cc
+  source_name_part = web_apk_specifics.pb
+build obj/components/sync/protocol/protocol/web_app_specifics.pb.o: cxx gen/components/sync/protocol/web_app_specifics.pb.cc | phony/components/sync/protocol/protocol.inputs || phony/components/sync/protocol/protocol.inputdeps
+  source_file_part = web_app_specifics.pb.cc
+  source_name_part = web_app_specifics.pb
+build obj/components/sync/protocol/protocol/webauthn_credential_specifics.pb.o: cxx gen/components/sync/protocol/webauthn_credential_specifics.pb.cc | phony/components/sync/protocol/protocol.inputs || phony/components/sync/protocol/protocol.inputdeps
+  source_file_part = webauthn_credential_specifics.pb.cc
+  source_name_part = webauthn_credential_specifics.pb
+build obj/components/sync/protocol/protocol/wifi_configuration_specifics.pb.o: cxx gen/components/sync/protocol/wifi_configuration_specifics.pb.cc | phony/components/sync/protocol/protocol.inputs || phony/components/sync/protocol/protocol.inputdeps
+  source_file_part = wifi_configuration_specifics.pb.cc
+  source_name_part = wifi_configuration_specifics.pb
+build obj/components/sync/protocol/protocol/workspace_desk_specifics.pb.o: cxx gen/components/sync/protocol/workspace_desk_specifics.pb.cc | phony/components/sync/protocol/protocol.inputs || phony/components/sync/protocol/protocol.inputdeps
+  source_file_part = workspace_desk_specifics.pb.cc
+  source_name_part = workspace_desk_specifics.pb
+
+build obj/components/sync/protocol/libprotocol.a: alink obj/components/sync/protocol/protocol/app_list_specifics.pb.o obj/components/sync/protocol/protocol/app_setting_specifics.pb.o obj/components/sync/protocol/protocol/app_specifics.pb.o obj/components/sync/protocol/protocol/arc_package_specifics.pb.o obj/components/sync/protocol/protocol/autofill_loyalty_card_specifics.pb.o obj/components/sync/protocol/protocol/autofill_offer_specifics.pb.o obj/components/sync/protocol/protocol/autofill_specifics.pb.o obj/components/sync/protocol/protocol/autofill_wallet_credential_specifics.pb.o obj/components/sync/protocol/protocol/autofill_wallet_usage_specifics.pb.o obj/components/sync/protocol/protocol/bookmark_model_metadata.pb.o obj/components/sync/protocol/protocol/bookmark_specifics.pb.o obj/components/sync/protocol/protocol/client_commands.pb.o obj/components/sync/protocol/protocol/client_debug_info.pb.o obj/components/sync/protocol/protocol/collaboration_group_metadata.pb.o obj/components/sync/protocol/protocol/collaboration_group_specifics.pb.o obj/components/sync/protocol/protocol/contact_info_specifics.pb.o obj/components/sync/protocol/protocol/cookie_specifics.pb.o obj/components/sync/protocol/protocol/data_type_progress_marker.pb.o obj/components/sync/protocol/protocol/data_type_state.pb.o obj/components/sync/protocol/protocol/data_type_store_schema_descriptor.pb.o obj/components/sync/protocol/protocol/deletion_origin.pb.o obj/components/sync/protocol/protocol/device_info_specifics.pb.o obj/components/sync/protocol/protocol/dictionary_specifics.pb.o obj/components/sync/protocol/protocol/encryption.pb.o obj/components/sync/protocol/protocol/entity_metadata.pb.o obj/components/sync/protocol/protocol/entity_specifics.pb.o obj/components/sync/protocol/protocol/extension_setting_specifics.pb.o obj/components/sync/protocol/protocol/extension_specifics.pb.o obj/components/sync/protocol/protocol/gaia_password_reuse.pb.o obj/components/sync/protocol/protocol/get_updates_caller_info.pb.o obj/components/sync/protocol/protocol/history_delete_directive_specifics.pb.o obj/components/sync/protocol/protocol/history_specifics.pb.o obj/components/sync/protocol/protocol/history_status.pb.o obj/components/sync/protocol/protocol/loopback_server.pb.o obj/components/sync/protocol/protocol/managed_user_setting_specifics.pb.o obj/components/sync/protocol/protocol/managed_user_shared_setting_specifics.pb.o obj/components/sync/protocol/protocol/nigori_local_data.pb.o obj/components/sync/protocol/protocol/nigori_specifics.pb.o obj/components/sync/protocol/protocol/note_entity.pb.o obj/components/sync/protocol/protocol/os_preference_specifics.pb.o obj/components/sync/protocol/protocol/os_priority_preference_specifics.pb.o obj/components/sync/protocol/protocol/password_sharing_invitation_specifics.pb.o obj/components/sync/protocol/protocol/password_sharing_recipients.pb.o obj/components/sync/protocol/protocol/password_specifics.pb.o obj/components/sync/protocol/protocol/persisted_entity_data.pb.o obj/components/sync/protocol/protocol/plus_address_setting_specifics.pb.o obj/components/sync/protocol/protocol/plus_address_specifics.pb.o obj/components/sync/protocol/protocol/power_bookmark_specifics.pb.o obj/components/sync/protocol/protocol/preference_specifics.pb.o obj/components/sync/protocol/protocol/printer_specifics.pb.o obj/components/sync/protocol/protocol/printers_authorization_server_specifics.pb.o obj/components/sync/protocol/protocol/priority_preference_specifics.pb.o obj/components/sync/protocol/protocol/product_comparison_specifics.pb.o obj/components/sync/protocol/protocol/reading_list_specifics.pb.o obj/components/sync/protocol/protocol/saved_tab_group_specifics.pb.o obj/components/sync/protocol/protocol/search_engine_specifics.pb.o obj/components/sync/protocol/protocol/security_event_specifics.pb.o obj/components/sync/protocol/protocol/send_tab_to_self_specifics.pb.o obj/components/sync/protocol/protocol/session_specifics.pb.o obj/components/sync/protocol/protocol/shared_tab_group_data_specifics.pb.o obj/components/sync/protocol/protocol/sharing_message_specifics.pb.o obj/components/sync/protocol/protocol/sync.pb.o obj/components/sync/protocol/protocol/sync_entity.pb.o obj/components/sync/protocol/protocol/sync_enums.pb.o obj/components/sync/protocol/protocol/sync_invalidations_payload.pb.o obj/components/sync/protocol/protocol/tab_group_attribution_metadata.pb.o obj/components/sync/protocol/protocol/test.pb.o obj/components/sync/protocol/protocol/theme_specifics.pb.o obj/components/sync/protocol/protocol/typed_url_specifics.pb.o obj/components/sync/protocol/protocol/unencrypted_sharing_message.pb.o obj/components/sync/protocol/protocol/unique_position.pb.o obj/components/sync/protocol/protocol/user_consent_specifics.pb.o obj/components/sync/protocol/protocol/user_consent_types.pb.o obj/components/sync/protocol/protocol/user_event_specifics.pb.o obj/components/sync/protocol/protocol/web_apk_specifics.pb.o obj/components/sync/protocol/protocol/web_app_specifics.pb.o obj/components/sync/protocol/protocol/webauthn_credential_specifics.pb.o obj/components/sync/protocol/protocol/wifi_configuration_specifics.pb.o obj/components/sync/protocol/protocol/workspace_desk_specifics.pb.o | ../../../llvm-build/Release+Asserts/lib/clang/21/lib/x86_64-unknown-linux-gnu/libclang_rt.builtins.a phony/components/sync/protocol/protocol.inputs || ./libthird_party_protobuf_protobuf_lite.so.TOC phony/components/sync/protocol/protocol_gen ./libthird_party_abseil-cpp_absl.so.TOC
+  arflags = -T -S
+  output_extension = .a
+  output_dir = obj/components/sync/protocol

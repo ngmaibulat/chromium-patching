@@ -1,0 +1,58 @@
+Name: Implementation of WebDriver BiDi standard
+Short Name: chromium-bidi
+URL: https://registry.npmjs.org/chromium-bidi/-/chromium-bidi-2.1.2.tgz
+Version: 2.1.2
+Date: 2025-03-03
+Revision: 981a30eedf48085361fa56a7087120526655b989
+SHA-512: be278b6b49c3eb3bf314049b2fbd8b1347220400b1619ade4576315415ca92626e549e7f1d60c26ede163f51e3ac28cc8f92dea2b3a4cc20cc1aebde11429bcb
+License: Apache-2.0
+License File: LICENSE
+Shipped: yes
+Security Critical: no
+CPEPrefix: unknown
+License Android Compatible: yes
+
+Description:
+WebDriver BiDi implementation for ChromeDriver.
+The software is compiled into mapper.js script that is uploaded by ChromeDriver into the Chrome browser.
+
+Steps to roll:
+Find the needed revision in the project release list: https://github.com/GoogleChromeLabs/chromium-bidi/releases.
+Roll the BiDiMapper to the needed version:
+
+```bash
+roll_bidimapper --version=<your-version>
+```
+
+If you omit the `--version` parameter the latest available version will be pulled from NPM.
+
+The file README.chromium will be updated by roll_bidimapper
+
+Local Modifications:
+Local modifications are not allowed.
+The upstream is maintained by the Chromium developers.
+All the changes must be done there.
+
+The source code of the current revision can be found at the following url: https://github.com/GoogleChromeLabs/chromium-bidi/archive/981a30eedf48085361fa56a7087120526655b989.zip
+
+-------------------- DEPENDENCY DIVIDER --------------------
+
+Name: mitt
+URL: https://github.com/developit/mitt
+Version: 3.0.1
+License: MIT
+Revision: b240473b5707857ba2c6a8e6d707c28d1e39da49
+Security Critical: no
+Shipped: yes
+License File: licenses/LICENSE.mitt
+
+-------------------- DEPENDENCY DIVIDER --------------------
+
+Name: zod
+URL: https://zod.dev
+Version: 3.24.2
+License: MIT
+Revision: e30870369d5b8f31ff4d0130d4439fd997deb523
+Security Critical: no
+Shipped: yes
+License File: licenses/LICENSE.zod

@@ -1,0 +1,70 @@
+defines = -DDCHECK_ALWAYS_ON=1 -DUSE_UDEV -DUSE_AURA=1 -DUSE_GLIB=1 -DUSE_OZONE=1 -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_GNU_SOURCE -DCR_CLANG_REVISION=\"llvmorg-21-init-1655-g7b473dfe-1\" -D_LIBCPP_HARDENING_MODE=_LIBCPP_HARDENING_MODE_EXTENSIVE -DCOMPONENT_BUILD -D_LIBCPP_INSTRUMENTED_WITH_ASAN=0 -DCR_LIBCXX_REVISION=7c3087b8a7563d8218b27b7183ba41cf52d41508 -DTMP_REBUILD_HACK -DCR_SYSROOT_KEY=20250129T203412Z-1 -D_DEBUG -DDYNAMIC_ANNOTATIONS_ENABLED=1 -DLIBXSLT_STATIC -DU_USING_ICU_NAMESPACE=0 -DU_ENABLE_DYLOAD=0 -DUSE_CHROMIUM_ICU=1 -DU_ENABLE_TRACING=1 -DU_ENABLE_RESOURCE_TRACING=0 -DICU_UTIL_DATA_IMPL=ICU_UTIL_DATA_FILE
+include_dirs = -I../../../../third_party/libxslt/linux -I../../../.. -Igen -I../../../../buildtools/third_party/libc++ -I../../../../third_party/libxslt/src -I../../../../third_party/libxslt/src/libxslt -I../../../../third_party/libxml/src/include -I../../../../third_party/libxml/linux/include -I../../../../third_party/icu/source/common -I../../../../third_party/icu/source/i18n
+cflags = -fno-delete-null-pointer-checks -fno-strict-overflow -fno-ident -fno-strict-aliasing -fstack-protector -funwind-tables -fPIC -pthread -fcolor-diagnostics -fmerge-all-constants -fno-sized-deallocation -fcrash-diagnostics-dir=../../../../tools/clang/crashreports -mllvm -instcombine-lower-dbg-declare=0 -mllvm -split-threshold-for-reg-with-hint=0 -ffp-contract=off -Wa,--crel,--allow-experimental-crel -fcomplete-member-pointers -m64 -msse3 -Wno-builtin-macro-redefined -D__DATE__= -D__TIME__= -D__TIMESTAMP__= -ffile-compilation-dir=. -no-canonical-prefixes -ftrivial-auto-var-init=pattern -O0 -fno-omit-frame-pointer -gdwarf-4 -g2 -gdwarf-aranges -gsplit-dwarf -ggnu-pubnames -Xclang -fuse-ctor-homing -fvisibility=hidden -Wheader-hygiene -Wstring-conversion -Wtautological-overlap-compare -Xclang -add-plugin -Xclang find-bad-constructs -Xclang -plugin-arg-find-bad-constructs -Xclang span-ctor-from-string-literal -Xclang -plugin-arg-find-bad-constructs -Xclang raw-ref-template-as-trivial-member -Xclang -plugin-arg-find-bad-constructs -Xclang raw-span-template-as-trivial-member -Xclang -plugin-arg-find-bad-constructs -Xclang check-stack-allocated -Xclang -plugin-arg-find-bad-constructs -Xclang check-ipc -Xclang -add-plugin -Xclang raw-ptr-plugin -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ptr-to-stack-allocated -Xclang -plugin-arg-raw-ptr-plugin -Xclang disable-check-raw-ptr-to-stack-allocated-error -Xclang -plugin-arg-raw-ptr-plugin -Xclang raw-ptr-exclude-path=../../../dawn/ -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ptr-fields -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-span-fields -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ref-fields -DUNSAFE_BUFFERS_BUILD -Xclang -add-plugin -Xclang unsafe-buffers -Xclang -plugin-arg-unsafe-buffers -Xclang ../../../../build/config/unsafe_buffers_paths.txt -Wall -Wno-unused-variable -Wno-c++11-narrowing -Wno-unused-but-set-variable -Wno-misleading-indentation -Wno-missing-field-initializers -Wno-unused-parameter -Wno-psabi -Wloop-analysis -Wno-unneeded-internal-declaration -Wno-cast-function-type -Wno-thread-safety-reference-return -Wno-nontrivial-memcall -Werror -Wno-pointer-sign -Wno-unused-function -DLIBXML_STATIC=
+cflags_c = -std=c11 --sysroot=../../../../build/linux/debian_bullseye_amd64-sysroot
+label_name = libxslt
+target_out_dir = obj/third_party/libxslt
+target_output_name = libxslt
+
+build obj/third_party/libxslt/libxslt/attributes.o: cc ../../../../third_party/libxslt/src/libxslt/attributes.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/icu/copy_icudata
+  source_file_part = attributes.c
+  source_name_part = attributes
+build obj/third_party/libxslt/libxslt/attrvt.o: cc ../../../../third_party/libxslt/src/libxslt/attrvt.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/icu/copy_icudata
+  source_file_part = attrvt.c
+  source_name_part = attrvt
+build obj/third_party/libxslt/libxslt/documents.o: cc ../../../../third_party/libxslt/src/libxslt/documents.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/icu/copy_icudata
+  source_file_part = documents.c
+  source_name_part = documents
+build obj/third_party/libxslt/libxslt/extensions.o: cc ../../../../third_party/libxslt/src/libxslt/extensions.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/icu/copy_icudata
+  source_file_part = extensions.c
+  source_name_part = extensions
+build obj/third_party/libxslt/libxslt/extra.o: cc ../../../../third_party/libxslt/src/libxslt/extra.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/icu/copy_icudata
+  source_file_part = extra.c
+  source_name_part = extra
+build obj/third_party/libxslt/libxslt/functions.o: cc ../../../../third_party/libxslt/src/libxslt/functions.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/icu/copy_icudata
+  source_file_part = functions.c
+  source_name_part = functions
+build obj/third_party/libxslt/libxslt/imports.o: cc ../../../../third_party/libxslt/src/libxslt/imports.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/icu/copy_icudata
+  source_file_part = imports.c
+  source_name_part = imports
+build obj/third_party/libxslt/libxslt/keys.o: cc ../../../../third_party/libxslt/src/libxslt/keys.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/icu/copy_icudata
+  source_file_part = keys.c
+  source_name_part = keys
+build obj/third_party/libxslt/libxslt/namespaces.o: cc ../../../../third_party/libxslt/src/libxslt/namespaces.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/icu/copy_icudata
+  source_file_part = namespaces.c
+  source_name_part = namespaces
+build obj/third_party/libxslt/libxslt/numbers.o: cc ../../../../third_party/libxslt/src/libxslt/numbers.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/icu/copy_icudata
+  source_file_part = numbers.c
+  source_name_part = numbers
+build obj/third_party/libxslt/libxslt/pattern.o: cc ../../../../third_party/libxslt/src/libxslt/pattern.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/icu/copy_icudata
+  source_file_part = pattern.c
+  source_name_part = pattern
+build obj/third_party/libxslt/libxslt/preproc.o: cc ../../../../third_party/libxslt/src/libxslt/preproc.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/icu/copy_icudata
+  source_file_part = preproc.c
+  source_name_part = preproc
+build obj/third_party/libxslt/libxslt/security.o: cc ../../../../third_party/libxslt/src/libxslt/security.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/icu/copy_icudata
+  source_file_part = security.c
+  source_name_part = security
+build obj/third_party/libxslt/libxslt/templates.o: cc ../../../../third_party/libxslt/src/libxslt/templates.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/icu/copy_icudata
+  source_file_part = templates.c
+  source_name_part = templates
+build obj/third_party/libxslt/libxslt/transform.o: cc ../../../../third_party/libxslt/src/libxslt/transform.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/icu/copy_icudata
+  source_file_part = transform.c
+  source_name_part = transform
+build obj/third_party/libxslt/libxslt/variables.o: cc ../../../../third_party/libxslt/src/libxslt/variables.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/icu/copy_icudata
+  source_file_part = variables.c
+  source_name_part = variables
+build obj/third_party/libxslt/libxslt/xslt.o: cc ../../../../third_party/libxslt/src/libxslt/xslt.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/icu/copy_icudata
+  source_file_part = xslt.c
+  source_name_part = xslt
+build obj/third_party/libxslt/libxslt/xsltlocale.o: cc ../../../../third_party/libxslt/src/libxslt/xsltlocale.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/icu/copy_icudata
+  source_file_part = xsltlocale.c
+  source_name_part = xsltlocale
+build obj/third_party/libxslt/libxslt/xsltutils.o: cc ../../../../third_party/libxslt/src/libxslt/xsltutils.c | ../../../../build/config/unsafe_buffers_paths.txt || phony/third_party/icu/copy_icudata
+  source_file_part = xsltutils.c
+  source_name_part = xsltutils
+
+build obj/third_party/libxslt/libxslt.a: alink obj/third_party/libxslt/libxslt/attributes.o obj/third_party/libxslt/libxslt/attrvt.o obj/third_party/libxslt/libxslt/documents.o obj/third_party/libxslt/libxslt/extensions.o obj/third_party/libxslt/libxslt/extra.o obj/third_party/libxslt/libxslt/functions.o obj/third_party/libxslt/libxslt/imports.o obj/third_party/libxslt/libxslt/keys.o obj/third_party/libxslt/libxslt/namespaces.o obj/third_party/libxslt/libxslt/numbers.o obj/third_party/libxslt/libxslt/pattern.o obj/third_party/libxslt/libxslt/preproc.o obj/third_party/libxslt/libxslt/security.o obj/third_party/libxslt/libxslt/templates.o obj/third_party/libxslt/libxslt/transform.o obj/third_party/libxslt/libxslt/variables.o obj/third_party/libxslt/libxslt/xslt.o obj/third_party/libxslt/libxslt/xsltlocale.o obj/third_party/libxslt/libxslt/xsltutils.o | ../../../llvm-build/Release+Asserts/lib/clang/21/lib/x86_64-unknown-linux-gnu/libclang_rt.builtins.a ../../../../build/config/unsafe_buffers_paths.txt || obj/third_party/libxml/libxml2.a ./libicuuc.so.TOC ./libchrome_zlib.so.TOC
+  arflags = -T -S
+  output_extension = .a
+  output_dir = obj/third_party/libxslt

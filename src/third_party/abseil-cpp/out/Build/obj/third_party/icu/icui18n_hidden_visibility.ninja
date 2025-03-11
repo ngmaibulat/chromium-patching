@@ -1,0 +1,746 @@
+defines = -DU_I18N_IMPLEMENTATION -DDCHECK_ALWAYS_ON=1 -DUSE_UDEV -DUSE_AURA=1 -DUSE_GLIB=1 -DUSE_OZONE=1 -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_GNU_SOURCE -DCR_CLANG_REVISION=\"llvmorg-21-init-1655-g7b473dfe-1\" -D_LIBCPP_HARDENING_MODE=_LIBCPP_HARDENING_MODE_EXTENSIVE -DCOMPONENT_BUILD -D_LIBCPP_INSTRUMENTED_WITH_ASAN=0 -DCR_LIBCXX_REVISION=7c3087b8a7563d8218b27b7183ba41cf52d41508 -DTMP_REBUILD_HACK -DCR_SYSROOT_KEY=20250129T203412Z-1 -D_DEBUG -DDYNAMIC_ANNOTATIONS_ENABLED=1 -DHAVE_DLOPEN=0 -DUCONFIG_ONLY_HTML_CONVERSION=1 -DUCONFIG_USE_ML_PHRASE_BREAKING=1 -DUCONFIG_USE_WINDOWS_LCID_MAPPING_API=0 -DU_CHARSET_IS_UTF8=1 -DU_USING_ICU_NAMESPACE=0 -DU_ENABLE_DYLOAD=0 -DUSE_CHROMIUM_ICU=1 -DU_ENABLE_TRACING=1 -DU_ENABLE_RESOURCE_TRACING=0 -DICU_UTIL_DATA_IMPL=ICU_UTIL_DATA_FILE
+include_dirs = -I../../../.. -Igen -I../../../../buildtools/third_party/libc++ -I../../../../third_party/icu/source/common -I../../../../third_party/icu/source/i18n
+cflags = -fno-delete-null-pointer-checks -fno-strict-overflow -fno-ident -fno-strict-aliasing -fstack-protector -funwind-tables -fPIC -pthread -fcolor-diagnostics -fmerge-all-constants -fno-sized-deallocation -fcrash-diagnostics-dir=../../../../tools/clang/crashreports -mllvm -instcombine-lower-dbg-declare=0 -mllvm -split-threshold-for-reg-with-hint=0 -ffp-contract=off -Wa,--crel,--allow-experimental-crel -fcomplete-member-pointers -m64 -msse3 -Wno-builtin-macro-redefined -D__DATE__= -D__TIME__= -D__TIMESTAMP__= -ffile-compilation-dir=. -no-canonical-prefixes -ftrivial-auto-var-init=pattern -O0 -fno-omit-frame-pointer -gdwarf-4 -g2 -gdwarf-aranges -gsplit-dwarf -ggnu-pubnames -Xclang -fuse-ctor-homing -fvisibility=hidden -Wheader-hygiene -Wstring-conversion -Wtautological-overlap-compare -Xclang -add-plugin -Xclang find-bad-constructs -Xclang -plugin-arg-find-bad-constructs -Xclang span-ctor-from-string-literal -Xclang -plugin-arg-find-bad-constructs -Xclang raw-ref-template-as-trivial-member -Xclang -plugin-arg-find-bad-constructs -Xclang raw-span-template-as-trivial-member -Xclang -plugin-arg-find-bad-constructs -Xclang check-stack-allocated -Xclang -plugin-arg-find-bad-constructs -Xclang check-ipc -Xclang -add-plugin -Xclang raw-ptr-plugin -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ptr-to-stack-allocated -Xclang -plugin-arg-raw-ptr-plugin -Xclang disable-check-raw-ptr-to-stack-allocated-error -Xclang -plugin-arg-raw-ptr-plugin -Xclang raw-ptr-exclude-path=../../../dawn/ -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ptr-fields -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-span-fields -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ref-fields -DUNSAFE_BUFFERS_BUILD -Xclang -add-plugin -Xclang unsafe-buffers -Xclang -plugin-arg-unsafe-buffers -Xclang ../../../../build/config/unsafe_buffers_paths.txt -Wall -Wno-unused-variable -Wno-c++11-narrowing -Wno-unused-but-set-variable -Wno-misleading-indentation -Wno-missing-field-initializers -Wno-unused-parameter -Wno-psabi -Wloop-analysis -Wno-unneeded-internal-declaration -Wno-cast-function-type -Wno-thread-safety-reference-return -Wno-nontrivial-memcall -Werror -Wno-unused-function -Wno-parentheses -Wno-unused-function -Wno-unused-variable -Wno-ambiguous-reversed-operator -Wno-deprecated-declarations -fvisibility=hidden
+cflags_cc = -Wno-undefined-bool-conversion -Wno-tautological-undefined-compare -std=c++20 -Wno-trigraphs -gsimple-template-names -fno-exceptions -nostdinc++ -isystem../../../libc++/src/include -isystem../../../libc++abi/src/include --sysroot=../../../../build/linux/debian_bullseye_amd64-sysroot -fvisibility-inlines-hidden -frtti -Wno-invalid-offsetof -Wenum-compare-conditional -Wno-c++11-narrowing-const-reference -Wno-missing-template-arg-list-after-template-kw
+label_name = icui18n_hidden_visibility
+target_out_dir = obj/third_party/icu
+target_output_name = libthird_party_icu_icui18n_hidden_visibility
+
+build obj/third_party/icu/icui18n_hidden_visibility/alphaindex.o: cxx ../../../../third_party/icu/source/i18n/alphaindex.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = alphaindex.cpp
+  source_name_part = alphaindex
+build obj/third_party/icu/icui18n_hidden_visibility/anytrans.o: cxx ../../../../third_party/icu/source/i18n/anytrans.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = anytrans.cpp
+  source_name_part = anytrans
+build obj/third_party/icu/icui18n_hidden_visibility/astro.o: cxx ../../../../third_party/icu/source/i18n/astro.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = astro.cpp
+  source_name_part = astro
+build obj/third_party/icu/icui18n_hidden_visibility/basictz.o: cxx ../../../../third_party/icu/source/i18n/basictz.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = basictz.cpp
+  source_name_part = basictz
+build obj/third_party/icu/icui18n_hidden_visibility/bocsu.o: cxx ../../../../third_party/icu/source/i18n/bocsu.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = bocsu.cpp
+  source_name_part = bocsu
+build obj/third_party/icu/icui18n_hidden_visibility/brktrans.o: cxx ../../../../third_party/icu/source/i18n/brktrans.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = brktrans.cpp
+  source_name_part = brktrans
+build obj/third_party/icu/icui18n_hidden_visibility/buddhcal.o: cxx ../../../../third_party/icu/source/i18n/buddhcal.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = buddhcal.cpp
+  source_name_part = buddhcal
+build obj/third_party/icu/icui18n_hidden_visibility/calendar.o: cxx ../../../../third_party/icu/source/i18n/calendar.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = calendar.cpp
+  source_name_part = calendar
+build obj/third_party/icu/icui18n_hidden_visibility/casetrn.o: cxx ../../../../third_party/icu/source/i18n/casetrn.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = casetrn.cpp
+  source_name_part = casetrn
+build obj/third_party/icu/icui18n_hidden_visibility/cecal.o: cxx ../../../../third_party/icu/source/i18n/cecal.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = cecal.cpp
+  source_name_part = cecal
+build obj/third_party/icu/icui18n_hidden_visibility/chnsecal.o: cxx ../../../../third_party/icu/source/i18n/chnsecal.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = chnsecal.cpp
+  source_name_part = chnsecal
+build obj/third_party/icu/icui18n_hidden_visibility/choicfmt.o: cxx ../../../../third_party/icu/source/i18n/choicfmt.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = choicfmt.cpp
+  source_name_part = choicfmt
+build obj/third_party/icu/icui18n_hidden_visibility/coleitr.o: cxx ../../../../third_party/icu/source/i18n/coleitr.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = coleitr.cpp
+  source_name_part = coleitr
+build obj/third_party/icu/icui18n_hidden_visibility/collationbuilder.o: cxx ../../../../third_party/icu/source/i18n/collationbuilder.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = collationbuilder.cpp
+  source_name_part = collationbuilder
+build obj/third_party/icu/icui18n_hidden_visibility/collationcompare.o: cxx ../../../../third_party/icu/source/i18n/collationcompare.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = collationcompare.cpp
+  source_name_part = collationcompare
+build obj/third_party/icu/icui18n_hidden_visibility/collation.o: cxx ../../../../third_party/icu/source/i18n/collation.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = collation.cpp
+  source_name_part = collation
+build obj/third_party/icu/icui18n_hidden_visibility/collationdatabuilder.o: cxx ../../../../third_party/icu/source/i18n/collationdatabuilder.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = collationdatabuilder.cpp
+  source_name_part = collationdatabuilder
+build obj/third_party/icu/icui18n_hidden_visibility/collationdata.o: cxx ../../../../third_party/icu/source/i18n/collationdata.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = collationdata.cpp
+  source_name_part = collationdata
+build obj/third_party/icu/icui18n_hidden_visibility/collationdatareader.o: cxx ../../../../third_party/icu/source/i18n/collationdatareader.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = collationdatareader.cpp
+  source_name_part = collationdatareader
+build obj/third_party/icu/icui18n_hidden_visibility/collationdatawriter.o: cxx ../../../../third_party/icu/source/i18n/collationdatawriter.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = collationdatawriter.cpp
+  source_name_part = collationdatawriter
+build obj/third_party/icu/icui18n_hidden_visibility/collationfastlatinbuilder.o: cxx ../../../../third_party/icu/source/i18n/collationfastlatinbuilder.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = collationfastlatinbuilder.cpp
+  source_name_part = collationfastlatinbuilder
+build obj/third_party/icu/icui18n_hidden_visibility/collationfastlatin.o: cxx ../../../../third_party/icu/source/i18n/collationfastlatin.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = collationfastlatin.cpp
+  source_name_part = collationfastlatin
+build obj/third_party/icu/icui18n_hidden_visibility/collationfcd.o: cxx ../../../../third_party/icu/source/i18n/collationfcd.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = collationfcd.cpp
+  source_name_part = collationfcd
+build obj/third_party/icu/icui18n_hidden_visibility/collationiterator.o: cxx ../../../../third_party/icu/source/i18n/collationiterator.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = collationiterator.cpp
+  source_name_part = collationiterator
+build obj/third_party/icu/icui18n_hidden_visibility/collationkeys.o: cxx ../../../../third_party/icu/source/i18n/collationkeys.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = collationkeys.cpp
+  source_name_part = collationkeys
+build obj/third_party/icu/icui18n_hidden_visibility/collationroot.o: cxx ../../../../third_party/icu/source/i18n/collationroot.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = collationroot.cpp
+  source_name_part = collationroot
+build obj/third_party/icu/icui18n_hidden_visibility/collationrootelements.o: cxx ../../../../third_party/icu/source/i18n/collationrootelements.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = collationrootelements.cpp
+  source_name_part = collationrootelements
+build obj/third_party/icu/icui18n_hidden_visibility/collationruleparser.o: cxx ../../../../third_party/icu/source/i18n/collationruleparser.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = collationruleparser.cpp
+  source_name_part = collationruleparser
+build obj/third_party/icu/icui18n_hidden_visibility/collationsets.o: cxx ../../../../third_party/icu/source/i18n/collationsets.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = collationsets.cpp
+  source_name_part = collationsets
+build obj/third_party/icu/icui18n_hidden_visibility/collationsettings.o: cxx ../../../../third_party/icu/source/i18n/collationsettings.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = collationsettings.cpp
+  source_name_part = collationsettings
+build obj/third_party/icu/icui18n_hidden_visibility/collationtailoring.o: cxx ../../../../third_party/icu/source/i18n/collationtailoring.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = collationtailoring.cpp
+  source_name_part = collationtailoring
+build obj/third_party/icu/icui18n_hidden_visibility/collationweights.o: cxx ../../../../third_party/icu/source/i18n/collationweights.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = collationweights.cpp
+  source_name_part = collationweights
+build obj/third_party/icu/icui18n_hidden_visibility/coll.o: cxx ../../../../third_party/icu/source/i18n/coll.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = coll.cpp
+  source_name_part = coll
+build obj/third_party/icu/icui18n_hidden_visibility/compactdecimalformat.o: cxx ../../../../third_party/icu/source/i18n/compactdecimalformat.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = compactdecimalformat.cpp
+  source_name_part = compactdecimalformat
+build obj/third_party/icu/icui18n_hidden_visibility/coptccal.o: cxx ../../../../third_party/icu/source/i18n/coptccal.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = coptccal.cpp
+  source_name_part = coptccal
+build obj/third_party/icu/icui18n_hidden_visibility/cpdtrans.o: cxx ../../../../third_party/icu/source/i18n/cpdtrans.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = cpdtrans.cpp
+  source_name_part = cpdtrans
+build obj/third_party/icu/icui18n_hidden_visibility/csdetect.o: cxx ../../../../third_party/icu/source/i18n/csdetect.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = csdetect.cpp
+  source_name_part = csdetect
+build obj/third_party/icu/icui18n_hidden_visibility/csmatch.o: cxx ../../../../third_party/icu/source/i18n/csmatch.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = csmatch.cpp
+  source_name_part = csmatch
+build obj/third_party/icu/icui18n_hidden_visibility/csr2022.o: cxx ../../../../third_party/icu/source/i18n/csr2022.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = csr2022.cpp
+  source_name_part = csr2022
+build obj/third_party/icu/icui18n_hidden_visibility/csrecog.o: cxx ../../../../third_party/icu/source/i18n/csrecog.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = csrecog.cpp
+  source_name_part = csrecog
+build obj/third_party/icu/icui18n_hidden_visibility/csrmbcs.o: cxx ../../../../third_party/icu/source/i18n/csrmbcs.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = csrmbcs.cpp
+  source_name_part = csrmbcs
+build obj/third_party/icu/icui18n_hidden_visibility/csrsbcs.o: cxx ../../../../third_party/icu/source/i18n/csrsbcs.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = csrsbcs.cpp
+  source_name_part = csrsbcs
+build obj/third_party/icu/icui18n_hidden_visibility/csrucode.o: cxx ../../../../third_party/icu/source/i18n/csrucode.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = csrucode.cpp
+  source_name_part = csrucode
+build obj/third_party/icu/icui18n_hidden_visibility/csrutf8.o: cxx ../../../../third_party/icu/source/i18n/csrutf8.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = csrutf8.cpp
+  source_name_part = csrutf8
+build obj/third_party/icu/icui18n_hidden_visibility/curramt.o: cxx ../../../../third_party/icu/source/i18n/curramt.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = curramt.cpp
+  source_name_part = curramt
+build obj/third_party/icu/icui18n_hidden_visibility/currfmt.o: cxx ../../../../third_party/icu/source/i18n/currfmt.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = currfmt.cpp
+  source_name_part = currfmt
+build obj/third_party/icu/icui18n_hidden_visibility/currpinf.o: cxx ../../../../third_party/icu/source/i18n/currpinf.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = currpinf.cpp
+  source_name_part = currpinf
+build obj/third_party/icu/icui18n_hidden_visibility/currunit.o: cxx ../../../../third_party/icu/source/i18n/currunit.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = currunit.cpp
+  source_name_part = currunit
+build obj/third_party/icu/icui18n_hidden_visibility/dangical.o: cxx ../../../../third_party/icu/source/i18n/dangical.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = dangical.cpp
+  source_name_part = dangical
+build obj/third_party/icu/icui18n_hidden_visibility/datefmt.o: cxx ../../../../third_party/icu/source/i18n/datefmt.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = datefmt.cpp
+  source_name_part = datefmt
+build obj/third_party/icu/icui18n_hidden_visibility/dayperiodrules.o: cxx ../../../../third_party/icu/source/i18n/dayperiodrules.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = dayperiodrules.cpp
+  source_name_part = dayperiodrules
+build obj/third_party/icu/icui18n_hidden_visibility/dcfmtsym.o: cxx ../../../../third_party/icu/source/i18n/dcfmtsym.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = dcfmtsym.cpp
+  source_name_part = dcfmtsym
+build obj/third_party/icu/icui18n_hidden_visibility/decContext.o: cxx ../../../../third_party/icu/source/i18n/decContext.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = decContext.cpp
+  source_name_part = decContext
+build obj/third_party/icu/icui18n_hidden_visibility/decimfmt.o: cxx ../../../../third_party/icu/source/i18n/decimfmt.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = decimfmt.cpp
+  source_name_part = decimfmt
+build obj/third_party/icu/icui18n_hidden_visibility/decNumber.o: cxx ../../../../third_party/icu/source/i18n/decNumber.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = decNumber.cpp
+  source_name_part = decNumber
+build obj/third_party/icu/icui18n_hidden_visibility/displayoptions.o: cxx ../../../../third_party/icu/source/i18n/displayoptions.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = displayoptions.cpp
+  source_name_part = displayoptions
+build obj/third_party/icu/icui18n_hidden_visibility/double-conversion-bignum.o: cxx ../../../../third_party/icu/source/i18n/double-conversion-bignum.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = double-conversion-bignum.cpp
+  source_name_part = double-conversion-bignum
+build obj/third_party/icu/icui18n_hidden_visibility/double-conversion-bignum-dtoa.o: cxx ../../../../third_party/icu/source/i18n/double-conversion-bignum-dtoa.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = double-conversion-bignum-dtoa.cpp
+  source_name_part = double-conversion-bignum-dtoa
+build obj/third_party/icu/icui18n_hidden_visibility/double-conversion-cached-powers.o: cxx ../../../../third_party/icu/source/i18n/double-conversion-cached-powers.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = double-conversion-cached-powers.cpp
+  source_name_part = double-conversion-cached-powers
+build obj/third_party/icu/icui18n_hidden_visibility/double-conversion-double-to-string.o: cxx ../../../../third_party/icu/source/i18n/double-conversion-double-to-string.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = double-conversion-double-to-string.cpp
+  source_name_part = double-conversion-double-to-string
+build obj/third_party/icu/icui18n_hidden_visibility/double-conversion-fast-dtoa.o: cxx ../../../../third_party/icu/source/i18n/double-conversion-fast-dtoa.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = double-conversion-fast-dtoa.cpp
+  source_name_part = double-conversion-fast-dtoa
+build obj/third_party/icu/icui18n_hidden_visibility/double-conversion-string-to-double.o: cxx ../../../../third_party/icu/source/i18n/double-conversion-string-to-double.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = double-conversion-string-to-double.cpp
+  source_name_part = double-conversion-string-to-double
+build obj/third_party/icu/icui18n_hidden_visibility/double-conversion-strtod.o: cxx ../../../../third_party/icu/source/i18n/double-conversion-strtod.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = double-conversion-strtod.cpp
+  source_name_part = double-conversion-strtod
+build obj/third_party/icu/icui18n_hidden_visibility/dtfmtsym.o: cxx ../../../../third_party/icu/source/i18n/dtfmtsym.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = dtfmtsym.cpp
+  source_name_part = dtfmtsym
+build obj/third_party/icu/icui18n_hidden_visibility/dtitvfmt.o: cxx ../../../../third_party/icu/source/i18n/dtitvfmt.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = dtitvfmt.cpp
+  source_name_part = dtitvfmt
+build obj/third_party/icu/icui18n_hidden_visibility/dtitvinf.o: cxx ../../../../third_party/icu/source/i18n/dtitvinf.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = dtitvinf.cpp
+  source_name_part = dtitvinf
+build obj/third_party/icu/icui18n_hidden_visibility/dtptngen.o: cxx ../../../../third_party/icu/source/i18n/dtptngen.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = dtptngen.cpp
+  source_name_part = dtptngen
+build obj/third_party/icu/icui18n_hidden_visibility/dtrule.o: cxx ../../../../third_party/icu/source/i18n/dtrule.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = dtrule.cpp
+  source_name_part = dtrule
+build obj/third_party/icu/icui18n_hidden_visibility/erarules.o: cxx ../../../../third_party/icu/source/i18n/erarules.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = erarules.cpp
+  source_name_part = erarules
+build obj/third_party/icu/icui18n_hidden_visibility/esctrn.o: cxx ../../../../third_party/icu/source/i18n/esctrn.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = esctrn.cpp
+  source_name_part = esctrn
+build obj/third_party/icu/icui18n_hidden_visibility/ethpccal.o: cxx ../../../../third_party/icu/source/i18n/ethpccal.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = ethpccal.cpp
+  source_name_part = ethpccal
+build obj/third_party/icu/icui18n_hidden_visibility/fmtable_cnv.o: cxx ../../../../third_party/icu/source/i18n/fmtable_cnv.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = fmtable_cnv.cpp
+  source_name_part = fmtable_cnv
+build obj/third_party/icu/icui18n_hidden_visibility/fmtable.o: cxx ../../../../third_party/icu/source/i18n/fmtable.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = fmtable.cpp
+  source_name_part = fmtable
+build obj/third_party/icu/icui18n_hidden_visibility/format.o: cxx ../../../../third_party/icu/source/i18n/format.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = format.cpp
+  source_name_part = format
+build obj/third_party/icu/icui18n_hidden_visibility/formatted_string_builder.o: cxx ../../../../third_party/icu/source/i18n/formatted_string_builder.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = formatted_string_builder.cpp
+  source_name_part = formatted_string_builder
+build obj/third_party/icu/icui18n_hidden_visibility/formattedval_iterimpl.o: cxx ../../../../third_party/icu/source/i18n/formattedval_iterimpl.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = formattedval_iterimpl.cpp
+  source_name_part = formattedval_iterimpl
+build obj/third_party/icu/icui18n_hidden_visibility/formattedval_sbimpl.o: cxx ../../../../third_party/icu/source/i18n/formattedval_sbimpl.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = formattedval_sbimpl.cpp
+  source_name_part = formattedval_sbimpl
+build obj/third_party/icu/icui18n_hidden_visibility/formattedvalue.o: cxx ../../../../third_party/icu/source/i18n/formattedvalue.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = formattedvalue.cpp
+  source_name_part = formattedvalue
+build obj/third_party/icu/icui18n_hidden_visibility/fphdlimp.o: cxx ../../../../third_party/icu/source/i18n/fphdlimp.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = fphdlimp.cpp
+  source_name_part = fphdlimp
+build obj/third_party/icu/icui18n_hidden_visibility/fpositer.o: cxx ../../../../third_party/icu/source/i18n/fpositer.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = fpositer.cpp
+  source_name_part = fpositer
+build obj/third_party/icu/icui18n_hidden_visibility/funcrepl.o: cxx ../../../../third_party/icu/source/i18n/funcrepl.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = funcrepl.cpp
+  source_name_part = funcrepl
+build obj/third_party/icu/icui18n_hidden_visibility/gender.o: cxx ../../../../third_party/icu/source/i18n/gender.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = gender.cpp
+  source_name_part = gender
+build obj/third_party/icu/icui18n_hidden_visibility/gregocal.o: cxx ../../../../third_party/icu/source/i18n/gregocal.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = gregocal.cpp
+  source_name_part = gregocal
+build obj/third_party/icu/icui18n_hidden_visibility/gregoimp.o: cxx ../../../../third_party/icu/source/i18n/gregoimp.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = gregoimp.cpp
+  source_name_part = gregoimp
+build obj/third_party/icu/icui18n_hidden_visibility/hebrwcal.o: cxx ../../../../third_party/icu/source/i18n/hebrwcal.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = hebrwcal.cpp
+  source_name_part = hebrwcal
+build obj/third_party/icu/icui18n_hidden_visibility/indiancal.o: cxx ../../../../third_party/icu/source/i18n/indiancal.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = indiancal.cpp
+  source_name_part = indiancal
+build obj/third_party/icu/icui18n_hidden_visibility/inputext.o: cxx ../../../../third_party/icu/source/i18n/inputext.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = inputext.cpp
+  source_name_part = inputext
+build obj/third_party/icu/icui18n_hidden_visibility/islamcal.o: cxx ../../../../third_party/icu/source/i18n/islamcal.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = islamcal.cpp
+  source_name_part = islamcal
+build obj/third_party/icu/icui18n_hidden_visibility/iso8601cal.o: cxx ../../../../third_party/icu/source/i18n/iso8601cal.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = iso8601cal.cpp
+  source_name_part = iso8601cal
+build obj/third_party/icu/icui18n_hidden_visibility/japancal.o: cxx ../../../../third_party/icu/source/i18n/japancal.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = japancal.cpp
+  source_name_part = japancal
+build obj/third_party/icu/icui18n_hidden_visibility/listformatter.o: cxx ../../../../third_party/icu/source/i18n/listformatter.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = listformatter.cpp
+  source_name_part = listformatter
+build obj/third_party/icu/icui18n_hidden_visibility/measfmt.o: cxx ../../../../third_party/icu/source/i18n/measfmt.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = measfmt.cpp
+  source_name_part = measfmt
+build obj/third_party/icu/icui18n_hidden_visibility/measunit.o: cxx ../../../../third_party/icu/source/i18n/measunit.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = measunit.cpp
+  source_name_part = measunit
+build obj/third_party/icu/icui18n_hidden_visibility/measunit_extra.o: cxx ../../../../third_party/icu/source/i18n/measunit_extra.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = measunit_extra.cpp
+  source_name_part = measunit_extra
+build obj/third_party/icu/icui18n_hidden_visibility/measure.o: cxx ../../../../third_party/icu/source/i18n/measure.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = measure.cpp
+  source_name_part = measure
+build obj/third_party/icu/icui18n_hidden_visibility/msgfmt.o: cxx ../../../../third_party/icu/source/i18n/msgfmt.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = msgfmt.cpp
+  source_name_part = msgfmt
+build obj/third_party/icu/icui18n_hidden_visibility/name2uni.o: cxx ../../../../third_party/icu/source/i18n/name2uni.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = name2uni.cpp
+  source_name_part = name2uni
+build obj/third_party/icu/icui18n_hidden_visibility/nfrs.o: cxx ../../../../third_party/icu/source/i18n/nfrs.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = nfrs.cpp
+  source_name_part = nfrs
+build obj/third_party/icu/icui18n_hidden_visibility/nfrule.o: cxx ../../../../third_party/icu/source/i18n/nfrule.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = nfrule.cpp
+  source_name_part = nfrule
+build obj/third_party/icu/icui18n_hidden_visibility/nfsubs.o: cxx ../../../../third_party/icu/source/i18n/nfsubs.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = nfsubs.cpp
+  source_name_part = nfsubs
+build obj/third_party/icu/icui18n_hidden_visibility/nortrans.o: cxx ../../../../third_party/icu/source/i18n/nortrans.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = nortrans.cpp
+  source_name_part = nortrans
+build obj/third_party/icu/icui18n_hidden_visibility/nultrans.o: cxx ../../../../third_party/icu/source/i18n/nultrans.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = nultrans.cpp
+  source_name_part = nultrans
+build obj/third_party/icu/icui18n_hidden_visibility/number_affixutils.o: cxx ../../../../third_party/icu/source/i18n/number_affixutils.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = number_affixutils.cpp
+  source_name_part = number_affixutils
+build obj/third_party/icu/icui18n_hidden_visibility/number_asformat.o: cxx ../../../../third_party/icu/source/i18n/number_asformat.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = number_asformat.cpp
+  source_name_part = number_asformat
+build obj/third_party/icu/icui18n_hidden_visibility/number_capi.o: cxx ../../../../third_party/icu/source/i18n/number_capi.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = number_capi.cpp
+  source_name_part = number_capi
+build obj/third_party/icu/icui18n_hidden_visibility/number_compact.o: cxx ../../../../third_party/icu/source/i18n/number_compact.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = number_compact.cpp
+  source_name_part = number_compact
+build obj/third_party/icu/icui18n_hidden_visibility/number_currencysymbols.o: cxx ../../../../third_party/icu/source/i18n/number_currencysymbols.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = number_currencysymbols.cpp
+  source_name_part = number_currencysymbols
+build obj/third_party/icu/icui18n_hidden_visibility/number_decimalquantity.o: cxx ../../../../third_party/icu/source/i18n/number_decimalquantity.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = number_decimalquantity.cpp
+  source_name_part = number_decimalquantity
+build obj/third_party/icu/icui18n_hidden_visibility/number_decimfmtprops.o: cxx ../../../../third_party/icu/source/i18n/number_decimfmtprops.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = number_decimfmtprops.cpp
+  source_name_part = number_decimfmtprops
+build obj/third_party/icu/icui18n_hidden_visibility/number_fluent.o: cxx ../../../../third_party/icu/source/i18n/number_fluent.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = number_fluent.cpp
+  source_name_part = number_fluent
+build obj/third_party/icu/icui18n_hidden_visibility/number_formatimpl.o: cxx ../../../../third_party/icu/source/i18n/number_formatimpl.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = number_formatimpl.cpp
+  source_name_part = number_formatimpl
+build obj/third_party/icu/icui18n_hidden_visibility/number_grouping.o: cxx ../../../../third_party/icu/source/i18n/number_grouping.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = number_grouping.cpp
+  source_name_part = number_grouping
+build obj/third_party/icu/icui18n_hidden_visibility/number_integerwidth.o: cxx ../../../../third_party/icu/source/i18n/number_integerwidth.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = number_integerwidth.cpp
+  source_name_part = number_integerwidth
+build obj/third_party/icu/icui18n_hidden_visibility/number_longnames.o: cxx ../../../../third_party/icu/source/i18n/number_longnames.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = number_longnames.cpp
+  source_name_part = number_longnames
+build obj/third_party/icu/icui18n_hidden_visibility/number_mapper.o: cxx ../../../../third_party/icu/source/i18n/number_mapper.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = number_mapper.cpp
+  source_name_part = number_mapper
+build obj/third_party/icu/icui18n_hidden_visibility/number_modifiers.o: cxx ../../../../third_party/icu/source/i18n/number_modifiers.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = number_modifiers.cpp
+  source_name_part = number_modifiers
+build obj/third_party/icu/icui18n_hidden_visibility/number_multiplier.o: cxx ../../../../third_party/icu/source/i18n/number_multiplier.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = number_multiplier.cpp
+  source_name_part = number_multiplier
+build obj/third_party/icu/icui18n_hidden_visibility/number_notation.o: cxx ../../../../third_party/icu/source/i18n/number_notation.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = number_notation.cpp
+  source_name_part = number_notation
+build obj/third_party/icu/icui18n_hidden_visibility/number_output.o: cxx ../../../../third_party/icu/source/i18n/number_output.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = number_output.cpp
+  source_name_part = number_output
+build obj/third_party/icu/icui18n_hidden_visibility/number_padding.o: cxx ../../../../third_party/icu/source/i18n/number_padding.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = number_padding.cpp
+  source_name_part = number_padding
+build obj/third_party/icu/icui18n_hidden_visibility/number_patternmodifier.o: cxx ../../../../third_party/icu/source/i18n/number_patternmodifier.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = number_patternmodifier.cpp
+  source_name_part = number_patternmodifier
+build obj/third_party/icu/icui18n_hidden_visibility/number_patternstring.o: cxx ../../../../third_party/icu/source/i18n/number_patternstring.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = number_patternstring.cpp
+  source_name_part = number_patternstring
+build obj/third_party/icu/icui18n_hidden_visibility/number_rounding.o: cxx ../../../../third_party/icu/source/i18n/number_rounding.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = number_rounding.cpp
+  source_name_part = number_rounding
+build obj/third_party/icu/icui18n_hidden_visibility/number_scientific.o: cxx ../../../../third_party/icu/source/i18n/number_scientific.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = number_scientific.cpp
+  source_name_part = number_scientific
+build obj/third_party/icu/icui18n_hidden_visibility/number_simple.o: cxx ../../../../third_party/icu/source/i18n/number_simple.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = number_simple.cpp
+  source_name_part = number_simple
+build obj/third_party/icu/icui18n_hidden_visibility/number_skeletons.o: cxx ../../../../third_party/icu/source/i18n/number_skeletons.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = number_skeletons.cpp
+  source_name_part = number_skeletons
+build obj/third_party/icu/icui18n_hidden_visibility/number_symbolswrapper.o: cxx ../../../../third_party/icu/source/i18n/number_symbolswrapper.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = number_symbolswrapper.cpp
+  source_name_part = number_symbolswrapper
+build obj/third_party/icu/icui18n_hidden_visibility/number_usageprefs.o: cxx ../../../../third_party/icu/source/i18n/number_usageprefs.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = number_usageprefs.cpp
+  source_name_part = number_usageprefs
+build obj/third_party/icu/icui18n_hidden_visibility/number_utils.o: cxx ../../../../third_party/icu/source/i18n/number_utils.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = number_utils.cpp
+  source_name_part = number_utils
+build obj/third_party/icu/icui18n_hidden_visibility/numfmt.o: cxx ../../../../third_party/icu/source/i18n/numfmt.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = numfmt.cpp
+  source_name_part = numfmt
+build obj/third_party/icu/icui18n_hidden_visibility/numparse_affixes.o: cxx ../../../../third_party/icu/source/i18n/numparse_affixes.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = numparse_affixes.cpp
+  source_name_part = numparse_affixes
+build obj/third_party/icu/icui18n_hidden_visibility/numparse_compositions.o: cxx ../../../../third_party/icu/source/i18n/numparse_compositions.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = numparse_compositions.cpp
+  source_name_part = numparse_compositions
+build obj/third_party/icu/icui18n_hidden_visibility/numparse_currency.o: cxx ../../../../third_party/icu/source/i18n/numparse_currency.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = numparse_currency.cpp
+  source_name_part = numparse_currency
+build obj/third_party/icu/icui18n_hidden_visibility/numparse_decimal.o: cxx ../../../../third_party/icu/source/i18n/numparse_decimal.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = numparse_decimal.cpp
+  source_name_part = numparse_decimal
+build obj/third_party/icu/icui18n_hidden_visibility/numparse_impl.o: cxx ../../../../third_party/icu/source/i18n/numparse_impl.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = numparse_impl.cpp
+  source_name_part = numparse_impl
+build obj/third_party/icu/icui18n_hidden_visibility/numparse_parsednumber.o: cxx ../../../../third_party/icu/source/i18n/numparse_parsednumber.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = numparse_parsednumber.cpp
+  source_name_part = numparse_parsednumber
+build obj/third_party/icu/icui18n_hidden_visibility/numparse_scientific.o: cxx ../../../../third_party/icu/source/i18n/numparse_scientific.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = numparse_scientific.cpp
+  source_name_part = numparse_scientific
+build obj/third_party/icu/icui18n_hidden_visibility/numparse_symbols.o: cxx ../../../../third_party/icu/source/i18n/numparse_symbols.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = numparse_symbols.cpp
+  source_name_part = numparse_symbols
+build obj/third_party/icu/icui18n_hidden_visibility/numparse_validators.o: cxx ../../../../third_party/icu/source/i18n/numparse_validators.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = numparse_validators.cpp
+  source_name_part = numparse_validators
+build obj/third_party/icu/icui18n_hidden_visibility/numrange_capi.o: cxx ../../../../third_party/icu/source/i18n/numrange_capi.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = numrange_capi.cpp
+  source_name_part = numrange_capi
+build obj/third_party/icu/icui18n_hidden_visibility/numrange_fluent.o: cxx ../../../../third_party/icu/source/i18n/numrange_fluent.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = numrange_fluent.cpp
+  source_name_part = numrange_fluent
+build obj/third_party/icu/icui18n_hidden_visibility/numrange_impl.o: cxx ../../../../third_party/icu/source/i18n/numrange_impl.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = numrange_impl.cpp
+  source_name_part = numrange_impl
+build obj/third_party/icu/icui18n_hidden_visibility/numsys.o: cxx ../../../../third_party/icu/source/i18n/numsys.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = numsys.cpp
+  source_name_part = numsys
+build obj/third_party/icu/icui18n_hidden_visibility/olsontz.o: cxx ../../../../third_party/icu/source/i18n/olsontz.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = olsontz.cpp
+  source_name_part = olsontz
+build obj/third_party/icu/icui18n_hidden_visibility/persncal.o: cxx ../../../../third_party/icu/source/i18n/persncal.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = persncal.cpp
+  source_name_part = persncal
+build obj/third_party/icu/icui18n_hidden_visibility/pluralranges.o: cxx ../../../../third_party/icu/source/i18n/pluralranges.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = pluralranges.cpp
+  source_name_part = pluralranges
+build obj/third_party/icu/icui18n_hidden_visibility/plurfmt.o: cxx ../../../../third_party/icu/source/i18n/plurfmt.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = plurfmt.cpp
+  source_name_part = plurfmt
+build obj/third_party/icu/icui18n_hidden_visibility/plurrule.o: cxx ../../../../third_party/icu/source/i18n/plurrule.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = plurrule.cpp
+  source_name_part = plurrule
+build obj/third_party/icu/icui18n_hidden_visibility/quant.o: cxx ../../../../third_party/icu/source/i18n/quant.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = quant.cpp
+  source_name_part = quant
+build obj/third_party/icu/icui18n_hidden_visibility/quantityformatter.o: cxx ../../../../third_party/icu/source/i18n/quantityformatter.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = quantityformatter.cpp
+  source_name_part = quantityformatter
+build obj/third_party/icu/icui18n_hidden_visibility/rbnf.o: cxx ../../../../third_party/icu/source/i18n/rbnf.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = rbnf.cpp
+  source_name_part = rbnf
+build obj/third_party/icu/icui18n_hidden_visibility/rbt.o: cxx ../../../../third_party/icu/source/i18n/rbt.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = rbt.cpp
+  source_name_part = rbt
+build obj/third_party/icu/icui18n_hidden_visibility/rbt_data.o: cxx ../../../../third_party/icu/source/i18n/rbt_data.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = rbt_data.cpp
+  source_name_part = rbt_data
+build obj/third_party/icu/icui18n_hidden_visibility/rbt_pars.o: cxx ../../../../third_party/icu/source/i18n/rbt_pars.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = rbt_pars.cpp
+  source_name_part = rbt_pars
+build obj/third_party/icu/icui18n_hidden_visibility/rbt_rule.o: cxx ../../../../third_party/icu/source/i18n/rbt_rule.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = rbt_rule.cpp
+  source_name_part = rbt_rule
+build obj/third_party/icu/icui18n_hidden_visibility/rbt_set.o: cxx ../../../../third_party/icu/source/i18n/rbt_set.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = rbt_set.cpp
+  source_name_part = rbt_set
+build obj/third_party/icu/icui18n_hidden_visibility/rbtz.o: cxx ../../../../third_party/icu/source/i18n/rbtz.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = rbtz.cpp
+  source_name_part = rbtz
+build obj/third_party/icu/icui18n_hidden_visibility/regexcmp.o: cxx ../../../../third_party/icu/source/i18n/regexcmp.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = regexcmp.cpp
+  source_name_part = regexcmp
+build obj/third_party/icu/icui18n_hidden_visibility/regeximp.o: cxx ../../../../third_party/icu/source/i18n/regeximp.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = regeximp.cpp
+  source_name_part = regeximp
+build obj/third_party/icu/icui18n_hidden_visibility/regexst.o: cxx ../../../../third_party/icu/source/i18n/regexst.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = regexst.cpp
+  source_name_part = regexst
+build obj/third_party/icu/icui18n_hidden_visibility/regextxt.o: cxx ../../../../third_party/icu/source/i18n/regextxt.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = regextxt.cpp
+  source_name_part = regextxt
+build obj/third_party/icu/icui18n_hidden_visibility/region.o: cxx ../../../../third_party/icu/source/i18n/region.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = region.cpp
+  source_name_part = region
+build obj/third_party/icu/icui18n_hidden_visibility/reldatefmt.o: cxx ../../../../third_party/icu/source/i18n/reldatefmt.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = reldatefmt.cpp
+  source_name_part = reldatefmt
+build obj/third_party/icu/icui18n_hidden_visibility/reldtfmt.o: cxx ../../../../third_party/icu/source/i18n/reldtfmt.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = reldtfmt.cpp
+  source_name_part = reldtfmt
+build obj/third_party/icu/icui18n_hidden_visibility/rematch.o: cxx ../../../../third_party/icu/source/i18n/rematch.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = rematch.cpp
+  source_name_part = rematch
+build obj/third_party/icu/icui18n_hidden_visibility/remtrans.o: cxx ../../../../third_party/icu/source/i18n/remtrans.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = remtrans.cpp
+  source_name_part = remtrans
+build obj/third_party/icu/icui18n_hidden_visibility/repattrn.o: cxx ../../../../third_party/icu/source/i18n/repattrn.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = repattrn.cpp
+  source_name_part = repattrn
+build obj/third_party/icu/icui18n_hidden_visibility/rulebasedcollator.o: cxx ../../../../third_party/icu/source/i18n/rulebasedcollator.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = rulebasedcollator.cpp
+  source_name_part = rulebasedcollator
+build obj/third_party/icu/icui18n_hidden_visibility/scientificnumberformatter.o: cxx ../../../../third_party/icu/source/i18n/scientificnumberformatter.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = scientificnumberformatter.cpp
+  source_name_part = scientificnumberformatter
+build obj/third_party/icu/icui18n_hidden_visibility/scriptset.o: cxx ../../../../third_party/icu/source/i18n/scriptset.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = scriptset.cpp
+  source_name_part = scriptset
+build obj/third_party/icu/icui18n_hidden_visibility/search.o: cxx ../../../../third_party/icu/source/i18n/search.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = search.cpp
+  source_name_part = search
+build obj/third_party/icu/icui18n_hidden_visibility/selfmt.o: cxx ../../../../third_party/icu/source/i18n/selfmt.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = selfmt.cpp
+  source_name_part = selfmt
+build obj/third_party/icu/icui18n_hidden_visibility/sharedbreakiterator.o: cxx ../../../../third_party/icu/source/i18n/sharedbreakiterator.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = sharedbreakiterator.cpp
+  source_name_part = sharedbreakiterator
+build obj/third_party/icu/icui18n_hidden_visibility/simpletz.o: cxx ../../../../third_party/icu/source/i18n/simpletz.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = simpletz.cpp
+  source_name_part = simpletz
+build obj/third_party/icu/icui18n_hidden_visibility/smpdtfmt.o: cxx ../../../../third_party/icu/source/i18n/smpdtfmt.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = smpdtfmt.cpp
+  source_name_part = smpdtfmt
+build obj/third_party/icu/icui18n_hidden_visibility/smpdtfst.o: cxx ../../../../third_party/icu/source/i18n/smpdtfst.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = smpdtfst.cpp
+  source_name_part = smpdtfst
+build obj/third_party/icu/icui18n_hidden_visibility/sortkey.o: cxx ../../../../third_party/icu/source/i18n/sortkey.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = sortkey.cpp
+  source_name_part = sortkey
+build obj/third_party/icu/icui18n_hidden_visibility/standardplural.o: cxx ../../../../third_party/icu/source/i18n/standardplural.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = standardplural.cpp
+  source_name_part = standardplural
+build obj/third_party/icu/icui18n_hidden_visibility/string_segment.o: cxx ../../../../third_party/icu/source/i18n/string_segment.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = string_segment.cpp
+  source_name_part = string_segment
+build obj/third_party/icu/icui18n_hidden_visibility/strmatch.o: cxx ../../../../third_party/icu/source/i18n/strmatch.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = strmatch.cpp
+  source_name_part = strmatch
+build obj/third_party/icu/icui18n_hidden_visibility/strrepl.o: cxx ../../../../third_party/icu/source/i18n/strrepl.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = strrepl.cpp
+  source_name_part = strrepl
+build obj/third_party/icu/icui18n_hidden_visibility/stsearch.o: cxx ../../../../third_party/icu/source/i18n/stsearch.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = stsearch.cpp
+  source_name_part = stsearch
+build obj/third_party/icu/icui18n_hidden_visibility/taiwncal.o: cxx ../../../../third_party/icu/source/i18n/taiwncal.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = taiwncal.cpp
+  source_name_part = taiwncal
+build obj/third_party/icu/icui18n_hidden_visibility/timezone.o: cxx ../../../../third_party/icu/source/i18n/timezone.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = timezone.cpp
+  source_name_part = timezone
+build obj/third_party/icu/icui18n_hidden_visibility/titletrn.o: cxx ../../../../third_party/icu/source/i18n/titletrn.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = titletrn.cpp
+  source_name_part = titletrn
+build obj/third_party/icu/icui18n_hidden_visibility/tmunit.o: cxx ../../../../third_party/icu/source/i18n/tmunit.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = tmunit.cpp
+  source_name_part = tmunit
+build obj/third_party/icu/icui18n_hidden_visibility/tmutamt.o: cxx ../../../../third_party/icu/source/i18n/tmutamt.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = tmutamt.cpp
+  source_name_part = tmutamt
+build obj/third_party/icu/icui18n_hidden_visibility/tmutfmt.o: cxx ../../../../third_party/icu/source/i18n/tmutfmt.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = tmutfmt.cpp
+  source_name_part = tmutfmt
+build obj/third_party/icu/icui18n_hidden_visibility/tolowtrn.o: cxx ../../../../third_party/icu/source/i18n/tolowtrn.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = tolowtrn.cpp
+  source_name_part = tolowtrn
+build obj/third_party/icu/icui18n_hidden_visibility/toupptrn.o: cxx ../../../../third_party/icu/source/i18n/toupptrn.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = toupptrn.cpp
+  source_name_part = toupptrn
+build obj/third_party/icu/icui18n_hidden_visibility/translit.o: cxx ../../../../third_party/icu/source/i18n/translit.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = translit.cpp
+  source_name_part = translit
+build obj/third_party/icu/icui18n_hidden_visibility/transreg.o: cxx ../../../../third_party/icu/source/i18n/transreg.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = transreg.cpp
+  source_name_part = transreg
+build obj/third_party/icu/icui18n_hidden_visibility/tridpars.o: cxx ../../../../third_party/icu/source/i18n/tridpars.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = tridpars.cpp
+  source_name_part = tridpars
+build obj/third_party/icu/icui18n_hidden_visibility/tzfmt.o: cxx ../../../../third_party/icu/source/i18n/tzfmt.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = tzfmt.cpp
+  source_name_part = tzfmt
+build obj/third_party/icu/icui18n_hidden_visibility/tzgnames.o: cxx ../../../../third_party/icu/source/i18n/tzgnames.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = tzgnames.cpp
+  source_name_part = tzgnames
+build obj/third_party/icu/icui18n_hidden_visibility/tznames.o: cxx ../../../../third_party/icu/source/i18n/tznames.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = tznames.cpp
+  source_name_part = tznames
+build obj/third_party/icu/icui18n_hidden_visibility/tznames_impl.o: cxx ../../../../third_party/icu/source/i18n/tznames_impl.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = tznames_impl.cpp
+  source_name_part = tznames_impl
+build obj/third_party/icu/icui18n_hidden_visibility/tzrule.o: cxx ../../../../third_party/icu/source/i18n/tzrule.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = tzrule.cpp
+  source_name_part = tzrule
+build obj/third_party/icu/icui18n_hidden_visibility/tztrans.o: cxx ../../../../third_party/icu/source/i18n/tztrans.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = tztrans.cpp
+  source_name_part = tztrans
+build obj/third_party/icu/icui18n_hidden_visibility/ucal.o: cxx ../../../../third_party/icu/source/i18n/ucal.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = ucal.cpp
+  source_name_part = ucal
+build obj/third_party/icu/icui18n_hidden_visibility/ucln_in.o: cxx ../../../../third_party/icu/source/i18n/ucln_in.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = ucln_in.cpp
+  source_name_part = ucln_in
+build obj/third_party/icu/icui18n_hidden_visibility/ucol.o: cxx ../../../../third_party/icu/source/i18n/ucol.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = ucol.cpp
+  source_name_part = ucol
+build obj/third_party/icu/icui18n_hidden_visibility/ucoleitr.o: cxx ../../../../third_party/icu/source/i18n/ucoleitr.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = ucoleitr.cpp
+  source_name_part = ucoleitr
+build obj/third_party/icu/icui18n_hidden_visibility/ucol_res.o: cxx ../../../../third_party/icu/source/i18n/ucol_res.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = ucol_res.cpp
+  source_name_part = ucol_res
+build obj/third_party/icu/icui18n_hidden_visibility/ucol_sit.o: cxx ../../../../third_party/icu/source/i18n/ucol_sit.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = ucol_sit.cpp
+  source_name_part = ucol_sit
+build obj/third_party/icu/icui18n_hidden_visibility/ucsdet.o: cxx ../../../../third_party/icu/source/i18n/ucsdet.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = ucsdet.cpp
+  source_name_part = ucsdet
+build obj/third_party/icu/icui18n_hidden_visibility/udat.o: cxx ../../../../third_party/icu/source/i18n/udat.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = udat.cpp
+  source_name_part = udat
+build obj/third_party/icu/icui18n_hidden_visibility/udateintervalformat.o: cxx ../../../../third_party/icu/source/i18n/udateintervalformat.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = udateintervalformat.cpp
+  source_name_part = udateintervalformat
+build obj/third_party/icu/icui18n_hidden_visibility/udatpg.o: cxx ../../../../third_party/icu/source/i18n/udatpg.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = udatpg.cpp
+  source_name_part = udatpg
+build obj/third_party/icu/icui18n_hidden_visibility/ufieldpositer.o: cxx ../../../../third_party/icu/source/i18n/ufieldpositer.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = ufieldpositer.cpp
+  source_name_part = ufieldpositer
+build obj/third_party/icu/icui18n_hidden_visibility/uitercollationiterator.o: cxx ../../../../third_party/icu/source/i18n/uitercollationiterator.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = uitercollationiterator.cpp
+  source_name_part = uitercollationiterator
+build obj/third_party/icu/icui18n_hidden_visibility/ulistformatter.o: cxx ../../../../third_party/icu/source/i18n/ulistformatter.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = ulistformatter.cpp
+  source_name_part = ulistformatter
+build obj/third_party/icu/icui18n_hidden_visibility/ulocdata.o: cxx ../../../../third_party/icu/source/i18n/ulocdata.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = ulocdata.cpp
+  source_name_part = ulocdata
+build obj/third_party/icu/icui18n_hidden_visibility/umsg.o: cxx ../../../../third_party/icu/source/i18n/umsg.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = umsg.cpp
+  source_name_part = umsg
+build obj/third_party/icu/icui18n_hidden_visibility/unesctrn.o: cxx ../../../../third_party/icu/source/i18n/unesctrn.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = unesctrn.cpp
+  source_name_part = unesctrn
+build obj/third_party/icu/icui18n_hidden_visibility/uni2name.o: cxx ../../../../third_party/icu/source/i18n/uni2name.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = uni2name.cpp
+  source_name_part = uni2name
+build obj/third_party/icu/icui18n_hidden_visibility/units_complexconverter.o: cxx ../../../../third_party/icu/source/i18n/units_complexconverter.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = units_complexconverter.cpp
+  source_name_part = units_complexconverter
+build obj/third_party/icu/icui18n_hidden_visibility/units_converter.o: cxx ../../../../third_party/icu/source/i18n/units_converter.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = units_converter.cpp
+  source_name_part = units_converter
+build obj/third_party/icu/icui18n_hidden_visibility/units_data.o: cxx ../../../../third_party/icu/source/i18n/units_data.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = units_data.cpp
+  source_name_part = units_data
+build obj/third_party/icu/icui18n_hidden_visibility/units_router.o: cxx ../../../../third_party/icu/source/i18n/units_router.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = units_router.cpp
+  source_name_part = units_router
+build obj/third_party/icu/icui18n_hidden_visibility/unum.o: cxx ../../../../third_party/icu/source/i18n/unum.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = unum.cpp
+  source_name_part = unum
+build obj/third_party/icu/icui18n_hidden_visibility/unumsys.o: cxx ../../../../third_party/icu/source/i18n/unumsys.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = unumsys.cpp
+  source_name_part = unumsys
+build obj/third_party/icu/icui18n_hidden_visibility/upluralrules.o: cxx ../../../../third_party/icu/source/i18n/upluralrules.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = upluralrules.cpp
+  source_name_part = upluralrules
+build obj/third_party/icu/icui18n_hidden_visibility/uregexc.o: cxx ../../../../third_party/icu/source/i18n/uregexc.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = uregexc.cpp
+  source_name_part = uregexc
+build obj/third_party/icu/icui18n_hidden_visibility/uregex.o: cxx ../../../../third_party/icu/source/i18n/uregex.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = uregex.cpp
+  source_name_part = uregex
+build obj/third_party/icu/icui18n_hidden_visibility/uregion.o: cxx ../../../../third_party/icu/source/i18n/uregion.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = uregion.cpp
+  source_name_part = uregion
+build obj/third_party/icu/icui18n_hidden_visibility/usearch.o: cxx ../../../../third_party/icu/source/i18n/usearch.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = usearch.cpp
+  source_name_part = usearch
+build obj/third_party/icu/icui18n_hidden_visibility/uspoof_build.o: cxx ../../../../third_party/icu/source/i18n/uspoof_build.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = uspoof_build.cpp
+  source_name_part = uspoof_build
+build obj/third_party/icu/icui18n_hidden_visibility/uspoof_conf.o: cxx ../../../../third_party/icu/source/i18n/uspoof_conf.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = uspoof_conf.cpp
+  source_name_part = uspoof_conf
+build obj/third_party/icu/icui18n_hidden_visibility/uspoof.o: cxx ../../../../third_party/icu/source/i18n/uspoof.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = uspoof.cpp
+  source_name_part = uspoof
+build obj/third_party/icu/icui18n_hidden_visibility/uspoof_impl.o: cxx ../../../../third_party/icu/source/i18n/uspoof_impl.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = uspoof_impl.cpp
+  source_name_part = uspoof_impl
+build obj/third_party/icu/icui18n_hidden_visibility/utf16collationiterator.o: cxx ../../../../third_party/icu/source/i18n/utf16collationiterator.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = utf16collationiterator.cpp
+  source_name_part = utf16collationiterator
+build obj/third_party/icu/icui18n_hidden_visibility/utf8collationiterator.o: cxx ../../../../third_party/icu/source/i18n/utf8collationiterator.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = utf8collationiterator.cpp
+  source_name_part = utf8collationiterator
+build obj/third_party/icu/icui18n_hidden_visibility/utmscale.o: cxx ../../../../third_party/icu/source/i18n/utmscale.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = utmscale.cpp
+  source_name_part = utmscale
+build obj/third_party/icu/icui18n_hidden_visibility/utrans.o: cxx ../../../../third_party/icu/source/i18n/utrans.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = utrans.cpp
+  source_name_part = utrans
+build obj/third_party/icu/icui18n_hidden_visibility/vtzone.o: cxx ../../../../third_party/icu/source/i18n/vtzone.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = vtzone.cpp
+  source_name_part = vtzone
+build obj/third_party/icu/icui18n_hidden_visibility/vzone.o: cxx ../../../../third_party/icu/source/i18n/vzone.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = vzone.cpp
+  source_name_part = vzone
+build obj/third_party/icu/icui18n_hidden_visibility/windtfmt.o: cxx ../../../../third_party/icu/source/i18n/windtfmt.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = windtfmt.cpp
+  source_name_part = windtfmt
+build obj/third_party/icu/icui18n_hidden_visibility/winnmfmt.o: cxx ../../../../third_party/icu/source/i18n/winnmfmt.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = winnmfmt.cpp
+  source_name_part = winnmfmt
+build obj/third_party/icu/icui18n_hidden_visibility/wintzimpl.o: cxx ../../../../third_party/icu/source/i18n/wintzimpl.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = wintzimpl.cpp
+  source_name_part = wintzimpl
+build obj/third_party/icu/icui18n_hidden_visibility/zonemeta.o: cxx ../../../../third_party/icu/source/i18n/zonemeta.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = zonemeta.cpp
+  source_name_part = zonemeta
+build obj/third_party/icu/icui18n_hidden_visibility/zrule.o: cxx ../../../../third_party/icu/source/i18n/zrule.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = zrule.cpp
+  source_name_part = zrule
+build obj/third_party/icu/icui18n_hidden_visibility/ztrans.o: cxx ../../../../third_party/icu/source/i18n/ztrans.cpp || phony/third_party/icu/copy_icudata
+  source_file_part = ztrans.cpp
+  source_name_part = ztrans
+
+build ./libthird_party_icu_icui18n_hidden_visibility.so ./libthird_party_icu_icui18n_hidden_visibility.so.TOC: solink obj/third_party/icu/icui18n_hidden_visibility/alphaindex.o obj/third_party/icu/icui18n_hidden_visibility/anytrans.o obj/third_party/icu/icui18n_hidden_visibility/astro.o obj/third_party/icu/icui18n_hidden_visibility/basictz.o obj/third_party/icu/icui18n_hidden_visibility/bocsu.o obj/third_party/icu/icui18n_hidden_visibility/brktrans.o obj/third_party/icu/icui18n_hidden_visibility/buddhcal.o obj/third_party/icu/icui18n_hidden_visibility/calendar.o obj/third_party/icu/icui18n_hidden_visibility/casetrn.o obj/third_party/icu/icui18n_hidden_visibility/cecal.o obj/third_party/icu/icui18n_hidden_visibility/chnsecal.o obj/third_party/icu/icui18n_hidden_visibility/choicfmt.o obj/third_party/icu/icui18n_hidden_visibility/coleitr.o obj/third_party/icu/icui18n_hidden_visibility/collationbuilder.o obj/third_party/icu/icui18n_hidden_visibility/collationcompare.o obj/third_party/icu/icui18n_hidden_visibility/collation.o obj/third_party/icu/icui18n_hidden_visibility/collationdatabuilder.o obj/third_party/icu/icui18n_hidden_visibility/collationdata.o obj/third_party/icu/icui18n_hidden_visibility/collationdatareader.o obj/third_party/icu/icui18n_hidden_visibility/collationdatawriter.o obj/third_party/icu/icui18n_hidden_visibility/collationfastlatinbuilder.o obj/third_party/icu/icui18n_hidden_visibility/collationfastlatin.o obj/third_party/icu/icui18n_hidden_visibility/collationfcd.o obj/third_party/icu/icui18n_hidden_visibility/collationiterator.o obj/third_party/icu/icui18n_hidden_visibility/collationkeys.o obj/third_party/icu/icui18n_hidden_visibility/collationroot.o obj/third_party/icu/icui18n_hidden_visibility/collationrootelements.o obj/third_party/icu/icui18n_hidden_visibility/collationruleparser.o obj/third_party/icu/icui18n_hidden_visibility/collationsets.o obj/third_party/icu/icui18n_hidden_visibility/collationsettings.o obj/third_party/icu/icui18n_hidden_visibility/collationtailoring.o obj/third_party/icu/icui18n_hidden_visibility/collationweights.o obj/third_party/icu/icui18n_hidden_visibility/coll.o obj/third_party/icu/icui18n_hidden_visibility/compactdecimalformat.o obj/third_party/icu/icui18n_hidden_visibility/coptccal.o obj/third_party/icu/icui18n_hidden_visibility/cpdtrans.o obj/third_party/icu/icui18n_hidden_visibility/csdetect.o obj/third_party/icu/icui18n_hidden_visibility/csmatch.o obj/third_party/icu/icui18n_hidden_visibility/csr2022.o obj/third_party/icu/icui18n_hidden_visibility/csrecog.o obj/third_party/icu/icui18n_hidden_visibility/csrmbcs.o obj/third_party/icu/icui18n_hidden_visibility/csrsbcs.o obj/third_party/icu/icui18n_hidden_visibility/csrucode.o obj/third_party/icu/icui18n_hidden_visibility/csrutf8.o obj/third_party/icu/icui18n_hidden_visibility/curramt.o obj/third_party/icu/icui18n_hidden_visibility/currfmt.o obj/third_party/icu/icui18n_hidden_visibility/currpinf.o obj/third_party/icu/icui18n_hidden_visibility/currunit.o obj/third_party/icu/icui18n_hidden_visibility/dangical.o obj/third_party/icu/icui18n_hidden_visibility/datefmt.o obj/third_party/icu/icui18n_hidden_visibility/dayperiodrules.o obj/third_party/icu/icui18n_hidden_visibility/dcfmtsym.o obj/third_party/icu/icui18n_hidden_visibility/decContext.o obj/third_party/icu/icui18n_hidden_visibility/decimfmt.o obj/third_party/icu/icui18n_hidden_visibility/decNumber.o obj/third_party/icu/icui18n_hidden_visibility/displayoptions.o obj/third_party/icu/icui18n_hidden_visibility/double-conversion-bignum.o obj/third_party/icu/icui18n_hidden_visibility/double-conversion-bignum-dtoa.o obj/third_party/icu/icui18n_hidden_visibility/double-conversion-cached-powers.o obj/third_party/icu/icui18n_hidden_visibility/double-conversion-double-to-string.o obj/third_party/icu/icui18n_hidden_visibility/double-conversion-fast-dtoa.o obj/third_party/icu/icui18n_hidden_visibility/double-conversion-string-to-double.o obj/third_party/icu/icui18n_hidden_visibility/double-conversion-strtod.o obj/third_party/icu/icui18n_hidden_visibility/dtfmtsym.o obj/third_party/icu/icui18n_hidden_visibility/dtitvfmt.o obj/third_party/icu/icui18n_hidden_visibility/dtitvinf.o obj/third_party/icu/icui18n_hidden_visibility/dtptngen.o obj/third_party/icu/icui18n_hidden_visibility/dtrule.o obj/third_party/icu/icui18n_hidden_visibility/erarules.o obj/third_party/icu/icui18n_hidden_visibility/esctrn.o obj/third_party/icu/icui18n_hidden_visibility/ethpccal.o obj/third_party/icu/icui18n_hidden_visibility/fmtable_cnv.o obj/third_party/icu/icui18n_hidden_visibility/fmtable.o obj/third_party/icu/icui18n_hidden_visibility/format.o obj/third_party/icu/icui18n_hidden_visibility/formatted_string_builder.o obj/third_party/icu/icui18n_hidden_visibility/formattedval_iterimpl.o obj/third_party/icu/icui18n_hidden_visibility/formattedval_sbimpl.o obj/third_party/icu/icui18n_hidden_visibility/formattedvalue.o obj/third_party/icu/icui18n_hidden_visibility/fphdlimp.o obj/third_party/icu/icui18n_hidden_visibility/fpositer.o obj/third_party/icu/icui18n_hidden_visibility/funcrepl.o obj/third_party/icu/icui18n_hidden_visibility/gender.o obj/third_party/icu/icui18n_hidden_visibility/gregocal.o obj/third_party/icu/icui18n_hidden_visibility/gregoimp.o obj/third_party/icu/icui18n_hidden_visibility/hebrwcal.o obj/third_party/icu/icui18n_hidden_visibility/indiancal.o obj/third_party/icu/icui18n_hidden_visibility/inputext.o obj/third_party/icu/icui18n_hidden_visibility/islamcal.o obj/third_party/icu/icui18n_hidden_visibility/iso8601cal.o obj/third_party/icu/icui18n_hidden_visibility/japancal.o obj/third_party/icu/icui18n_hidden_visibility/listformatter.o obj/third_party/icu/icui18n_hidden_visibility/measfmt.o obj/third_party/icu/icui18n_hidden_visibility/measunit.o obj/third_party/icu/icui18n_hidden_visibility/measunit_extra.o obj/third_party/icu/icui18n_hidden_visibility/measure.o obj/third_party/icu/icui18n_hidden_visibility/msgfmt.o obj/third_party/icu/icui18n_hidden_visibility/name2uni.o obj/third_party/icu/icui18n_hidden_visibility/nfrs.o obj/third_party/icu/icui18n_hidden_visibility/nfrule.o obj/third_party/icu/icui18n_hidden_visibility/nfsubs.o obj/third_party/icu/icui18n_hidden_visibility/nortrans.o obj/third_party/icu/icui18n_hidden_visibility/nultrans.o obj/third_party/icu/icui18n_hidden_visibility/number_affixutils.o obj/third_party/icu/icui18n_hidden_visibility/number_asformat.o obj/third_party/icu/icui18n_hidden_visibility/number_capi.o obj/third_party/icu/icui18n_hidden_visibility/number_compact.o obj/third_party/icu/icui18n_hidden_visibility/number_currencysymbols.o obj/third_party/icu/icui18n_hidden_visibility/number_decimalquantity.o obj/third_party/icu/icui18n_hidden_visibility/number_decimfmtprops.o obj/third_party/icu/icui18n_hidden_visibility/number_fluent.o obj/third_party/icu/icui18n_hidden_visibility/number_formatimpl.o obj/third_party/icu/icui18n_hidden_visibility/number_grouping.o obj/third_party/icu/icui18n_hidden_visibility/number_integerwidth.o obj/third_party/icu/icui18n_hidden_visibility/number_longnames.o obj/third_party/icu/icui18n_hidden_visibility/number_mapper.o obj/third_party/icu/icui18n_hidden_visibility/number_modifiers.o obj/third_party/icu/icui18n_hidden_visibility/number_multiplier.o obj/third_party/icu/icui18n_hidden_visibility/number_notation.o obj/third_party/icu/icui18n_hidden_visibility/number_output.o obj/third_party/icu/icui18n_hidden_visibility/number_padding.o obj/third_party/icu/icui18n_hidden_visibility/number_patternmodifier.o obj/third_party/icu/icui18n_hidden_visibility/number_patternstring.o obj/third_party/icu/icui18n_hidden_visibility/number_rounding.o obj/third_party/icu/icui18n_hidden_visibility/number_scientific.o obj/third_party/icu/icui18n_hidden_visibility/number_simple.o obj/third_party/icu/icui18n_hidden_visibility/number_skeletons.o obj/third_party/icu/icui18n_hidden_visibility/number_symbolswrapper.o obj/third_party/icu/icui18n_hidden_visibility/number_usageprefs.o obj/third_party/icu/icui18n_hidden_visibility/number_utils.o obj/third_party/icu/icui18n_hidden_visibility/numfmt.o obj/third_party/icu/icui18n_hidden_visibility/numparse_affixes.o obj/third_party/icu/icui18n_hidden_visibility/numparse_compositions.o obj/third_party/icu/icui18n_hidden_visibility/numparse_currency.o obj/third_party/icu/icui18n_hidden_visibility/numparse_decimal.o obj/third_party/icu/icui18n_hidden_visibility/numparse_impl.o obj/third_party/icu/icui18n_hidden_visibility/numparse_parsednumber.o obj/third_party/icu/icui18n_hidden_visibility/numparse_scientific.o obj/third_party/icu/icui18n_hidden_visibility/numparse_symbols.o obj/third_party/icu/icui18n_hidden_visibility/numparse_validators.o obj/third_party/icu/icui18n_hidden_visibility/numrange_capi.o obj/third_party/icu/icui18n_hidden_visibility/numrange_fluent.o obj/third_party/icu/icui18n_hidden_visibility/numrange_impl.o obj/third_party/icu/icui18n_hidden_visibility/numsys.o obj/third_party/icu/icui18n_hidden_visibility/olsontz.o obj/third_party/icu/icui18n_hidden_visibility/persncal.o obj/third_party/icu/icui18n_hidden_visibility/pluralranges.o obj/third_party/icu/icui18n_hidden_visibility/plurfmt.o obj/third_party/icu/icui18n_hidden_visibility/plurrule.o obj/third_party/icu/icui18n_hidden_visibility/quant.o obj/third_party/icu/icui18n_hidden_visibility/quantityformatter.o obj/third_party/icu/icui18n_hidden_visibility/rbnf.o obj/third_party/icu/icui18n_hidden_visibility/rbt.o obj/third_party/icu/icui18n_hidden_visibility/rbt_data.o obj/third_party/icu/icui18n_hidden_visibility/rbt_pars.o obj/third_party/icu/icui18n_hidden_visibility/rbt_rule.o obj/third_party/icu/icui18n_hidden_visibility/rbt_set.o obj/third_party/icu/icui18n_hidden_visibility/rbtz.o obj/third_party/icu/icui18n_hidden_visibility/regexcmp.o obj/third_party/icu/icui18n_hidden_visibility/regeximp.o obj/third_party/icu/icui18n_hidden_visibility/regexst.o obj/third_party/icu/icui18n_hidden_visibility/regextxt.o obj/third_party/icu/icui18n_hidden_visibility/region.o obj/third_party/icu/icui18n_hidden_visibility/reldatefmt.o obj/third_party/icu/icui18n_hidden_visibility/reldtfmt.o obj/third_party/icu/icui18n_hidden_visibility/rematch.o obj/third_party/icu/icui18n_hidden_visibility/remtrans.o obj/third_party/icu/icui18n_hidden_visibility/repattrn.o obj/third_party/icu/icui18n_hidden_visibility/rulebasedcollator.o obj/third_party/icu/icui18n_hidden_visibility/scientificnumberformatter.o obj/third_party/icu/icui18n_hidden_visibility/scriptset.o obj/third_party/icu/icui18n_hidden_visibility/search.o obj/third_party/icu/icui18n_hidden_visibility/selfmt.o obj/third_party/icu/icui18n_hidden_visibility/sharedbreakiterator.o obj/third_party/icu/icui18n_hidden_visibility/simpletz.o obj/third_party/icu/icui18n_hidden_visibility/smpdtfmt.o obj/third_party/icu/icui18n_hidden_visibility/smpdtfst.o obj/third_party/icu/icui18n_hidden_visibility/sortkey.o obj/third_party/icu/icui18n_hidden_visibility/standardplural.o obj/third_party/icu/icui18n_hidden_visibility/string_segment.o obj/third_party/icu/icui18n_hidden_visibility/strmatch.o obj/third_party/icu/icui18n_hidden_visibility/strrepl.o obj/third_party/icu/icui18n_hidden_visibility/stsearch.o obj/third_party/icu/icui18n_hidden_visibility/taiwncal.o obj/third_party/icu/icui18n_hidden_visibility/timezone.o obj/third_party/icu/icui18n_hidden_visibility/titletrn.o obj/third_party/icu/icui18n_hidden_visibility/tmunit.o obj/third_party/icu/icui18n_hidden_visibility/tmutamt.o obj/third_party/icu/icui18n_hidden_visibility/tmutfmt.o obj/third_party/icu/icui18n_hidden_visibility/tolowtrn.o obj/third_party/icu/icui18n_hidden_visibility/toupptrn.o obj/third_party/icu/icui18n_hidden_visibility/translit.o obj/third_party/icu/icui18n_hidden_visibility/transreg.o obj/third_party/icu/icui18n_hidden_visibility/tridpars.o obj/third_party/icu/icui18n_hidden_visibility/tzfmt.o obj/third_party/icu/icui18n_hidden_visibility/tzgnames.o obj/third_party/icu/icui18n_hidden_visibility/tznames.o obj/third_party/icu/icui18n_hidden_visibility/tznames_impl.o obj/third_party/icu/icui18n_hidden_visibility/tzrule.o obj/third_party/icu/icui18n_hidden_visibility/tztrans.o obj/third_party/icu/icui18n_hidden_visibility/ucal.o obj/third_party/icu/icui18n_hidden_visibility/ucln_in.o obj/third_party/icu/icui18n_hidden_visibility/ucol.o obj/third_party/icu/icui18n_hidden_visibility/ucoleitr.o obj/third_party/icu/icui18n_hidden_visibility/ucol_res.o obj/third_party/icu/icui18n_hidden_visibility/ucol_sit.o obj/third_party/icu/icui18n_hidden_visibility/ucsdet.o obj/third_party/icu/icui18n_hidden_visibility/udat.o obj/third_party/icu/icui18n_hidden_visibility/udateintervalformat.o obj/third_party/icu/icui18n_hidden_visibility/udatpg.o obj/third_party/icu/icui18n_hidden_visibility/ufieldpositer.o obj/third_party/icu/icui18n_hidden_visibility/uitercollationiterator.o obj/third_party/icu/icui18n_hidden_visibility/ulistformatter.o obj/third_party/icu/icui18n_hidden_visibility/ulocdata.o obj/third_party/icu/icui18n_hidden_visibility/umsg.o obj/third_party/icu/icui18n_hidden_visibility/unesctrn.o obj/third_party/icu/icui18n_hidden_visibility/uni2name.o obj/third_party/icu/icui18n_hidden_visibility/units_complexconverter.o obj/third_party/icu/icui18n_hidden_visibility/units_converter.o obj/third_party/icu/icui18n_hidden_visibility/units_data.o obj/third_party/icu/icui18n_hidden_visibility/units_router.o obj/third_party/icu/icui18n_hidden_visibility/unum.o obj/third_party/icu/icui18n_hidden_visibility/unumsys.o obj/third_party/icu/icui18n_hidden_visibility/upluralrules.o obj/third_party/icu/icui18n_hidden_visibility/uregexc.o obj/third_party/icu/icui18n_hidden_visibility/uregex.o obj/third_party/icu/icui18n_hidden_visibility/uregion.o obj/third_party/icu/icui18n_hidden_visibility/usearch.o obj/third_party/icu/icui18n_hidden_visibility/uspoof_build.o obj/third_party/icu/icui18n_hidden_visibility/uspoof_conf.o obj/third_party/icu/icui18n_hidden_visibility/uspoof.o obj/third_party/icu/icui18n_hidden_visibility/uspoof_impl.o obj/third_party/icu/icui18n_hidden_visibility/utf16collationiterator.o obj/third_party/icu/icui18n_hidden_visibility/utf8collationiterator.o obj/third_party/icu/icui18n_hidden_visibility/utmscale.o obj/third_party/icu/icui18n_hidden_visibility/utrans.o obj/third_party/icu/icui18n_hidden_visibility/vtzone.o obj/third_party/icu/icui18n_hidden_visibility/vzone.o obj/third_party/icu/icui18n_hidden_visibility/windtfmt.o obj/third_party/icu/icui18n_hidden_visibility/winnmfmt.o obj/third_party/icu/icui18n_hidden_visibility/wintzimpl.o obj/third_party/icu/icui18n_hidden_visibility/zonemeta.o obj/third_party/icu/icui18n_hidden_visibility/zrule.o obj/third_party/icu/icui18n_hidden_visibility/ztrans.o | ./libicuuc_hidden_visibility.so.TOC ./libc++.so.TOC ../../../llvm-build/Release+Asserts/lib/clang/21/lib/x86_64-unknown-linux-gnu/libclang_rt.builtins.a || phony/build/config/shared_library_deps
+  ldflags = -fuse-ld=lld -Wl,--fatal-warnings -Wl,--build-id=fast -fPIC -Wl,-z,noexecstack -Wl,-z,relro -Wl,--color-diagnostics -Wl,--undefined-version -Wl,--no-call-graph-profile-sort -m64 -no-canonical-prefixes -Wl,--gdb-index -Wl,-z,defs -Wl,--as-needed -nostdlib++ --sysroot=../../../../build/linux/debian_bullseye_amd64-sysroot -Wl,-rpath=\$$ORIGIN -Werror
+  libs = ../../../../third_party/llvm-build/Release+Asserts/lib/clang/21/lib/x86_64-unknown-linux-gnu/libclang_rt.builtins.a -ldl -lpthread -lrt
+  frameworks =
+  swiftmodules =
+  output_extension = .so
+  output_dir = .
+  solibs = ./libicuuc_hidden_visibility.so ./libc++.so

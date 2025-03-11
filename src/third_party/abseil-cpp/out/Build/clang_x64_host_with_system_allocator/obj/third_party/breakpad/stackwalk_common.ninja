@@ -1,0 +1,152 @@
+defines = -DDCHECK_ALWAYS_ON=1 -DUSE_UDEV -DUSE_AURA=1 -DUSE_GLIB=1 -DUSE_OZONE=1 -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_GNU_SOURCE -DCR_CLANG_REVISION=\"llvmorg-21-init-1655-g7b473dfe-1\" -D_LIBCPP_HARDENING_MODE=_LIBCPP_HARDENING_MODE_EXTENSIVE -D_LIBCPP_DISABLE_VISIBILITY_ANNOTATIONS -D_LIBCXXABI_DISABLE_VISIBILITY_ANNOTATIONS -D_LIBCPP_INSTRUMENTED_WITH_ASAN=0 -DCR_LIBCXX_REVISION=7c3087b8a7563d8218b27b7183ba41cf52d41508 -DTMP_REBUILD_HACK -DCR_SYSROOT_KEY=20250129T203412Z-1 -D_DEBUG -DDYNAMIC_ANNOTATIONS_ENABLED=1 -DBPLOG_MINIMUM_SEVERITY=SEVERITY_ERROR
+include_dirs = -I../../../.. -Iclang_x64_host_with_system_allocator/gen -I../../../../buildtools/third_party/libc++ -I../../../../third_party/breakpad/breakpad/src -I../../../../third_party/breakpad/breakpad/src/third_party
+cflags = -fno-delete-null-pointer-checks -fno-strict-overflow -fno-ident -fno-strict-aliasing -fstack-protector -funwind-tables -fPIC -pthread -fcolor-diagnostics -fmerge-all-constants -fno-sized-deallocation -fcrash-diagnostics-dir=../../../../tools/clang/crashreports -mllvm -instcombine-lower-dbg-declare=0 -mllvm -split-threshold-for-reg-with-hint=0 -ffp-contract=off -Wa,--crel,--allow-experimental-crel -fcomplete-member-pointers -m64 -msse3 -Wno-builtin-macro-redefined -D__DATE__= -D__TIME__= -D__TIMESTAMP__= -ffile-compilation-dir=. -no-canonical-prefixes -ftrivial-auto-var-init=pattern -fno-omit-frame-pointer -gdwarf-4 -g2 -gdwarf-aranges -gsplit-dwarf -ggnu-pubnames -Xclang -fuse-ctor-homing -fvisibility=hidden -Wheader-hygiene -Wstring-conversion -Wtautological-overlap-compare -Xclang -add-plugin -Xclang find-bad-constructs -Xclang -plugin-arg-find-bad-constructs -Xclang span-ctor-from-string-literal -Xclang -plugin-arg-find-bad-constructs -Xclang raw-ref-template-as-trivial-member -Xclang -plugin-arg-find-bad-constructs -Xclang raw-span-template-as-trivial-member -Xclang -plugin-arg-find-bad-constructs -Xclang check-stack-allocated -Xclang -plugin-arg-find-bad-constructs -Xclang check-ipc -Xclang -add-plugin -Xclang raw-ptr-plugin -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ptr-to-stack-allocated -Xclang -plugin-arg-raw-ptr-plugin -Xclang disable-check-raw-ptr-to-stack-allocated-error -Xclang -plugin-arg-raw-ptr-plugin -Xclang raw-ptr-exclude-path=../../../dawn/ -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ptr-fields -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-span-fields -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ref-fields -DUNSAFE_BUFFERS_BUILD -Xclang -add-plugin -Xclang unsafe-buffers -Xclang -plugin-arg-unsafe-buffers -Xclang ../../../../build/config/unsafe_buffers_paths.txt -O2 -fdata-sections -ffunction-sections -fno-unique-section-names -fno-math-errno -Wall -Wno-unused-variable -Wno-c++11-narrowing -Wno-unused-but-set-variable -Wno-misleading-indentation -Wno-missing-field-initializers -Wno-unused-parameter -Wno-psabi -Wloop-analysis -Wno-unneeded-internal-declaration -Wno-cast-function-type -Wno-thread-safety-reference-return -Wno-nontrivial-memcall -Werror -Wno-tautological-constant-out-of-range-compare
+cflags_c = -std=c11 --sysroot=../../../../build/linux/debian_bullseye_amd64-sysroot
+cflags_cc = -Wno-undefined-bool-conversion -Wno-tautological-undefined-compare -std=c++20 -Wno-trigraphs -gsimple-template-names -fno-exceptions -fno-rtti -nostdinc++ -isystem../../../libc++/src/include -isystem../../../libc++abi/src/include --sysroot=../../../../build/linux/debian_bullseye_amd64-sysroot -fvisibility-inlines-hidden -Wno-invalid-offsetof -Wenum-compare-conditional -Wno-c++11-narrowing-const-reference -Wno-missing-template-arg-list-after-template-kw
+label_name = stackwalk_common
+target_out_dir = clang_x64_host_with_system_allocator/obj/third_party/breakpad
+target_output_name = libstackwalk_common
+
+build clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/path_helper.o: clang_x64_host_with_system_allocator_cxx ../../../../third_party/breakpad/breakpad/src/common/path_helper.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = path_helper.cc
+  source_name_part = path_helper
+build clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/basic_code_modules.o: clang_x64_host_with_system_allocator_cxx ../../../../third_party/breakpad/breakpad/src/processor/basic_code_modules.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = basic_code_modules.cc
+  source_name_part = basic_code_modules
+build clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/basic_source_line_resolver.o: clang_x64_host_with_system_allocator_cxx ../../../../third_party/breakpad/breakpad/src/processor/basic_source_line_resolver.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = basic_source_line_resolver.cc
+  source_name_part = basic_source_line_resolver
+build clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/call_stack.o: clang_x64_host_with_system_allocator_cxx ../../../../third_party/breakpad/breakpad/src/processor/call_stack.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = call_stack.cc
+  source_name_part = call_stack
+build clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/cfi_frame_info.o: clang_x64_host_with_system_allocator_cxx ../../../../third_party/breakpad/breakpad/src/processor/cfi_frame_info.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = cfi_frame_info.cc
+  source_name_part = cfi_frame_info
+build clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/convert_old_arm64_context.o: clang_x64_host_with_system_allocator_cxx ../../../../third_party/breakpad/breakpad/src/processor/convert_old_arm64_context.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = convert_old_arm64_context.cc
+  source_name_part = convert_old_arm64_context
+build clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/disassembler_x86.o: clang_x64_host_with_system_allocator_cxx ../../../../third_party/breakpad/breakpad/src/processor/disassembler_x86.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = disassembler_x86.cc
+  source_name_part = disassembler_x86
+build clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/dump_context.o: clang_x64_host_with_system_allocator_cxx ../../../../third_party/breakpad/breakpad/src/processor/dump_context.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = dump_context.cc
+  source_name_part = dump_context
+build clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/dump_object.o: clang_x64_host_with_system_allocator_cxx ../../../../third_party/breakpad/breakpad/src/processor/dump_object.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = dump_object.cc
+  source_name_part = dump_object
+build clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/logging.o: clang_x64_host_with_system_allocator_cxx ../../../../third_party/breakpad/breakpad/src/processor/logging.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = logging.cc
+  source_name_part = logging
+build clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/pathname_stripper.o: clang_x64_host_with_system_allocator_cxx ../../../../third_party/breakpad/breakpad/src/processor/pathname_stripper.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = pathname_stripper.cc
+  source_name_part = pathname_stripper
+build clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/proc_maps_linux.o: clang_x64_host_with_system_allocator_cxx ../../../../third_party/breakpad/breakpad/src/processor/proc_maps_linux.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = proc_maps_linux.cc
+  source_name_part = proc_maps_linux
+build clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/process_state.o: clang_x64_host_with_system_allocator_cxx ../../../../third_party/breakpad/breakpad/src/processor/process_state.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = process_state.cc
+  source_name_part = process_state
+build clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/simple_symbol_supplier.o: clang_x64_host_with_system_allocator_cxx ../../../../third_party/breakpad/breakpad/src/processor/simple_symbol_supplier.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = simple_symbol_supplier.cc
+  source_name_part = simple_symbol_supplier
+build clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/source_line_resolver_base.o: clang_x64_host_with_system_allocator_cxx ../../../../third_party/breakpad/breakpad/src/processor/source_line_resolver_base.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = source_line_resolver_base.cc
+  source_name_part = source_line_resolver_base
+build clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/stack_frame_cpu.o: clang_x64_host_with_system_allocator_cxx ../../../../third_party/breakpad/breakpad/src/processor/stack_frame_cpu.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = stack_frame_cpu.cc
+  source_name_part = stack_frame_cpu
+build clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/stack_frame_symbolizer.o: clang_x64_host_with_system_allocator_cxx ../../../../third_party/breakpad/breakpad/src/processor/stack_frame_symbolizer.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = stack_frame_symbolizer.cc
+  source_name_part = stack_frame_symbolizer
+build clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/stackwalk_common.o: clang_x64_host_with_system_allocator_cxx ../../../../third_party/breakpad/breakpad/src/processor/stackwalk_common.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = stackwalk_common.cc
+  source_name_part = stackwalk_common
+build clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/stackwalker.o: clang_x64_host_with_system_allocator_cxx ../../../../third_party/breakpad/breakpad/src/processor/stackwalker.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = stackwalker.cc
+  source_name_part = stackwalker
+build clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/stackwalker_amd64.o: clang_x64_host_with_system_allocator_cxx ../../../../third_party/breakpad/breakpad/src/processor/stackwalker_amd64.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = stackwalker_amd64.cc
+  source_name_part = stackwalker_amd64
+build clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/stackwalker_arm.o: clang_x64_host_with_system_allocator_cxx ../../../../third_party/breakpad/breakpad/src/processor/stackwalker_arm.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = stackwalker_arm.cc
+  source_name_part = stackwalker_arm
+build clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/stackwalker_arm64.o: clang_x64_host_with_system_allocator_cxx ../../../../third_party/breakpad/breakpad/src/processor/stackwalker_arm64.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = stackwalker_arm64.cc
+  source_name_part = stackwalker_arm64
+build clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/stackwalker_mips.o: clang_x64_host_with_system_allocator_cxx ../../../../third_party/breakpad/breakpad/src/processor/stackwalker_mips.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = stackwalker_mips.cc
+  source_name_part = stackwalker_mips
+build clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/stackwalker_ppc.o: clang_x64_host_with_system_allocator_cxx ../../../../third_party/breakpad/breakpad/src/processor/stackwalker_ppc.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = stackwalker_ppc.cc
+  source_name_part = stackwalker_ppc
+build clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/stackwalker_ppc64.o: clang_x64_host_with_system_allocator_cxx ../../../../third_party/breakpad/breakpad/src/processor/stackwalker_ppc64.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = stackwalker_ppc64.cc
+  source_name_part = stackwalker_ppc64
+build clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/stackwalker_riscv.o: clang_x64_host_with_system_allocator_cxx ../../../../third_party/breakpad/breakpad/src/processor/stackwalker_riscv.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = stackwalker_riscv.cc
+  source_name_part = stackwalker_riscv
+build clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/stackwalker_riscv64.o: clang_x64_host_with_system_allocator_cxx ../../../../third_party/breakpad/breakpad/src/processor/stackwalker_riscv64.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = stackwalker_riscv64.cc
+  source_name_part = stackwalker_riscv64
+build clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/stackwalker_sparc.o: clang_x64_host_with_system_allocator_cxx ../../../../third_party/breakpad/breakpad/src/processor/stackwalker_sparc.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = stackwalker_sparc.cc
+  source_name_part = stackwalker_sparc
+build clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/stackwalker_x86.o: clang_x64_host_with_system_allocator_cxx ../../../../third_party/breakpad/breakpad/src/processor/stackwalker_x86.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = stackwalker_x86.cc
+  source_name_part = stackwalker_x86
+build clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/tokenize.o: clang_x64_host_with_system_allocator_cxx ../../../../third_party/breakpad/breakpad/src/processor/tokenize.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = tokenize.cc
+  source_name_part = tokenize
+build clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/ia32_implicit.o: clang_x64_host_with_system_allocator_cc ../../../../third_party/breakpad/breakpad/src/third_party/libdisasm/ia32_implicit.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = ia32_implicit.c
+  source_name_part = ia32_implicit
+build clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/ia32_insn.o: clang_x64_host_with_system_allocator_cc ../../../../third_party/breakpad/breakpad/src/third_party/libdisasm/ia32_insn.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = ia32_insn.c
+  source_name_part = ia32_insn
+build clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/ia32_invariant.o: clang_x64_host_with_system_allocator_cc ../../../../third_party/breakpad/breakpad/src/third_party/libdisasm/ia32_invariant.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = ia32_invariant.c
+  source_name_part = ia32_invariant
+build clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/ia32_modrm.o: clang_x64_host_with_system_allocator_cc ../../../../third_party/breakpad/breakpad/src/third_party/libdisasm/ia32_modrm.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = ia32_modrm.c
+  source_name_part = ia32_modrm
+build clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/ia32_opcode_tables.o: clang_x64_host_with_system_allocator_cc ../../../../third_party/breakpad/breakpad/src/third_party/libdisasm/ia32_opcode_tables.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = ia32_opcode_tables.c
+  source_name_part = ia32_opcode_tables
+build clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/ia32_operand.o: clang_x64_host_with_system_allocator_cc ../../../../third_party/breakpad/breakpad/src/third_party/libdisasm/ia32_operand.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = ia32_operand.c
+  source_name_part = ia32_operand
+build clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/ia32_reg.o: clang_x64_host_with_system_allocator_cc ../../../../third_party/breakpad/breakpad/src/third_party/libdisasm/ia32_reg.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = ia32_reg.c
+  source_name_part = ia32_reg
+build clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/ia32_settings.o: clang_x64_host_with_system_allocator_cc ../../../../third_party/breakpad/breakpad/src/third_party/libdisasm/ia32_settings.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = ia32_settings.c
+  source_name_part = ia32_settings
+build clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/x86_disasm.o: clang_x64_host_with_system_allocator_cc ../../../../third_party/breakpad/breakpad/src/third_party/libdisasm/x86_disasm.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = x86_disasm.c
+  source_name_part = x86_disasm
+build clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/x86_format.o: clang_x64_host_with_system_allocator_cc ../../../../third_party/breakpad/breakpad/src/third_party/libdisasm/x86_format.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = x86_format.c
+  source_name_part = x86_format
+build clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/x86_imm.o: clang_x64_host_with_system_allocator_cc ../../../../third_party/breakpad/breakpad/src/third_party/libdisasm/x86_imm.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = x86_imm.c
+  source_name_part = x86_imm
+build clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/x86_insn.o: clang_x64_host_with_system_allocator_cc ../../../../third_party/breakpad/breakpad/src/third_party/libdisasm/x86_insn.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = x86_insn.c
+  source_name_part = x86_insn
+build clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/x86_misc.o: clang_x64_host_with_system_allocator_cc ../../../../third_party/breakpad/breakpad/src/third_party/libdisasm/x86_misc.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = x86_misc.c
+  source_name_part = x86_misc
+build clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/x86_operand_list.o: clang_x64_host_with_system_allocator_cc ../../../../third_party/breakpad/breakpad/src/third_party/libdisasm/x86_operand_list.c | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = x86_operand_list.c
+  source_name_part = x86_operand_list
+build clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/scoped_pipe.o: clang_x64_host_with_system_allocator_cxx ../../../../third_party/breakpad/breakpad/src/common/linux/scoped_pipe.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = scoped_pipe.cc
+  source_name_part = scoped_pipe
+build clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/scoped_tmpfile.o: clang_x64_host_with_system_allocator_cxx ../../../../third_party/breakpad/breakpad/src/common/linux/scoped_tmpfile.cc | ../../../../build/config/unsafe_buffers_paths.txt
+  source_file_part = scoped_tmpfile.cc
+  source_name_part = scoped_tmpfile
+
+build clang_x64_host_with_system_allocator/obj/third_party/breakpad/libstackwalk_common.a: clang_x64_host_with_system_allocator_alink clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/path_helper.o clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/basic_code_modules.o clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/basic_source_line_resolver.o clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/call_stack.o clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/cfi_frame_info.o clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/convert_old_arm64_context.o clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/disassembler_x86.o clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/dump_context.o clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/dump_object.o clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/logging.o clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/pathname_stripper.o clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/proc_maps_linux.o clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/process_state.o clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/simple_symbol_supplier.o clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/source_line_resolver_base.o clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/stack_frame_cpu.o clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/stack_frame_symbolizer.o clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/stackwalk_common.o clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/stackwalker.o clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/stackwalker_amd64.o clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/stackwalker_arm.o clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/stackwalker_arm64.o clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/stackwalker_mips.o clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/stackwalker_ppc.o clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/stackwalker_ppc64.o clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/stackwalker_riscv.o clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/stackwalker_riscv64.o clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/stackwalker_sparc.o clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/stackwalker_x86.o clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/tokenize.o clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/ia32_implicit.o clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/ia32_insn.o clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/ia32_invariant.o clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/ia32_modrm.o clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/ia32_opcode_tables.o clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/ia32_operand.o clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/ia32_reg.o clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/ia32_settings.o clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/x86_disasm.o clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/x86_format.o clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/x86_imm.o clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/x86_insn.o clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/x86_misc.o clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/x86_operand_list.o clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/scoped_pipe.o clang_x64_host_with_system_allocator/obj/third_party/breakpad/stackwalk_common/scoped_tmpfile.o | ../../../llvm-build/Release+Asserts/lib/clang/21/lib/x86_64-unknown-linux-gnu/libclang_rt.builtins.a ../../../../build/config/unsafe_buffers_paths.txt
+  arflags = -T -S
+  output_extension = .a
+  output_dir = clang_x64_host_with_system_allocator/obj/third_party/breakpad

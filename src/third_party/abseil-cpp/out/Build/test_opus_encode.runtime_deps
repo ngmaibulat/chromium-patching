@@ -1,0 +1,14 @@
+./test_opus_encode
+../../../../testing/test_env.py
+../../../../testing/xvfb.py
+../../../../testing/scripts/common.py
+../../../../.vpython3
+../../../../build/util/lib/__init__.py
+../../../../build/util/lib/proto/
+../../../../.vpython3
+../../../../build/util/lib/__init__.py
+../../../../build/util/lib/results/
+bin/run_test_opus_encode
+../../../../.vpython3
+../../../../testing/location_tags.json
+./libc++.so
