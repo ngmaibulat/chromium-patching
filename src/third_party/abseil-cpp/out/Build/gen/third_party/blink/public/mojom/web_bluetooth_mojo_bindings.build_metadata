@@ -1,9 +1,0 @@
-{
-  "deps": [
-    "../../../../device/bluetooth/public/mojom/mojom.build_metadata",
-    "../../../../mojo/public/mojom/base/base.build_metadata"
-  ],
-  "sources": [
-    "../../../../../../../../blink/public/mojom/bluetooth/web_bluetooth.mojom"
-  ]
-}

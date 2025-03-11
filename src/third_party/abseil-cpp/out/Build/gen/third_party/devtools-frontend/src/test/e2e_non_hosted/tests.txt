@@ -1,2 +1,0 @@
-assertion/assertion_test.js
-dummy/dummy_test.js

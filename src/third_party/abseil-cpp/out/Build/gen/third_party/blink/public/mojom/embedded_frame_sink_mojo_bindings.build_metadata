@@ -1,8 +1,0 @@
-{
-  "deps": [
-    "../../../../services/viz/public/mojom/mojom.build_metadata"
-  ],
-  "sources": [
-    "../../../../../../../../blink/public/mojom/frame_sinks/embedded_frame_sink.mojom"
-  ]
-}

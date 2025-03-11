@@ -1,8 +1,0 @@
-{
-  "deps": [
-    "../../../../../../mojo/public/mojom/base/base.build_metadata"
-  ],
-  "sources": [
-    "../../../../../../../../../../../chrome/browser/new_tab_page/modules/v2/authentication/microsoft_auth.mojom"
-  ]
-}

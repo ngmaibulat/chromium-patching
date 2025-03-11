@@ -1,8 +1,0 @@
-{
-  "deps": [
-    "test_mojom_import.build_metadata"
-  ],
-  "sources": [
-
-  ]
-}

@@ -1,8 +1,0 @@
-{
-  "deps": [
-    "../../../../../mojo/public/mojom/base/base.build_metadata"
-  ],
-  "sources": [
-    "../../../../../../../../../../ui/webui/resources/cr_components/certificate_manager/certificate_manager_v2.mojom"
-  ]
-}

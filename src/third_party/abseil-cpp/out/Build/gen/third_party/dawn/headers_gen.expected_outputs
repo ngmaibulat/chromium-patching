@@ -1,3 +1,0 @@
-include/dawn/dawn_proc_table.h
-include/dawn/webgpu.h
-include/dawn/wire/client/webgpu.h

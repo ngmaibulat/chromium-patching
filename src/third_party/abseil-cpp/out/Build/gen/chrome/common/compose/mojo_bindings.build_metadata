@@ -1,9 +1,0 @@
-{
-  "deps": [
-    "../../../components/compose/core/browser/mojo_bindings.build_metadata",
-    "../../../mojo/public/mojom/base/base.build_metadata"
-  ],
-  "sources": [
-    "../../../../../../../../chrome/common/compose/compose.mojom"
-  ]
-}

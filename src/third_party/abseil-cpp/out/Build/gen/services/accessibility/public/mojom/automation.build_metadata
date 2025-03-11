@@ -1,9 +1,0 @@
-{
-  "deps": [
-    "../../../../mojo/public/mojom/base/base.build_metadata",
-    "../../../../ui/accessibility/mojom/mojom.build_metadata"
-  ],
-  "sources": [
-    "../../../../../../../../../services/accessibility/public/mojom/automation.mojom"
-  ]
-}

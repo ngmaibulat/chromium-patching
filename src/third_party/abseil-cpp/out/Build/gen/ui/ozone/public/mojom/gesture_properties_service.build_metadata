@@ -1,8 +1,0 @@
-{
-  "deps": [
-    "../../../../mojo/public/mojom/base/base.build_metadata"
-  ],
-  "sources": [
-    "../../../../../../../../../ui/ozone/public/mojom/gesture_properties_service.mojom"
-  ]
-}

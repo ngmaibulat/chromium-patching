@@ -1,9 +1,0 @@
-{
-  "deps": [
-    "url_mojom_gurl.build_metadata",
-    "../../mojo/public/mojom/base/base.build_metadata"
-  ],
-  "sources": [
-    "../../../../../../../url/mojom/origin.mojom"
-  ]
-}

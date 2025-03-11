@@ -1,9 +1,0 @@
-{
-  "deps": [
-
-  ],
-  "sources": [
-    "../../../../../../../../blink/public/mojom/script/script_evaluation_params.mojom",
-    "../../../../../../../../blink/public/mojom/script/script_type.mojom"
-  ]
-}

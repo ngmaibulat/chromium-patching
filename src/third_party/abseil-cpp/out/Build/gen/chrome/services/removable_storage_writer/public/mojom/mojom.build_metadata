@@ -1,9 +1,0 @@
-{
-  "deps": [
-    "../../../../../mojo/public/mojom/base/base.build_metadata",
-    "../../../../../sandbox/policy/mojom/mojom.build_metadata"
-  ],
-  "sources": [
-    "../../../../../../../../../../chrome/services/removable_storage_writer/public/mojom/removable_storage_writer.mojom"
-  ]
-}

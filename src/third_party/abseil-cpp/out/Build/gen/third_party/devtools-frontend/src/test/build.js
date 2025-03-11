@@ -1,1 +1,0 @@
-module.exports = {SOURCE_ROOT: '../../../../../../../../devtools-frontend/src/', CHECKOUT_ROOT: '../../../../../../../../../', BUILD_ROOT: '../../../../..', BUILD_WITH_CHROMIUM: true};

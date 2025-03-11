@@ -1,8 +1,0 @@
-{
-  "deps": [
-    "../../../mojo/public/mojom/base/base.build_metadata"
-  ],
-  "sources": [
-    "../../../../../../../../gpu/ipc/common/shared_image_pool_client_interface.mojom"
-  ]
-}

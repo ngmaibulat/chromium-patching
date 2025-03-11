@@ -1,8 +1,0 @@
-{
-  "deps": [
-    "mojom.build_metadata"
-  ],
-  "sources": [
-    "../../../../../../../components/attribution_reporting/registration_header_error.mojom"
-  ]
-}

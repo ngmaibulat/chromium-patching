@@ -1,1 +1,0 @@
-test_rlib_crate_associated_bin_unittests

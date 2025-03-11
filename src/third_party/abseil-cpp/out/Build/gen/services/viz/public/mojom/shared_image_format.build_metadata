@@ -1,8 +1,0 @@
-{
-  "deps": [
-    "singleplanar_format.build_metadata"
-  ],
-  "sources": [
-    "../../../../../../../../../services/viz/public/mojom/compositing/shared_image_format.mojom"
-  ]
-}

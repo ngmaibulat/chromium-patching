@@ -1,9 +1,0 @@
-{
-  "deps": [
-    "algorithm_mojom.build_metadata",
-    "../../../../mojo/public/mojom/base/base.build_metadata"
-  ],
-  "sources": [
-    "../../../../../../../../../components/os_crypt/async/common/encryptor.mojom"
-  ]
-}

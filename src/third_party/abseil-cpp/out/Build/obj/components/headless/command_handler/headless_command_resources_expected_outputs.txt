@@ -1,2 +1,0 @@
-gen/components/headless/command_handler/grit/headless_command_resources.h
-gen/components/headless/command_handler/headless_command_resources.pak

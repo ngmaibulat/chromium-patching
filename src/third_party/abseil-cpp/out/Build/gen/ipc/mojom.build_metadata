@@ -1,9 +1,0 @@
-{
-  "deps": [
-    "../mojo/public/interfaces/bindings/bindings.build_metadata",
-    "../mojo/public/mojom/base/base.build_metadata"
-  ],
-  "sources": [
-    "../../../../../../ipc/ipc.mojom"
-  ]
-}

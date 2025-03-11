@@ -1,4 +1,0 @@
-gen/chrome/grit/data_sharing_internals_resources.h
-gen/chrome/grit/data_sharing_internals_resources_map.cc
-gen/chrome/grit/data_sharing_internals_resources_map.h
-gen/chrome/data_sharing_internals_resources.pak

@@ -1,4 +1,0 @@
-gen/components/grit/internal_debug_pages_disabled_resources.h
-gen/components/grit/internal_debug_pages_disabled_resources_map.h
-gen/components/grit/internal_debug_pages_disabled_resources_map.cc
-gen/components/internal_debug_pages_disabled_resources.pak
